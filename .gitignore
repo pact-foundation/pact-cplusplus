@@ -48,3 +48,11 @@ _deps
 ### CMake Patch ###
 # External projects
 *-prefix/
+
+### Conan ###
+conanbuild*
+conaninfo*
+
+build
+test/build
+.vscode
