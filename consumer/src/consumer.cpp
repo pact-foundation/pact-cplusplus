@@ -1,8 +1,11 @@
 #include "consumer.h"
 
+using namespace std;
+
 namespace pact_consumer
 {
-  int get_value() {
-    return 101;
-  }
+  Pact::Pact(string consumer, string provider) {
+    this->consumer = consumer;
+    this->provider = provider;
+  };
 }

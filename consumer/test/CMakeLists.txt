@@ -11,7 +11,7 @@ CONAN_BASIC_SETUP()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp)
+ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp src/todo.cpp)
 TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer)
 target_include_directories(pact-consumer-tests PRIVATE ../include)
 

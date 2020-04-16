@@ -1,6 +1,15 @@
 #pragma once
 
+#include <string>
+
 namespace pact_consumer
 {
-  int get_value();
+  class Pact {
+    public:
+      Pact(std::string consumer, std::string provider);
+
+    private:
+      std::string consumer;
+      std::string provider;
+  };
 }
