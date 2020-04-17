@@ -11,9 +11,9 @@ TEST(PactConsumerTest, GetJsonProjects) {
   //   logLevel: "INFO",
   // })
 
-  // provider
-  //   .given("i have a list of projects")
-  //   .uponReceiving("a request for projects")
+  provider
+    .given("i have a list of projects")
+    .uponReceiving("a request for projects");
   //   .withRequest({
   //     method: "GET",
   //     path: "/projects",
