@@ -92,21 +92,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1009333e316403f1ec5c8d8f193cb8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a510ef4ffcc107c59e1feb79bd51cb5d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a510ef4ffcc107c59e1feb79bd51cb5d0">withHeaders</a> (unordered_map&lt; string, vector&lt; string &gt;&gt; headers) const</td></tr>
 <tr class="separator:a510ef4ffcc107c59e1feb79bd51cb5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9af24e825fdfa34be0a6a6eb96d09202"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a9af24e825fdfa34be0a6a6eb96d09202">withBody</a> (void(*)(<a class="el" href="classpact__consumer_1_1PactBodyBuilder.html">PactBodyBuilder</a>)) const</td></tr>
-<tr class="separator:a9af24e825fdfa34be0a6a6eb96d09202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148861b46579210e6486cfb37e473257"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a148861b46579210e6486cfb37e473257">withJsonBody</a> (void(*)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a>)) const</td></tr>
+<tr class="separator:a148861b46579210e6486cfb37e473257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4b399b152b384682d17436ac648d45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45">willRespondWith</a> (size_t status) const</td></tr>
 <tr class="separator:adb4b399b152b384682d17436ac648d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78376382eec5814ce921d1775c7e3c55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a78376382eec5814ce921d1775c7e3c55">withResponseHeaders</a> (unordered_map&lt; string, vector&lt; string &gt;&gt; headers) const</td></tr>
 <tr class="separator:a78376382eec5814ce921d1775c7e3c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a633d7cc42b3c419d4c20ea7107066f74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a633d7cc42b3c419d4c20ea7107066f74">withResponseBody</a> (void(*body)(<a class="el" href="classpact__consumer_1_1PactBodyBuilder.html">PactBodyBuilder</a>)) const</td></tr>
-<tr class="separator:a633d7cc42b3c419d4c20ea7107066f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbb35cc594bb1d12a515feca20ef7f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a7dbb35cc594bb1d12a515feca20ef7f0">withResponseJsonBody</a> (void(*body)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a>)) const</td></tr>
+<tr class="separator:a7dbb35cc594bb1d12a515feca20ef7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a89bc107360700c1ba7741061910d4485"><td class="memItemLeft" align="right" valign="top">pact_mock_server_ffi::InteractionHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a89bc107360700c1ba7741061910d4485">interaction</a></td></tr>
 <tr class="separator:a89bc107360700c1ba7741061910d4485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that defines an interaction between a consumer and provider </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adfdeefe452d43765c863764c8010dacb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adfdeefe452d43765c863764c8010dacb">&#9670;&nbsp;</a></span>Interaction()</h2>
 
@@ -151,6 +153,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds the provider state to the interaction </p>
 
 </div>
 </div>
@@ -169,6 +172,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the description for the interaction </p>
 
 </div>
 </div>
@@ -187,24 +191,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9af24e825fdfa34be0a6a6eb96d09202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9af24e825fdfa34be0a6a6eb96d09202">&#9670;&nbsp;</a></span>withBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withBody </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactBodyBuilder.html">PactBodyBuilder</a>)&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Sets the status code for the response </p>
 
 </div>
 </div>
@@ -223,6 +210,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the headers for the request </p>
+
+</div>
+</div>
+<a id="a148861b46579210e6486cfb37e473257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148861b46579210e6486cfb37e473257">&#9670;&nbsp;</a></span>withJsonBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withJsonBody </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a>)&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </p>
 
 </div>
 </div>
@@ -241,6 +248,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the query parameters for the request </p>
 
 </div>
 </div>
@@ -269,24 +277,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a633d7cc42b3c419d4c20ea7107066f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a633d7cc42b3c419d4c20ea7107066f74">&#9670;&nbsp;</a></span>withResponseBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseBody </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactBodyBuilder.html">PactBodyBuilder</a>)&#160;</td>
-          <td class="paramname"><em>body</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Sets the method and path for the request </p>
 
 </div>
 </div>
@@ -305,6 +296,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the headers for the response </p>
+
+</div>
+</div>
+<a id="a7dbb35cc594bb1d12a515feca20ef7f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbb35cc594bb1d12a515feca20ef7f0">&#9670;&nbsp;</a></span>withResponseJsonBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseJsonBody </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a>)&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </p>
 
 </div>
 </div>

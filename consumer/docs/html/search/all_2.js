@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eachlike_3',['eachLike',['../classpact__consumer_1_1PactBodyBuilder.html#ac24cffa392ef7c4f78515140773f58dc',1,'pact_consumer::PactBodyBuilder::eachLike(string name, unsigned int examples, void(*callback)(PactBodyBuilder))'],['../classpact__consumer_1_1PactBodyBuilder.html#a5f752af790b69de552ab4c1ab3f30ff5',1,'pact_consumer::PactBodyBuilder::eachLike(string name, void(*callback)(PactBodyBuilder))']]]
+  ['eachlike_3',['eachLike',['../classpact__consumer_1_1PactJsonBuilder.html#a502066d5ef160235373b7c3f5b8c0b5e',1,'pact_consumer::PactJsonBuilder::eachLike(string name, unsigned int examples, void(*callback)(PactJsonBuilder))'],['../classpact__consumer_1_1PactJsonBuilder.html#ab04fe8770413907ba41539c099530751',1,'pact_consumer::PactJsonBuilder::eachLike(string name, void(*callback)(PactJsonBuilder))']]]
 ];

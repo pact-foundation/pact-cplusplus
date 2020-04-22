@@ -1,0 +1,72 @@
+\hypertarget{classpact__consumer_1_1PactJsonBuilder}{}\doxysection{pact\+\_\+consumer\+::Pact\+Json\+Builder Class Reference}
+\label{classpact__consumer_1_1PactJsonBuilder}\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+
+
+{\ttfamily \#include $<$consumer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a14be813d9d7278b332cea13965bb6258}{Pact\+Json\+Builder}} (const \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$parent=N\+U\+LL)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a502066d5ef160235373b7c3f5b8c0b5e}{each\+Like}} (string name, unsigned int examples, void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}}))
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_ab04fe8770413907ba41539c099530751}{each\+Like}} (string name, void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}}))
+\item 
+\mbox{\hyperlink{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a7bbc3c584b6236d0cfe87f8cd5ea7ad7}{get\+\_\+json}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Builder class to help construct J\+S\+ON bodies 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a14be813d9d7278b332cea13965bb6258}\label{classpact__consumer_1_1PactJsonBuilder_a14be813d9d7278b332cea13965bb6258}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!PactJsonBuilder@{PactJsonBuilder}}
+\index{PactJsonBuilder@{PactJsonBuilder}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{PactJsonBuilder()}{PactJsonBuilder()}}
+{\footnotesize\ttfamily pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::\+Pact\+Json\+Builder (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$}]{parent = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a502066d5ef160235373b7c3f5b8c0b5e}\label{classpact__consumer_1_1PactJsonBuilder_a502066d5ef160235373b7c3f5b8c0b5e}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!eachLike@{eachLike}}
+\index{eachLike@{eachLike}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{eachLike()}{eachLike()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::each\+Like (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{unsigned int}]{examples,  }\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}})}]{callback }\end{DoxyParamCaption})}
+
+Attribute that is an array where each item in the array must match the constructed template 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em examples} & Number of examples to generate (defaults to 1) \\
+\hline
+{\em callback} & Callback that gets invoked to define the template \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_ab04fe8770413907ba41539c099530751}\label{classpact__consumer_1_1PactJsonBuilder_ab04fe8770413907ba41539c099530751}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!eachLike@{eachLike}}
+\index{eachLike@{eachLike}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{eachLike()}{eachLike()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::each\+Like (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}})}]{callback }\end{DoxyParamCaption})}
+
+Attribute that is an array where each item in the array must match the constructed template 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em callback} & Callback that gets invoked to define the template \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a7bbc3c584b6236d0cfe87f8cd5ea7ad7}\label{classpact__consumer_1_1PactJsonBuilder_a7bbc3c584b6236d0cfe87f8cd5ea7ad7}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!get\_json@{get\_json}}
+\index{get\_json@{get\_json}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{get\_json()}{get\_json()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::get\+\_\+json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{consumer_8h}{consumer.\+h}}\item 
+src/\mbox{\hyperlink{body_8cpp}{body.\+cpp}}\end{DoxyCompactItemize}
