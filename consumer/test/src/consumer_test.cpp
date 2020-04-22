@@ -4,25 +4,40 @@
 #include "todo.h"
 
 using namespace std;
+using namespace pact_consumer;
 
 TEST(PactConsumerTest, GetJsonProjects) {
-  auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
+  auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
   // dir: path.resolve(process.cwd(), "pacts"),
   //   logLevel: "INFO",
   // })
 
+  unordered_map<string, vector<string>> query;
+  query["from"] = vector<string>{"today"};
+
+  unordered_map<string, vector<string>> headers;
+  headers["Accept"] = vector<string>{"application/json"};
+
+  unordered_map<string, vector<string>> res_headers;
+  res_headers["Content-Type"] = vector<string>{"application/json"};
+
   provider
     .given("i have a list of projects")
-    .uponReceiving("a request for projects");
-  //   .withRequest({
-  //     method: "GET",
-  //     path: "/projects",
-  //     query: { from: "today" },
-  //     headers: { Accept: "application/json" },
-  //   })
-  //   .willRespondWith({
-  //     status: 200,
-  //     headers: { "Content-Type": "application/json" },
+    .uponReceiving("a request for projects")
+    .withRequest("GET", "/projects")
+    .withQuery(query)
+    .withHeaders(headers)
+    .willRespondWith(200)
+    .withResponseHeaders(res_headers)
+    .withResponseJsonBody([](auto body) {
+      body.eachLike("projects", [](auto project) {
+        // project
+        //   .integer("id", 1)
+        //   .string("name", "Project 1")
+        //   .timestamp("due", "yyyy-MM-dd'T'HH:mm:ss.SSSX", "2016-02-11T09:46:56.023Z");
+
+      });
+    });
   //     body: eachLike({
   //       id: integer(1),
   //       name: string("Project 1"),

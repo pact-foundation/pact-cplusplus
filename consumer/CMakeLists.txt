@@ -7,7 +7,7 @@ project(pact-consumer VERSION 0.0.0)
 INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
 
-add_library(pact-consumer src/consumer.cpp)
+add_library(pact-consumer src/consumer.cpp src/body.cpp)
 target_include_directories(pact-consumer
     PUBLIC 
         $<INSTALL_INTERFACE:include>    
