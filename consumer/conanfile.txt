@@ -4,6 +4,7 @@ cpprestsdk/2.10.15@bincrafters/stable
 pact_mock_server_ffi/0.0.1@user/channel
 boost/1.72.0
 nlohmann_json/3.7.3
+spdlog/1.5.0
 
 [generators]
 cmake

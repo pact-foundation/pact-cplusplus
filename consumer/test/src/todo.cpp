@@ -5,11 +5,11 @@
 #include "todo.h"
 
 using namespace std;
-// using namespace utility;                    // Common utilities like string conversions
+using namespace utility;                    // Common utilities like string conversions
 using namespace web;                        // Common features like URIs.
 using namespace web::http;                  // Common HTTP functionality
 using namespace web::http::client;          // HTTP client features
-// using namespace concurrency::streams;       // Asynchronous streams
+
 
 TodoClient::TodoClient() {
   serverUrl = "http://localhost:8080";
@@ -62,11 +62,20 @@ vector<Project> TodoClient::getProjects(string format) {
       return projects;
     }).wait();
   } else {
-    auto body = response.then([=](http_response response) {
+    auto body = response.then([](http_response response) {
       printf("Received response status code:%u\n", response.status_code());
       return response.extract_json();
-    }).then([=](json::value body) {
+    }).then([&](json::value body) {
       printf("Body: %s\n", body.serialize().data());
+      auto p = body["projects"].as_array();
+      for (auto it = p.begin(); it != p.end(); ++it) {
+        Project p;
+        auto j = *it;
+        p.id = j.at("id").as_integer();
+        p.name = j.at("name").as_string();
+        p.due = j.at("due").as_string();
+        projects.push_back(p);
+      }
       return projects;
     }).wait();
   }

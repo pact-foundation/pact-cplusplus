@@ -9,8 +9,13 @@
 using namespace std;
 using json = nlohmann::json;
 
-namespace pact_consumer
-{
+namespace pact_consumer {
+
+  /**
+   * Initilise the pact test library
+   */
+  void init();
+
   class Interaction;
 
   /**
@@ -42,6 +47,49 @@ namespace pact_consumer
   };
 
   /**
+   * Mock server handle to the mock server started for the test
+   */
+  class MockServerHandle {
+    public:
+      MockServerHandle(pact_mock_server_ffi::PactHandle);
+      ~MockServerHandle();
+
+      bool started_ok() const;
+      string get_url() const;
+
+    private:
+      int32_t port;
+  };
+
+  /**
+   * Type of Pact test result
+   */
+  enum TestResultState { 
+    Mismatches        = (1u << 0),
+    UserCodeFailed    = (1u << 1),
+    MockServerFailed  = (1u << 2)
+  };
+
+  /**
+   * Result of the Pact test run
+   */
+  class PactTestResult {
+    public:
+      /**
+       * Adds a test state to the result
+       */
+      void add_state(TestResultState state);
+
+      /**
+       * If there are no mismatches and the user code did not fail
+       */
+      bool is_ok() const;
+
+    private:
+      unsigned int status = 0;
+  };
+
+  /**
    * Class that defines a Pact between a consumer and provider
    */
   class Pact {
@@ -50,14 +98,21 @@ namespace pact_consumer
        * Constructs the Pact given the consumer and provider names
        */
       Pact(const char* consumer, const char* provider);
+
       /**
        * Creates a new iteraction with a defined provider state
        */
       Interaction given(const char* provider_state) const;
+
       /**
        * Creates a new interaction with the provided description.
        */
       Interaction uponReceiving(const char* description) const;
+
+      /**
+       * Starts a mock server for this pact, and then passes it to the callback.
+       */
+      PactTestResult run_test(void (*callback)(MockServerHandle&)) const;
 
       pact_mock_server_ffi::PactHandle pact;
 

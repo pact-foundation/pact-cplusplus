@@ -1,9 +1,11 @@
 #include <iostream>
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include <consumer.h>
 #include "todo.h"
 
 using namespace std;
+using namespace testing;
 using namespace pact_consumer;
 
 TEST(PactConsumerTest, GetJsonProjects) {
@@ -56,13 +58,16 @@ TEST(PactConsumerTest, GetJsonProjects) {
   //     }),
   //   });
 
-  // provider.run_test([=] (pact_consumer::MockServer mock_server) {
-  //   TodoClient todo(mock_server.get_url());
+  auto result = provider.run_test([] (auto mock_server) {
+    TodoClient todo;
+    todo.serverUrl = mock_server.get_url();
+    cout << "URL: " << todo.serverUrl << "\n";
 
-  //   vector<Project> projects = todo.getProjects();
+    vector<Project> projects = todo.getProjects();
 
-  //   EXPECT_EQ(todo.serverUrl, "1");
-  // });
+    EXPECT_THAT(todo.getProjects(), SizeIs(1));
+  });
+  EXPECT_TRUE(result.is_ok());
 }
 
 // TEST(PactConsumerTest, GetXmlProjects) {
@@ -74,3 +79,9 @@ TEST(PactConsumerTest, GetJsonProjects) {
 
 //   EXPECT_EQ(todo.serverUrl, "1");
 // }
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  init();
+  return RUN_ALL_TESTS();
+}

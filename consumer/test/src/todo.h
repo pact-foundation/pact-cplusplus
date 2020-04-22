@@ -4,7 +4,10 @@
 #include <vector>
 
 class Project {
-
+  public:
+    unsigned int id;
+    std::string name;
+    std::string due;
 };
 
 class TodoClient {
