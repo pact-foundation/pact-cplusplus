@@ -1,0 +1,115 @@
+\hypertarget{classpact__consumer_1_1Interaction}{}\doxysection{pact\+\_\+consumer\+::Interaction Class Reference}
+\label{classpact__consumer_1_1Interaction}\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+
+
+{\ttfamily \#include $<$consumer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction_adfdeefe452d43765c863764c8010dacb}{Interaction}} (const \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} $\ast$parent, const char $\ast$description)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_ab317881a13f364c21ba4d773103f6fa9}{given}} (const char $\ast$provider\+\_\+state) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a4d6a8acadad3b486a3996a5fd4819be2}{upon\+Receiving}} (const char $\ast$description) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_ac29f5f3c8c0dfe941e00bee09334b341}{with\+Request}} (const char $\ast$method, const char $\ast$path) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a1009333e316403f1ec5c8d8f193cb8fe}{with\+Query}} (unordered\+\_\+map$<$ string, vector$<$ string $>$$>$ query) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a510ef4ffcc107c59e1feb79bd51cb5d0}{with\+Headers}} (unordered\+\_\+map$<$ string, vector$<$ string $>$$>$ headers) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a9af24e825fdfa34be0a6a6eb96d09202}{with\+Body}} (void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactBodyBuilder}{Pact\+Body\+Builder}})) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_adb4b399b152b384682d17436ac648d45}{will\+Respond\+With}} (size\+\_\+t status) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a78376382eec5814ce921d1775c7e3c55}{with\+Response\+Headers}} (unordered\+\_\+map$<$ string, vector$<$ string $>$$>$ headers) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a633d7cc42b3c419d4c20ea7107066f74}{with\+Response\+Body}} (void($\ast$body)(\mbox{\hyperlink{classpact__consumer_1_1PactBodyBuilder}{Pact\+Body\+Builder}})) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Interaction\+Handle \mbox{\hyperlink{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}{interaction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_adfdeefe452d43765c863764c8010dacb}\label{classpact__consumer_1_1Interaction_adfdeefe452d43765c863764c8010dacb}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!Interaction@{Interaction}}
+\index{Interaction@{Interaction}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}}
+{\footnotesize\ttfamily pact\+\_\+consumer\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} $\ast$}]{parent,  }\item[{const char $\ast$}]{description }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_ab317881a13f364c21ba4d773103f6fa9}\label{classpact__consumer_1_1Interaction_ab317881a13f364c21ba4d773103f6fa9}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!given@{given}}
+\index{given@{given}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{given()}{given()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::given (\begin{DoxyParamCaption}\item[{const char $\ast$}]{provider\+\_\+state }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a4d6a8acadad3b486a3996a5fd4819be2}\label{classpact__consumer_1_1Interaction_a4d6a8acadad3b486a3996a5fd4819be2}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!uponReceiving@{uponReceiving}}
+\index{uponReceiving@{uponReceiving}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{uponReceiving()}{uponReceiving()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::upon\+Receiving (\begin{DoxyParamCaption}\item[{const char $\ast$}]{description }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_adb4b399b152b384682d17436ac648d45}\label{classpact__consumer_1_1Interaction_adb4b399b152b384682d17436ac648d45}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!willRespondWith@{willRespondWith}}
+\index{willRespondWith@{willRespondWith}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{willRespondWith()}{willRespondWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::will\+Respond\+With (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{status }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a9af24e825fdfa34be0a6a6eb96d09202}\label{classpact__consumer_1_1Interaction_a9af24e825fdfa34be0a6a6eb96d09202}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withBody@{withBody}}
+\index{withBody@{withBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withBody()}{withBody()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactBodyBuilder}{Pact\+Body\+Builder}})}]{callback }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a510ef4ffcc107c59e1feb79bd51cb5d0}\label{classpact__consumer_1_1Interaction_a510ef4ffcc107c59e1feb79bd51cb5d0}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withHeaders@{withHeaders}}
+\index{withHeaders@{withHeaders}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withHeaders()}{withHeaders()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Headers (\begin{DoxyParamCaption}\item[{unordered\+\_\+map$<$ string, vector$<$ string $>$$>$}]{headers }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a1009333e316403f1ec5c8d8f193cb8fe}\label{classpact__consumer_1_1Interaction_a1009333e316403f1ec5c8d8f193cb8fe}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withQuery@{withQuery}}
+\index{withQuery@{withQuery}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withQuery()}{withQuery()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Query (\begin{DoxyParamCaption}\item[{unordered\+\_\+map$<$ string, vector$<$ string $>$$>$}]{query }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_ac29f5f3c8c0dfe941e00bee09334b341}\label{classpact__consumer_1_1Interaction_ac29f5f3c8c0dfe941e00bee09334b341}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withRequest@{withRequest}}
+\index{withRequest@{withRequest}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withRequest()}{withRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Request (\begin{DoxyParamCaption}\item[{const char $\ast$}]{method,  }\item[{const char $\ast$}]{path }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a633d7cc42b3c419d4c20ea7107066f74}\label{classpact__consumer_1_1Interaction_a633d7cc42b3c419d4c20ea7107066f74}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withResponseBody@{withResponseBody}}
+\index{withResponseBody@{withResponseBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withResponseBody()}{withResponseBody()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactBodyBuilder}{Pact\+Body\+Builder}})}]{body }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a78376382eec5814ce921d1775c7e3c55}\label{classpact__consumer_1_1Interaction_a78376382eec5814ce921d1775c7e3c55}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withResponseHeaders@{withResponseHeaders}}
+\index{withResponseHeaders@{withResponseHeaders}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{withResponseHeaders()}{withResponseHeaders()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Headers (\begin{DoxyParamCaption}\item[{unordered\+\_\+map$<$ string, vector$<$ string $>$$>$}]{headers }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}\label{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}} 
+\index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!interaction@{interaction}}
+\index{interaction@{interaction}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
+\doxysubsubsection{\texorpdfstring{interaction}{interaction}}
+{\footnotesize\ttfamily pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Interaction\+Handle pact\+\_\+consumer\+::\+Interaction\+::interaction}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{consumer_8h}{consumer.\+h}}\item 
+src/\mbox{\hyperlink{consumer_8cpp}{consumer.\+cpp}}\end{DoxyCompactItemize}
