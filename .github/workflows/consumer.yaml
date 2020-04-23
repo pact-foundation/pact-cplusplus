@@ -18,15 +18,27 @@ jobs:
         if: runner.os == 'Windows'
       - name: Install conan
         run: |
-          pwd
           pip3 install wheel setuptools
           pip3 install conan
+      - name: Check conan version
+        run: |
           export PATH=$PATH:/home/runner/.local/bin
-          echo $PATH
           conan --version
-          ls
+        if: runner.os != 'Windows'
+      - name: Get pact mock server package
+        run: wget https://github.com/pact-foundation/pact-reference/blob/master/rust/pact_mock_server_ffi/conanfile.py
       - name: conan install dependencies
         run: |
+          ls
+          export PATH=$PATH:/home/runner/.local/bin
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan install ..
         working-directory: consumer/build
+        if: runner.os != 'Windows'
+      - name: conan install dependencies
+        run: |
+          dir
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan install ..
+        working-directory: consumer/build
+        if: runner.os == 'Windows'
