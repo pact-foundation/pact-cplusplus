@@ -20,9 +20,7 @@ jobs:
       - run: mkdir consumer\build
         if: runner.os == 'Windows'
       - run: |
-          pwd
-          ls
-          pip install --user virtualenv
-          pip install conan
+          pip install --user conan
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan install ..
         working-directory: consumer/build
