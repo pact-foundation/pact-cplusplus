@@ -1,4 +1,4 @@
-name: Build consumer project
+name: Consumer Project
 on: [push]
 
 jobs:
