@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['willrespondwith_12',['willRespondWith',['../classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45',1,'pact_consumer::Interaction']]],
-  ['withheaders_13',['withHeaders',['../classpact__consumer_1_1Interaction.html#a510ef4ffcc107c59e1feb79bd51cb5d0',1,'pact_consumer::Interaction']]],
-  ['withjsonbody_14',['withJsonBody',['../classpact__consumer_1_1Interaction.html#a148861b46579210e6486cfb37e473257',1,'pact_consumer::Interaction']]],
-  ['withquery_15',['withQuery',['../classpact__consumer_1_1Interaction.html#a1009333e316403f1ec5c8d8f193cb8fe',1,'pact_consumer::Interaction']]],
-  ['withrequest_16',['withRequest',['../classpact__consumer_1_1Interaction.html#ac29f5f3c8c0dfe941e00bee09334b341',1,'pact_consumer::Interaction']]],
-  ['withresponseheaders_17',['withResponseHeaders',['../classpact__consumer_1_1Interaction.html#a78376382eec5814ce921d1775c7e3c55',1,'pact_consumer::Interaction']]],
-  ['withresponsejsonbody_18',['withResponseJsonBody',['../classpact__consumer_1_1Interaction.html#a7dbb35cc594bb1d12a515feca20ef7f0',1,'pact_consumer::Interaction']]]
+  ['mismatches_18',['Mismatches',['../namespacepact__consumer.html#a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be',1,'pact_consumer']]],
+  ['mockserverfailed_19',['MockServerFailed',['../namespacepact__consumer.html#a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea',1,'pact_consumer']]],
+  ['mockserverhandle_20',['MockServerHandle',['../classpact__consumer_1_1MockServerHandle.html',1,'pact_consumer::MockServerHandle'],['../classpact__consumer_1_1MockServerHandle.html#a8ec5a62b26a7551101312afd3ea542a4',1,'pact_consumer::MockServerHandle::MockServerHandle()']]]
 ];

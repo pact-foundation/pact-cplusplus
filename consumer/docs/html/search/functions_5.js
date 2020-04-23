@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['willrespondwith_33',['willRespondWith',['../classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45',1,'pact_consumer::Interaction']]],
-  ['withheaders_34',['withHeaders',['../classpact__consumer_1_1Interaction.html#a510ef4ffcc107c59e1feb79bd51cb5d0',1,'pact_consumer::Interaction']]],
-  ['withjsonbody_35',['withJsonBody',['../classpact__consumer_1_1Interaction.html#a148861b46579210e6486cfb37e473257',1,'pact_consumer::Interaction']]],
-  ['withquery_36',['withQuery',['../classpact__consumer_1_1Interaction.html#a1009333e316403f1ec5c8d8f193cb8fe',1,'pact_consumer::Interaction']]],
-  ['withrequest_37',['withRequest',['../classpact__consumer_1_1Interaction.html#ac29f5f3c8c0dfe941e00bee09334b341',1,'pact_consumer::Interaction']]],
-  ['withresponseheaders_38',['withResponseHeaders',['../classpact__consumer_1_1Interaction.html#a78376382eec5814ce921d1775c7e3c55',1,'pact_consumer::Interaction']]],
-  ['withresponsejsonbody_39',['withResponseJsonBody',['../classpact__consumer_1_1Interaction.html#a7dbb35cc594bb1d12a515feca20ef7f0',1,'pact_consumer::Interaction']]]
+  ['init_60',['init',['../namespacepact__consumer.html#aaa6b9d5d2099c6ad833338cb2c1d4b11',1,'pact_consumer']]],
+  ['integer_61',['integer',['../classpact__consumer_1_1PactJsonBuilder.html#a1c2313cac83d46a0eae974638e5c41c7',1,'pact_consumer::PactJsonBuilder::integer(std::string name, int example)'],['../classpact__consumer_1_1PactJsonBuilder.html#ade5ddccbcbcf1751c626f322a233bfad',1,'pact_consumer::PactJsonBuilder::integer(std::string name)']]],
+  ['interaction_62',['Interaction',['../classpact__consumer_1_1Interaction.html#adfdeefe452d43765c863764c8010dacb',1,'pact_consumer::Interaction']]],
+  ['is_5fok_63',['is_ok',['../classpact__consumer_1_1PactTestResult.html#af52c0d3521914b0398d0bc0d54cbd1a9',1,'pact_consumer::PactTestResult']]]
 ];

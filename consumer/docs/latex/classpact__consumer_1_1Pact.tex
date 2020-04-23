@@ -12,11 +12,15 @@
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}{given}} (const char $\ast$provider\+\_\+state) const
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}{upon\+Receiving}} (const char $\ast$description) const
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} \mbox{\hyperlink{classpact__consumer_1_1Pact_af557598613f2675a6b3fa38754663835}{run\+\_\+test}} (bool($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} \&)) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Pact\+Handle \mbox{\hyperlink{classpact__consumer_1_1Pact_a43a945f3d3b363c9c251f5954e76b915}{pact}}
+\item 
+std\+::string \mbox{\hyperlink{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}{pact\+\_\+directory}}
 \end{DoxyCompactItemize}
 
 
@@ -39,7 +43,13 @@ Constructs the \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} given the co
 \doxysubsubsection{\texorpdfstring{given()}{given()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Pact\+::given (\begin{DoxyParamCaption}\item[{const char $\ast$}]{provider\+\_\+state }\end{DoxyParamCaption}) const}
 
-Creates a new iteraction with a defined provider state \mbox{\Hypertarget{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}\label{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}} 
+Creates a new iteraction with a defined provider state \mbox{\Hypertarget{classpact__consumer_1_1Pact_af557598613f2675a6b3fa38754663835}\label{classpact__consumer_1_1Pact_af557598613f2675a6b3fa38754663835}} 
+\index{pact\_consumer::Pact@{pact\_consumer::Pact}!run\_test@{run\_test}}
+\index{run\_test@{run\_test}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{run\_test()}{run\_test()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} pact\+\_\+consumer\+::\+Pact\+::run\+\_\+test (\begin{DoxyParamCaption}\item[{bool($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} \&)}]{callback }\end{DoxyParamCaption}) const}
+
+Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful. \mbox{\Hypertarget{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}\label{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}} 
 \index{pact\_consumer::Pact@{pact\_consumer::Pact}!uponReceiving@{uponReceiving}}
 \index{uponReceiving@{uponReceiving}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{uponReceiving()}{uponReceiving()}}
@@ -54,7 +64,13 @@ Creates a new interaction with the provided description.
 \doxysubsubsection{\texorpdfstring{pact}{pact}}
 {\footnotesize\ttfamily pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Pact\+Handle pact\+\_\+consumer\+::\+Pact\+::pact}
 
+\mbox{\Hypertarget{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}\label{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}} 
+\index{pact\_consumer::Pact@{pact\_consumer::Pact}!pact\_directory@{pact\_directory}}
+\index{pact\_directory@{pact\_directory}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{pact\_directory}{pact\_directory}}
+{\footnotesize\ttfamily std\+::string pact\+\_\+consumer\+::\+Pact\+::pact\+\_\+directory}
 
+Directory to write pact files to 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

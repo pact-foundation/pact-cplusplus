@@ -5,7 +5,62 @@
 \item 
 class \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}}
 \item 
+class \mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}}
+\item 
 class \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}}
 \item 
 class \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}}
+\item 
+class \mbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68c}{Test\+Result\+State}} \{ \mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be}{Mismatches}} = (1u $<$$<$ 0), 
+\mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb}{User\+Code\+Failed}} = (1u $<$$<$ 1), 
+\mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2}{Pact\+File\+Error}} = (1u $<$$<$ 2), 
+\mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea}{Mock\+Server\+Failed}} = (1u $<$$<$ 3)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacepact__consumer_aaa6b9d5d2099c6ad833338cb2c1d4b11}{init}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68c}\label{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68c}} 
+\index{pact\_consumer@{pact\_consumer}!TestResultState@{TestResultState}}
+\index{TestResultState@{TestResultState}!pact\_consumer@{pact\_consumer}}
+\doxysubsubsection{\texorpdfstring{TestResultState}{TestResultState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68c}{pact\+\_\+consumer\+::\+Test\+Result\+State}}}
+
+Type of \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} test result \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mismatches@{Mismatches}!pact\_consumer@{pact\_consumer}}\index{pact\_consumer@{pact\_consumer}!Mismatches@{Mismatches}}}\mbox{\Hypertarget{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be}\label{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be}} 
+Mismatches&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UserCodeFailed@{UserCodeFailed}!pact\_consumer@{pact\_consumer}}\index{pact\_consumer@{pact\_consumer}!UserCodeFailed@{UserCodeFailed}}}\mbox{\Hypertarget{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb}\label{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb}} 
+User\+Code\+Failed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PactFileError@{PactFileError}!pact\_consumer@{pact\_consumer}}\index{pact\_consumer@{pact\_consumer}!PactFileError@{PactFileError}}}\mbox{\Hypertarget{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2}\label{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2}} 
+Pact\+File\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MockServerFailed@{MockServerFailed}!pact\_consumer@{pact\_consumer}}\index{pact\_consumer@{pact\_consumer}!MockServerFailed@{MockServerFailed}}}\mbox{\Hypertarget{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea}\label{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea}} 
+Mock\+Server\+Failed&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacepact__consumer_aaa6b9d5d2099c6ad833338cb2c1d4b11}\label{namespacepact__consumer_aaa6b9d5d2099c6ad833338cb2c1d4b11}} 
+\index{pact\_consumer@{pact\_consumer}!init@{init}}
+\index{init@{init}!pact\_consumer@{pact\_consumer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void pact\+\_\+consumer\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initilise the pact test library 

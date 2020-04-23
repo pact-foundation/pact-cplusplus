@@ -86,11 +86,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a630248129b4a610fd15d94d08c6fb6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05713ce4758ee154989b327c686dc18d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a05713ce4758ee154989b327c686dc18d">uponReceiving</a> (const char *description) const</td></tr>
 <tr class="separator:a05713ce4758ee154989b327c686dc18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af557598613f2675a6b3fa38754663835"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1PactTestResult.html">PactTestResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#af557598613f2675a6b3fa38754663835">run_test</a> (bool(*callback)(<a class="el" href="classpact__consumer_1_1MockServerHandle.html">MockServerHandle</a> &amp;)) const</td></tr>
+<tr class="separator:af557598613f2675a6b3fa38754663835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a43a945f3d3b363c9c251f5954e76b915"><td class="memItemLeft" align="right" valign="top">pact_mock_server_ffi::PactHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a43a945f3d3b363c9c251f5954e76b915">pact</a></td></tr>
 <tr class="separator:a43a945f3d3b363c9c251f5954e76b915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d71145b2d9394a13b2ec104b031cdd2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a2d71145b2d9394a13b2ec104b031cdd2">pact_directory</a></td></tr>
+<tr class="separator:a2d71145b2d9394a13b2ec104b031cdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that defines a <a class="el" href="classpact__consumer_1_1Pact.html">Pact</a> between a consumer and provider </p>
@@ -144,6 +148,25 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af557598613f2675a6b3fa38754663835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af557598613f2675a6b3fa38754663835">&#9670;&nbsp;</a></span>run_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1PactTestResult.html">PactTestResult</a> pact_consumer::Pact::run_test </td>
+          <td>(</td>
+          <td class="paramtype">bool(*)(<a class="el" href="classpact__consumer_1_1MockServerHandle.html">MockServerHandle</a> &amp;)&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful. </p>
+
+</div>
+</div>
 <a id="a05713ce4758ee154989b327c686dc18d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a05713ce4758ee154989b327c686dc18d">&#9670;&nbsp;</a></span>uponReceiving()</h2>
 
@@ -175,6 +198,21 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d71145b2d9394a13b2ec104b031cdd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d71145b2d9394a13b2ec104b031cdd2">&#9670;&nbsp;</a></span>pact_directory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string pact_consumer::Pact::pact_directory</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Directory to write pact files to </p>
 
 </div>
 </div>
