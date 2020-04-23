@@ -15,13 +15,14 @@ jobs:
       - run: |
           pwd
           ls
-      - run: mkdir -p ${{runner.workspace}}/consumer/build
+      - run: mkdir -p ${{runner.workspace}}pact-cplusplus/pact-cplusplus/consumer/build
         if: runner.os != 'Windows'
-      - run: mkdir ${{runner.workspace}}\consumer\build
+      - run: mkdir ${{runner.workspace}}\pact-cplusplus\consumer\build
         if: runner.os == 'Windows'
       - run: |
           pwd
           ls
+          pip install --user virtualenv
           pip install conan
           conan install ..
-        working-directory: ${{runner.workspace}}/consumer/build
+        working-directory: ${{runner.workspace}}/pact-cplusplus/consumer/build
