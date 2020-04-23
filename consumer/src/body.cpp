@@ -1,6 +1,5 @@
 #include "consumer.h"
 
-using namespace std;
 using namespace pact_mock_server_ffi;
 
 namespace pact_consumer
@@ -10,11 +9,11 @@ namespace pact_consumer
     this->obj = json::object();
   }
   
-  PactJsonBuilder PactJsonBuilder::eachLike(string name, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, void (*callback)(PactJsonBuilder&)) {
     return eachLike(name, 1, callback);
   }
 
-  PactJsonBuilder PactJsonBuilder::eachLike(string name, unsigned int examples, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&)) {
     PactJsonBuilder builder(this);
     callback(builder);
 
@@ -36,33 +35,29 @@ namespace pact_consumer
       "pact:matcher:type": "type",
       value: template,
     }
+  }*/
+
+  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder&)) {
+    return atLeastOneLike(name, 1, callback);
   }
 
-  
-   * Array where each element must match the given template
-   * @param template Template to base the comparison on
-   
-  export function eachLike(template: any) {
-    return {
-      "pact:matcher:type": "type",
-      value: [template],
+  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&)) {
+    PactJsonBuilder builder(this);
+    callback(builder);
+
+    json array = json::array();
+    for (unsigned int i = 0; i < examples; i++) {
+      array.push_back(builder.get_json());
     }
+    json j;
+    j["pact:matcher:type"] = "integer"; 
+    j["value"] = array; 
+    obj[name] = j;
+
+    return *this;
   }
 
-  
-   * An array that has to have at least one element and each element must match the given template
-   * @param template Template to base the comparison on
-   * @param count Number of examples to generate, defaults to one
-   
-  export function atLeastOneLike(template: any, count: number = 1) {
-    return {
-      min: 1,
-      "pact:matcher:type": "type",
-      value: R.times(() => template, count),
-    }
-  }
-
-  
+  /*
    * An array that has to have at least the required number of elements and each element must match the given template
    * @param template Template to base the comparison on
    * @param min Minimum number of elements required in the array
@@ -156,39 +151,34 @@ namespace pact_consumer
       "pact:matcher:type": "type",
       value: R.times(() => template, elements),
     }
+  }*/
+
+  PactJsonBuilder& PactJsonBuilder::boolean(std::string name, bool b) {
+    json j;
+    j["pact:matcher:type"] = "type"; 
+    j["value"] = b; 
+    obj[name] = j;
+    return *this;
+  }
+  
+  PactJsonBuilder& PactJsonBuilder::integer(std::string name, int example) {
+    json j;
+    j["pact:matcher:type"] = "integer"; 
+    j["value"] = example; 
+    obj[name] = j;
+    return *this;
   }
 
-  
-   * Value must be a boolean
-   * @param b Boolean example value
-   
-  export function boolean(b: boolean) {
-    return {
-      "pact:matcher:type": "type",
-      value: b,
-    }
+  PactJsonBuilder& PactJsonBuilder::integer(std::string name) {
+    json j;
+    j["pact:generator:type"] = "RandomInt"; 
+    j["pact:matcher:type"] = "integer"; 
+    j["value"] = 101; 
+    obj[name] = j;
+    return *this;
   }
 
-  
-   * Value must be an integer (must be a number and have no decimal places)
-   * @param int Example value. If omitted a random value will be generated.
-   
-  export function integer(int?: number) {
-    if (int) {
-      return {
-        "pact:matcher:type": "integer",
-        value: int,
-      }
-    } else {
-      return {
-        "pact:generator:type": "RandomInt",
-        "pact:matcher:type": "integer",
-        value: 101,
-      }
-    }
-  }
-
-  
+  /*
    * Value must be a decimal number (must be a number and have decimal places)
    * @param num Example value. If omitted a random value will be generated.
    
@@ -224,20 +214,17 @@ namespace pact_consumer
         value: 1234,
       }
     }
+  }*/
+
+  PactJsonBuilder& PactJsonBuilder::string(std::string name, std::string example) {
+    json j;
+    j["pact:matcher:type"] = "type"; 
+    j["value"] = example; 
+    obj[name] = j;
+    return *this;
   }
 
-  
-   * Value must be a string
-   * @param str Example value
-   
-  export function string(str: string) {
-    return {
-      "pact:matcher:type": "type",
-      value: str,
-    }
-  }
-
-  
+  /*
    * Value that must match the given regular expression
    * @param pattern Regular Expression to match
    * @param str Example value
@@ -259,23 +246,39 @@ namespace pact_consumer
       "pact:matcher:type": "equality",
       value,
     }
+  }*/
+
+  PactJsonBuilder& PactJsonBuilder::datetime(std::string name, std::string format, std::string example) {
+    json j;
+    j["pact:generator:type"] = "DateTime"; 
+    j["pact:matcher:type"] = "timestamp"; 
+    j["timestamp"] = format;
+    j["value"] = example;
+    obj[name] = j;
+    return *this;
   }
 
-  
-   * String value that must match the provided datetime format string.
-   * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-   * @param example Example value to use. If omitted a value using the current system date and time will be generated.
-   
-  export function timestamp(format: string, example?: string) {
-    return {
-      "pact:generator:type": "DateTime",
-      "pact:matcher:type": "timestamp",
-      timestamp: format,
-      value: example || PactNative.generate_datetime_string(format),
+  PactJsonBuilder& PactJsonBuilder::datetime(std::string name, std::string format) {
+    auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
+    if (result.tag == DateTimeResult::Tag::Ok) {
+      std::string value = result.ok._0;
+      pact_mock_server_ffi::free_string(result.ok._0);
+
+      json j;
+      j["pact:generator:type"] = "DateTime"; 
+      j["pact:matcher:type"] = "timestamp"; 
+      j["timestamp"] = format;
+      j["value"] = value;
+      obj[name] = j;
+      return *this;
+    } else {
+      std::string error = result.failed._0;
+      pact_mock_server_ffi::free_string(result.failed._0);
+      throw error;
     }
   }
 
-  
+  /*
    * String value that must match the provided time format string.
    * @param format Time format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use. If omitted a value using the current system time will be generated.

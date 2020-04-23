@@ -6,7 +6,6 @@
 #include <pact_mock_server_ffi.h>
 #include <nlohmann/json.hpp>
 
-using namespace std;
 using json = nlohmann::json;
 
 namespace pact_consumer {
@@ -31,13 +30,73 @@ namespace pact_consumer {
        * @param examples Number of examples to generate (defaults to 1) 
        * @param callback Callback that gets invoked to define the template
        */
-      PactJsonBuilder eachLike(string name, unsigned int examples, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&));
+
       /**
-       * Attribute that is an array where each item in the array must match the constructed template
+       * Attribute that is an array where each item in the array must match the constructed template. Will only generate one example.
        * @param name Attribute name
        * @param callback Callback that gets invoked to define the template
        */
-      PactJsonBuilder eachLike(string name, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& eachLike(std::string name, void (*callback)(PactJsonBuilder&));
+
+      /**
+      * Attribute that is an array that has to have at least one element and each element must match the given template
+      * @param name Attribute name
+      * @param examples Number of examples to generate (defaults to 1) 
+      * @param callback Callback that gets invoked to define the template
+      */ 
+      PactJsonBuilder& atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&));
+
+      /**
+      * Attribute that is an array that has to have at least one element and each element must match the given template. Will only generate one example.
+      * @param name Attribute name
+      * @param callback Callback that gets invoked to define the template
+      */ 
+      PactJsonBuilder& atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder&));
+
+      /**
+       * Attribute whose value must be an integer (must be a number and have no decimal places)
+       * @param name Attribute name
+       * @param example Example value. If omitted a random value will be generated.
+       */
+      PactJsonBuilder& integer(std::string name, int example);
+
+      /**
+       * Attribute whose value must be an integer (must be a number and have no decimal places). A random value will be 
+       * generated for any examples.
+       * @param name Attribute name
+       */
+      PactJsonBuilder& integer(std::string name);
+
+      /**
+       * Attribute whose value must be a string.
+       * @param name Attribute name
+       * @param example Example value.
+       */
+      PactJsonBuilder& string(std::string name, std::string example);
+
+      /**
+      * String value that must match the provided datetime format string.
+      * @param name Attribute name
+      * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
+      * @param example Example value to use. If omitted a value using the current system date and time will be generated.
+      */
+      PactJsonBuilder& datetime(std::string name, std::string format, std::string example);
+
+      /**
+      * String value that must match the provided datetime format string. A random value will be 
+      * @param name Attribute name
+      * generated for any examples.
+      * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
+      */
+      PactJsonBuilder& datetime(std::string name, std::string format);
+
+      /**
+      * Value must be a boolean
+      * @param name Attribute name
+      * @param b Boolean example value
+      */
+      PactJsonBuilder& boolean(std::string name, bool b);
 
       json get_json() { return obj; }
 
@@ -55,7 +114,7 @@ namespace pact_consumer {
       ~MockServerHandle();
 
       bool started_ok() const;
-      string get_url() const;
+      std::string get_url() const;
 
     private:
       int32_t port;
@@ -143,11 +202,11 @@ namespace pact_consumer {
     /**
      * Sets the query parameters for the request
      */
-    Interaction withQuery(unordered_map<string, vector<string>> query) const;
+    Interaction withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const;
     /**
      * Sets the headers for the request
      */
-    Interaction withHeaders(unordered_map<string, vector<string>> headers) const;
+    Interaction withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
     /**
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.
@@ -160,7 +219,7 @@ namespace pact_consumer {
     /**
      * Sets the headers for the response
      */
-    Interaction withResponseHeaders(unordered_map<string, vector<string>> headers) const;
+    Interaction withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
     /**
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.

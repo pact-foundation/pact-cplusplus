@@ -6,7 +6,6 @@
 #include <boost/algorithm/string.hpp>
 #include "consumer.h"
 
-using namespace std;
 using namespace pact_mock_server_ffi;
 
 namespace pact_consumer {
@@ -14,8 +13,8 @@ namespace pact_consumer {
     pact_mock_server_ffi::init("LOG_LEVEL");
     const char *env_p = getenv("LOG_LEVEL");
     if (env_p != nullptr) {
-      string level_str = env_p;
-      string level_str_lower = boost::to_lower_copy(level_str);
+      std::string level_str = env_p;
+      std::string level_str_lower = boost::to_lower_copy(level_str);
       auto level = spdlog::level::from_str(level_str_lower);
       spdlog::details::registry::instance().set_level(level);
     }
@@ -56,7 +55,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withQuery(unordered_map<string, vector<string>> query) const {
+  Interaction Interaction::withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const {
     for (auto q : query) {
       for (auto it = q.second.begin(); it != q.second.end(); it++) {
         pact_mock_server_ffi::with_query_parameter(this->interaction, q.first.data(), it - q.second.begin(), it->data());
@@ -65,7 +64,7 @@ namespace pact_consumer {
     return *this;
   }
   
-  Interaction Interaction::withHeaders(unordered_map<string, vector<string>> headers) const {
+  Interaction Interaction::withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const {
     for (auto h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
         pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Request, h.first.data(), it - h.second.begin(), it->data());
@@ -87,7 +86,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withResponseHeaders(unordered_map<string, vector<string>> headers) const {
+  Interaction Interaction::withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const {
     for (auto h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
         pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Response, h.first.data(), it - h.second.begin(), it->data());
@@ -136,7 +135,7 @@ namespace pact_consumer {
     return this->port > 0;
   }
 
-  string MockServerHandle::get_url() const {
+  std::string MockServerHandle::get_url() const {
     std::ostringstream out;
     out << "http://127.0.0.1:" << this->port << "/";
     return out.str();

@@ -74,6 +74,17 @@ vector<Project> TodoClient::getProjects(string format) {
         p.id = j.at("id").as_integer();
         p.name = j.at("name").as_string();
         p.due = j.at("due").as_string();
+
+        auto tasks = j.at("tasks").as_array();
+        for (auto it = tasks.begin(); it != tasks.end(); ++it) {
+          Task t;
+          auto j = *it;
+          t.id = j.at("id").as_integer();
+          t.name = j.at("name").as_string();
+          t.done = j.at("done").as_bool();
+          p.tasks.push_back(t);
+        }
+
         projects.push_back(p);
       }
       return projects;
