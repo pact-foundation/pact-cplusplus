@@ -25,8 +25,13 @@ jobs:
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
         if: runner.os != 'Windows'
-      - name: Get pact mock server package
-        run: wget https://github.com/pact-foundation/pact-reference/blob/master/rust/pact_mock_server_ffi/conanfile.py
+      - name: Download mock server package
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download-package
+        with:
+            file-url: 'https://github.com/pact-foundation/pact-reference/blob/master/rust/pact_mock_server_ffi/conanfile.py'
+            file-name: 'conanfile.py'
+            location: 'consumer/build'
       - name: conan install dependencies
         run: |
           ls
