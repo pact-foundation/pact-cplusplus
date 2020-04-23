@@ -12,3 +12,7 @@ jobs:
       - run: cmake --version
       - run: python --version
       - run: pip install conan
+      - run: cmake -E make_directory ${{runner.workspace}}/consumer/build
+        working-directory: ${{runner.workspace}}/consumer
+      - run: conan install ..
+        working-directory: ${{runner.workspace}}/consumer/build
