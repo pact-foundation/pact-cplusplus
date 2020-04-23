@@ -12,9 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - run: cmake --version
       - run: python --version
-      - run: mkdir -p consumer/build
+      - run: |
+          pwd
+          ls
+      - run: mkdir -p ${{runner.workspace}}/consumer/build
         if: runner.os != 'Windows'
-      - run: mkdir consumer\build
+      - run: mkdir ${{runner.workspace}}\consumer\build
         if: runner.os == 'Windows'
       - run: |
           pwd
