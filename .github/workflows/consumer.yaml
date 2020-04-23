@@ -19,8 +19,12 @@ jobs:
         if: runner.os != 'Windows'
       - run: mkdir consumer\build
         if: runner.os == 'Windows'
-      - run: |
+      - name: Install conan
+        run: |
+          python -m pip install --upgrade pip
           pip install --user conan
+      - name: conan install dependencies
+        run: |
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan install ..
         working-directory: consumer/build
