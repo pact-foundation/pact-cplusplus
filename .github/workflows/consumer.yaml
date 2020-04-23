@@ -4,6 +4,7 @@ on: [push]
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.operating-system }}
@@ -12,7 +13,7 @@ jobs:
       - run: cmake --version
       - run: python --version
       - run: pip install conan
-      - run: cmake -E make_directory ${{runner.workspace}}/consumer/build
-        working-directory: ${{runner.workspace}}/consumer
+      - run: mkdir ${{runner.workspace}}/consumer/build
+        shell: bash
       - run: conan install ..
         working-directory: ${{runner.workspace}}/consumer/build
