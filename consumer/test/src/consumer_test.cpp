@@ -9,10 +9,8 @@ using namespace pact_consumer;
 
 TEST(PactConsumerTest, GetJsonProjects) {
   auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
-  // dir: path.resolve(process.cwd(), "pacts"),
-  //   logLevel: "INFO",
-  // })
-
+  provider.pact_directory = "pacts";
+  
   std::unordered_map<std::string, std::vector<std::string>> query;
   query["from"] = std::vector<std::string>{"today"};
 
@@ -59,8 +57,10 @@ TEST(PactConsumerTest, GetJsonProjects) {
     EXPECT_THAT(p.tasks, SizeIs(4));
     EXPECT_GE(p.tasks[0].id, 0);
     EXPECT_EQ(p.tasks[0].name, "Task 1");
+
+    return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
   });
-  EXPECT_TRUE(result.is_ok());
+  EXPECT_TRUE(result.is_ok()) << "Test failed";
 }
 
 // TEST(PactConsumerTest, GetXmlProjects) {

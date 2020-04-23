@@ -15,31 +15,6 @@ TodoClient::TodoClient() {
   serverUrl = "http://localhost:8080";
 }
 
-/*
-getProjects: async (format = "json") => {
-    return axios
-      .get(serverUrl + "/projects?from=today", {
-        headers: {
-          Accept: "application/" + format,
-        },
-      })
-      .then(response => {
-        console.log("todo response:")
-        eyes.inspect(response.data)
-        if (format === "xml") {
-          const result = JSON.parse(parser.toJson(response.data))
-          console.dir(result, { depth: 10 })
-          return R.path(["ns1:projects"], result)
-        }
-        return response.data
-      })
-      .catch(error => {
-        console.log("todo error", error.message)
-        return Promise.reject(error)
-      })
-  },
-*/
-
 vector<Project> TodoClient::getProjects(string format) {
   vector<Project> projects;
 
@@ -63,10 +38,8 @@ vector<Project> TodoClient::getProjects(string format) {
     }).wait();
   } else {
     auto body = response.then([](http_response response) {
-      printf("Received response status code:%u\n", response.status_code());
       return response.extract_json();
     }).then([&](json::value body) {
-      printf("Body: %s\n", body.serialize().data());
       auto p = body["projects"].as_array();
       for (auto it = p.begin(); it != p.end(); ++it) {
         Project p;

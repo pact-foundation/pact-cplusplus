@@ -113,8 +113,20 @@ namespace pact_consumer {
       MockServerHandle(pact_mock_server_ffi::PactHandle);
       ~MockServerHandle();
 
+      /**
+       * Indicates the mock server was started ok
+       */
       bool started_ok() const;
+
+      /**
+       * The URL to the mock server
+       */
       std::string get_url() const;
+
+      /**
+       * The port the mock server is running on
+       */
+      int32_t get_port() const;
 
     private:
       int32_t port;
@@ -126,7 +138,8 @@ namespace pact_consumer {
   enum TestResultState { 
     Mismatches        = (1u << 0),
     UserCodeFailed    = (1u << 1),
-    MockServerFailed  = (1u << 2)
+    PactFileError     = (1u << 2),
+    MockServerFailed  = (1u << 3)
   };
 
   /**
@@ -134,18 +147,31 @@ namespace pact_consumer {
    */
   class PactTestResult {
     public:
+      PactTestResult();
+
       /**
        * Adds a test state to the result
        */
       void add_state(TestResultState state);
 
       /**
+       * Adds a test state with a message to the result
+       */
+      void add_state(TestResultState state, std::string message);
+
+      /**
        * If there are no mismatches and the user code did not fail
        */
       bool is_ok() const;
 
+      /**
+       * Logs all errors out
+       */
+      void display_errors();
+
     private:
       unsigned int status = 0;
+      std::vector<std::string> messages;
   };
 
   /**
@@ -169,11 +195,17 @@ namespace pact_consumer {
       Interaction uponReceiving(const char* description) const;
 
       /**
-       * Starts a mock server for this pact, and then passes it to the callback.
+       * Starts a mock server for this pact, and then passes it to the callback. The callback
+       * needs to return a boolean value to indicate of the test was successful.
        */
-      PactTestResult run_test(void (*callback)(MockServerHandle&)) const;
+      PactTestResult run_test(bool (*callback)(MockServerHandle&)) const;
 
       pact_mock_server_ffi::PactHandle pact;
+
+      /**
+       * Directory to write pact files to
+       */
+      std::string pact_directory;
 
     private:
       std::string consumer;
