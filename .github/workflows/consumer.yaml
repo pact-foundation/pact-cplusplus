@@ -29,7 +29,7 @@ jobs:
         uses: carlosperate/download-file-action@v1.0.3
         id: download-package
         with:
-            file-url: 'https://github.com/pact-foundation/pact-reference/blob/master/rust/pact_mock_server_ffi/conanfile.py'
+            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
             file-name: 'conanfile.py'
             location: 'consumer/build'
       - name: conan install dependencies
