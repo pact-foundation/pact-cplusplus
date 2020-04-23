@@ -13,7 +13,9 @@ jobs:
       - run: cmake --version
       - run: python --version
       - run: pip install conan
-      - run: mkdir ${{runner.workspace}}/consumer/build
-        shell: bash
+      - run: mkdir -p consumer/build
+        if: runner.os != 'Windows'
+      - run: mkdir consumer\build
+        if: runner.os == 'Windows'
       - run: conan install ..
         working-directory: ${{runner.workspace}}/consumer/build
