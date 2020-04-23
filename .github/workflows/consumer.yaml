@@ -12,17 +12,19 @@ jobs:
       - uses: actions/checkout@v2
       - run: cmake --version
       - run: python --version
-      - run: |
-          pwd
-          ls
       - run: mkdir -p consumer/build
         if: runner.os != 'Windows'
       - run: mkdir consumer\build
         if: runner.os == 'Windows'
       - name: Install conan
         run: |
-          pip3 install wheel
+          pwd
+          pip3 install wheel setuptools
           pip3 install conan
+          export PATH=$PATH:/home/runner/.local/bin
+          echo $PATH
+          conan --version
+          ls
       - name: conan install dependencies
         run: |
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
