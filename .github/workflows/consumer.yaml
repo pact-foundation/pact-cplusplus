@@ -34,18 +34,13 @@ jobs:
             location: 'consumer/build'
       - name: conan install dependencies
         run: |
-          ls
           export PATH=$PATH:/home/runner/.local/bin
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan create . user/channel 
           conan install .. --build missing
         working-directory: consumer/build
-        if: runner.os != 'Windows'
-      - name: conan install dependencies
+      - name: Build library
         run: |
-          dir
-          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan create . user/channel
-          conan install .. --build missing
+          cmake ..
+          cmake --build .
         working-directory: consumer/build
-        if: runner.os == 'Windows'
