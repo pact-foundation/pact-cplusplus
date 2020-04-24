@@ -37,8 +37,8 @@ jobs:
           ls
           export PATH=$PATH:/home/runner/.local/bin
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan create . user/channel
-          conan install ..
+          conan create . user/channel 
+          conan install .. --build missing
         working-directory: consumer/build
         if: runner.os != 'Windows'
       - name: conan install dependencies
@@ -46,6 +46,6 @@ jobs:
           dir
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan create . user/channel
-          conan install ..
+          conan install .. --build missing
         working-directory: consumer/build
         if: runner.os == 'Windows'
