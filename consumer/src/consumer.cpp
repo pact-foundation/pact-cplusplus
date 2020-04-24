@@ -1,9 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <sstream>
-#include <spdlog/spdlog.h>
-#include <spdlog/details/os.h>
-#include <boost/algorithm/string.hpp>
 #include "consumer.h"
 
 using namespace pact_mock_server_ffi;
@@ -11,13 +8,6 @@ using namespace pact_mock_server_ffi;
 namespace pact_consumer {
   void init() {
     pact_mock_server_ffi::init("LOG_LEVEL");
-    const char *env_p = getenv("LOG_LEVEL");
-    if (env_p != nullptr) {
-      std::string level_str = env_p;
-      std::string level_str_lower = boost::to_lower_copy(level_str);
-      auto level = spdlog::level::from_str(level_str_lower);
-      spdlog::details::registry::instance().set_level(level);
-    }
   }
 
   ////////////////////////////////////
@@ -203,12 +193,12 @@ namespace pact_consumer {
 
   void PactTestResult::display_errors() {
     if (this->status != 0) {
-      spdlog::error("The test failed for the following reasons:");
+      std::cout << "The test failed for the following reasons:\n";
       if (this->status & TestResultState::Mismatches) {
         if (this->messages[TestResultState::Mismatches].empty()) {
-          spdlog::error("\t* Not all the requests matched");
+          std::cout << "\t* Not all the requests matched\n";
         } else {
-          spdlog::error("\t* The following mismatches occurred:");
+          std::cout << "\t* The following mismatches occurred:\n";
           auto mismatches_str = this->messages[TestResultState::Mismatches];
           auto j = json::parse(mismatches_str);
           int i = 0;
@@ -216,11 +206,11 @@ namespace pact_consumer {
             auto mismatch = *it;
             std::string type = mismatch["type"];
             if (type == "request-not-found") {
-              spdlog::error("\t\t{}) Unexpected request received: {} {}", i, mismatch["method"], mismatch["path"]);
+              std::cout << "\t\t" << i << ") Unexpected request received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
             } else if (type == "missing-request") {
-              spdlog::error("\t\t{}) Expected request was not received: {} {}", i, mismatch["method"], mismatch["path"]);
+              std::cout << "\t\t" << i << ") Expected request was not received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
             } else if (type == "request-mismatch") {
-              spdlog::error("\t\t{}) Mismatched request was received: {} {}", i, mismatch["method"], mismatch["path"]);
+              std::cout << "\t\t" << i << ") Mismatched request was received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
               auto mismatches = mismatch["mismatches"];
               for (json::iterator it = mismatches.begin(); it != mismatches.end(); ++it) {
                 auto mismatch_details = *it;
@@ -228,19 +218,19 @@ namespace pact_consumer {
                 std::string expected = mismatch_details["expected"];
                 std::string actual = mismatch_details["actual"];
                 if (mismatch_type == "MethodMismatch") {
-                  spdlog::error("\t\t\tMethod: Expected {} but was {}", expected, actual);
+                  std::cout << "\t\t\tMethod: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "PathMismatch") {
-                  spdlog::error("\t\t\tPath: {}", mismatch_details["mismatch"]);
+                  std::cout << "\t\t\tPath: " << mismatch_details["mismatch"] << "\n";
                 } else if (mismatch_type == "StatusMismatch") {
-                  spdlog::error("\t\t\tStatus: Expected {} but was {}", expected, actual);
+                  std::cout << "\t\t\tStatus: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "QueryMismatch") {
-                  spdlog::error("\t\t\tQuery Parameter: {}", mismatch_details["mismatch"]);
+                  std::cout << "\t\t\tQuery Parameter: " << mismatch_details["mismatch"] << "\n";
                 } else if (mismatch_type == "HeaderMismatch") {
-                  spdlog::error("\t\t\tHeader: {}", mismatch_details["mismatch"]);
+                  std::cout << "\t\t\tHeader: " << mismatch_details["mismatch"] << "\n";
                 } else if (mismatch_type == "BodyTypeMismatch") {
-                  spdlog::error("\t\t\tBody Type: Expected {} but was {}", expected, actual);
+                  std::cout << "\t\t\tBody Type: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "BodyMismatch") {
-                  spdlog::error("\t\t\tBody: {}", mismatch_details["mismatch"]);
+                  std::cout << "\t\t\tBody: " << mismatch_details["mismatch"] << "\n";
                 }
               }
             }
@@ -250,25 +240,25 @@ namespace pact_consumer {
       if (this->status & TestResultState::UserCodeFailed) {
         auto message = this->messages[TestResultState::UserCodeFailed];
         if (message.empty()) {
-          spdlog::error("\t* Test callback failed with an exception");
+          std::cout << "\t* Test callback failed with an exception\n";
         } else {
-          spdlog::error("\t* Test callback failed with an exception: {}", message);
+          std::cout << "\t* Test callback failed with an exception: " << message << "\n";
         }
       }
       if (this->status & TestResultState::PactFileError) {
         auto message = this->messages[TestResultState::PactFileError];
         if (message.empty()) {
-          spdlog::error("\t* Failed to write the Pact file");
+          std::cout << "\t* Failed to write the Pact file\n";
         } else {
-          spdlog::error("\t* Failed to write the Pact file: {}", message);
+          std::cout << "\t* Failed to write the Pact file: " << message << "\n";
         }
       }
       if (this->status & TestResultState::MockServerFailed) {
         auto message = this->messages[TestResultState::MockServerFailed];
         if (message.empty()) {
-          spdlog::error("\t* Mock server failed to start");
+          std::cout << "\t* Mock server failed to start\n";
         } else {
-          spdlog::error("\t* Mock server failed to start: {}", message);
+          std::cout << "\t* Mock server failed to start: " << message << "\n";
         }
       }
     }
