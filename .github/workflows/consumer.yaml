@@ -55,8 +55,8 @@ jobs:
           cmake --build .
         working-directory: consumer/build
         env:
-          CC: gcc
-          CXX: g++
+          CC: gcc-9
+          CXX: g++-9
       - name: Run pact-consumer-tests
         run: consumer/build/test/bin/pact-consumer-tests
         env:
