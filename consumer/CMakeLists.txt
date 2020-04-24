@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.16)
 # set the project name
 project(pact-consumer VERSION 0.0.0)
 
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # Initialize Conan
 INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
