@@ -38,6 +38,14 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan create . user/channel 
           conan install .. --build missing
+        if: runner.os != 'Windows'
+        working-directory: consumer/build
+      - name: conan install dependencies
+        run: |
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan create . user/channel 
+          conan install .. --build missing
+        if: runner.os == 'Windows'
         working-directory: consumer/build
       - name: Build library
         run: |
@@ -45,5 +53,4 @@ jobs:
           cmake --build .
         working-directory: consumer/build
       - name: Run pact-consumer-tests
-        run: pact-consumer-tests
-        working-directory: consumer/build/test/bin
+        run: consumer/build/test/bin/pact-consumer-tests
