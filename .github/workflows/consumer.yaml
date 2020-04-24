@@ -8,6 +8,9 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.operating-system }}
+    env:
+      CC: gcc-9
+      CXX: g++-9
     steps:
       - uses: actions/checkout@v2
       - run: cmake --version
@@ -42,9 +45,6 @@ jobs:
           conan install .. --build missing
         if: runner.os != 'Windows'
         working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
       - name: conan install dependencies
         run: |
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
@@ -57,9 +57,6 @@ jobs:
           cmake ..
           cmake --build .
         working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
       - name: Run pact-consumer-tests
         run: consumer/build/test/bin/pact-consumer-tests
         env:
