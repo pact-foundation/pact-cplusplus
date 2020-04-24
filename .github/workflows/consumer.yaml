@@ -44,3 +44,6 @@ jobs:
           cmake ..
           cmake --build .
         working-directory: consumer/build
+      - name: Run pact-consumer-tests
+        run: pact-consumer-tests
+        working-directory: consumer/build/test/bin
