@@ -34,6 +34,8 @@ jobs:
             location: 'consumer/build'
       - name: conan install dependencies
         run: |
+          cat conanfile.py
+          rm -rf $HOME/.conan/data/pact_mock_server_ffi
           export PATH=$PATH:/home/runner/.local/bin
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan create . user/channel 
@@ -54,3 +56,5 @@ jobs:
         working-directory: consumer/build
       - name: Run pact-consumer-tests
         run: consumer/build/test/bin/pact-consumer-tests
+        env:
+          LOG_LEVEL: DEBUG
