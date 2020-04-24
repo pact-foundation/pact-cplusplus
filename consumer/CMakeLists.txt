@@ -20,6 +20,7 @@ target_include_directories(pact-consumer
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 TARGET_LINK_LIBRARIES(pact-consumer ${CONAN_LIBS})
+target_compile_definitions(pact-consumer PUBLIC -D__USE_XOPEN2K8)
 
 # Install library
 install(TARGETS pact-consumer DESTINATION lib)
