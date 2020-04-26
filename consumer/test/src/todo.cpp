@@ -19,7 +19,7 @@ vector<Project> TodoClient::getProjects(string format) {
   vector<Project> projects;
 
   // Create http_client to send the request.
-  http_client client(U(serverUrl));
+  http_client client(serverUrl);
 
   uri_builder builder(U("/projects"));
   builder.append_query(U("from"), U("today"));
