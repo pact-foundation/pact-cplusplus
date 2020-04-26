@@ -1,3 +1,4 @@
+#define _TURN_OFF_PLATFORM_STRING
 #include <cpprest/http_client.h>
 #include <cpprest/json.h>
 #include <cstring>
