@@ -25,6 +25,11 @@ Read [Getting started with Pact](https://docs.pact.io/5-minute-getting-started-g
 * Slack: [Join the chat at http://slack.pact.io/](http://slack.pact.io/)
 * Stack Overflow: https://stackoverflow.com/questions/tagged/pact
 
+## Documentation
+
+* [Main Pact documentation](https://docs.pact.io)
+* [C++ DSL HTML docs](consumer/docs/html/index.html)
+
 ## Consumer Tests
 
 For an example for the consumer test DSL, have a look at [consumer_test.cpp](consumer/test/src/consumer_test.cpp).
