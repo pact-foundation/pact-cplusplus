@@ -22,8 +22,8 @@ vector<Project> TodoClient::getProjects(string format) {
   // Create http_client to send the request.
   http_client client(serverUrl);
 
-  uri_builder builder(U("/projects"));
-  builder.append_query(U("from"), U("today"));
+  uri_builder builder("/projects");
+  builder.append_query("from", "today");
   http_request request;
   request.set_request_uri(builder.to_uri());
   request.headers().add(header_names::accept, "application/" + format);
@@ -41,21 +41,21 @@ vector<Project> TodoClient::getProjects(string format) {
     auto body = response.then([](http_response response) {
       return response.extract_json();
     }).then([&](json::value body) {
-      auto p = body[U("projects")].as_array();
+      auto p = body["projects"].as_array();
       for (auto it = p.begin(); it != p.end(); ++it) {
         Project p;
         auto j = *it;
-        p.id = j.at(U("id")).as_integer();
-        p.name = j.at(U("name")).as_string();
-        p.due = j.at(U("due")).as_string();
+        p.id = j.at("id").as_integer();
+        p.name = j.at("name").as_string();
+        p.due = j.at("due").as_string();
 
-        auto tasks = j.at(U("tasks")).as_array();
+        auto tasks = j.at("tasks").as_array();
         for (auto it = tasks.begin(); it != tasks.end(); ++it) {
           Task t;
           auto j = *it;
-          t.id = j.at(U("id")).as_integer();
-          t.name = j.at(U("name")).as_string();
-          t.done = j.at(U("done")).as_bool();
+          t.id = j.at("id").as_integer();
+          t.name = j.at("name").as_string();
+          t.done = j.at("done").as_bool();
           p.tasks.push_back(t);
         }
 
