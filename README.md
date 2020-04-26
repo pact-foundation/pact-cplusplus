@@ -28,7 +28,7 @@ Read [Getting started with Pact](https://docs.pact.io/5-minute-getting-started-g
 ## Documentation
 
 * [Main Pact documentation](https://docs.pact.io)
-* [C++ DSL HTML docs](consumer/docs/html/index.html)
+* Consumer DSL HTML docs [consumer/docs/html/](consumer/docs/html/)
 
 ## Consumer Tests
 
