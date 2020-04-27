@@ -2,20 +2,13 @@ name: Consumer Project
 on: [push]
 
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.operating-system }}
+  build-ubuntu:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: cmake --version
       - run: python --version
       - run: mkdir -p consumer/build
-        if: runner.os != 'Windows'
-      - run: mkdir consumer\build
-        if: runner.os == 'Windows'
       - name: Install conan
         run: |
           pip3 install wheel setuptools
@@ -24,7 +17,6 @@ jobs:
         run: |
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
-        if: runner.os != 'Windows'
       - name: Download mock server package
         uses: carlosperate/download-file-action@v1.0.3
         id: download-package
@@ -41,18 +33,10 @@ jobs:
           conan profile update settings.compiler.libcxx=libstdc++11 default
           conan create . user/channel  --build missing
           conan install .. --build missing
-        if: runner.os != 'Windows'
         working-directory: consumer/build
         env:
           CC: gcc-9
           CXX: g++-9    
-      - name: conan install dependencies Windows
-        run: |
-          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan create . user/channel 
-          conan install .. --build missing
-        if: runner.os == 'Windows'
-        working-directory: consumer/build
       - name: Build library
         run: |
           cmake ..
@@ -61,13 +45,82 @@ jobs:
         env:
           CC: gcc-9
           CXX: g++-9
-        if: runner.os != 'Windows'
+      - name: Run pact-consumer-tests
+        run: consumer/build/test/bin/pact-consumer-tests
+        env:
+          LOG_LEVEL: DEBUG
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
+      - run: python --version
+      - run: mkdir consumer\build
+      - name: Install conan
+        run: |
+          pip3 install wheel setuptools
+          pip3 install conan
+      - name: Download mock server package
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download-package
+        with:
+            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
+            file-name: 'conanfile.py'
+            location: 'consumer/build'
+      - name: conan install dependencies Windows
+        run: |
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan create . user/channel 
+          conan install .. --build missing
+        working-directory: consumer/build
       - name: Build library Windows
         run: |
           cmake ..
           cmake --build .
         working-directory: consumer/build
-        if: runner.os == 'Windows'  
+      - name: Run pact-consumer-tests
+        run: consumer/build/test/bin/pact-consumer-tests
+        env:
+          LOG_LEVEL: DEBUG
+
+  build-osx:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
+      - run: python --version
+      - run: mkdir -p consumer/build
+      - name: Install conan
+        run: |
+          pip3 install wheel setuptools
+          pip3 install conan
+      - name: Check conan version
+        run: |
+          export PATH=$PATH:/home/runner/.local/bin
+          conan --version
+      - name: Download mock server package
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download-package
+        with:
+            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
+            file-name: 'conanfile.py'
+            location: 'consumer/build'
+      - name: conan install dependencies
+        run: |
+          rm -rf $HOME/.conan/data/pact_mock_server_ffi
+          export PATH=$PATH:/home/runner/.local/bin
+          conan profile new default --detect
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan profile update settings.compiler.libcxx=libstdc++11 default
+          conan create . user/channel  --build missing
+          conan install .. --build missing
+        working-directory: consumer/build
+      - name: Build library
+        run: |
+          cmake ..
+          cmake --build .
+        working-directory: consumer/build
       - name: Run pact-consumer-tests
         run: consumer/build/test/bin/pact-consumer-tests
         env:
