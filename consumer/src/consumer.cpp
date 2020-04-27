@@ -29,7 +29,7 @@ namespace pact_consumer {
   }
 
   PactTestResult Pact::run_test(bool (*callback)(MockServerHandle&)) const {
-    // MockServerHandle mockServer(this->pact);
+    MockServerHandle mockServer(this->pact);
     PactTestResult result;
 
     // if (mockServer.started_ok()) {
