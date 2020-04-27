@@ -8,8 +8,13 @@ INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
 
 ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp src/todo.cpp)
-TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer)
 target_include_directories(pact-consumer-tests PRIVATE ../include)
+
+if(WIN32)
+    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer ws2_32 userenv crypt32 secur32 dnsapi ncrypt)
+elseif(UNIX) # LINUX or APPLE
+    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer)
+endif()
 
 # Include test
 ADD_TEST(NAME consumer
