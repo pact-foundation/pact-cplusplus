@@ -30,14 +30,14 @@ namespace pact_consumer {
        * @param examples Number of examples to generate (defaults to 1) 
        * @param callback Callback that gets invoked to define the template
        */
-      PactJsonBuilder& eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*));
 
       /**
        * Attribute that is an array where each item in the array must match the constructed template. Will only generate one example.
        * @param name Attribute name
        * @param callback Callback that gets invoked to define the template
        */
-      PactJsonBuilder& eachLike(std::string name, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& eachLike(std::string name, void (*callback)(PactJsonBuilder*));
 
       /**
       * Attribute that is an array that has to have at least one element and each element must match the given template
@@ -45,14 +45,14 @@ namespace pact_consumer {
       * @param examples Number of examples to generate (defaults to 1) 
       * @param callback Callback that gets invoked to define the template
       */ 
-      PactJsonBuilder& atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*));
 
       /**
       * Attribute that is an array that has to have at least one element and each element must match the given template. Will only generate one example.
       * @param name Attribute name
       * @param callback Callback that gets invoked to define the template
       */ 
-      PactJsonBuilder& atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder&));
+      PactJsonBuilder& atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder*));
 
       /**
        * Attribute whose value must be an integer (must be a number and have no decimal places)
@@ -198,7 +198,7 @@ namespace pact_consumer {
        * Starts a mock server for this pact, and then passes it to the callback. The callback
        * needs to return a boolean value to indicate of the test was successful.
        */
-      PactTestResult run_test(bool (*callback)(MockServerHandle&)) const;
+      PactTestResult run_test(bool (*callback)(MockServerHandle*)) const;
 
       pact_mock_server_ffi::PactHandle pact;
 
@@ -243,7 +243,7 @@ namespace pact_consumer {
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.
      */
-    Interaction withJsonBody(void (*callback)(PactJsonBuilder&)) const;
+    Interaction withJsonBody(void (*callback)(PactJsonBuilder*)) const;
     /**
      * Sets the status code for the response
      */
@@ -256,7 +256,7 @@ namespace pact_consumer {
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.
      */
-    Interaction withResponseJsonBody(void (*callback)(PactJsonBuilder&)) const;
+    Interaction withResponseJsonBody(void (*callback)(PactJsonBuilder*)) const;
 
     pact_mock_server_ffi::InteractionHandle interaction;
 

@@ -56,3 +56,5 @@ conaninfo*
 build
 test/build
 .vscode
+.vs/
+consumer/CMakeSettings.json

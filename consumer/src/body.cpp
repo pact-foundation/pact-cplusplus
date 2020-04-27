@@ -9,13 +9,13 @@ namespace pact_consumer
     this->obj = json::object();
   }
   
-  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, void (*callback)(PactJsonBuilder*)) {
     return eachLike(name, 1, callback);
   }
 
-  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*)) {
     PactJsonBuilder builder(this);
-    callback(builder);
+    callback(&builder);
 
     json array = json::array();
     for (unsigned int i = 0; i < examples; i++) {
@@ -37,13 +37,13 @@ namespace pact_consumer
     }
   }*/
 
-  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder*)) {
     return atLeastOneLike(name, 1, callback);
   }
 
-  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder&)) {
+  PactJsonBuilder& PactJsonBuilder::atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*)) {
     PactJsonBuilder builder(this);
-    callback(builder);
+    callback(&builder);
 
     json array = json::array();
     for (unsigned int i = 0; i < examples; i++) {

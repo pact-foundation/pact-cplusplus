@@ -29,13 +29,13 @@ TEST(PactConsumerTest, GetJsonProjects) {
     .willRespondWith(200)
     .withResponseHeaders(res_headers)
     .withResponseJsonBody([](auto body) {
-      body.eachLike("projects", [](auto project) {
-        project
+      body->eachLike("projects", [](auto project) {
+        (*project)
           .integer("id")
           .string("name", "Project 1")
           .datetime("due", "yyyy-MM-dd'T'HH:mm:ss.SSSX", "2016-02-11T09:46:56.023Z")
           .atLeastOneLike("tasks", 4, [](auto task) {
-            task
+            (*task)
               .integer("id")
               .string("name", "Task 1")
               .boolean("done", true);
@@ -44,22 +44,21 @@ TEST(PactConsumerTest, GetJsonProjects) {
     });
 
   auto result = provider.run_test([] (auto mock_server) {
-    // TodoClient todo;
-    // todo.serverUrl = mock_server.get_url();
-    // std::cout << "URL: " << todo.serverUrl << "\n";
+    TodoClient todo;
+    todo.serverUrl = mock_server->get_url();
+    std::cout << "URL: " << todo.serverUrl << "\n";
 
-    // std::vector<Project> projects = todo.getProjects();
+    std::vector<Project> projects = todo.getProjects();
 
-    // EXPECT_THAT(todo.getProjects(), SizeIs(1));
-    // Project p = projects[0];
-    // EXPECT_EQ(p.name, "Project 1");
-    // EXPECT_GE(p.id, 0);
-    // EXPECT_THAT(p.tasks, SizeIs(4));
-    // EXPECT_GE(p.tasks[0].id, 0);
-    // EXPECT_EQ(p.tasks[0].name, "Task 1");
+    EXPECT_THAT(todo.getProjects(), SizeIs(1));
+    Project p = projects[0];
+    EXPECT_EQ(p.name, "Project 1");
+    EXPECT_GE(p.id, 0);
+    EXPECT_THAT(p.tasks, SizeIs(4));
+    EXPECT_GE(p.tasks[0].id, 0);
+    EXPECT_EQ(p.tasks[0].name, "Task 1");
 
-    // return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
-    return false;
+    return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
   });
   EXPECT_TRUE(result.is_ok()) << "Test failed";
 }
