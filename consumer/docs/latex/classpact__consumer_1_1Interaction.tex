@@ -19,13 +19,13 @@
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a8d4c0519d5e17bc14e4b062fd4361c71}{with\+Headers}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$ headers) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a3a84fa486ab23957e1d99e6ff068ae4f}{with\+Json\+Body}} (void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \&)) const
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_ac7cbcf570140343c007522be4091afb7}{with\+Json\+Body}} (void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$)) const
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_adb4b399b152b384682d17436ac648d45}{will\+Respond\+With}} (size\+\_\+t status) const
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a9d0915c5ab54bff6e33a9ca8e9464baa}{with\+Response\+Headers}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$ headers) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_ab9fbcda74b71945b4236472207cbd5ac}{with\+Response\+Json\+Body}} (void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \&)) const
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_afa30f026c1c2cb12d366ea23f27ff255}{with\+Response\+Json\+Body}} (void($\ast$callback)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$)) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -71,11 +71,11 @@ Sets the status code for the response \mbox{\Hypertarget{classpact__consumer_1_1
 \doxysubsubsection{\texorpdfstring{withHeaders()}{withHeaders()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Headers (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$}]{headers }\end{DoxyParamCaption}) const}
 
-Sets the headers for the request \mbox{\Hypertarget{classpact__consumer_1_1Interaction_a3a84fa486ab23957e1d99e6ff068ae4f}\label{classpact__consumer_1_1Interaction_a3a84fa486ab23957e1d99e6ff068ae4f}} 
+Sets the headers for the request \mbox{\Hypertarget{classpact__consumer_1_1Interaction_ac7cbcf570140343c007522be4091afb7}\label{classpact__consumer_1_1Interaction_ac7cbcf570140343c007522be4091afb7}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withJsonBody@{withJsonBody}}
 \index{withJsonBody@{withJsonBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{withJsonBody()}{withJsonBody()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Json\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \&)}]{callback }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Json\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$)}]{callback }\end{DoxyParamCaption}) const}
 
 Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. \mbox{\Hypertarget{classpact__consumer_1_1Interaction_ac73dc56507068dcf186dc76ebb848b30}\label{classpact__consumer_1_1Interaction_ac73dc56507068dcf186dc76ebb848b30}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withQuery@{withQuery}}
@@ -95,11 +95,11 @@ Sets the method and path for the request \mbox{\Hypertarget{classpact__consumer_
 \doxysubsubsection{\texorpdfstring{withResponseHeaders()}{withResponseHeaders()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Headers (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$$>$}]{headers }\end{DoxyParamCaption}) const}
 
-Sets the headers for the response \mbox{\Hypertarget{classpact__consumer_1_1Interaction_ab9fbcda74b71945b4236472207cbd5ac}\label{classpact__consumer_1_1Interaction_ab9fbcda74b71945b4236472207cbd5ac}} 
+Sets the headers for the response \mbox{\Hypertarget{classpact__consumer_1_1Interaction_afa30f026c1c2cb12d366ea23f27ff255}\label{classpact__consumer_1_1Interaction_afa30f026c1c2cb12d366ea23f27ff255}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withResponseJsonBody@{withResponseJsonBody}}
 \index{withResponseJsonBody@{withResponseJsonBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{withResponseJsonBody()}{withResponseJsonBody()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Json\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \&)}]{callback }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Json\+Body (\begin{DoxyParamCaption}\item[{void($\ast$)(\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} $\ast$)}]{callback }\end{DoxyParamCaption}) const}
 
 Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. 
 
