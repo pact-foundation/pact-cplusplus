@@ -80,7 +80,7 @@ jobs:
       - name: Build library Windows
         run: |
           cmake ..
-          cmake --build .
+          cmake --build . --config Release
         working-directory: consumer/build
       - name: Run pact-consumer-tests
         run: consumer/build/test/bin/pact-consumer-tests
