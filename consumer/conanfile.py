@@ -5,8 +5,8 @@ class PactcppconsumerConan(ConanFile):
     name = "pact_cpp_consumer"
     version = "0.0.0"
     license = "MIT"
-    author = "Ronald Holshausen uglyog@gmail.com"
-    url = "https://github.com/pact-foundation/pact-cplusplus"
+    url = "https://github.com/conan-io/conan-center-index"
+    homepage = "https://github.com/pact-foundation/pact-cplusplus"
     description = "Pact C++ Consumer DSL"
     topics = ("Contract Testing")
     settings = "os", "compiler", "build_type", "arch"
