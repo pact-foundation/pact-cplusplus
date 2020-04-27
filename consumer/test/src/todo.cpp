@@ -32,7 +32,6 @@ vector<Project> TodoClient::getProjects(string format) {
       printf("Received response status code:%u\n", response.status_code());
       return response.extract_string();
     }).then([=](string_t body) {
-      printf("Body: %s\n", body.data());
       return projects;
     }).wait();
   } else {
