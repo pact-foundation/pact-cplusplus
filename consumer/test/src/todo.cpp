@@ -44,15 +44,15 @@ vector<Project> TodoClient::getProjects(string format) {
         Project p;
         auto j = *it;
         p.id = j.at(U("id")).as_integer();
-        p.name = j.at(U("name")).as_string();
-        p.due = j.at(U("due")).as_string();
+        p.name = utility::conversions::to_utf8string(j.at(U("name")).as_string());
+        p.due = utility::conversions::to_utf8string(j.at(U("due")).as_string());
 
         auto tasks = j.at(U("tasks")).as_array();
         for (auto it = tasks.begin(); it != tasks.end(); ++it) {
           Task t;
           auto j = *it;
           t.id = j.at(U("id")).as_integer();
-          t.name = j.at(U("name")).as_string();
+          t.name = utility::conversions::to_utf8string(j.at(U("name")).as_string());
           t.done = j.at(U("done")).as_bool();
           p.tasks.push_back(t);
         }
