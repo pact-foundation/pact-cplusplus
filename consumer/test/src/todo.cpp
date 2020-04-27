@@ -1,4 +1,3 @@
-#define _TURN_OFF_PLATFORM_STRING
 #include <cpprest/http_client.h>
 #include <cpprest/json.h>
 #include <cstring>
@@ -11,7 +10,6 @@ using namespace web;                        // Common features like URIs.
 using namespace web::http;                  // Common HTTP functionality
 using namespace web::http::client;          // HTTP client features
 
-
 TodoClient::TodoClient() {
   serverUrl = "http://localhost:8080";
 }
@@ -20,7 +18,7 @@ vector<Project> TodoClient::getProjects(string format) {
   vector<Project> projects;
 
   // Create http_client to send the request.
-  http_client client(serverUrl);
+  http_client client(utility::conversions::to_string_t(serverUrl));
 
   uri_builder builder(U("/projects"));
   builder.append_query(U("from"), U("today"));
