@@ -112,7 +112,6 @@ jobs:
           export PATH=$PATH:/home/runner/.local/bin
           conan profile new default --detect
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan profile update settings.compiler.libcxx=libstdc++11 default
           conan create . user/channel  --build missing
           conan install .. --build missing
         working-directory: consumer/build
