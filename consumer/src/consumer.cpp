@@ -29,44 +29,44 @@ namespace pact_consumer {
   }
 
   PactTestResult Pact::run_test(bool (*callback)(MockServerHandle&)) const {
-    MockServerHandle mockServer(this->pact);
+    // MockServerHandle mockServer(this->pact);
     PactTestResult result;
 
-    if (mockServer.started_ok()) {
-      try {
-        bool callback_result = callback(mockServer);
-        bool mock_server_result = mock_server_matched(mockServer.get_port());
-        if (callback_result && mock_server_result) {
-          auto write_result = write_pact_file(mockServer.get_port(), this->pact_directory.data());
-          switch (write_result) {
-            case 1:
-              result.add_state(TestResultState::PactFileError, "A general panic was caught");
-              break;
-            case 2:
-              result.add_state(TestResultState::PactFileError, "The pact file was not able to be written");
-              break;
-            case 3:
-              result.add_state(TestResultState::PactFileError, "A mock server with the provided port was not found");
-              break;
-          }
-        }
-      } catch(const std::exception& e) {
-        result.add_state(TestResultState::UserCodeFailed, e.what());
-      } catch (...) {
-        result.add_state(TestResultState::UserCodeFailed);
-      }
+    // if (mockServer.started_ok()) {
+    //   try {
+    //     bool callback_result = callback(mockServer);
+    //     bool mock_server_result = mock_server_matched(mockServer.get_port());
+    //     if (callback_result && mock_server_result) {
+    //       auto write_result = write_pact_file(mockServer.get_port(), this->pact_directory.data());
+    //       switch (write_result) {
+    //         case 1:
+    //           result.add_state(TestResultState::PactFileError, "A general panic was caught");
+    //           break;
+    //         case 2:
+    //           result.add_state(TestResultState::PactFileError, "The pact file was not able to be written");
+    //           break;
+    //         case 3:
+    //           result.add_state(TestResultState::PactFileError, "A mock server with the provided port was not found");
+    //           break;
+    //       }
+    //     }
+    //   } catch(const std::exception& e) {
+    //     result.add_state(TestResultState::UserCodeFailed, e.what());
+    //   } catch (...) {
+    //     result.add_state(TestResultState::UserCodeFailed);
+    //   }
 
-      if (!mock_server_matched(mockServer.get_port())) {
-        std::string mismatches = mock_server_mismatches(mockServer.get_port());
-        result.add_state(TestResultState::Mismatches, mismatches);
-      }
-    } else {
-      result.add_state(TestResultState::MockServerFailed);
-    }
+    //   if (!mock_server_matched(mockServer.get_port())) {
+    //     std::string mismatches = mock_server_mismatches(mockServer.get_port());
+    //     result.add_state(TestResultState::Mismatches, mismatches);
+    //   }
+    // } else {
+    //   result.add_state(TestResultState::MockServerFailed);
+    // }
 
-    if (!result.is_ok()) {
-      result.display_errors();
-    }
+    // if (!result.is_ok()) {
+    //   result.display_errors();
+    // }
 
     return result;
   }
