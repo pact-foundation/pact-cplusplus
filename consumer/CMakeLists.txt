@@ -11,19 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
 
-add_library(pact-consumer src/consumer.cpp src/body.cpp)
-target_include_directories(pact-consumer
-    PUBLIC 
-        $<INSTALL_INTERFACE:include>    
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
-TARGET_LINK_LIBRARIES(pact-consumer ${CONAN_LIBS})
+add_subdirectory(src)
 
 # Install library
 install(TARGETS pact-consumer DESTINATION lib)
-install(FILES src/consumer.h DESTINATION include)
+install(FILES include/consumer.h DESTINATION include)
 
 ## Add test
 enable_testing()
