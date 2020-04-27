@@ -44,21 +44,22 @@ TEST(PactConsumerTest, GetJsonProjects) {
     });
 
   auto result = provider.run_test([] (auto mock_server) {
-    TodoClient todo;
-    todo.serverUrl = mock_server.get_url();
-    std::cout << "URL: " << todo.serverUrl << "\n";
+    // TodoClient todo;
+    // todo.serverUrl = mock_server.get_url();
+    // std::cout << "URL: " << todo.serverUrl << "\n";
 
-    std::vector<Project> projects = todo.getProjects();
+    // std::vector<Project> projects = todo.getProjects();
 
-    EXPECT_THAT(todo.getProjects(), SizeIs(1));
-    Project p = projects[0];
-    EXPECT_EQ(p.name, "Project 1");
-    EXPECT_GE(p.id, 0);
-    EXPECT_THAT(p.tasks, SizeIs(4));
-    EXPECT_GE(p.tasks[0].id, 0);
-    EXPECT_EQ(p.tasks[0].name, "Task 1");
+    // EXPECT_THAT(todo.getProjects(), SizeIs(1));
+    // Project p = projects[0];
+    // EXPECT_EQ(p.name, "Project 1");
+    // EXPECT_GE(p.id, 0);
+    // EXPECT_THAT(p.tasks, SizeIs(4));
+    // EXPECT_GE(p.tasks[0].id, 0);
+    // EXPECT_EQ(p.tasks[0].name, "Task 1");
 
-    return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
+    // return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
+    return false;
   });
   EXPECT_TRUE(result.is_ok()) << "Test failed";
 }
