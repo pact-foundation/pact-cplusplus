@@ -35,6 +35,7 @@ jobs:
           CXX: g++-9    
       - name: Build conan package
         run: |
+          export PATH=$PATH:/home/runner/.local/bin
           conan user -p $APIKEY -r pact-foundation uglyog
           conan create . pact/beta
           VERSION=$(conan inspect . --raw version)
