@@ -1,4 +1,4 @@
-name: Consumer Project
+name: Release Consumer Project
 
 on:
   release:
