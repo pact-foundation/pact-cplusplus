@@ -14,7 +14,7 @@ class PactcppconsumerConan(ConanFile):
     default_options = {"shared": False}
     generators = "cmake"
     exports_sources = "src/*", "include/*"
-    requires = "pact_mock_server_ffi/0.0.1@user/channel", "nlohmann_json/3.7.3", "gtest/1.10.0", "cpprestsdk/2.10.15@bincrafters/stable"
+    requires = "pact_mock_server_ffi/0.0.1@pact/beta", "nlohmann_json/3.7.3", "gtest/1.10.0", "cpprestsdk/2.10.15@bincrafters/stable"
     scm = {
         "type": "git",
         "subfolder": "src",
