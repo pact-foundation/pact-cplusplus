@@ -64,6 +64,7 @@ jobs:
         working-directory: consumer/build
       - name: Build conan package
         run: |
+          export PATH=$PATH:/home/runner/.local/bin
           conan user -p $APIKEY -r pact-foundation uglyog
           conan create . pact/beta
           VERSION=$(conan inspect . --raw version)
@@ -96,13 +97,9 @@ jobs:
           conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
           conan install .. --build missing
         working-directory: consumer/build
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build .
-        working-directory: consumer/build
       - name: Build conan package
         run: |
+          export PATH=$PATH:/home/runner/.local/bin
           conan user -p $APIKEY -r pact-foundation uglyog
           conan create . pact/beta
           VERSION=$(conan inspect . --raw version)
