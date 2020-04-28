@@ -17,21 +17,14 @@ jobs:
         run: |
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
-      - name: Download mock server package
-        uses: carlosperate/download-file-action@v1.0.3
-        id: download-package
-        with:
-            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
-            file-name: 'conanfile.py'
-            location: 'consumer/build'
       - name: conan install dependencies
         run: |
           rm -rf $HOME/.conan/data/pact_mock_server_ffi
           export PATH=$PATH:/home/runner/.local/bin
           conan profile new default --detect
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
           conan profile update settings.compiler.libcxx=libstdc++11 default
-          conan create . user/channel  --build missing
           conan install .. --build missing
         working-directory: consumer/build
         env:
@@ -64,17 +57,10 @@ jobs:
         run: |
           pip3 install wheel setuptools
           pip3 install conan
-      - name: Download mock server package
-        uses: carlosperate/download-file-action@v1.0.3
-        id: download-package
-        with:
-            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
-            file-name: 'conanfile.py'
-            location: 'consumer/build'
       - name: conan install dependencies Windows
         run: |
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan create . user/channel 
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
           conan install .. --build missing
         working-directory: consumer/build
       - name: Build library Windows
@@ -102,20 +88,13 @@ jobs:
         run: |
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
-      - name: Download mock server package
-        uses: carlosperate/download-file-action@v1.0.3
-        id: download-package
-        with:
-            file-url: 'https://raw.githubusercontent.com/pact-foundation/pact-reference/master/rust/pact_mock_server_ffi/conanfile.py'
-            file-name: 'conanfile.py'
-            location: 'consumer/build'
       - name: conan install dependencies
         run: |
           rm -rf $HOME/.conan/data/pact_mock_server_ffi
           export PATH=$PATH:/home/runner/.local/bin
           conan profile new default --detect
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          conan create . user/channel  --build missing
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
           conan install .. --build missing
         working-directory: consumer/build
       - name: Build library
