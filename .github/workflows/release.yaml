@@ -20,6 +20,7 @@ jobs:
         run: |
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
+      - run: mkdir -p consumer/build
       - name: conan install dependencies
         run: |
           export PATH=$PATH:/home/runner/.local/bin
@@ -54,6 +55,7 @@ jobs:
         run: |
           pip3 install wheel setuptools
           pip3 install conan
+      - run: mkdir consumer\build
       - name: conan install dependencies Windows
         run: |
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
@@ -85,6 +87,7 @@ jobs:
         run: |
           export PATH=$PATH:/home/runner/.local/bin
           conan --version
+      - run: mkdir -p consumer/build
       - name: conan install dependencies
         run: |
           export PATH=$PATH:/home/runner/.local/bin
