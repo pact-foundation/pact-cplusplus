@@ -11,9 +11,9 @@ ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp src/todo.cpp)
 target_include_directories(pact-consumer-tests PRIVATE ../include)
 
 if(WIN32)
-    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer ws2_32 userenv crypt32 secur32 dnsapi ncrypt)
+    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-cpp-consumer ws2_32 userenv crypt32 secur32 dnsapi ncrypt)
 elseif(UNIX) # LINUX or APPLE
-    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-consumer)
+    TARGET_LINK_LIBRARIES(pact-consumer-tests ${CONAN_LIBS} pact-cpp-consumer)
 endif()
 
 # Include test

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # set the project name
-project(pact-consumer VERSION 0.0.0)
+project(pact-cpp-consumer VERSION 0.0.0)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -14,7 +14,7 @@ CONAN_BASIC_SETUP()
 add_subdirectory(src)
 
 # Install library
-install(TARGETS pact-consumer DESTINATION lib)
+install(TARGETS pact-cpp-consumer DESTINATION lib)
 install(FILES include/consumer.h DESTINATION include)
 
 ## Add test

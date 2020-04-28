@@ -5,7 +5,6 @@ class PactcppconsumerConan(ConanFile):
     name = "pact_cpp_consumer"
     version = "0.0.0"
     license = "MIT"
-    url = "https://github.com/conan-io/conan-center-index"
     homepage = "https://github.com/pact-foundation/pact-cplusplus"
     description = "Pact C++ Consumer DSL"
     topics = ("Contract Testing")
@@ -36,4 +35,4 @@ class PactcppconsumerConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["pact-consumer"]
+        self.cpp_info.libs = ["pact-cpp-consumer"]
