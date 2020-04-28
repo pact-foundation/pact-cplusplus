@@ -39,5 +39,3 @@ To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD 
 * c1217ab - chore: implemented todo test client (Ronald Holshausen, Thu Apr 16 13:55:23 2020 +1000)
 * 2935ffb - chore: got a test calling a library function (Ronald Holshausen, Thu Apr 16 10:59:04 2020 +1000)
 * 8f69730 - chore: added basic consumer project with tests (Ronald Holshausen, Wed Apr 15 16:23:16 2020 +1000)
-
-# 0.0.0 - First Release
