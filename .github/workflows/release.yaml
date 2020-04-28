@@ -1,0 +1,109 @@
+name: Consumer Project
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
+      - run: python --version
+      - run: mkdir -p consumer/build
+      - name: Install conan
+        run: |
+          pip3 install wheel setuptools
+          pip3 install conan
+      - name: Check conan version
+        run: |
+          export PATH=$PATH:/home/runner/.local/bin
+          conan --version
+      - name: conan install dependencies
+        run: |
+          export PATH=$PATH:/home/runner/.local/bin
+          conan profile new default --detect
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
+          conan profile update settings.compiler.libcxx=libstdc++11 default
+          conan install .. --build missing
+        working-directory: consumer/build
+        env:
+          CC: gcc-9
+          CXX: g++-9    
+      - name: Build conan package
+        run: |
+          conan user -p $APIKEY -r pact-foundation uglyog
+          conan create . pact/beta
+          VERSION=$(conan inspect . --raw version)
+          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
+        working-directory: consumer
+        env:
+          APIKEY: ${{ secrets.BintrayApiKey }}
+          CC: gcc-9
+          CXX: g++-9
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
+      - run: python --version
+      - name: Install conan
+        run: |
+          pip3 install wheel setuptools
+          pip3 install conan
+      - name: conan install dependencies Windows
+        run: |
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
+          conan install .. --build missing
+        working-directory: consumer/build
+      - name: Build conan package
+        run: |
+          conan user -p $APIKEY -r pact-foundation uglyog
+          conan create . pact/beta
+          VERSION=$(conan inspect . --raw version)
+          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
+        working-directory: consumer
+        shell: bash
+        env:
+          APIKEY: ${{ secrets.BintrayApiKey }}
+
+  build-osx:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
+      - run: python --version
+      - name: Install conan
+        run: |
+          pip3 install wheel setuptools
+          pip3 install conan
+      - name: Check conan version
+        run: |
+          export PATH=$PATH:/home/runner/.local/bin
+          conan --version
+      - name: conan install dependencies
+        run: |
+          export PATH=$PATH:/home/runner/.local/bin
+          conan profile new default --detect
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+          conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
+          conan install .. --build missing
+        working-directory: consumer/build
+      - name: Build library
+        run: |
+          cmake ..
+          cmake --build .
+        working-directory: consumer/build
+      - name: Build conan package
+        run: |
+          conan user -p $APIKEY -r pact-foundation uglyog
+          conan create . pact/beta
+          VERSION=$(conan inspect . --raw version)
+          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
+        working-directory: consumer
+        env:
+          APIKEY: ${{ secrets.BintrayApiKey }}
