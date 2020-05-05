@@ -97,7 +97,7 @@ namespace pact_consumer {
   }
 
   Interaction Interaction::withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const {
-    for (auto q : query) {
+    for (auto& q : query) {
       for (auto it = q.second.begin(); it != q.second.end(); it++) {
         pact_mock_server_ffi::with_query_parameter(this->interaction, q.first.data(), it - q.second.begin(), it->data());
       }
@@ -106,7 +106,7 @@ namespace pact_consumer {
   }
   
   Interaction Interaction::withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const {
-    for (auto h : headers) {
+    for (auto& h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
         pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Request, h.first.data(), it - h.second.begin(), it->data());
       }

@@ -24,7 +24,11 @@ vector<Project> TodoClient::getProjects(string format) {
   builder.append_query(U("from"), U("today"));
   http_request request;
   request.set_request_uri(builder.to_uri());
-  request.headers().add(header_names::accept, utility::conversions::to_string_t("application/" + format));
+  if (format == "xml") {
+    request.headers().add(header_names::accept, utility::conversions::to_string_t("application/xml"));
+  } else {
+    request.headers().add(header_names::accept, utility::conversions::to_string_t("application/json, application/hal+json"));
+  }
 
   auto response = client.request(request);
   if (format == "xml") {

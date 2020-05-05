@@ -15,7 +15,7 @@ TEST(PactConsumerTest, GetJsonProjects) {
   query["from"] = std::vector<std::string>{"today"};
 
   std::unordered_map<std::string, std::vector<std::string>> headers;
-  headers["Accept"] = std::vector<std::string>{"application/json"};
+  headers["Accept"] = std::vector<std::string>{"application/json", "application/hal+json"};
 
   std::unordered_map<std::string, std::vector<std::string>> res_headers;
   res_headers["Content-Type"] = std::vector<std::string>{"application/json"};
