@@ -69,11 +69,66 @@ namespace pact_consumer {
       PactJsonBuilder& integer(std::string name);
 
       /**
+       * Attribute whose value must be a decimal number (must be a number and have decimal places)
+       * @param name Attribute name 
+       * @param num Example value. If omitted a random value will be generated.
+       */
+      PactJsonBuilder& decimal(std::string name, double example);
+
+      /**
+       * Attribute whose value must be a decimal number (must be a number and have decimal places). A random value will be 
+       * generated for any examples.
+       * @param name Attribute name 
+       */
+      PactJsonBuilder& decimal(std::string name);
+
+      /**
+       * Attribute whose value must be a number.
+       * @param name Attribute name 
+       * @param num Example value. If omitted a random integer value will be generated.
+       */
+      PactJsonBuilder& number(std::string name, double example);
+
+      /**
+       * Attribute whose value must be a number.
+       * @param name Attribute name 
+       * @param num Example value. If omitted a random integer value will be generated.
+       */
+      PactJsonBuilder& number(std::string name, int example);
+
+      /**
+       * Attribute whose value must be a number. A random integer value will be generated for any examples.
+       * @param name Attribute name 
+       */
+      PactJsonBuilder& number(std::string name);
+
+      /**
        * Attribute whose value must be a string.
        * @param name Attribute name
        * @param example Example value.
        */
       PactJsonBuilder& string(std::string name, std::string example);
+
+      /**
+       * Attribute whose value must be a string. A random string value will be generated for any examples.
+       * @param name Attribute name
+       */
+      PactJsonBuilder& string(std::string name);
+
+      /**
+        * Attribute whose value that must match the given regular expression.
+        * @param name Attribute name
+        * @param regex Regular Expression to match
+        * @param example Example value
+        */
+      PactJsonBuilder& regex(std::string name, std::string regex, std::string example);
+
+      /**
+        * Attribute whose value that must match the given regular expression. A random string value will be generated for any examples.
+        * @param name Attribute name
+        * @param regex Regular Expression to match
+        */
+      PactJsonBuilder& regex(std::string name, std::string regex);
 
       /**
       * String value that must match the provided datetime format string.

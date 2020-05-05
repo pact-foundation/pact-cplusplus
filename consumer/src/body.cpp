@@ -1,4 +1,5 @@
 #include "consumer.h"
+#include <sstream>
 
 using namespace pact_mock_server_ffi;
 
@@ -8,7 +9,7 @@ namespace pact_consumer
     this->parent = parent;
     this->obj = json::object();
   }
-  
+
   PactJsonBuilder& PactJsonBuilder::eachLike(std::string name, void (*callback)(PactJsonBuilder*)) {
     return eachLike(name, 1, callback);
   }
@@ -29,7 +30,7 @@ namespace pact_consumer
   /*
    * Value must match the given template
    * @param template Template to base the comparison on
-   
+
   export function like(template: any) {
     return {
       "pact:matcher:type": "type",
@@ -50,8 +51,8 @@ namespace pact_consumer
       array.push_back(builder.get_json());
     }
     json j;
-    j["pact:matcher:type"] = "integer"; 
-    j["value"] = array; 
+    j["pact:matcher:type"] = "integer";
+    j["value"] = array;
     obj[name] = j;
 
     return *this;
@@ -62,7 +63,7 @@ namespace pact_consumer
    * @param template Template to base the comparison on
    * @param min Minimum number of elements required in the array
    * @param count Number of examples to generate, defaults to one
-   
+
   export function atLeastLike(template: any, min: number, count?: number) {
     const elements = count || min
     if (count && count < min) {
@@ -83,12 +84,12 @@ namespace pact_consumer
     }
   }
 
-  
+
    * An array that has to have at most the required number of elements and each element must match the given template
    * @param template Template to base the comparison on
    * @param max Maximum number of elements required in the array
    * @param count Number of examples to generate, defaults to one
-   
+
   export function atMostLike(template: any, max: number, count?: number) {
     const elements = count || 1
     if (count && count > max) {
@@ -109,13 +110,13 @@ namespace pact_consumer
     }
   }
 
-  
+
    * An array whose size is constrained to the minimum and maximum number of elements and each element must match the given template
    * @param template Template to base the comparison on
    * @param min Minimum number of elements required in the array
    * @param max Maximum number of elements required in the array
    * @param count Number of examples to generate, defaults to one
-   
+
   export function constrainedArrayLike(
     template: any,
     min: number,
@@ -155,92 +156,126 @@ namespace pact_consumer
 
   PactJsonBuilder& PactJsonBuilder::boolean(std::string name, bool b) {
     json j;
-    j["pact:matcher:type"] = "type"; 
-    j["value"] = b; 
+    j["pact:matcher:type"] = "type";
+    j["value"] = b;
     obj[name] = j;
     return *this;
   }
-  
+
   PactJsonBuilder& PactJsonBuilder::integer(std::string name, int example) {
     json j;
-    j["pact:matcher:type"] = "integer"; 
-    j["value"] = example; 
+    j["pact:matcher:type"] = "integer";
+    j["value"] = example;
     obj[name] = j;
     return *this;
   }
 
   PactJsonBuilder& PactJsonBuilder::integer(std::string name) {
     json j;
-    j["pact:generator:type"] = "RandomInt"; 
-    j["pact:matcher:type"] = "integer"; 
-    j["value"] = 101; 
+    j["pact:generator:type"] = "RandomInt";
+    j["pact:matcher:type"] = "integer";
+    j["value"] = 101;
     obj[name] = j;
     return *this;
   }
 
-  /*
-   * Value must be a decimal number (must be a number and have decimal places)
-   * @param num Example value. If omitted a random value will be generated.
-   
-  export function decimal(num?: number) {
-    if (num) {
-      return {
-        "pact:matcher:type": "decimal",
-        value: num,
-      }
-    } else {
-      return {
-        "pact:generator:type": "RandomDecimal",
-        "pact:matcher:type": "decimal",
-        value: 12.34,
-      }
-    }
+  PactJsonBuilder& PactJsonBuilder::decimal(std::string name, double example) {
+    json j;
+    j["pact:matcher:type"] = "decimal";
+    j["value"] = example;
+    obj[name] = j;
+    return *this;
   }
 
-  
-   * Value must be a number
-   * @param num Example value. If omitted a random integer value will be generated.
-   
-  export function number(num?: number) {
-    if (num) {
-      return {
-        "pact:matcher:type": "number",
-        value: num,
-      }
-    } else {
-      return {
-        "pact:generator:type": "RandomInt",
-        "pact:matcher:type": "number",
-        value: 1234,
-      }
-    }
-  }*/
+  PactJsonBuilder& PactJsonBuilder::decimal(std::string name) {
+    json j;
+    j["pact:generator:type"] = "RandomDecimal";
+    j["pact:matcher:type"] = "decimal";
+    j["value"] = 12.34;
+    obj[name] = j;
+    return *this;
+  }
+
+  PactJsonBuilder& PactJsonBuilder::number(std::string name, double example) {
+    json j;
+    j["pact:matcher:type"] = "number";
+    j["value"] = example;
+    obj[name] = j;
+    return *this;
+  }
+
+  PactJsonBuilder& PactJsonBuilder::number(std::string name, int example) {
+    json j;
+    j["pact:matcher:type"] = "number";
+    j["value"] = example;
+    obj[name] = j;
+    return *this;
+  }
+
+  PactJsonBuilder& PactJsonBuilder::number(std::string name) {
+    json j;
+    j["pact:generator:type"] = "RandomInt";
+    j["pact:matcher:type"] = "number";
+    j["value"] = 1234;
+    obj[name] = j;
+    return *this;
+  }
 
   PactJsonBuilder& PactJsonBuilder::string(std::string name, std::string example) {
     json j;
-    j["pact:matcher:type"] = "type"; 
-    j["value"] = example; 
+    j["pact:matcher:type"] = "type";
+    j["value"] = example;
+    obj[name] = j;
+    return *this;
+  }
+
+  PactJsonBuilder& PactJsonBuilder::string(std::string name) {
+    json j;
+    j["pact:matcher:type"] = "type";
+    j["pact:generator:type"] = "RandomString";
+    j["pact:generator:size"] = 20;
+    j["value"] = "example string";
+    obj[name] = j;
+    return *this;
+  }
+
+  PactJsonBuilder& PactJsonBuilder::regex(std::string name, std::string regex, std::string example) {
+    if (pact_mock_server_ffi::check_regex(regex.data(), example.data())) {
+      json j;
+      j["pact:matcher:type"] = "regex";
+      j["pact:matcher:regex"] = regex;
+      j["value"] = example;
+      obj[name] = j;
+      return *this;
+    } else {
+      std::ostringstream stringStream;
+      stringStream << "regex: Example value '" << example << "' does not match the regular expression '" << regex << "'";
+      throw stringStream.str();
+    }
+  }
+
+  PactJsonBuilder& PactJsonBuilder::regex(std::string name, std::string regex) {
+    json j;
+    j["pact:matcher:type"] = "regex";
+    j["pact:matcher:regex"] = regex;
+    j["pact:generator:type"] = "Regex";
+    j["pact:generator:regex"] = regex;
+    auto result = pact_mock_server_ffi::generate_regex_value(regex.data());
+    if (result.tag == StringResult::Tag::Ok) {
+      std::string value = result.ok._0;
+      j["value"] = value;
+      pact_mock_server_ffi::free_string(result.ok._0);
+    } else {
+      j["value"] = "";
+    }
     obj[name] = j;
     return *this;
   }
 
   /*
-   * Value that must match the given regular expression
-   * @param pattern Regular Expression to match
-   * @param str Example value
-   
-  export function regex(pattern: string, str: string) {
-    return {
-      "pact:matcher:type": "regex",
-      regex: pattern,
-      value: str,
-    }
-  }
-
-  
    * Value that must be equal to the example. This is mainly used to reset the matching rules which cascade.
    * @param value Example value
-   
+
   export function equal(value: any) {
     return {
       "pact:matcher:type": "equality",
@@ -250,8 +285,8 @@ namespace pact_consumer
 
   PactJsonBuilder& PactJsonBuilder::datetime(std::string name, std::string format, std::string example) {
     json j;
-    j["pact:generator:type"] = "DateTime"; 
-    j["pact:matcher:type"] = "timestamp"; 
+    j["pact:generator:type"] = "DateTime";
+    j["pact:matcher:type"] = "timestamp";
     j["timestamp"] = format;
     j["value"] = example;
     obj[name] = j;
@@ -260,16 +295,18 @@ namespace pact_consumer
 
   PactJsonBuilder& PactJsonBuilder::datetime(std::string name, std::string format) {
     auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
-    if (result.tag == DateTimeResult::Tag::Ok) {
+    if (result.tag == StringResult::Tag::Ok) {
       std::string value = result.ok._0;
-      pact_mock_server_ffi::free_string(result.ok._0);
-
+      
       json j;
-      j["pact:generator:type"] = "DateTime"; 
-      j["pact:matcher:type"] = "timestamp"; 
+      j["pact:generator:type"] = "DateTime";
+      j["pact:matcher:type"] = "timestamp";
       j["timestamp"] = format;
       j["value"] = value;
       obj[name] = j;
+
+      pact_mock_server_ffi::free_string(result.ok._0);
+
       return *this;
     } else {
       std::string error = result.failed._0;
@@ -282,7 +319,7 @@ namespace pact_consumer
    * String value that must match the provided time format string.
    * @param format Time format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use. If omitted a value using the current system time will be generated.
-   
+
   export function time(format: string, example?: string) {
     return {
       "pact:generator:type": "Time",
@@ -292,11 +329,11 @@ namespace pact_consumer
     }
   }
 
-  
+
    * String value that must match the provided date format string.
    * @param format Date format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use. If omitted a value using the current system date will be generated.
-   
+
   export function date(format: any, example?: string) {
     return {
       date: format,
@@ -306,10 +343,10 @@ namespace pact_consumer
     }
   }
 
-  
+
    * Value that must include the example value as a substring.
    * @param value String value to include
-   
+
   export function includes(value: string) {
     return {
       "pact:matcher:type": "include",
@@ -317,10 +354,10 @@ namespace pact_consumer
     }
   }
 
-  
+
    * Value that must be null. This will only match the JSON Null value. For other content types, it will
    * match if the attribute is missing.
-   
+
   export function nullValue() {
     return {
       "pact:matcher:type": "null",
