@@ -7,6 +7,10 @@ using json = nlohmann::json;
 using namespace testing;
 using namespace pact_consumer;
 
+MATCHER(IsNumeric, "") { 
+    return !arg.empty() && std::all_of(arg.begin(), arg.end(), ::isdigit);
+}
+
 TEST(PactJsonBuilderTest, EachLike) {
   PactJsonBuilder builder(nullptr);
 
@@ -73,6 +77,6 @@ TEST(PactJsonBuilderTest, RegexMatcher) {
   json j = json::parse(json_str);
   EXPECT_EQ(j["foo"].dump(), "{\"pact:matcher:regex\":\"[a-z][0-9]\",\"pact:matcher:type\":\"regex\",\"value\":\"a1\"}");
   EXPECT_EQ(j["bar"]["pact:matcher:type"], "regex");
-  EXPECT_THAT(j["bar"]["value"].get<std::string>(), MatchesRegex("[0-9]+"));
+  EXPECT_THAT(j["bar"]["value"].get<std::string>(), IsNumeric());
 }
 
