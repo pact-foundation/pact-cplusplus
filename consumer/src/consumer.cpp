@@ -162,7 +162,7 @@ namespace pact_consumer {
 
   std::string MockServerHandle::get_url() const {
     std::ostringstream out;
-    out << "http://127.0.0.1:" << this->port << "/";
+    out << "http://127.0.0.1:" << this->port;
     return out.str();
   }
 
