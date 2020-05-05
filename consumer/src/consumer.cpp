@@ -149,7 +149,7 @@ namespace pact_consumer {
   ////////////////////////////////////
 
   MockServerHandle::MockServerHandle(pact_mock_server_ffi::PactHandle pact) {
-    this->port = pact_mock_server_ffi::create_mock_server_for_pact(pact, "127.0.0.1:0");
+    this->port = pact_mock_server_ffi::create_mock_server_for_pact(pact, "127.0.0.1:0", false);
   }
 
   MockServerHandle::~MockServerHandle() {
