@@ -63,15 +63,30 @@ TEST(PactConsumerTest, GetJsonProjects) {
   EXPECT_TRUE(result.is_ok()) << "Test failed";
 }
 
-// TEST(PactConsumerTest, GetXmlProjects) {
-//   TodoClient todo;
+TEST(PactConsumerTest, PutProjectImage) {
+  auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
+  provider.pact_directory = "pacts";
+  
+  provider
+    .given("i have a project", std::unordered_map<std::string, std::string> {
+        {"id","1001"},
+        {"name","Home Chores"}
+    })
+    .uponReceiving("a request to store an image against the project")
+    .withRequest("POST", "/projects/1001/images")
+    .withBinaryFile("image/jpeg", "example.jpg")
+    .willRespondWith(201);
 
-//   cout << "URL: " << todo.serverUrl << "\n";
-
-//   vector<Project> projects = todo.getProjects("xml");
-
-//   EXPECT_EQ(todo.serverUrl, "1");
-// }
+  auto result = provider.run_test([] (auto mock_server) {
+    TodoClient todo;
+    todo.serverUrl = mock_server->get_url();
+    
+    auto result = todo.postImage(1001, "example.jpg");
+    EXPECT_EQ(result, true);
+    return ::testing::UnitTest::GetInstance()->current_test_suite()->Passed();
+  });
+  EXPECT_TRUE(result.is_ok()) << "Test failed";
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

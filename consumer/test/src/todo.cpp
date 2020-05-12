@@ -2,6 +2,8 @@
 #include <cpprest/json.h>
 #include <cstring>
 #include <string>
+#include <iostream>
+#include <fstream>
 #include "todo.h"
 
 using namespace std;
@@ -67,4 +69,29 @@ vector<Project> TodoClient::getProjects(string format) {
   }
 
   return projects;
+}
+
+bool TodoClient::postImage(unsigned int id, std::string file_path) {
+  http_client client(utility::conversions::to_string_t(serverUrl));
+
+  std::ostringstream out;
+  out << "/projects/" << id << "/images";
+  uri_builder builder(utility::conversions::to_string_t(out.str()));
+  http_request request("POST");
+  request.set_request_uri(builder.to_uri());
+
+  std::ifstream file (file_path, std::ios::binary | std::ios::ate);
+  std::streamsize size = file.tellg();
+  file.seekg(0, std::ios::beg);
+  std::vector<unsigned char> buffer(size);
+  if (file.read((char *) buffer.data(), size)) {
+    request.set_body(buffer); 
+  } else {
+    throw std::string("Could not read file contents: ") + file_path;
+  }
+
+  return client.request(request).then([=](http_response response) {
+      printf("Received response status code:%u\n", response.status_code());
+      return status_code() == 201;
+    }).wait();
 }

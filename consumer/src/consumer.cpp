@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <sstream>
 #include "consumer.h"
@@ -26,6 +27,10 @@ namespace pact_consumer {
 
   Interaction Pact::given(const char* provider_state) const {
     return Interaction(this, "__new_interaction__").given(provider_state);
+  }
+
+  Interaction Pact::given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const {
+    return Interaction(this, "__new_interaction__").given(provider_state, parameters);
   }
 
   PactTestResult Pact::run_test(bool (*callback)(MockServerHandle*)) const {
@@ -79,6 +84,9 @@ namespace pact_consumer {
     this->pact =  parent;
     this->description = description;
     this->interaction = pact_mock_server_ffi::new_interaction(parent->pact, description);
+    if (this->interaction.interaction == 0) {
+      throw std::string("Could not create a new interaction with description ") + description;
+    }
   }
 
   Interaction Interaction::uponReceiving(const char* description) const {
@@ -88,6 +96,13 @@ namespace pact_consumer {
 
   Interaction Interaction::given(const char* provider_state) const {
     pact_mock_server_ffi::given(this->interaction, provider_state);
+    return *this;
+  }
+
+  Interaction Interaction::given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const {
+    for (auto& p : parameters) {
+      pact_mock_server_ffi::given_with_param(this->interaction, provider_state, p.first.data(), p.second.data());
+    }
     return *this;
   }
 
@@ -122,6 +137,20 @@ namespace pact_consumer {
     return *this;
   }
 
+  Interaction Interaction::withBinaryFile(std::string content_type, std::filesystem::path example_file) const {
+    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::vector<char> buffer(size);
+    if (file.read(buffer.data(), size)) {
+      pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
+        buffer.data(), size);
+      return *this;
+    } else {
+      throw std::string("Could not read file contents: ") + example_file.string();
+    }
+  }
+
   Interaction Interaction::willRespondWith(size_t status) const {
     pact_mock_server_ffi::response_status(this->interaction, status);
     return *this;
@@ -142,6 +171,20 @@ namespace pact_consumer {
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
       body.get_json().dump().data());
     return *this;
+  }
+
+  Interaction Interaction::withResponseBinaryFile(std::string content_type, std::filesystem::path example_file) const {
+    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::vector<char> buffer(size);
+    if (file.read(buffer.data(), size)) {
+      pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+        buffer.data(), size);
+      return *this;
+    } else {
+      throw std::string("Could not read file contents: ") + example_file.string();
+    }
   }
 
   ////////////////////////////////////

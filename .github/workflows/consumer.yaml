@@ -34,12 +34,14 @@ jobs:
         run: |
           cmake ..
           cmake --build .
+          cp ../test/example.jpg .
         working-directory: consumer/build
         env:
           CC: gcc-9
           CXX: g++-9
       - name: Run pact-consumer-tests
-        run: consumer/build/test/bin/pact-consumer-tests
+        run: test/bin/pact-consumer-tests
+        working-directory: consumer/build
         env:
           LOG_LEVEL: DEBUG
 
@@ -67,9 +69,12 @@ jobs:
         run: |
           cmake ..
           cmake --build . --config Release
+          cp ../test/example.jpg .
+        shell: bash
         working-directory: consumer/build
       - name: Run pact-consumer-tests
-        run: consumer/build/test/bin/pact-consumer-tests
+        run: test/bin/pact-consumer-tests
+        working-directory: consumer/build
         env:
           LOG_LEVEL: DEBUG
 
@@ -101,8 +106,10 @@ jobs:
         run: |
           cmake ..
           cmake --build .
+          cp ../test/example.jpg .
         working-directory: consumer/build
       - name: Run pact-consumer-tests
-        run: consumer/build/test/bin/pact-consumer-tests
+        run: test/bin/pact-consumer-tests
+        working-directory: consumer/build
         env:
           LOG_LEVEL: DEBUG

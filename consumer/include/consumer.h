@@ -5,6 +5,7 @@
 #include <vector>
 #include <pact_mock_server_ffi.h>
 #include <nlohmann/json.hpp>
+#include <filesystem>
 
 using json = nlohmann::json;
 
@@ -245,6 +246,11 @@ namespace pact_consumer {
       Interaction given(const char* provider_state) const;
 
       /**
+       * Creates a new iteraction with a defined provider state and parameters
+       */
+      Interaction given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const;
+
+      /**
        * Creates a new interaction with the provided description.
        */
       Interaction uponReceiving(const char* description) const;
@@ -278,40 +284,65 @@ namespace pact_consumer {
      * Adds the provider state to the interaction
      */
     Interaction given(const char* provider_state) const;
+
+    /**
+     * Adds a provider state with parameters
+     */
+    Interaction given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const;
+
     /**
      * Sets the description for the interaction
      */
     Interaction uponReceiving(const char* description) const;
+
     /**
      * Sets the method and path for the request
      */
     Interaction withRequest(const char* method, const char* path) const;
+
     /**
      * Sets the query parameters for the request
      */
     Interaction withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const;
+
     /**
      * Sets the headers for the request
      */
     Interaction withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
+    
     /**
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.
      */
     Interaction withJsonBody(void (*callback)(PactJsonBuilder*)) const;
+
+    /**
+     * Sets the body for the request using the example file and content type. Note that this will attempt to load the
+     * entire example file in memory. Use small files for your testing.
+     */
+    Interaction withBinaryFile(std::string content_type, std::filesystem::path example_file) const;
+
     /**
      * Sets the status code for the response
      */
     Interaction willRespondWith(size_t status) const;
+
     /**
      * Sets the headers for the response
      */
     Interaction withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
+
     /**
      * Sets the body for the request using the callback. The callback will be invoked 
      * with a builder to construct the body.
      */
     Interaction withResponseJsonBody(void (*callback)(PactJsonBuilder*)) const;
+
+    /**
+     * Sets the body for the response using the example file and content type. Note that this will attempt to load the
+     * entire example file in memory. Use small files for your testing. 
+     */
+    Interaction withResponseBinaryFile(std::string content_type, std::filesystem::path example_file) const;
 
     pact_mock_server_ffi::InteractionHandle interaction;
 
