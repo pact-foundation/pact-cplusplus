@@ -77,7 +77,7 @@ bool TodoClient::postImage(unsigned int id, std::string file_path) {
   std::ostringstream out;
   out << "/projects/" << id << "/images";
   uri_builder builder(utility::conversions::to_string_t(out.str()));
-  http_request request("POST");
+  http_request request(U("POST"));
   request.set_request_uri(builder.to_uri());
 
   std::ifstream file (file_path, std::ios::binary | std::ios::ate);
