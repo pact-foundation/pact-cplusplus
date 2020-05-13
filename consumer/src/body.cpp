@@ -1,5 +1,6 @@
 #include "consumer.h"
 #include <sstream>
+#include <boost/throw_exception.hpp>
 
 using namespace pact_mock_server_ffi;
 
@@ -51,7 +52,7 @@ namespace pact_consumer
       array.push_back(builder.get_json());
     }
     json j;
-    j["pact:matcher:type"] = "integer";
+    j["pact:matcher:type"] = "type";
     j["value"] = array;
     obj[name] = j;
 
@@ -250,7 +251,7 @@ namespace pact_consumer
     } else {
       std::ostringstream stringStream;
       stringStream << "regex: Example value '" << example << "' does not match the regular expression '" << regex << "'";
-      throw stringStream.str();
+      BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
     }
   }
 
@@ -311,7 +312,7 @@ namespace pact_consumer
     } else {
       std::string error = result.failed._0;
       pact_mock_server_ffi::free_string(result.failed._0);
-      throw error;
+      BOOST_THROW_EXCEPTION(std::runtime_error(error));
     }
   }
 

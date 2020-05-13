@@ -6,6 +6,8 @@
 #include <pact_mock_server_ffi.h>
 #include <nlohmann/json.hpp>
 #include <filesystem>
+#include <optional>
+#include "matchers.h"
 
 using json = nlohmann::json;
 
@@ -216,6 +218,11 @@ namespace pact_consumer {
       void add_state(TestResultState state, std::string message);
 
       /**
+       * Adds a test state with a message to the result
+       */
+      void add_state(TestResultState state, std::string message, std::string ex);
+
+      /**
        * If there are no mismatches and the user code did not fail
        */
       bool is_ok() const;
@@ -228,6 +235,7 @@ namespace pact_consumer {
     private:
       unsigned int status = 0;
       std::vector<std::string> messages;
+      std::optional<std::string> ex;
   };
 
   /**
@@ -317,6 +325,11 @@ namespace pact_consumer {
     Interaction withJsonBody(void (*callback)(PactJsonBuilder*)) const;
 
     /**
+     * Sets the body for the request using the provided body template
+     */
+    Interaction withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const;
+
+    /**
      * Sets the body for the request using the example file and content type. Note that this will attempt to load the
      * entire example file in memory. Use small files for your testing.
      */
@@ -337,6 +350,11 @@ namespace pact_consumer {
      * with a builder to construct the body.
      */
     Interaction withResponseJsonBody(void (*callback)(PactJsonBuilder*)) const;
+
+    /**
+     * Sets the body for the request using the provided body template
+     */
+    Interaction withResponseJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const;
 
     /**
      * Sets the body for the response using the example file and content type. Note that this will attempt to load the

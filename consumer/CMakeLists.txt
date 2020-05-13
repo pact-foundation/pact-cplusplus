@@ -15,7 +15,7 @@ add_subdirectory(src)
 
 # Install library
 install(TARGETS pact-cpp-consumer DESTINATION lib)
-install(FILES include/consumer.h DESTINATION include)
+install(FILES include/consumer.h include/matchers.h DESTINATION include)
 
 ## Add test
 enable_testing()

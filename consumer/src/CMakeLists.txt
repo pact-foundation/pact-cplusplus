@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
 
-add_library(pact-cpp-consumer consumer.cpp body.cpp)
+add_library(pact-cpp-consumer consumer.cpp body.cpp matchers.cpp)
 target_include_directories(pact-cpp-consumer
     PUBLIC 
         $<INSTALL_INTERFACE:include>    

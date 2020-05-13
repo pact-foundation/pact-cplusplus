@@ -6,6 +6,7 @@
 
 using namespace testing;
 using namespace pact_consumer;
+using namespace pact_consumer::matchers;
 
 TEST(PactConsumerTest, GetJsonProjects) {
   auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
@@ -28,20 +29,18 @@ TEST(PactConsumerTest, GetJsonProjects) {
     .withHeaders(headers)
     .willRespondWith(200)
     .withResponseHeaders(res_headers)
-    .withResponseJsonBody([](auto body) {
-      body->eachLike("projects", [](auto project) {
-        (*project)
-          .integer("id")
-          .string("name", "Project 1")
-          .datetime("due", "yyyy-MM-dd'T'HH:mm:ss.SSSX", "2016-02-11T09:46:56.023Z")
-          .atLeastOneLike("tasks", 4, [](auto task) {
-            (*task)
-              .integer("id")
-              .string("name", "Task 1")
-              .boolean("done", true);
-          });
-      });
-    });
+    .withResponseJsonBody(Object({
+      { "projects", EachLike(Object({
+        { "id", Integer(3) },
+        { "name", Like("Project 1") },
+        { "due", DateTime("yyyy-MM-dd'T'HH:mm:ss.SSSX") },
+        { "tasks", AtLeastOneLike(4, Object({
+          { "id", Integer() },
+          { "name", Matching("Task \\d+", "Task 1") },
+          { "done", Like(true) }
+        }))}
+      }))}
+    }));
 
   auto result = provider.run_test([] (auto mock_server) {
     TodoClient todo;

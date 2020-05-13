@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <sstream>
 #include "consumer.h"
+#include <boost/exception/diagnostic_information.hpp>
 
 using namespace pact_mock_server_ffi;
 
@@ -56,7 +57,7 @@ namespace pact_consumer {
           }
         }
       } catch(const std::exception& e) {
-        result.add_state(TestResultState::UserCodeFailed, e.what());
+        result.add_state(TestResultState::UserCodeFailed, e.what(), boost::current_exception_diagnostic_information());
       } catch (...) {
         result.add_state(TestResultState::UserCodeFailed);
       }
@@ -137,6 +138,12 @@ namespace pact_consumer {
     return *this;
   }
 
+  Interaction Interaction::withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
+    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, "application/json;charset=UTF-8", 
+      body->getJson().dump().data());
+    return *this;
+  }
+
   Interaction Interaction::withBinaryFile(std::string content_type, std::filesystem::path example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
     std::streamsize size = file.tellg();
@@ -170,6 +177,12 @@ namespace pact_consumer {
     callback(&body);
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
       body.get_json().dump().data());
+    return *this;
+  }
+
+  Interaction Interaction::withResponseJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
+    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
+      body->getJson().dump().data());
     return *this;
   }
 
@@ -230,6 +243,12 @@ namespace pact_consumer {
     this->messages[state] = message;
   }
 
+  void PactTestResult::add_state(TestResultState state, std::string message, std::string ex) {
+    this->status |= state;
+    this->messages[state] = message;
+    this->ex = ex;
+  }
+
   bool PactTestResult::is_ok() const {
     return this->status == 0;
   }
@@ -286,6 +305,9 @@ namespace pact_consumer {
           std::cout << "\t* Test callback failed with an exception\n";
         } else {
           std::cout << "\t* Test callback failed with an exception: " << message << "\n";
+        }
+        if (ex.has_value()) {
+          std::cout << "\t\t" << ex.value() << "\n";
         }
       }
       if (this->status & TestResultState::PactFileError) {
