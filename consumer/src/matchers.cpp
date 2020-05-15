@@ -192,6 +192,10 @@ namespace pact_consumer::matchers {
     return std::make_shared<EqualsMatcher<std::string>>(value);
   }
 
+  IMatcher::Ptr EqualTo(const char *value) {
+    return std::make_shared<EqualsMatcher<std::string>>(value);
+  }
+
   IMatcher::Ptr EqualTo(bool value) {
     return std::make_shared<EqualsMatcher<bool>>(value);
   }
@@ -482,12 +486,12 @@ namespace pact_consumer::matchers {
     j["pact:matcher:type"] = "regex";
     std::string regex = ".*";
     for (const auto &p : pathFragments) {
-      regex += "\\Q" + p->as_regex() + "\\E/";
+      regex += "\\/" + p->as_regex();
     }
     j["regex"] = regex;
-    std::string example = basePath + "/";
+    std::string example = basePath;
     for (const auto &p : pathFragments) {
-      example += p->as_example() + "/";
+      example += "/" + p->as_example();
     }
     j["value"] = example;
     return j;

@@ -265,7 +265,7 @@ This will generate
 }
 ```
 
-and configure a regex matcher to match `.*1001/\Q\d+\E$`
+and configure a regex matcher to match `.*\/1001\/\d+$`
 
 ### Execute the test
 

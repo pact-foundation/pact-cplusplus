@@ -485,6 +485,12 @@ namespace pact_consumer::matchers {
    * Match by equality. This is mainly used to reset the cascading type matchers.
    * @param value Value to match to
    */
+  IMatcher::Ptr EqualTo(const char *value);
+
+  /**
+   * Match by equality. This is mainly used to reset the cascading type matchers.
+   * @param value Value to match to
+   */
   IMatcher::Ptr EqualTo(bool value);
 
   /**
