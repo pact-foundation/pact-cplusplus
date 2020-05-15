@@ -21,7 +21,23 @@
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_ade5ddccbcbcf1751c626f322a233bfad}{integer}} (std\+::string name)
 \item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a09d0204658f06b97fbfcb35542cfef1d}{decimal}} (std\+::string name, double example)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a9415c87b39a702a7f1d842c8facf4024}{decimal}} (std\+::string name)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a8a129fb5eccbf58e79d04a6e2f4eb425}{number}} (std\+::string name, double example)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a81ede32b19f5526f9eb63b4cf72e8c4a}{number}} (std\+::string name, int example)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_ac7e41cb54bc646094a033f0f70ff47b4}{number}} (std\+::string name)
+\item 
 \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a64cd45052d249fac2df28f4e25ef9109}{string}} (std\+::string name, std\+::string example)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a72e13ca23c7d35334e446bb30198edf6}{string}} (std\+::string name)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a0465bbc9df6c990ed353d21ba83a58df}{regex}} (std\+::string name, std\+::string regex, std\+::string example)
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a98faa827ae350b7bcd5f038a61ee0dff}{regex}} (std\+::string name, std\+::string regex)
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder_a687934cbab5262ff82360fd92c44fd8f}{datetime}} (std\+::string name, std\+::string format, std\+::string example)
 \item 
@@ -115,6 +131,30 @@ String value that must match the provided datetime format string.
 {\em example} & Example value to use. If omitted a value using the current system date and time will be generated. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a9415c87b39a702a7f1d842c8facf4024}\label{classpact__consumer_1_1PactJsonBuilder_a9415c87b39a702a7f1d842c8facf4024}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!decimal@{decimal}}
+\index{decimal@{decimal}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{decimal()}{decimal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::decimal (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Attribute whose value must be a decimal number (must be a number and have decimal places). A random value will be generated for any examples. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a09d0204658f06b97fbfcb35542cfef1d}\label{classpact__consumer_1_1PactJsonBuilder_a09d0204658f06b97fbfcb35542cfef1d}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!decimal@{decimal}}
+\index{decimal@{decimal}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{decimal()}{decimal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::decimal (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double}]{example }\end{DoxyParamCaption})}
+
+Attribute whose value must be a decimal number (must be a number and have decimal places) 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em num} & Example value. If omitted a random value will be generated. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a2636f4008e8c8a66adaf61ff9e858571}\label{classpact__consumer_1_1PactJsonBuilder_a2636f4008e8c8a66adaf61ff9e858571}} 
 \index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!eachLike@{eachLike}}
 \index{eachLike@{eachLike}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
@@ -173,10 +213,86 @@ Attribute whose value must be an integer (must be a number and have no decimal p
 {\em example} & Example value. If omitted a random value will be generated. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_ac7e41cb54bc646094a033f0f70ff47b4}\label{classpact__consumer_1_1PactJsonBuilder_ac7e41cb54bc646094a033f0f70ff47b4}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!number@{number}}
+\index{number@{number}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{number()}{number()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::number (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Attribute whose value must be a number. A random integer value will be generated for any examples. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a8a129fb5eccbf58e79d04a6e2f4eb425}\label{classpact__consumer_1_1PactJsonBuilder_a8a129fb5eccbf58e79d04a6e2f4eb425}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!number@{number}}
+\index{number@{number}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{number()}{number()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::number (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double}]{example }\end{DoxyParamCaption})}
+
+Attribute whose value must be a number. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em num} & Example value. If omitted a random integer value will be generated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a81ede32b19f5526f9eb63b4cf72e8c4a}\label{classpact__consumer_1_1PactJsonBuilder_a81ede32b19f5526f9eb63b4cf72e8c4a}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!number@{number}}
+\index{number@{number}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{number()}{number()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::number (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{example }\end{DoxyParamCaption})}
+
+Attribute whose value must be a number. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em num} & Example value. If omitted a random integer value will be generated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a98faa827ae350b7bcd5f038a61ee0dff}\label{classpact__consumer_1_1PactJsonBuilder_a98faa827ae350b7bcd5f038a61ee0dff}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!regex@{regex}}
+\index{regex@{regex}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{regex()}{regex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::regex (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{regex }\end{DoxyParamCaption})}
+
+Attribute whose value that must match the given regular expression. A random string value will be generated for any examples. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em regex} & Regular Expression to match \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a0465bbc9df6c990ed353d21ba83a58df}\label{classpact__consumer_1_1PactJsonBuilder_a0465bbc9df6c990ed353d21ba83a58df}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!regex@{regex}}
+\index{regex@{regex}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{regex()}{regex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::regex (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{regex,  }\item[{std\+::string}]{example }\end{DoxyParamCaption})}
+
+Attribute whose value that must match the given regular expression. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+{\em regex} & Regular Expression to match \\
+\hline
+{\em example} & Example value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a72e13ca23c7d35334e446bb30198edf6}\label{classpact__consumer_1_1PactJsonBuilder_a72e13ca23c7d35334e446bb30198edf6}} 
+\index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!string@{string}}
+\index{string@{string}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
+\doxysubsubsection{\texorpdfstring{string()}{string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::string (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Attribute whose value must be a string. A random string value will be generated for any examples. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Attribute name \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classpact__consumer_1_1PactJsonBuilder_a64cd45052d249fac2df28f4e25ef9109}\label{classpact__consumer_1_1PactJsonBuilder_a64cd45052d249fac2df28f4e25ef9109}} 
 \index{pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}!string@{string}}
 \index{string@{string}!pact\_consumer::PactJsonBuilder@{pact\_consumer::PactJsonBuilder}}
-\doxysubsubsection{\texorpdfstring{string()}{string()}}
+\doxysubsubsection{\texorpdfstring{string()}{string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{Pact\+Json\+Builder}} \& pact\+\_\+consumer\+::\+Pact\+Json\+Builder\+::string (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{example }\end{DoxyParamCaption})}
 
 Attribute whose value must be a string. 

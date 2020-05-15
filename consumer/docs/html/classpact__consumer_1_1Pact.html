@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Pact C++ Consumer DSL
-   &#160;<span id="projectnumber">0.0.0</span>
+   &#160;<span id="projectnumber">0.0.1</span>
    </div>
    <div id="projectbrief">DSL to support writing consumer tests in C++</div>
   </td>
@@ -84,6 +84,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a907de956f18c074634ceba0980fa8630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630248129b4a610fd15d94d08c6fb6f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a630248129b4a610fd15d94d08c6fb6f5">given</a> (const char *provider_state) const</td></tr>
 <tr class="separator:a630248129b4a610fd15d94d08c6fb6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00772d7384c5484206c87990cd09cfdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a00772d7384c5484206c87990cd09cfdf">given</a> (const char *provider_state, std::unordered_map&lt; std::string, std::string &gt; parameters) const</td></tr>
+<tr class="separator:a00772d7384c5484206c87990cd09cfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05713ce4758ee154989b327c686dc18d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a05713ce4758ee154989b327c686dc18d">uponReceiving</a> (const char *description) const</td></tr>
 <tr class="separator:a05713ce4758ee154989b327c686dc18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3428f3cbc0ad30377867377efe84fef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1PactTestResult.html">PactTestResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Pact.html#a3428f3cbc0ad30377867377efe84fef2">run_test</a> (bool(*callback)(<a class="el" href="classpact__consumer_1_1MockServerHandle.html">MockServerHandle</a> *)) const</td></tr>
@@ -130,7 +132,7 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a630248129b4a610fd15d94d08c6fb6f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a630248129b4a610fd15d94d08c6fb6f5">&#9670;&nbsp;</a></span>given()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a630248129b4a610fd15d94d08c6fb6f5">&#9670;&nbsp;</a></span>given() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,6 +147,35 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Creates a new iteraction with a defined provider state </p>
+
+</div>
+</div>
+<a id="a00772d7384c5484206c87990cd09cfdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00772d7384c5484206c87990cd09cfdf">&#9670;&nbsp;</a></span>given() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Pact::given </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provider_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unordered_map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>parameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a new iteraction with a defined provider state and parameters </p>
 
 </div>
 </div>

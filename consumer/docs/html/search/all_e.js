@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['willrespondwith_33',['willRespondWith',['../classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45',1,'pact_consumer::Interaction']]],
-  ['withheaders_34',['withHeaders',['../classpact__consumer_1_1Interaction.html#a8d4c0519d5e17bc14e4b062fd4361c71',1,'pact_consumer::Interaction']]],
-  ['withjsonbody_35',['withJsonBody',['../classpact__consumer_1_1Interaction.html#ac7cbcf570140343c007522be4091afb7',1,'pact_consumer::Interaction']]],
-  ['withquery_36',['withQuery',['../classpact__consumer_1_1Interaction.html#ac73dc56507068dcf186dc76ebb848b30',1,'pact_consumer::Interaction']]],
-  ['withrequest_37',['withRequest',['../classpact__consumer_1_1Interaction.html#ac29f5f3c8c0dfe941e00bee09334b341',1,'pact_consumer::Interaction']]],
-  ['withresponseheaders_38',['withResponseHeaders',['../classpact__consumer_1_1Interaction.html#a9d0915c5ab54bff6e33a9ca8e9464baa',1,'pact_consumer::Interaction']]],
-  ['withresponsejsonbody_39',['withResponseJsonBody',['../classpact__consumer_1_1Interaction.html#afa30f026c1c2cb12d366ea23f27ff255',1,'pact_consumer::Interaction']]]
+  ['regex_64',['regex',['../classpact__consumer_1_1PactJsonBuilder.html#a0465bbc9df6c990ed353d21ba83a58df',1,'pact_consumer::PactJsonBuilder::regex(std::string name, std::string regex, std::string example)'],['../classpact__consumer_1_1PactJsonBuilder.html#a98faa827ae350b7bcd5f038a61ee0dff',1,'pact_consumer::PactJsonBuilder::regex(std::string name, std::string regex)']]],
+  ['regexmatcher_65',['RegexMatcher',['../classpact__consumer_1_1matchers_1_1RegexMatcher.html',1,'pact_consumer::matchers::RegexMatcher'],['../classpact__consumer_1_1matchers_1_1RegexMatcher.html#afbc8a3f78f38df77301fa271a06f05cb',1,'pact_consumer::matchers::RegexMatcher::RegexMatcher(std::string r)'],['../classpact__consumer_1_1matchers_1_1RegexMatcher.html#a43d35298ae2413d2cbb447b52b4b724f',1,'pact_consumer::matchers::RegexMatcher::RegexMatcher(std::string r, std::string e)']]],
+  ['run_5ftest_66',['run_test',['../classpact__consumer_1_1Pact.html#a3428f3cbc0ad30377867377efe84fef2',1,'pact_consumer::Pact']]]
 ];
