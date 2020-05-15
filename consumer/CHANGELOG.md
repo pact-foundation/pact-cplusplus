@@ -1,5 +1,31 @@
 To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD .` replacing TAGNAME and HEAD as appropriate.
 
+# 0.0.1 - Bugfixes + Updated Matcher DSL
+
+* d76d0e0 - chore: updated readme (Ronald Holshausen, Fri May 15 16:18:09 2020 +1000)
+* 95c8f51 - fix: URL matcher (Ronald Holshausen, Fri May 15 16:16:00 2020 +1000)
+* f8153ec - chore: updated matcher docs (Ronald Holshausen, Fri May 15 15:55:22 2020 +1000)
+* b870632 - chore: updated matcher docs (Ronald Holshausen, Fri May 15 15:52:19 2020 +1000)
+* 600c1d9 - chore: updated readme (Ronald Holshausen, Fri May 15 15:13:23 2020 +1000)
+* e6107c1 - fix: accedentially committed local conan file (Ronald Holshausen, Fri May 15 15:13:02 2020 +1000)
+* c5a1ec6 - chore: generate markdown docs from doxygen (Ronald Holshausen, Fri May 15 15:08:28 2020 +1000)
+* 96b9e25 - chore: updated generated docs (Ronald Holshausen, Fri May 15 14:38:50 2020 +1000)
+* 2cf0636 - fix: for failing test (Ronald Holshausen, Fri May 15 14:31:49 2020 +1000)
+* 639ea47 - feat: implement support for all the remaining matchers (Ronald Holshausen, Fri May 15 14:03:23 2020 +1000)
+* b88c95c - chore: cleanup debug output (Ronald Holshausen, Fri May 15 10:58:07 2020 +1000)
+* 4b6bd0d - feat: implemented JSON DSL from feedback from Aligntech (Ronald Holshausen, Wed May 13 18:02:08 2020 +1000)
+* e44dac4 - fix: tests on Windows (Ronald Holshausen, Tue May 12 16:08:27 2020 +1000)
+* 3d8b5fc - feat: support matching binary payloads (Ronald Holshausen, Tue May 12 13:54:10 2020 +1000)
+* c1db530 - fix: Google test matches regex does not work on Windows (Ronald Holshausen, Tue May 5 18:14:19 2020 +1000)
+* 26c2e05 - chore: update to latest pact_mock_server_ffi library (Ronald Holshausen, Tue May 5 17:51:36 2020 +1000)
+* 405ef68 - fix: remove traling slash from mock server URL (Ronald Holshausen, Tue May 5 17:50:23 2020 +1000)
+* d5043f8 - Revert "fix: revert create mock server call (updated API unreleased)" (Ronald Holshausen, Tue May 5 16:18:16 2020 +1000)
+* cba14f1 - fix: revert create mock server call (updated API unreleased) (Ronald Holshausen, Tue May 5 16:10:42 2020 +1000)
+* c3f802c - fix: add test with multiple header values (Ronald Holshausen, Tue May 5 15:32:06 2020 +1000)
+* f312e92 - feat: added decimal and regular expression matching to consumer DSL (Ronald Holshausen, Tue May 5 11:50:37 2020 +1000)
+* 3fcb0c9 - chore: updated Readmes (Ronald Holshausen, Tue Apr 28 15:04:15 2020 +1000)
+* 2b4be55 - Revert "Revert "bump version to 0.0.1"" (Ronald Holshausen, Tue Apr 28 15:03:46 2020 +1000)
+
 # 0.0.0 - First release
 
 * b16ed85 - chore: add release prep script (Ronald Holshausen, Tue Apr 28 12:42:34 2020 +1000)
