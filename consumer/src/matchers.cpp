@@ -364,11 +364,11 @@ namespace pact_consumer::matchers {
       std::ostringstream stringStream;
       stringStream << "eachLike: Min array size " << min << " is greater than the max size " << max;
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
-    } else if (examples < min) {
+    } else if (min > 0 && examples < min) {
       std::ostringstream stringStream;
       stringStream << "eachLike: Number of examples " << examples << " is less than the min size " << min;
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
-    } else if (examples > max) {
+    } else if (max > 0 && examples > max) {
       std::ostringstream stringStream;
       stringStream << "eachLike: Number of examples " << examples << " is greater than the max size " << max;
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
