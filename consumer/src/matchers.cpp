@@ -123,7 +123,6 @@ namespace pact_consumer::matchers {
   }
 
   json RegexMatcher::getJson() const {
-    std::cout << "RegexMatcher::getJson() " << regex << ", [" << example << "]\n";
     json j;
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
