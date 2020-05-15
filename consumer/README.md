@@ -41,15 +41,18 @@ For instance:
 
 The actual test is then run with the `run_test` method. This takes a clsoure to execute and will startup a mock server before and the validate the result afterwards.
 
-For example, using Google Test:
+For example:
 
 ```c++
 auto result = provider.run_test([] (auto mock_server) {
+    // setup any client code you have. The mock_server parameter has the base address of the mock server started for the test
     TodoClient todo;
     todo.serverUrl = mock_server->get_url();
+
     std::vector<Project> projects = todo.getProjects();
-    return true;
-  });
+    
+    return true; // return a boolean value here to indicate if all is OK
+});
 ```
 
 The `run_test` method will return a `PactTestResult`. Your test should check that this value is ok.
