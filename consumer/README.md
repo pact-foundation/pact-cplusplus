@@ -235,6 +235,10 @@ Match by equality. This is mainly used to reset the cascading type matchers.
 
 Match by equality. This is mainly used to reset the cascading type matchers.
 
+##### `EqualTo(const char *value)`
+
+Match by equality. This is mainly used to reset the cascading type matchers.
+
 ##### `EqualTo(bool value)`
 
 Match by equality. This is mainly used to reset the cascading type matchers.
