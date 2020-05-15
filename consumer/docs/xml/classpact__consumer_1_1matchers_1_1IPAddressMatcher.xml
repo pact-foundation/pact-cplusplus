@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1IPAddressMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::IPAddressMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1af4b986c1404414f5e976bd53cd4bbc78" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::IPAddressMatcher::example</definition>
+        <argsstring></argsstring>
+        <name>example</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="177" column="19" bodyfile="include/matchers.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1acfbc504a485c42a3561973f7e877afb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>IPAddressMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="171" column="7" bodyfile="include/matchers.h" bodystart="171" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1ac44d7b87e25b7d99c7bde3a45f43011d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</definition>
+        <argsstring>(std::string address)</argsstring>
+        <name>IPAddressMatcher</name>
+        <param>
+          <type>std::string</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="172" column="7" bodyfile="include/matchers.h" bodystart="172" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a8650595d732644d12817d182f4c99976" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::IPAddressMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="174" column="20" bodyfile="src/matchers.cpp" bodystart="420" bodyend="445"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>pact_consumer::matchers::IPAddressMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>pact_consumer::matchers::IPAddressMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="169" column="41" bodyfile="include/matchers.h" bodystart="169" bodyend="178"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1af4b986c1404414f5e976bd53cd4bbc78" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a8650595d732644d12817d182f4c99976" prot="public" virt="virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1acfbc504a485c42a3561973f7e877afb5" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>IPAddressMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1ac44d7b87e25b7d99c7bde3a45f43011d" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>IPAddressMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IPAddressMatcher</scope><name>Ptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

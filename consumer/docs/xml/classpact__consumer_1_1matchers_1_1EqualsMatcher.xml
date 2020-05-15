@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1EqualsMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::EqualsMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afdadc2ce9e9657af14b2ecf9f866f90d" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T pact_consumer::matchers::EqualsMatcher&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="94" column="9" bodyfile="include/matchers.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afe9e104f7dc744804e6956cc009304b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::EqualsMatcher&lt; T &gt;::EqualsMatcher</definition>
+        <argsstring>(T v)</argsstring>
+        <name>EqualsMatcher</name>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="83" column="7" bodyfile="include/matchers.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a19cbad1fa3ef261b8aea853de8f195e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::EqualsMatcher&lt; T &gt;::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="85" column="20" bodyfile="src/matchers.cpp" bodystart="269" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string pact_consumer::matchers::EqualsMatcher&lt; T &gt;::as_example</definition>
+        <argsstring>() const</argsstring>
+        <name>as_example</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32">as_example</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="87" column="27" bodyfile="include/matchers.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::EqualsMatcher&lt; T &gt;</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EqualsMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::EqualsMatcher&lt; T &gt;</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EqualsMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="81" column="38" bodyfile="include/matchers.h" bodystart="81" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32" prot="public" virt="virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afe9e104f7dc744804e6956cc009304b9" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>EqualsMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a19cbad1fa3ef261b8aea853de8f195e5" prot="public" virt="virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>Ptr</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afdadc2ce9e9657af14b2ecf9f866f90d" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

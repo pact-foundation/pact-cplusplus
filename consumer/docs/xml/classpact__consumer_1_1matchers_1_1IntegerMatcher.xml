@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1IntegerMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::IntegerMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0e778c8d4b22a41bf2db40cc77e53940" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; long &gt;</type>
+        <definition>std::optional&lt;long&gt; pact_consumer::matchers::IntegerMatcher::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="42" column="21" bodyfile="include/matchers.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0991d669ed3b7d53466713a2e38d0281" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::IntegerMatcher::IntegerMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>IntegerMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="35" column="7" bodyfile="include/matchers.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a46f4b7c8cbbb1f6f19fc61c77cca9066" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::IntegerMatcher::IntegerMatcher</definition>
+        <argsstring>(long v)</argsstring>
+        <name>IntegerMatcher</name>
+        <param>
+          <type>long</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="36" column="7" bodyfile="include/matchers.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a1fe7460a246233d51bb1e2275ba15229" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::IntegerMatcher::IntegerMatcher</definition>
+        <argsstring>(int v)</argsstring>
+        <name>IntegerMatcher</name>
+        <param>
+          <type>int</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="37" column="7" bodyfile="include/matchers.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a42d49becb285591a6dacaa6c4737f03b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::IntegerMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="39" column="20" bodyfile="src/matchers.cpp" bodystart="221" bodyend="231"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::IntegerMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IntegerMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::IntegerMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IntegerMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="33" column="39" bodyfile="include/matchers.h" bodystart="33" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a42d49becb285591a6dacaa6c4737f03b" prot="public" virt="virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0991d669ed3b7d53466713a2e38d0281" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>IntegerMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a46f4b7c8cbbb1f6f19fc61c77cca9066" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>IntegerMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a1fe7460a246233d51bb1e2275ba15229" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>IntegerMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>Ptr</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0e778c8d4b22a41bf2db40cc77e53940" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::IntegerMatcher</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

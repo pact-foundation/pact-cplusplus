@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1MockServerHandle" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::MockServerHandle</compoundname>
+    <includes refid="consumer_8h" local="no">consumer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1MockServerHandle_1adbcb6a08fe8ffa6b1b3a69a6265930d7" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t pact_consumer::MockServerHandle::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="190" column="15" bodyfile="include/consumer.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a8ec5a62b26a7551101312afd3ea542a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::MockServerHandle::MockServerHandle</definition>
+        <argsstring>(pact_mock_server_ffi::PactHandle)</argsstring>
+        <name>MockServerHandle</name>
+        <param>
+          <type>pact_mock_server_ffi::PactHandle</type>
+          <defname>pact</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="171" column="7" bodyfile="src/consumer.cpp" bodystart="207" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::MockServerHandle::~MockServerHandle</definition>
+        <argsstring>()</argsstring>
+        <name>~MockServerHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="172" column="7" bodyfile="src/consumer.cpp" bodystart="211" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_consumer::MockServerHandle::started_ok</definition>
+        <argsstring>() const</argsstring>
+        <name>started_ok</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the mock server was started ok </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="177" column="12" bodyfile="src/consumer.cpp" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::MockServerHandle::get_url</definition>
+        <argsstring>() const</argsstring>
+        <name>get_url</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The URL to the mock server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="182" column="19" bodyfile="src/consumer.cpp" bodystart="219" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t pact_consumer::MockServerHandle::get_port</definition>
+        <argsstring>() const</argsstring>
+        <name>get_port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The port the mock server is running on </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="187" column="15" bodyfile="src/consumer.cpp" bodystart="225" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Mock server handle to the mock server started for the test </para>
+    </detaileddescription>
+    <location file="include/consumer.h" line="169" column="25" bodyfile="include/consumer.h" bodystart="169" bodyend="191"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_port</name></member>
+      <member refid="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_url</name></member>
+      <member refid="classpact__consumer_1_1MockServerHandle_1a8ec5a62b26a7551101312afd3ea542a4" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>MockServerHandle</name></member>
+      <member refid="classpact__consumer_1_1MockServerHandle_1adbcb6a08fe8ffa6b1b3a69a6265930d7" prot="private" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>port</name></member>
+      <member refid="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>started_ok</name></member>
+      <member refid="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>~MockServerHandle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

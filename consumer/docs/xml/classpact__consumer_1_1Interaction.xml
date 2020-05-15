@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1Interaction" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::Interaction</compoundname>
+    <includes refid="consumer_8h" local="no">consumer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" prot="public" static="no" mutable="no">
+        <type>pact_mock_server_ffi::InteractionHandle</type>
+        <definition>pact_mock_server_ffi::InteractionHandle pact_consumer::Interaction::interaction</definition>
+        <argsstring></argsstring>
+        <name>interaction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="365" column="45" bodyfile="include/consumer.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1Interaction_1a0e5407e90621a6caf6c2020fd829c5d4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::Interaction::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="368" column="19" bodyfile="include/consumer.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> *</type>
+        <definition>const Pact* pact_consumer::Interaction::pact</definition>
+        <argsstring></argsstring>
+        <name>pact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="369" column="18" bodyfile="include/consumer.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::Interaction::Interaction</definition>
+        <argsstring>(const Pact *parent, const char *description)</argsstring>
+        <name>Interaction</name>
+        <param>
+          <type>const <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="289" column="5" bodyfile="src/consumer.cpp" bodystart="84" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::given</definition>
+        <argsstring>(const char *provider_state) const</argsstring>
+        <name>given</name>
+        <param>
+          <type>const char *</type>
+          <declname>provider_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the provider state to the interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="294" column="17" bodyfile="src/consumer.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a5acf88deed519e9053db782bb836f1ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::given</definition>
+        <argsstring>(const char *provider_state, std::unordered_map&lt; std::string, std::string &gt; parameters) const</argsstring>
+        <name>given</name>
+        <param>
+          <type>const char *</type>
+          <declname>provider_state</declname>
+        </param>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a provider state with parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="299" column="17" bodyfile="src/consumer.cpp" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::uponReceiving</definition>
+        <argsstring>(const char *description) const</argsstring>
+        <name>uponReceiving</name>
+        <param>
+          <type>const char *</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the description for the interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="304" column="17" bodyfile="src/consumer.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withRequest</definition>
+        <argsstring>(const char *method, const char *path) const</argsstring>
+        <name>withRequest</name>
+        <param>
+          <type>const char *</type>
+          <declname>method</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the method and path for the request </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="309" column="17" bodyfile="src/consumer.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ac73dc56507068dcf186dc76ebb848b30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withQuery</definition>
+        <argsstring>(std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; query) const</argsstring>
+        <name>withQuery</name>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the query parameters for the request </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="314" column="17" bodyfile="src/consumer.cpp" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a8d4c0519d5e17bc14e4b062fd4361c71" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withHeaders</definition>
+        <argsstring>(std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; headers) const</argsstring>
+        <name>withHeaders</name>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;</type>
+          <declname>headers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the headers for the request </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="319" column="17" bodyfile="src/consumer.cpp" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ac7cbcf570140343c007522be4091afb7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withJsonBody</definition>
+        <argsstring>(void(*callback)(PactJsonBuilder *)) const</argsstring>
+        <name>withJsonBody</name>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="325" column="17" bodyfile="src/consumer.cpp" bodystart="133" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withJsonBody</definition>
+        <argsstring>(pact_consumer::matchers::IMatcher::Ptr body) const</argsstring>
+        <name>withJsonBody</name>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">pact_consumer::matchers::IMatcher::Ptr</ref></type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the request using the provided body template </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="330" column="17" bodyfile="src/consumer.cpp" bodystart="141" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a32d4f4973538d33d5abe1889d0c8365f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withBinaryFile</definition>
+        <argsstring>(std::string content_type, std::filesystem::path example_file) const</argsstring>
+        <name>withBinaryFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>content_type</declname>
+        </param>
+        <param>
+          <type>std::filesystem::path</type>
+          <declname>example_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the request using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="336" column="17" bodyfile="src/consumer.cpp" bodystart="147" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::willRespondWith</definition>
+        <argsstring>(size_t status) const</argsstring>
+        <name>willRespondWith</name>
+        <param>
+          <type>size_t</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the status code for the response </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="341" column="17" bodyfile="src/consumer.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a9d0915c5ab54bff6e33a9ca8e9464baa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withResponseHeaders</definition>
+        <argsstring>(std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; headers) const</argsstring>
+        <name>withResponseHeaders</name>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;</type>
+          <declname>headers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the headers for the response </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="346" column="17" bodyfile="src/consumer.cpp" bodystart="166" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1afa30f026c1c2cb12d366ea23f27ff255" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withResponseJsonBody</definition>
+        <argsstring>(void(*callback)(PactJsonBuilder *)) const</argsstring>
+        <name>withResponseJsonBody</name>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="352" column="17" bodyfile="src/consumer.cpp" bodystart="175" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withResponseJsonBody</definition>
+        <argsstring>(pact_consumer::matchers::IMatcher::Ptr body) const</argsstring>
+        <name>withResponseJsonBody</name>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">pact_consumer::matchers::IMatcher::Ptr</ref></type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the request using the provided body template </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="357" column="17" bodyfile="src/consumer.cpp" bodystart="183" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a3489e6576ddb7e22fd6dbc45d35fefd8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
+        <definition>Interaction pact_consumer::Interaction::withResponseBinaryFile</definition>
+        <argsstring>(std::string content_type, std::filesystem::path example_file) const</argsstring>
+        <name>withResponseBinaryFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>content_type</declname>
+        </param>
+        <param>
+          <type>std::filesystem::path</type>
+          <declname>example_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the body for the response using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="363" column="17" bodyfile="src/consumer.cpp" bodystart="189" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Class that defines an interaction between a consumer and provider </para>
+    </detaileddescription>
+    <location file="include/consumer.h" line="287" column="20" bodyfile="include/consumer.h" bodystart="287" bodyend="370"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1Interaction_1a0e5407e90621a6caf6c2020fd829c5d4" prot="private" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>description</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>given</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a5acf88deed519e9053db782bb836f1ed" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>given</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>Interaction</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>interaction</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" prot="private" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>pact</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>uponReceiving</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>willRespondWith</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a32d4f4973538d33d5abe1889d0c8365f" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withBinaryFile</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a8d4c0519d5e17bc14e4b062fd4361c71" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withHeaders</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1ac7cbcf570140343c007522be4091afb7" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withJsonBody</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withJsonBody</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1ac73dc56507068dcf186dc76ebb848b30" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withQuery</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withRequest</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a3489e6576ddb7e22fd6dbc45d35fefd8" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withResponseBinaryFile</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a9d0915c5ab54bff6e33a9ca8e9464baa" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withResponseHeaders</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1afa30f026c1c2cb12d366ea23f27ff255" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withResponseJsonBody</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>withResponseJsonBody</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1EachlikeMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::EachlikeMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae31c64a0384d014deb2672d407299c61" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pact_consumer::matchers::EachlikeMatcher::examples</definition>
+        <argsstring></argsstring>
+        <name>examples</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="154" column="11" bodyfile="include/matchers.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a914171736bb07f9395e09e7b66d666c0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pact_consumer::matchers::EachlikeMatcher::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="154" column="20" bodyfile="include/matchers.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1aa0377945b218992c3bf95c0500f72804" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pact_consumer::matchers::EachlikeMatcher::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="154" column="24" bodyfile="include/matchers.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1abf7ba8292a0627ca0f7dad65d93d61b8" prot="private" static="no" mutable="no">
+        <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+        <definition>IMatcher::Ptr pact_consumer::matchers::EachlikeMatcher::obj</definition>
+        <argsstring></argsstring>
+        <name>obj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="155" column="21" bodyfile="include/matchers.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae7bf8f7982ca2281d0dba65c762bdb46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
+        <argsstring>(IMatcher::Ptr t)</argsstring>
+        <name>EachlikeMatcher</name>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="146" column="7" bodyfile="include/matchers.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a048dc280cac528a7ad7447fc7a7dce8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
+        <argsstring>(int e, IMatcher::Ptr t)</argsstring>
+        <name>EachlikeMatcher</name>
+        <param>
+          <type>int</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="147" column="7" bodyfile="include/matchers.h" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ac37dc7ce91825ae207e2040cb2e6c01e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
+        <argsstring>(int e, int m, IMatcher::Ptr t)</argsstring>
+        <name>EachlikeMatcher</name>
+        <param>
+          <type>int</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="148" column="7" bodyfile="include/matchers.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ace9a9d9048656816f662e5cd141da3a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
+        <argsstring>(int e, int m, int mx, IMatcher::Ptr t)</argsstring>
+        <name>EachlikeMatcher</name>
+        <param>
+          <type>int</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mx</declname>
+        </param>
+        <param>
+          <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="149" column="7" bodyfile="include/matchers.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a60a4f05c8a9f1d09273fd1da08aeb4ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::EachlikeMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="151" column="20" bodyfile="src/matchers.cpp" bodystart="362" bodyend="391"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::EachlikeMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::EachlikeMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="144" column="40" bodyfile="include/matchers.h" bodystart="144" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae7bf8f7982ca2281d0dba65c762bdb46" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>EachlikeMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a048dc280cac528a7ad7447fc7a7dce8b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>EachlikeMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ac37dc7ce91825ae207e2040cb2e6c01e" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>EachlikeMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ace9a9d9048656816f662e5cd141da3a0" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>EachlikeMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae31c64a0384d014deb2672d407299c61" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>examples</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a60a4f05c8a9f1d09273fd1da08aeb4ae" prot="public" virt="virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1aa0377945b218992c3bf95c0500f72804" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>max</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a914171736bb07f9395e09e7b66d666c0" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>min</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1abf7ba8292a0627ca0f7dad65d93d61b8" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>obj</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::EachlikeMatcher</scope><name>Ptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

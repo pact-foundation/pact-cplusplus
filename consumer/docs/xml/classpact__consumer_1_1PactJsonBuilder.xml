@@ -1,0 +1,799 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1PactJsonBuilder" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::PactJsonBuilder</compoundname>
+    <includes refid="consumer_8h" local="no">consumer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1PactJsonBuilder_1a3d8d7f30fe89eb0af69e37308a3f85e2" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *</type>
+        <definition>const PactJsonBuilder* pact_consumer::PactJsonBuilder::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="162" column="29" bodyfile="include/consumer.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1PactJsonBuilder_1a9ab8c238036670d01940ab2a539d051b" prot="private" static="no" mutable="no">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::PactJsonBuilder::obj</definition>
+        <argsstring></argsstring>
+        <name>obj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="163" column="12" bodyfile="include/consumer.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1aa805a10ce64aa7a9fc7f0d3b3dcbe697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::PactJsonBuilder::PactJsonBuilder</definition>
+        <argsstring>(const PactJsonBuilder *parent)</argsstring>
+        <name>PactJsonBuilder</name>
+        <param>
+          <type>const <ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="28" column="7" bodyfile="src/body.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a2636f4008e8c8a66adaf61ff9e858571" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::eachLike</definition>
+        <argsstring>(std::string name, unsigned int examples, void(*callback)(PactJsonBuilder *))</argsstring>
+        <name>eachLike</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>examples</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute that is an array where each item in the array must match the constructed template <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>examples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of examples to generate (defaults to 1) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that gets invoked to define the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="36" column="23" bodyfile="src/body.cpp" bodystart="18" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a33e402dd87b5a63c00f6923b067091b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::eachLike</definition>
+        <argsstring>(std::string name, void(*callback)(PactJsonBuilder *))</argsstring>
+        <name>eachLike</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute that is an array where each item in the array must match the constructed template. Will only generate one example. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that gets invoked to define the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="43" column="23" bodyfile="src/body.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a29dac043b1bcb5e4a6a61021ea26cebc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::atLeastOneLike</definition>
+        <argsstring>(std::string name, unsigned int examples, void(*callback)(PactJsonBuilder *))</argsstring>
+        <name>atLeastOneLike</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>examples</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute that is an array that has to have at least one element and each element must match the given template <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>examples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of examples to generate (defaults to 1) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that gets invoked to define the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="51" column="23" bodyfile="src/body.cpp" bodystart="46" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1ae69caf6e8088277037ec4757a0fa570d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::atLeastOneLike</definition>
+        <argsstring>(std::string name, void(*callback)(PactJsonBuilder *))</argsstring>
+        <name>atLeastOneLike</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> *)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute that is an array that has to have at least one element and each element must match the given template. Will only generate one example. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback that gets invoked to define the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="58" column="23" bodyfile="src/body.cpp" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a1c2313cac83d46a0eae974638e5c41c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::integer</definition>
+        <argsstring>(std::string name, int example)</argsstring>
+        <name>integer</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be an integer (must be a number and have no decimal places) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>example</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value. If omitted a random value will be generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="65" column="23" bodyfile="src/body.cpp" bodystart="166" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1ade5ddccbcbcf1751c626f322a233bfad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::integer</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>integer</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be an integer (must be a number and have no decimal places). A random value will be generated for any examples. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="72" column="23" bodyfile="src/body.cpp" bodystart="174" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a09d0204658f06b97fbfcb35542cfef1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::decimal</definition>
+        <argsstring>(std::string name, double example)</argsstring>
+        <name>decimal</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a decimal number (must be a number and have decimal places) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value. If omitted a random value will be generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="79" column="23" bodyfile="src/body.cpp" bodystart="183" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a9415c87b39a702a7f1d842c8facf4024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::decimal</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>decimal</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a decimal number (must be a number and have decimal places). A random value will be generated for any examples. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="86" column="23" bodyfile="src/body.cpp" bodystart="191" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a8a129fb5eccbf58e79d04a6e2f4eb425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::number</definition>
+        <argsstring>(std::string name, double example)</argsstring>
+        <name>number</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a number. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value. If omitted a random integer value will be generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="93" column="23" bodyfile="src/body.cpp" bodystart="200" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a81ede32b19f5526f9eb63b4cf72e8c4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::number</definition>
+        <argsstring>(std::string name, int example)</argsstring>
+        <name>number</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a number. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value. If omitted a random integer value will be generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="100" column="23" bodyfile="src/body.cpp" bodystart="208" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1ac7e41cb54bc646094a033f0f70ff47b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::number</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>number</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a number. A random integer value will be generated for any examples. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="106" column="23" bodyfile="src/body.cpp" bodystart="216" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a64cd45052d249fac2df28f4e25ef9109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::string</definition>
+        <argsstring>(std::string name, std::string example)</argsstring>
+        <name>string</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>example</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="113" column="23" bodyfile="src/body.cpp" bodystart="225" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a72e13ca23c7d35334e446bb30198edf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::string</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>string</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value must be a string. A random string value will be generated for any examples. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="119" column="23" bodyfile="src/body.cpp" bodystart="233" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a0465bbc9df6c990ed353d21ba83a58df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::regex</definition>
+        <argsstring>(std::string name, std::string regex, std::string example)</argsstring>
+        <name>regex</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>regex</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value that must match the given regular expression. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Regular Expression to match </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>example</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="127" column="23" bodyfile="src/body.cpp" bodystart="243" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a98faa827ae350b7bcd5f038a61ee0dff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::regex</definition>
+        <argsstring>(std::string name, std::string regex)</argsstring>
+        <name>regex</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>regex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute whose value that must match the given regular expression. A random string value will be generated for any examples. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Regular Expression to match </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="134" column="23" bodyfile="src/body.cpp" bodystart="258" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a687934cbab5262ff82360fd92c44fd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::datetime</definition>
+        <argsstring>(std::string name, std::string format, std::string example)</argsstring>
+        <name>datetime</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>String value that must match the provided datetime format string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Datetime format string. See <ulink url="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">Java SimpleDateFormat</ulink> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>example</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Example value to use. If omitted a value using the current system date and time will be generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="142" column="23" bodyfile="src/body.cpp" bodystart="287" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1ac8fc12d46da35e07eb2b05192a1a8a98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::datetime</definition>
+        <argsstring>(std::string name, std::string format)</argsstring>
+        <name>datetime</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>String value that must match the provided datetime format string. A random value will be <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name generated for any examples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Datetime format string. See <ulink url="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">Java SimpleDateFormat</ulink> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="150" column="23" bodyfile="src/body.cpp" bodystart="297" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1afda7b8c27b11afb4c732c1544bc81030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1PactJsonBuilder" kindref="compound">PactJsonBuilder</ref> &amp;</type>
+        <definition>PactJsonBuilder &amp; pact_consumer::PactJsonBuilder::boolean</definition>
+        <argsstring>(std::string name, bool b)</argsstring>
+        <name>boolean</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Value must be a boolean <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean example value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="157" column="23" bodyfile="src/body.cpp" bodystart="158" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1PactJsonBuilder_1a7bbc3c584b6236d0cfe87f8cd5ea7ad7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::PactJsonBuilder::get_json</definition>
+        <argsstring>()</argsstring>
+        <name>get_json</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="159" column="12" bodyfile="include/consumer.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Builder class to help construct JSON bodies </para>
+    </detaileddescription>
+    <location file="include/consumer.h" line="26" column="24" bodyfile="include/consumer.h" bodystart="26" bodyend="164"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a29dac043b1bcb5e4a6a61021ea26cebc" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>atLeastOneLike</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1ae69caf6e8088277037ec4757a0fa570d" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>atLeastOneLike</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1afda7b8c27b11afb4c732c1544bc81030" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>boolean</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a687934cbab5262ff82360fd92c44fd8f" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>datetime</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1ac8fc12d46da35e07eb2b05192a1a8a98" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>datetime</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a09d0204658f06b97fbfcb35542cfef1d" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>decimal</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a9415c87b39a702a7f1d842c8facf4024" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>decimal</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a2636f4008e8c8a66adaf61ff9e858571" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>eachLike</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a33e402dd87b5a63c00f6923b067091b7" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>eachLike</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a7bbc3c584b6236d0cfe87f8cd5ea7ad7" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>get_json</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a1c2313cac83d46a0eae974638e5c41c7" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>integer</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1ade5ddccbcbcf1751c626f322a233bfad" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>integer</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a8a129fb5eccbf58e79d04a6e2f4eb425" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>number</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a81ede32b19f5526f9eb63b4cf72e8c4a" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>number</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1ac7e41cb54bc646094a033f0f70ff47b4" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>number</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a9ab8c238036670d01940ab2a539d051b" prot="private" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>obj</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1aa805a10ce64aa7a9fc7f0d3b3dcbe697" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>PactJsonBuilder</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a3d8d7f30fe89eb0af69e37308a3f85e2" prot="private" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>parent</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a0465bbc9df6c990ed353d21ba83a58df" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>regex</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a98faa827ae350b7bcd5f038a61ee0dff" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>regex</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a64cd45052d249fac2df28f4e25ef9109" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>string</name></member>
+      <member refid="classpact__consumer_1_1PactJsonBuilder_1a72e13ca23c7d35334e446bb30198edf6" prot="public" virt="non-virtual"><scope>pact_consumer::PactJsonBuilder</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

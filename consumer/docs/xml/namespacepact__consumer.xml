@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacepact__consumer" kind="namespace" language="C++">
+    <compoundname>pact_consumer</compoundname>
+    <innerclass refid="classpact__consumer_1_1Interaction" prot="public">pact_consumer::Interaction</innerclass>
+    <innerclass refid="classpact__consumer_1_1MockServerHandle" prot="public">pact_consumer::MockServerHandle</innerclass>
+    <innerclass refid="classpact__consumer_1_1Pact" prot="public">pact_consumer::Pact</innerclass>
+    <innerclass refid="classpact__consumer_1_1PactJsonBuilder" prot="public">pact_consumer::PactJsonBuilder</innerclass>
+    <innerclass refid="classpact__consumer_1_1PactTestResult" prot="public">pact_consumer::PactTestResult</innerclass>
+    <innernamespace refid="namespacepact__consumer_1_1matchers">pact_consumer::matchers</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>TestResultState</name>
+        <enumvalue id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be" prot="public">
+          <name>Mismatches</name>
+          <initializer>= (1u &lt;&lt; 0)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb" prot="public">
+          <name>UserCodeFailed</name>
+          <initializer>= (1u &lt;&lt; 1)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2" prot="public">
+          <name>PactFileError</name>
+          <initializer>= (1u &lt;&lt; 2)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea" prot="public">
+          <name>MockServerFailed</name>
+          <initializer>= (1u &lt;&lt; 3)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Type of <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> test result </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/consumer.h" line="196" column="23" bodyfile="include/consumer.h" bodystart="196" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepact__consumer_1aaa6b9d5d2099c6ad833338cb2c1d4b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pact_consumer::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initilise the pact test library </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/consumer.cpp" line="11" column="8" bodyfile="src/consumer.cpp" bodystart="11" bodyend="13" declfile="include/consumer.h" declline="19" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/body.cpp" line="8" column="1"/>
+  </compounddef>
+</doxygen>

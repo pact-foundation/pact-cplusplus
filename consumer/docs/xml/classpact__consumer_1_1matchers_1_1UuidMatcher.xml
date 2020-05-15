@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1UuidMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::UuidMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1064288895c66dd0e239db92a99da0b4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::UuidMatcher::example</definition>
+        <argsstring></argsstring>
+        <name>example</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="188" column="19" bodyfile="include/matchers.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1fd7cca306b66645c8d9c3714c76d14d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::UuidMatcher::UuidMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>UuidMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="182" column="7" bodyfile="include/matchers.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a341279e31305c6db7bd6952c6ea5f8af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::UuidMatcher::UuidMatcher</definition>
+        <argsstring>(std::string uuid)</argsstring>
+        <name>UuidMatcher</name>
+        <param>
+          <type>std::string</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="183" column="7" bodyfile="include/matchers.h" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a3e71e2f36be6c3db39ef819bafb353ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::UuidMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="185" column="20" bodyfile="src/matchers.cpp" bodystart="447" bodyend="465"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::UuidMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1UuidMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::UuidMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1UuidMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="180" column="36" bodyfile="include/matchers.h" bodystart="180" bodyend="189"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1064288895c66dd0e239db92a99da0b4" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a3e71e2f36be6c3db39ef819bafb353ed" prot="public" virt="virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>Ptr</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1fd7cca306b66645c8d9c3714c76d14d" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>UuidMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a341279e31305c6db7bd6952c6ea5f8af" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UuidMatcher</scope><name>UuidMatcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

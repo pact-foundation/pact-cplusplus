@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpact__consumer_1_1matchers_1_1DateMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::DateMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a03408e7aff0b6b62757410495b60db41" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::DateMatcher::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="116" column="19" bodyfile="include/matchers.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1DateMatcher_1acac51a8a7c5d1f893c607184655955c8" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::DateMatcher::example</definition>
+        <argsstring></argsstring>
+        <name>example</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="116" column="26" bodyfile="include/matchers.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a6723b3dd8546a852f01a26958c5600a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::DateMatcher::DateMatcher</definition>
+        <argsstring>(std::string f)</argsstring>
+        <name>DateMatcher</name>
+        <param>
+          <type>std::string</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="110" column="7" bodyfile="include/matchers.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a1154eab79153a1e0b89287b4712577c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::DateMatcher::DateMatcher</definition>
+        <argsstring>(std::string f, std::string e)</argsstring>
+        <name>DateMatcher</name>
+        <param>
+          <type>std::string</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="111" column="7" bodyfile="include/matchers.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a607ec8245653311981a48af6d8a4af01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
+        <definition>json pact_consumer::matchers::DateMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="113" column="20" bodyfile="src/matchers.cpp" bodystart="296" bodyend="314"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>pact_consumer::matchers::DateMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1DateMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>pact_consumer::matchers::DateMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1DateMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="108" column="36" bodyfile="include/matchers.h" bodystart="108" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a6723b3dd8546a852f01a26958c5600a5" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>DateMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a1154eab79153a1e0b89287b4712577c0" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>DateMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1acac51a8a7c5d1f893c607184655955c8" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a03408e7aff0b6b62757410495b60db41" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>format</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a607ec8245653311981a48af6d8a4af01" prot="public" virt="virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::DateMatcher</scope><name>Ptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
