@@ -122,7 +122,7 @@ namespace pact_consumer {
        * Starts a mock server for this pact, and then passes it to the callback. The callback
        * needs to return a boolean value to indicate of the test was successful.
        */
-      PactTestResult run_test(std::function<bool(MockServerHandle*)> callback) const;
+      PactTestResult run_test(std::function<bool(const MockServerHandle*)> callback) const;
 
       pact_mock_server_ffi::PactHandle pact;
 

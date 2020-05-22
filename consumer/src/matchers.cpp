@@ -7,7 +7,7 @@ using json = nlohmann::json;
 
 namespace pact_consumer::matchers {
 
-  IMatcher::Ptr Object(const std::unordered_map<std::string, IMatcher::Ptr> fields) {
+  IMatcher::Ptr Object(const std::unordered_map<std::string, IMatcher::Ptr>& fields) {
     return std::make_shared<ObjectMatcher>(fields);
   }
 
@@ -35,7 +35,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<TypeMatcher<double>>(value);
   }
 
-  IMatcher::Ptr Like(std::string value) {
+  IMatcher::Ptr Like(const std::string& value) {
     return std::make_shared<TypeMatcher<std::string>>(value);
   }
 
@@ -47,35 +47,35 @@ namespace pact_consumer::matchers {
     return std::make_shared<TypeMatcher<bool>>(value);
   }
 
-  IMatcher::Ptr DateTime(std::string format, std::string example) {
+  IMatcher::Ptr DateTime(const std::string& format, const std::string& example) {
     return std::make_shared<DateTimeMatcher>(format, example);
   }
 
-  IMatcher::Ptr DateTime(std::string format) {
+  IMatcher::Ptr DateTime(const std::string& format) {
     return std::make_shared<DateTimeMatcher>(format);
   }
 
-  IMatcher::Ptr Date(std::string format, std::string example) {
+  IMatcher::Ptr Date(const std::string& format, const std::string& example) {
     return std::make_shared<DateMatcher>(format, example);
   }
 
-  IMatcher::Ptr Date(std::string format) {
+  IMatcher::Ptr Date(const std::string& format) {
     return std::make_shared<DateMatcher>(format);
   }
 
-  IMatcher::Ptr Time(std::string format, std::string example) {
+  IMatcher::Ptr Time(const std::string& format, const std::string& example) {
     return std::make_shared<TimeMatcher>(format, example);
   }
 
-  IMatcher::Ptr Time(std::string format) {
+  IMatcher::Ptr Time(const std::string& format) {
     return std::make_shared<TimeMatcher>(format);
   }
 
-  IMatcher::Ptr Matching(std::string regex, std::string example) {
+  IMatcher::Ptr Matching(const std::string& regex, const std::string& example) {
     return std::make_shared<RegexMatcher>(regex, example);
   }
 
-  IMatcher::Ptr Matching(std::string regex) {
+  IMatcher::Ptr Matching(const std::string& regex) {
     return std::make_shared<RegexMatcher>(regex);
   }
 
@@ -95,7 +95,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<EachlikeMatcher>(examples, 1, obj);
   }
 
-  IMatcher::Ptr HexValue(const std::string example) {
+  IMatcher::Ptr HexValue(const std::string& example) {
     return std::make_shared<HexadecimalMatcher>(example);
   }
 
@@ -103,7 +103,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<HexadecimalMatcher>();
   }
 
-  IMatcher::Ptr IPAddress(const std::string example) {
+  IMatcher::Ptr IPAddress(const std::string& example) {
     return std::make_shared<IPAddressMatcher>(example);
   }
 
@@ -143,7 +143,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<DecimalMatcher>();
   }
 
-  IMatcher::Ptr Uuid(const std::string example) {
+  IMatcher::Ptr Uuid(const std::string& example) {
     return std::make_shared<UuidMatcher>(example);
   }
 
@@ -191,7 +191,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<EqualsMatcher<double>>(value);
   }
 
-  IMatcher::Ptr EqualTo(std::string value) {
+  IMatcher::Ptr EqualTo(const std::string& value) {
     return std::make_shared<EqualsMatcher<std::string>>(value);
   }
 
@@ -203,7 +203,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<EqualsMatcher<bool>>(value);
   }
 
-  IMatcher::Ptr IncludesStr(std::string value) {
+  IMatcher::Ptr IncludesStr(const std::string& value) {
     return std::make_shared<IncludesMatcher>(value);
   }
 
@@ -211,7 +211,7 @@ namespace pact_consumer::matchers {
     return std::make_shared<NullMatcher>();
   }
 
-  IMatcher::Ptr Url(std::string basePath, std::vector<IMatcher::Ptr> pathFragments) {
+  IMatcher::Ptr Url(const std::string& basePath, const std::vector<IMatcher::Ptr>& pathFragments) {
     return std::make_shared<UrlMatcher>(basePath, pathFragments);
   }
 

@@ -20,7 +20,7 @@ namespace pact_consumer::matchers {
 
   class ObjectMatcher : public IMatcher {
     public:
-      ObjectMatcher(const std::unordered_map<std::string, IMatcher::Ptr> i_fields) : fields { i_fields } {};
+      ObjectMatcher(const std::unordered_map<std::string, IMatcher::Ptr>& i_fields) : fields { i_fields } {};
 
       virtual std::string getJson() const;
 
@@ -94,8 +94,8 @@ namespace pact_consumer::matchers {
 
   class DateTimeMatcher : public IMatcher {
     public:
-      DateTimeMatcher(std::string f) : format { f } {};
-      DateTimeMatcher(std::string f, std::string e) : format { f }, example { e } {};
+      DateTimeMatcher(const std::string& f) : format { f } {};
+      DateTimeMatcher(const std::string& f, const std::string& e) : format { f }, example { e } {};
 
       virtual std::string getJson() const;
 
@@ -105,8 +105,8 @@ namespace pact_consumer::matchers {
 
   class DateMatcher : public IMatcher {
     public:
-      DateMatcher(std::string f) : format { f } {};
-      DateMatcher(std::string f, std::string e) : format { f }, example { e } {};
+      DateMatcher(const std::string& f) : format { f } {};
+      DateMatcher(const std::string& f, const std::string& e) : format { f }, example { e } {};
 
       virtual std::string getJson() const;
 
@@ -116,8 +116,8 @@ namespace pact_consumer::matchers {
 
   class TimeMatcher : public IMatcher {
     public:
-      TimeMatcher(std::string f) : format { f } {};
-      TimeMatcher(std::string f, std::string e) : format { f }, example { e } {};
+      TimeMatcher(const std::string& f) : format { f } {};
+      TimeMatcher(const std::string& f, const std::string& e) : format { f }, example { e } {};
 
       virtual std::string getJson() const;
 
@@ -127,8 +127,8 @@ namespace pact_consumer::matchers {
 
   class RegexMatcher : public IMatcher {
     public:
-      RegexMatcher(std::string r) : regex { r } {};
-      RegexMatcher(std::string r, std::string e) : regex { r }, example { e } {};
+      RegexMatcher(const std::string& r) : regex { r } {};
+      RegexMatcher(const std::string& r, const std::string& e) : regex { r }, example { e } {};
 
       virtual std::string getJson() const;
 
@@ -156,7 +156,7 @@ namespace pact_consumer::matchers {
   class HexadecimalMatcher : public IMatcher {
     public:
       HexadecimalMatcher() {};
-      HexadecimalMatcher(std::string hex) : example { hex } {};
+      HexadecimalMatcher(const std::string& hex) : example { hex } {};
 
       virtual std::string getJson() const;
 
@@ -167,7 +167,7 @@ namespace pact_consumer::matchers {
   class IPAddressMatcher : public IMatcher {
     public:
       IPAddressMatcher() {};
-      IPAddressMatcher(std::string address) : example { address } {};
+      IPAddressMatcher(const std::string& address) : example { address } {};
 
       virtual std::string getJson() const;
 
@@ -178,7 +178,7 @@ namespace pact_consumer::matchers {
   class UuidMatcher : public IMatcher {
     public:
       UuidMatcher() {};
-      UuidMatcher(std::string uuid) : example { uuid } {};
+      UuidMatcher(const std::string& uuid) : example { uuid } {};
 
       virtual std::string getJson() const;
 
@@ -188,7 +188,7 @@ namespace pact_consumer::matchers {
 
   class IncludesMatcher : public IMatcher {
     public:
-      IncludesMatcher(std::string v) : value { v } {};
+      IncludesMatcher(const std::string& v) : value { v } {};
 
       virtual std::string getJson() const;
 
@@ -203,7 +203,7 @@ namespace pact_consumer::matchers {
 
   class UrlMatcher : public IMatcher {
     public:
-      UrlMatcher(std::string b, std::vector<IMatcher::Ptr> f) : basePath { b }, pathFragments { f } {};
+      UrlMatcher(const std::string& b, const std::vector<IMatcher::Ptr>& f) : basePath { b }, pathFragments { f } {};
 
       virtual std::string getJson() const;
 
@@ -215,7 +215,7 @@ namespace pact_consumer::matchers {
   /**
    * Represents a JSON object (map of string fields)
    */
-  IMatcher::Ptr Object(const std::unordered_map<std::string, IMatcher::Ptr> fields);
+  IMatcher::Ptr Object(const std::unordered_map<std::string, IMatcher::Ptr>& fields);
 
   /**
    * Matchers an integer value (must be a number and have no decimal places).
@@ -262,49 +262,49 @@ namespace pact_consumer::matchers {
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use
    */
-  IMatcher::Ptr DateTime(std::string format, std::string example);
+  IMatcher::Ptr DateTime(const std::string& format, const std::string& example);
 
   /**
    * String value that must match the provided datetime format string. Example values will be generated using the current system date and time.
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    */
-  IMatcher::Ptr DateTime(std::string format);
+  IMatcher::Ptr DateTime(const std::string& format);
 
   /**
    * String value that must match the provided date format string.
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use
    */
-  IMatcher::Ptr Date(std::string format, std::string example);
+  IMatcher::Ptr Date(const std::string& format, const std::string& example);
 
   /**
    * String value that must match the provided date format string. Example values will be generated using the current system date and time.
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    */
-  IMatcher::Ptr Date(std::string format);
+  IMatcher::Ptr Date(const std::string& format);
 
   /**
    * String value that must match the provided time format string.
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    * @param example Example value to use
    */
-  IMatcher::Ptr Time(std::string format, std::string example);
+  IMatcher::Ptr Time(const std::string& format, const std::string& example);
 
   /**
    * String value that must match the provided time format string. Example values will be generated using the current system date and time.
    * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
    */
-  IMatcher::Ptr Time(std::string format);
+  IMatcher::Ptr Time(const std::string& format);
 
   /**
    * String value that must match the regular expression
    */
-  IMatcher::Ptr Matching(std::string regex, std::string example);
+  IMatcher::Ptr Matching(const std::string& regex, const std::string& example);
 
   /**
    * String value that must match the regular expression. Random values will be generated for the examples.
    */
-  IMatcher::Ptr Matching(std::string regex);
+  IMatcher::Ptr Matching(const std::string& regex);
 
   /**
    * Array of values where each item in the array must match the provided template.
@@ -332,7 +332,7 @@ namespace pact_consumer::matchers {
    * Match a hexadecimal value
    * @param example Example value
    */
-  IMatcher::Ptr HexValue(const std::string example);
+  IMatcher::Ptr HexValue(const std::string& example);
 
   /**
    * Match a hexadecimal value. Random examples will be generated.
@@ -343,7 +343,7 @@ namespace pact_consumer::matchers {
    * Match an IP Address
    * @param example Example value
    */
-  IMatcher::Ptr IPAddress(const std::string example);
+  IMatcher::Ptr IPAddress(const std::string& example);
 
   /**
    * Match an IP Address. Will use 127.0.0.1 for examples.
@@ -401,7 +401,7 @@ namespace pact_consumer::matchers {
    * Match a universally unique identifier (UUID)
    * @param example value to use for examples
    */
-  IMatcher::Ptr Uuid(const std::string example);
+  IMatcher::Ptr Uuid(const std::string& example);
 
   /**
    * Match a universally unique identifier (UUID). Random values will be used for examples.
@@ -477,7 +477,7 @@ namespace pact_consumer::matchers {
    * Match by equality. This is mainly used to reset the cascading type matchers.
    * @param value Value to match to
    */
-  IMatcher::Ptr EqualTo(std::string value);
+  IMatcher::Ptr EqualTo(const std::string& value);
 
   /**
    * Match by equality. This is mainly used to reset the cascading type matchers.
@@ -495,7 +495,7 @@ namespace pact_consumer::matchers {
    * Matches if the string value contains the given value
    * @param value String value that must be present
    */
-  IMatcher::Ptr IncludesStr(std::string value);
+  IMatcher::Ptr IncludesStr(const std::string& value);
 
   /**
    * Matches a JSON null value
@@ -507,5 +507,5 @@ namespace pact_consumer::matchers {
    * @param basePath Base path of the URL
    * @param pathFragments list of path fragments, can be regular expressions. Only the Equals and Matching matchers will work.
    */
-  IMatcher::Ptr Url(std::string basePath, std::vector<IMatcher::Ptr> pathFragments);
+  IMatcher::Ptr Url(const std::string& basePath, const std::vector<IMatcher::Ptr>& pathFragments);
 }

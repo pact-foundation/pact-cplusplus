@@ -36,7 +36,7 @@ namespace pact_consumer {
     return Interaction(this, "__new_interaction__").given(provider_state, parameters);
   }
 
-  PactTestResult Pact::run_test(std::function<bool(MockServerHandle*)> callback) const {
+  PactTestResult Pact::run_test(std::function<bool(const MockServerHandle*)> callback) const {
     MockServerHandle mockServer(this->pact);
     PactTestResult result;
 
