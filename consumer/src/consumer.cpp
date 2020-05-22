@@ -4,8 +4,10 @@
 #include <sstream>
 #include "consumer.h"
 #include <boost/exception/diagnostic_information.hpp>
+#include <nlohmann/json.hpp>
 
 using namespace pact_mock_server_ffi;
+using json = nlohmann::json;
 
 namespace pact_consumer {
   void init() {
@@ -130,17 +132,14 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withJsonBody(void (*callback)(PactJsonBuilder*)) const {
-    PactJsonBuilder body(nullptr);
-    callback(&body);
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, "application/json;charset=UTF-8", 
-      body.get_json().dump().data());
+  Interaction Interaction::withBody(std::string body, std::string content_type) const {
+    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), body.data());
     return *this;
   }
 
   Interaction Interaction::withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, "application/json;charset=UTF-8", 
-      body->getJson().dump().data());
+      body->getJson().data());
     return *this;
   }
 
@@ -151,6 +150,20 @@ namespace pact_consumer {
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
       pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
+        buffer.data(), size);
+      return *this;
+    } else {
+      throw std::string("Could not read file contents: ") + example_file.string();
+    }
+  }
+
+  Interaction Interaction::withMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const {
+    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::vector<char> buffer(size);
+    if (file.read(buffer.data(), size)) {
+      pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
         buffer.data(), size);
       return *this;
     } else {
@@ -172,17 +185,15 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withResponseJsonBody(void (*callback)(PactJsonBuilder*)) const {
-    PactJsonBuilder body(nullptr);
-    callback(&body);
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
-      body.get_json().dump().data());
+  Interaction Interaction::withResponseBody(std::string body, std::string content_type) const {
+    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+      body.data());
     return *this;
   }
 
   Interaction Interaction::withResponseJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
-      body->getJson().dump().data());
+      body->getJson().data());
     return *this;
   }
 
@@ -193,6 +204,20 @@ namespace pact_consumer {
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
       pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+        buffer.data(), size);
+      return *this;
+    } else {
+      throw std::string("Could not read file contents: ") + example_file.string();
+    }
+  }
+
+  Interaction Interaction::withResponseMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const {
+    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::vector<char> buffer(size);
+    if (file.read(buffer.data(), size)) {
+      pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
         buffer.data(), size);
       return *this;
     } else {

@@ -3,19 +3,17 @@
 #include <string>
 #include <unordered_map>
 #include <memory>
-#include <nlohmann/json.hpp>
 #include <optional>
 #include <boost/throw_exception.hpp>
 #include <sstream>
-
-using json = nlohmann::json;
+#include <vector>
 
 namespace pact_consumer::matchers {
 
   class IMatcher {
     public:
       using Ptr = std::shared_ptr<IMatcher>;
-      virtual json getJson() const = 0;
+      virtual std::string getJson() const = 0;
       virtual std::string as_example() const { return ""; };
       virtual std::string as_regex() const { return as_example(); };
   };
@@ -24,7 +22,7 @@ namespace pact_consumer::matchers {
     public:
       ObjectMatcher(const std::unordered_map<std::string, IMatcher::Ptr> i_fields) : fields { i_fields } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::unordered_map<std::string, IMatcher::Ptr> fields;
@@ -36,7 +34,7 @@ namespace pact_consumer::matchers {
       IntegerMatcher(long v) : value { v } {};
       IntegerMatcher(int v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::optional<long> value;
@@ -48,7 +46,7 @@ namespace pact_consumer::matchers {
       DecimalMatcher(float v) : value { v } {};
       DecimalMatcher(double v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::optional<double> value;
@@ -59,7 +57,7 @@ namespace pact_consumer::matchers {
     public:
       TypeMatcher(T v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       T value;
@@ -71,7 +69,7 @@ namespace pact_consumer::matchers {
       NumberMatcher() {};
       NumberMatcher(T v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::optional<T> value;
@@ -82,7 +80,7 @@ namespace pact_consumer::matchers {
     public:
       EqualsMatcher(T v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
       
       virtual std::string as_example() const { 
         std::ostringstream stringStream;
@@ -99,7 +97,7 @@ namespace pact_consumer::matchers {
       DateTimeMatcher(std::string f) : format { f } {};
       DateTimeMatcher(std::string f, std::string e) : format { f }, example { e } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string format, example;
@@ -110,7 +108,7 @@ namespace pact_consumer::matchers {
       DateMatcher(std::string f) : format { f } {};
       DateMatcher(std::string f, std::string e) : format { f }, example { e } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string format, example;
@@ -121,7 +119,7 @@ namespace pact_consumer::matchers {
       TimeMatcher(std::string f) : format { f } {};
       TimeMatcher(std::string f, std::string e) : format { f }, example { e } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string format, example;
@@ -132,7 +130,7 @@ namespace pact_consumer::matchers {
       RegexMatcher(std::string r) : regex { r } {};
       RegexMatcher(std::string r, std::string e) : regex { r }, example { e } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
       virtual std::string as_example() const { return example; };
       virtual std::string as_regex() const { return regex; };
@@ -148,7 +146,7 @@ namespace pact_consumer::matchers {
       EachlikeMatcher(int e, int m, IMatcher::Ptr t) : obj { t }, examples { e }, min { m } {};
       EachlikeMatcher(int e, int m, int mx, IMatcher::Ptr t) : obj { t }, examples { e }, min { m }, max { mx } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       int examples, min, max;
@@ -160,7 +158,7 @@ namespace pact_consumer::matchers {
       HexadecimalMatcher() {};
       HexadecimalMatcher(std::string hex) : example { hex } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string example;
@@ -171,7 +169,7 @@ namespace pact_consumer::matchers {
       IPAddressMatcher() {};
       IPAddressMatcher(std::string address) : example { address } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string example;
@@ -182,7 +180,7 @@ namespace pact_consumer::matchers {
       UuidMatcher() {};
       UuidMatcher(std::string uuid) : example { uuid } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string example;
@@ -192,7 +190,7 @@ namespace pact_consumer::matchers {
     public:
       IncludesMatcher(std::string v) : value { v } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string value;
@@ -200,14 +198,14 @@ namespace pact_consumer::matchers {
 
   class NullMatcher : public IMatcher {
     public:
-      virtual json getJson() const;
+      virtual std::string getJson() const;
   };
 
   class UrlMatcher : public IMatcher {
     public:
       UrlMatcher(std::string b, std::vector<IMatcher::Ptr> f) : basePath { b }, pathFragments { f } {};
 
-      virtual json getJson() const;
+      virtual std::string getJson() const;
 
     private:
       std::string basePath;

@@ -1,6 +1,9 @@
 #include "matchers.h"
 #include <pact_mock_server_ffi.h>
 #include <iostream>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 namespace pact_consumer::matchers {
 
@@ -212,17 +215,17 @@ namespace pact_consumer::matchers {
     return std::make_shared<UrlMatcher>(basePath, pathFragments);
   }
 
-  json ObjectMatcher::getJson() const {
+  std::string ObjectMatcher::getJson() const {
     auto obj = json::object();
 
     for (auto field : fields) {
-      obj[field.first] = field.second->getJson();
+      obj[field.first] = json::parse(field.second->getJson());
     }
 
-    return obj;
+    return obj.dump();
   }
 
-  json IntegerMatcher::getJson() const {
+  std::string IntegerMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "integer";
     if (value.has_value()) {
@@ -231,10 +234,10 @@ namespace pact_consumer::matchers {
       j["value"] = 101;
       j["pact:generator:type"] = "RandomInt";
     }
-    return j;
+    return j.dump();
   }
 
-  json DecimalMatcher::getJson() const {
+  std::string DecimalMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "decimal";
     if (value.has_value()) {
@@ -244,19 +247,19 @@ namespace pact_consumer::matchers {
       j["pact:generator:type"] = "RandomDecimalGenerator";
       j["digits"] = 6;
     }
-    return j;
+    return j.dump();
   }
 
   template<typename T>
-  json TypeMatcher<T>::getJson() const {
+  std::string TypeMatcher<T>::getJson() const {
     json j;
     j["pact:matcher:type"] = "type";
     j["value"] = value;
-    return j;
+    return j.dump();
   }
 
   template<typename T>
-  json NumberMatcher<T>::getJson() const {
+  std::string NumberMatcher<T>::getJson() const {
     json j;
     j["pact:matcher:type"] = "number";
     if (value.has_value()) {
@@ -266,18 +269,18 @@ namespace pact_consumer::matchers {
       j["pact:generator:type"] = "RandomDecimal";
       j["digits"] = 6;
     }
-    return j;
+    return j.dump();
   }
 
   template<typename T>
-  json EqualsMatcher<T>::getJson() const {
+  std::string EqualsMatcher<T>::getJson() const {
     json j;
     j["pact:matcher:type"] = "equality";
     j["value"] = value;
-    return j;
+    return j.dump();
   }
 
-  json DateTimeMatcher::getJson() const {
+  std::string DateTimeMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "timestamp";
     j["format"] = format;
@@ -294,10 +297,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json DateMatcher::getJson() const {
+  std::string DateMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "date";
     j["format"] = format;
@@ -314,10 +317,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json TimeMatcher::getJson() const {
+  std::string TimeMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "time";
     j["format"] = format;
@@ -334,10 +337,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json RegexMatcher::getJson() const {
+  std::string RegexMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
@@ -360,10 +363,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json EachlikeMatcher::getJson() const {
+  std::string EachlikeMatcher::getJson() const {
     if (min > 0 && max > 0 && min > max) {
       std::ostringstream stringStream;
       stringStream << "eachLike: Min array size " << min << " is greater than the max size " << max;
@@ -379,8 +382,9 @@ namespace pact_consumer::matchers {
     }
 
     json array = json::array();
+    json obj_json = json::parse(obj->getJson());
     for (unsigned int i = 0; i < examples; i++) {
-      array.push_back(obj->getJson());
+      array.push_back(obj_json);
     }
     json j;
     j["pact:matcher:type"] = "type";
@@ -391,10 +395,10 @@ namespace pact_consumer::matchers {
     if (max > 0) {
       j["max"] = max;
     }
-    return j;
+    return j.dump();
   }
 
-  json HexadecimalMatcher::getJson() const {
+  std::string HexadecimalMatcher::getJson() const {
     json j;
     const char *regex = "[0-9a-fA-F]+";
     j["pact:matcher:type"] = "regex";
@@ -418,10 +422,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json IPAddressMatcher::getJson() const {
+  std::string IPAddressMatcher::getJson() const {
     json j;
     const char *regex = "(\\d{1,3}\\.)+\\d{1,3}";
     j["pact:matcher:type"] = "regex";
@@ -445,10 +449,10 @@ namespace pact_consumer::matchers {
         BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
       }
     }
-    return j;
+    return j.dump();
   }
 
-  json UuidMatcher::getJson() const {
+  std::string UuidMatcher::getJson() const {
     json j;
     const char *regex = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}";
     j["pact:matcher:type"] = "regex";
@@ -465,23 +469,23 @@ namespace pact_consumer::matchers {
       j["pact:generator:type"] = "Uuid";
       j["value"] = "e2490de5-5bd3-43d5-b7c4-526e33f71304";
     }
-    return j;
+    return j.dump();
   }
 
-  json IncludesMatcher::getJson() const {
+  std::string IncludesMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "include";
     j["value"] = value;
-    return j;
+    return j.dump();
   }
 
-  json NullMatcher::getJson() const {
+  std::string NullMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "null";
-    return j;
+    return j.dump();
   }
 
-  json UrlMatcher::getJson() const {
+  std::string UrlMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "regex";
     std::string regex = ".*";
@@ -494,6 +498,6 @@ namespace pact_consumer::matchers {
       example += "/" + p->as_example();
     }
     j["value"] = example;
-    return j;
+    return j.dump();
   }
 }

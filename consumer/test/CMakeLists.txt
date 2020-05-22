@@ -7,7 +7,7 @@ project(pact-consumer-tests)
 INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 CONAN_BASIC_SETUP()
 
-ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp src/todo.cpp src/body_tests.cpp src/matchers_tests.cpp)
+ADD_EXECUTABLE(${PROJECT_NAME} src/consumer_test.cpp src/todo.cpp src/matchers_tests.cpp)
 target_include_directories(pact-consumer-tests PRIVATE ../include)
 
 if(WIN32)

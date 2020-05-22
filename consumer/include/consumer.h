@@ -4,12 +4,9 @@
 #include <unordered_map>
 #include <vector>
 #include <pact_mock_server_ffi.h>
-#include <nlohmann/json.hpp>
 #include <filesystem>
 #include <optional>
 #include "matchers.h"
-
-using json = nlohmann::json;
 
 namespace pact_consumer {
 
@@ -19,149 +16,6 @@ namespace pact_consumer {
   void init();
 
   class Interaction;
-
-  /**
-   * Builder class to help construct JSON bodies 
-   */
-  class PactJsonBuilder {
-    public:
-      PactJsonBuilder(const PactJsonBuilder* parent);
-
-      /**
-       * Attribute that is an array where each item in the array must match the constructed template
-       * @param name Attribute name
-       * @param examples Number of examples to generate (defaults to 1) 
-       * @param callback Callback that gets invoked to define the template
-       */
-      PactJsonBuilder& eachLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*));
-
-      /**
-       * Attribute that is an array where each item in the array must match the constructed template. Will only generate one example.
-       * @param name Attribute name
-       * @param callback Callback that gets invoked to define the template
-       */
-      PactJsonBuilder& eachLike(std::string name, void (*callback)(PactJsonBuilder*));
-
-      /**
-      * Attribute that is an array that has to have at least one element and each element must match the given template
-      * @param name Attribute name
-      * @param examples Number of examples to generate (defaults to 1) 
-      * @param callback Callback that gets invoked to define the template
-      */ 
-      PactJsonBuilder& atLeastOneLike(std::string name, unsigned int examples, void (*callback)(PactJsonBuilder*));
-
-      /**
-      * Attribute that is an array that has to have at least one element and each element must match the given template. Will only generate one example.
-      * @param name Attribute name
-      * @param callback Callback that gets invoked to define the template
-      */ 
-      PactJsonBuilder& atLeastOneLike(std::string name, void (*callback)(PactJsonBuilder*));
-
-      /**
-       * Attribute whose value must be an integer (must be a number and have no decimal places)
-       * @param name Attribute name
-       * @param example Example value. If omitted a random value will be generated.
-       */
-      PactJsonBuilder& integer(std::string name, int example);
-
-      /**
-       * Attribute whose value must be an integer (must be a number and have no decimal places). A random value will be 
-       * generated for any examples.
-       * @param name Attribute name
-       */
-      PactJsonBuilder& integer(std::string name);
-
-      /**
-       * Attribute whose value must be a decimal number (must be a number and have decimal places)
-       * @param name Attribute name 
-       * @param num Example value. If omitted a random value will be generated.
-       */
-      PactJsonBuilder& decimal(std::string name, double example);
-
-      /**
-       * Attribute whose value must be a decimal number (must be a number and have decimal places). A random value will be 
-       * generated for any examples.
-       * @param name Attribute name 
-       */
-      PactJsonBuilder& decimal(std::string name);
-
-      /**
-       * Attribute whose value must be a number.
-       * @param name Attribute name 
-       * @param num Example value. If omitted a random integer value will be generated.
-       */
-      PactJsonBuilder& number(std::string name, double example);
-
-      /**
-       * Attribute whose value must be a number.
-       * @param name Attribute name 
-       * @param num Example value. If omitted a random integer value will be generated.
-       */
-      PactJsonBuilder& number(std::string name, int example);
-
-      /**
-       * Attribute whose value must be a number. A random integer value will be generated for any examples.
-       * @param name Attribute name 
-       */
-      PactJsonBuilder& number(std::string name);
-
-      /**
-       * Attribute whose value must be a string.
-       * @param name Attribute name
-       * @param example Example value.
-       */
-      PactJsonBuilder& string(std::string name, std::string example);
-
-      /**
-       * Attribute whose value must be a string. A random string value will be generated for any examples.
-       * @param name Attribute name
-       */
-      PactJsonBuilder& string(std::string name);
-
-      /**
-        * Attribute whose value that must match the given regular expression.
-        * @param name Attribute name
-        * @param regex Regular Expression to match
-        * @param example Example value
-        */
-      PactJsonBuilder& regex(std::string name, std::string regex, std::string example);
-
-      /**
-        * Attribute whose value that must match the given regular expression. A random string value will be generated for any examples.
-        * @param name Attribute name
-        * @param regex Regular Expression to match
-        */
-      PactJsonBuilder& regex(std::string name, std::string regex);
-
-      /**
-      * String value that must match the provided datetime format string.
-      * @param name Attribute name
-      * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-      * @param example Example value to use. If omitted a value using the current system date and time will be generated.
-      */
-      PactJsonBuilder& datetime(std::string name, std::string format, std::string example);
-
-      /**
-      * String value that must match the provided datetime format string. A random value will be 
-      * @param name Attribute name
-      * generated for any examples.
-      * @param format Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-      */
-      PactJsonBuilder& datetime(std::string name, std::string format);
-
-      /**
-      * Value must be a boolean
-      * @param name Attribute name
-      * @param b Boolean example value
-      */
-      PactJsonBuilder& boolean(std::string name, bool b);
-
-      json get_json() { return obj; }
-
-    private:
-      const PactJsonBuilder* parent;
-      json obj;
-  };
 
   /**
    * Mock server handle to the mock server started for the test
@@ -319,13 +173,12 @@ namespace pact_consumer {
     Interaction withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
     
     /**
-     * Sets the body for the request using the callback. The callback will be invoked 
-     * with a builder to construct the body.
+     * Sets the body for the request to the string contents.
      */
-    Interaction withJsonBody(void (*callback)(PactJsonBuilder*)) const;
+    Interaction withBody(std::string body, std::string content_type) const;
 
     /**
-     * Sets the body for the request using the provided body template
+     * Sets the body for the request using the provided body template.
      */
     Interaction withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const;
 
@@ -334,6 +187,12 @@ namespace pact_consumer {
      * entire example file in memory. Use small files for your testing.
      */
     Interaction withBinaryFile(std::string content_type, std::filesystem::path example_file) const;
+
+    /**
+     * Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the
+     * entire example file in memory. Use small files for your testing.
+     */
+    Interaction withMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const;
 
     /**
      * Sets the status code for the response
@@ -346,10 +205,9 @@ namespace pact_consumer {
     Interaction withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
 
     /**
-     * Sets the body for the request using the callback. The callback will be invoked 
-     * with a builder to construct the body.
+     * Sets the body for the response to the string contents.
      */
-    Interaction withResponseJsonBody(void (*callback)(PactJsonBuilder*)) const;
+    Interaction withResponseBody(std::string body, std::string content_type) const;
 
     /**
      * Sets the body for the request using the provided body template
@@ -361,6 +219,12 @@ namespace pact_consumer {
      * entire example file in memory. Use small files for your testing. 
      */
     Interaction withResponseBinaryFile(std::string content_type, std::filesystem::path example_file) const;
+
+    /**
+     * Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the
+     * entire example file in memory. Use small files for your testing. 
+     */
+    Interaction withResponseMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const;
 
     pact_mock_server_ffi::InteractionHandle interaction;
 
