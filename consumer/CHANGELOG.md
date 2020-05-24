@@ -1,5 +1,14 @@
 To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD .` replacing TAGNAME and HEAD as appropriate.
 
+# 0.0.2 - Code cleanup + support multipart form posts with binary files
+
+* eaf913f - chore: update docygen docs (Ronald Holshausen, Sun May 24 12:35:28 2020 +1000)
+* 9bfdf17 - feat: support multipart form posts with binary files (Ronald Holshausen, Sun May 24 12:33:04 2020 +1000)
+* 74d4d02 - refactor: use const references for all non-primitive parameters (Ronald Holshausen, Fri May 22 13:04:42 2020 +1000)
+* 43a705a - refactor: use a std::function instead of a closure (Ronald Holshausen, Fri May 22 12:50:32 2020 +1000)
+* bcc14ac - refactor: implemented changes from feedback from Aligntech (Ronald Holshausen, Fri May 22 12:40:26 2020 +1000)
+* e29e8f9 - bump version to 0.0.2 (Ronald Holshausen, Fri May 15 17:05:39 2020 +1000)
+
 # 0.0.1 - Bugfixes + Updated Matcher DSL
 
 * d76d0e0 - chore: updated readme (Ronald Holshausen, Fri May 15 16:18:09 2020 +1000)
