@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include "todo.h"
+#include "multipart_parser.h"
 
 using namespace std;
 using namespace utility;                    // Common utilities like string conversions
@@ -74,21 +75,18 @@ vector<Project> TodoClient::getProjects(string format) {
 bool TodoClient::postImage(unsigned int id, std::string file_path) {
   http_client client(utility::conversions::to_string_t(serverUrl));
 
+  MultipartParser parser;
+  parser.AddParameter("Filename", file_path);
+  parser.AddFile("file", file_path);
+  std::string boundary = parser.boundary();
+  std::string body = parser.GenBodyContent();
+
   std::ostringstream out;
   out << "/projects/" << id << "/images";
   uri_builder builder(utility::conversions::to_string_t(out.str()));
   http_request request(U("POST"));
   request.set_request_uri(builder.to_uri());
-
-  std::ifstream file (file_path, std::ios::binary | std::ios::ate);
-  std::streamsize size = file.tellg();
-  file.seekg(0, std::ios::beg);
-  std::vector<unsigned char> buffer(size);
-  if (file.read((char *) buffer.data(), size)) {
-    request.set_body(buffer); 
-  } else {
-    throw std::string("Could not read file contents: ") + file_path;
-  }
+  request.set_body(body, "multipart/form-data; boundary=" + boundary);
 
   return client.request(request).then([=](http_response response) {
       printf("Received response status code:%u\n", response.status_code());

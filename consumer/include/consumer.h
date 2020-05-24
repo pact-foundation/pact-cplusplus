@@ -111,7 +111,7 @@ namespace pact_consumer {
       /**
        * Creates a new iteraction with a defined provider state and parameters
        */
-      Interaction given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const;
+      Interaction given(const char* provider_state, const std::unordered_map<std::string, std::string>& parameters) const;
 
       /**
        * Creates a new interaction with the provided description.
@@ -151,7 +151,7 @@ namespace pact_consumer {
     /**
      * Adds a provider state with parameters
      */
-    Interaction given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const;
+    Interaction given(const char* provider_state, const std::unordered_map<std::string, std::string>& parameters) const;
 
     /**
      * Sets the description for the interaction
@@ -166,17 +166,17 @@ namespace pact_consumer {
     /**
      * Sets the query parameters for the request
      */
-    Interaction withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const;
+    Interaction withQuery(const std::unordered_map<std::string, std::vector<std::string>>& query) const;
 
     /**
      * Sets the headers for the request
      */
-    Interaction withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
+    Interaction withHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const;
     
     /**
      * Sets the body for the request to the string contents.
      */
-    Interaction withBody(std::string body, std::string content_type) const;
+    Interaction withBody(const std::string& body, const std::string& content_type) const;
 
     /**
      * Sets the body for the request using the provided body template.
@@ -187,13 +187,13 @@ namespace pact_consumer {
      * Sets the body for the request using the example file and content type. Note that this will attempt to load the
      * entire example file in memory. Use small files for your testing.
      */
-    Interaction withBinaryFile(std::string content_type, std::filesystem::path example_file) const;
+    Interaction withBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const;
 
     /**
      * Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the
      * entire example file in memory. Use small files for your testing.
      */
-    Interaction withMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const;
+    Interaction withMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const;
 
     /**
      * Sets the status code for the response
@@ -203,12 +203,12 @@ namespace pact_consumer {
     /**
      * Sets the headers for the response
      */
-    Interaction withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const;
+    Interaction withResponseHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const;
 
     /**
      * Sets the body for the response to the string contents.
      */
-    Interaction withResponseBody(std::string body, std::string content_type) const;
+    Interaction withResponseBody(const std::string& body, const std::string& content_type) const;
 
     /**
      * Sets the body for the request using the provided body template
@@ -219,13 +219,13 @@ namespace pact_consumer {
      * Sets the body for the response using the example file and content type. Note that this will attempt to load the
      * entire example file in memory. Use small files for your testing. 
      */
-    Interaction withResponseBinaryFile(std::string content_type, std::filesystem::path example_file) const;
+    Interaction withResponseBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const;
 
     /**
      * Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the
      * entire example file in memory. Use small files for your testing. 
      */
-    Interaction withResponseMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const;
+    Interaction withResponseMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const;
 
     pact_mock_server_ffi::InteractionHandle interaction;
 

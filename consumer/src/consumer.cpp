@@ -32,7 +32,7 @@ namespace pact_consumer {
     return Interaction(this, "__new_interaction__").given(provider_state);
   }
 
-  Interaction Pact::given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const {
+  Interaction Pact::given(const char* provider_state, const std::unordered_map<std::string, std::string>& parameters) const {
     return Interaction(this, "__new_interaction__").given(provider_state, parameters);
   }
 
@@ -102,7 +102,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::given(const char* provider_state, std::unordered_map<std::string, std::string> parameters) const {
+  Interaction Interaction::given(const char* provider_state, const std::unordered_map<std::string, std::string>& parameters) const {
     for (auto& p : parameters) {
       pact_mock_server_ffi::given_with_param(this->interaction, provider_state, p.first.data(), p.second.data());
     }
@@ -114,7 +114,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withQuery(std::unordered_map<std::string, std::vector<std::string>> query) const {
+  Interaction Interaction::withQuery(const std::unordered_map<std::string, std::vector<std::string>>& query) const {
     for (auto& q : query) {
       for (auto it = q.second.begin(); it != q.second.end(); it++) {
         pact_mock_server_ffi::with_query_parameter(this->interaction, q.first.data(), it - q.second.begin(), it->data());
@@ -123,7 +123,7 @@ namespace pact_consumer {
     return *this;
   }
   
-  Interaction Interaction::withHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const {
+  Interaction Interaction::withHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const {
     for (auto& h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
         pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Request, h.first.data(), it - h.second.begin(), it->data());
@@ -132,7 +132,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withBody(std::string body, std::string content_type) const {
+  Interaction Interaction::withBody(const std::string& body, const std::string& content_type) const {
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), body.data());
     return *this;
   }
@@ -143,7 +143,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withBinaryFile(std::string content_type, std::filesystem::path example_file) const {
+  Interaction Interaction::withBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
@@ -157,18 +157,15 @@ namespace pact_consumer {
     }
   }
 
-  Interaction Interaction::withMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const {
-    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
-    std::streamsize size = file.tellg();
-    file.seekg(0, std::ios::beg);
-    std::vector<char> buffer(size);
-    if (file.read(buffer.data(), size)) {
-      pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
-        buffer.data(), size);
-      return *this;
-    } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+  Interaction Interaction::withMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const {
+    auto result = pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
+      example_file.string().data(), part_name.data());
+    if (result.tag == pact_mock_server_ffi::StringResult::Tag::Failed) {
+      std::string error = result.failed._0;
+      pact_mock_server_ffi::free_string(result.failed._0);
+      BOOST_THROW_EXCEPTION(std::runtime_error(error));
     }
+    return *this;
   }
 
   Interaction Interaction::willRespondWith(size_t status) const {
@@ -176,7 +173,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withResponseHeaders(std::unordered_map<std::string, std::vector<std::string>> headers) const {
+  Interaction Interaction::withResponseHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const {
     for (auto h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
         pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Response, h.first.data(), it - h.second.begin(), it->data());
@@ -185,7 +182,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withResponseBody(std::string body, std::string content_type) const {
+  Interaction Interaction::withResponseBody(const std::string& body, const std::string& content_type) const {
     pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
       body.data());
     return *this;
@@ -197,7 +194,7 @@ namespace pact_consumer {
     return *this;
   }
 
-  Interaction Interaction::withResponseBinaryFile(std::string content_type, std::filesystem::path example_file) const {
+  Interaction Interaction::withResponseBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
@@ -211,18 +208,15 @@ namespace pact_consumer {
     }
   }
 
-  Interaction Interaction::withResponseMultipartFileUpload(std::string content_type, std::filesystem::path example_file) const {
-    std::ifstream file (example_file, std::ios::binary | std::ios::ate);
-    std::streamsize size = file.tellg();
-    file.seekg(0, std::ios::beg);
-    std::vector<char> buffer(size);
-    if (file.read(buffer.data(), size)) {
-      pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
-        buffer.data(), size);
-      return *this;
-    } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+  Interaction Interaction::withResponseMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const {
+    auto result = pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+      example_file.string().data(), part_name.data());
+    if (result.tag == pact_mock_server_ffi::StringResult::Tag::Failed) {
+      std::string error = result.failed._0;
+      pact_mock_server_ffi::free_string(result.failed._0);
+      BOOST_THROW_EXCEPTION(std::runtime_error(error));
     }
+    return *this;
   }
 
   ////////////////////////////////////
@@ -280,44 +274,56 @@ namespace pact_consumer {
 
   void PactTestResult::display_errors() {
     if (this->status != 0) {
-      std::cout << "The test failed for the following reasons:\n";
+      std::cout << "\nThe test failed for the following reasons:\n\n";
       if (this->status & TestResultState::Mismatches) {
         if (this->messages[TestResultState::Mismatches].empty()) {
-          std::cout << "\t* Not all the requests matched\n";
+          std::cout << "  * Not all the requests matched\n\n";
         } else {
-          std::cout << "\t* The following mismatches occurred:\n";
+          std::cout << "  * The following mismatches occurred:\n\n";
           auto mismatches_str = this->messages[TestResultState::Mismatches];
           auto j = json::parse(mismatches_str);
-          int i = 0;
+          int i = 1;
           for (json::iterator it = j.begin(); it != j.end(); ++it, i++) {
             auto mismatch = *it;
             std::string type = mismatch["type"];
             if (type == "request-not-found") {
-              std::cout << "\t\t" << i << ") Unexpected request received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
+              std::cout << "    " << i << ") An unexpected request was received: " << mismatch["method"] << " " << mismatch["path"] << "\n\n";
             } else if (type == "missing-request") {
-              std::cout << "\t\t" << i << ") Expected request was not received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
+              std::cout << "    " << i << ") An expected request was not received: " << mismatch["method"] << " " << mismatch["path"] << "\n\n";
             } else if (type == "request-mismatch") {
-              std::cout << "\t\t" << i << ") Mismatched request was received: " << mismatch["method"] << " " << mismatch["path"] << "\n";
+              std::cout << "    " << i << ") Mismatched request was received: " << mismatch["method"] << " " << mismatch["path"] << "\n\n";
               auto mismatches = mismatch["mismatches"];
-              for (json::iterator it = mismatches.begin(); it != mismatches.end(); ++it) {
+              int m = 1;
+              for (json::iterator it = mismatches.begin(); it != mismatches.end(); ++it, m++) {
                 auto mismatch_details = *it;
                 std::string mismatch_type = mismatch_details["type"];
-                std::string expected = mismatch_details["expected"];
-                std::string actual = mismatch_details["actual"];
                 if (mismatch_type == "MethodMismatch") {
-                  std::cout << "\t\t\tMethod: Expected " << expected << " but was " << actual << "\n";
+                  std::string expected = mismatch_details["expected"];
+                  std::string actual = mismatch_details["actual"];
+                  std::cout << "      " << i << "." << m << ") Method: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "PathMismatch") {
-                  std::cout << "\t\t\tPath: " << mismatch_details["mismatch"] << "\n";
+                  std::string mismatch = mismatch_details["mismatch"];
+                  std::cout << "      " << i << "." << m << ") Path: " << mismatch << "\n";
                 } else if (mismatch_type == "StatusMismatch") {
-                  std::cout << "\t\t\tStatus: Expected " << expected << " but was " << actual << "\n";
+                  std::string expected = mismatch_details["expected"];
+                  std::string actual = mismatch_details["actual"];
+                  std::cout << "      " << i << "." << m << ") Status: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "QueryMismatch") {
-                  std::cout << "\t\t\tQuery Parameter: " << mismatch_details["mismatch"] << "\n";
+                  std::string mismatch = mismatch_details["mismatch"];
+                  std::cout << "      " << i << "." << m << ") Query Parameter: " << mismatch << "\n";
                 } else if (mismatch_type == "HeaderMismatch") {
-                  std::cout << "\t\t\tHeader: " << mismatch_details["mismatch"] << "\n";
+                  std::string mismatch = mismatch_details["mismatch"];
+                  std::cout << "      " << i << "." << m << ") Header: " << mismatch << "\n";
                 } else if (mismatch_type == "BodyTypeMismatch") {
-                  std::cout << "\t\t\tBody Type: Expected " << expected << " but was " << actual << "\n";
+                  std::string expected = mismatch_details["expected"];
+                  std::string actual = mismatch_details["actual"];
+                  std::cout << "      " << i << "." << m << ") Body Type: Expected " << expected << " but was " << actual << "\n";
                 } else if (mismatch_type == "BodyMismatch") {
-                  std::cout << "\t\t\tBody: " << mismatch_details["mismatch"] << "\n";
+                  std::string path = mismatch_details["path"];
+                  std::string mismatch = mismatch_details["mismatch"];
+                  std::cout << "      " << i << "." << m << ") Body: " << path << " - " << mismatch << "\n";
+                } else {
+                  std::cout << "      " << i << "." << m << ") An unknown type of mismatch occurred: " << mismatch_type << "\n";
                 }
               }
             }
@@ -327,30 +333,31 @@ namespace pact_consumer {
       if (this->status & TestResultState::UserCodeFailed) {
         auto message = this->messages[TestResultState::UserCodeFailed];
         if (message.empty()) {
-          std::cout << "\t* Test callback failed with an exception\n";
+          std::cout << "  * Test callback failed with an exception\n\n";
         } else {
-          std::cout << "\t* Test callback failed with an exception: " << message << "\n";
+          std::cout << "  * Test callback failed with an exception: " << message << "\n\n";
         }
         if (ex.has_value()) {
-          std::cout << "\t\t" << ex.value() << "\n";
+          std::cout << "    " << ex.value() << "\n";
         }
       }
       if (this->status & TestResultState::PactFileError) {
         auto message = this->messages[TestResultState::PactFileError];
         if (message.empty()) {
-          std::cout << "\t* Failed to write the Pact file\n";
+          std::cout << "  * Failed to write the Pact file\n";
         } else {
-          std::cout << "\t* Failed to write the Pact file: " << message << "\n";
+          std::cout << "  * Failed to write the Pact file: " << message << "\n";
         }
       }
       if (this->status & TestResultState::MockServerFailed) {
         auto message = this->messages[TestResultState::MockServerFailed];
         if (message.empty()) {
-          std::cout << "\t* Mock server failed to start\n";
+          std::cout << "  * Mock server failed to start\n";
         } else {
-          std::cout << "\t* Mock server failed to start: " << message << "\n";
+          std::cout << "  * Mock server failed to start: " << message << "\n";
         }
       }
     }
+    std::cout << "\n";
   }
 }

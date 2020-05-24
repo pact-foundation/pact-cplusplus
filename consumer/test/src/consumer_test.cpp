@@ -73,7 +73,7 @@ TEST(PactConsumerTest, PutProjectImage) {
     })
     .uponReceiving("a request to store an image against the project")
     .withRequest("POST", "/projects/1001/images")
-    .withBinaryFile("image/jpeg", "example.jpg")
+    .withMultipartFileUpload("file", "image/jpeg", "example.jpg")
     .willRespondWith(201);
 
   auto result = provider.run_test([] (auto mock_server) {

@@ -291,6 +291,7 @@ namespace pact_consumer::matchers {
       auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
       if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
         j["value"] = result.ok._0;
+        pact_mock_server_ffi::free_string(result.ok._0);
       } else {
         std::string error = result.failed._0;
         pact_mock_server_ffi::free_string(result.failed._0);
@@ -311,6 +312,7 @@ namespace pact_consumer::matchers {
       auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
       if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
         j["value"] = result.ok._0;
+        pact_mock_server_ffi::free_string(result.ok._0);
       } else {
         std::string error = result.failed._0;
         pact_mock_server_ffi::free_string(result.failed._0);
@@ -331,6 +333,7 @@ namespace pact_consumer::matchers {
       auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
       if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
         j["value"] = result.ok._0;
+        pact_mock_server_ffi::free_string(result.ok._0);
       } else {
         std::string error = result.failed._0;
         pact_mock_server_ffi::free_string(result.failed._0);
@@ -360,7 +363,9 @@ namespace pact_consumer::matchers {
         j["value"] = value;
         pact_mock_server_ffi::free_string(result.ok._0);
       } else {
-        BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
+        std::string error = result.failed._0;
+        pact_mock_server_ffi::free_string(result.failed._0);
+        BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
     return j.dump();
@@ -419,7 +424,9 @@ namespace pact_consumer::matchers {
         j["value"] = value;
         pact_mock_server_ffi::free_string(result.ok._0);
       } else {
-        BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
+        std::string error = result.failed._0;
+        pact_mock_server_ffi::free_string(result.failed._0);
+        BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
     return j.dump();
@@ -446,7 +453,9 @@ namespace pact_consumer::matchers {
         j["value"] = value;
         pact_mock_server_ffi::free_string(result.ok._0);
       } else {
-        BOOST_THROW_EXCEPTION(std::runtime_error(result.failed._0));
+        std::string error = result.failed._0;
+        pact_mock_server_ffi::free_string(result.failed._0);
+        BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
     return j.dump();
