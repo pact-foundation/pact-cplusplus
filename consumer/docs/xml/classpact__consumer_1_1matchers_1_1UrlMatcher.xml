@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="213" column="19" bodyfile="include/matchers.h" bodystart="213" bodyend="-1"/>
+        <location file="include/matchers.h" line="211" column="19" bodyfile="include/matchers.h" bodystart="211" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a53caf16ca88c6037e6127ba8a8258962" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
@@ -29,21 +29,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="214" column="19" bodyfile="include/matchers.h" bodystart="214" bodyend="-1"/>
+        <location file="include/matchers.h" line="212" column="19" bodyfile="include/matchers.h" bodystart="212" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a30672a90c069786fe7e52485a20a7fed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a40e576cfa7eab926302704a03a81fae2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::UrlMatcher::UrlMatcher</definition>
-        <argsstring>(std::string b, std::vector&lt; IMatcher::Ptr &gt; f)</argsstring>
+        <argsstring>(const std::string &amp;b, const std::vector&lt; IMatcher::Ptr &gt; &amp;f)</argsstring>
         <name>UrlMatcher</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>b</declname>
         </param>
         <param>
-          <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
+          <type>const std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt; &amp;</type>
           <declname>f</declname>
         </param>
         <briefdescription>
@@ -52,21 +52,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="208" column="7" bodyfile="include/matchers.h" bodystart="208" bodyend="208"/>
+        <location file="include/matchers.h" line="206" column="7" bodyfile="include/matchers.h" bodystart="206" bodyend="206"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1abb43488b2c0d7bc2fa87c102c34db57e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
-        <definition>json pact_consumer::matchers::UrlMatcher::getJson</definition>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::UrlMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="210" column="20" bodyfile="src/matchers.cpp" bodystart="480" bodyend="494"/>
+        <location file="include/matchers.h" line="208" column="27" bodyfile="src/matchers.cpp" bodystart="497" bodyend="511"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -97,15 +97,15 @@
         <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="206" column="35" bodyfile="include/matchers.h" bodystart="206" bodyend="215"/>
+    <location file="include/matchers.h" line="204" column="35" bodyfile="include/matchers.h" bodystart="204" bodyend="213"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>as_regex</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1ae7342765b05453b78bca2198d8956661" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>basePath</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1abb43488b2c0d7bc2fa87c102c34db57e" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>getJson</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a53caf16ca88c6037e6127ba8a8258962" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>pathFragments</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>Ptr</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a30672a90c069786fe7e52485a20a7fed" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>UrlMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a40e576cfa7eab926302704a03a81fae2" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>UrlMatcher</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

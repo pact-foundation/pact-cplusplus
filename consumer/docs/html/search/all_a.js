@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['matchers_2ecpp_42',['matchers.cpp',['../matchers_8cpp.html',1,'']]],
-  ['matchers_2eh_43',['matchers.h',['../matchers_8h.html',1,'']]],
-  ['matching_44',['Matching',['../namespacepact__consumer_1_1matchers.html#a4ab5cbf4a1e1707ecec14ab691432f31',1,'pact_consumer::matchers::Matching(std::string regex, std::string example)'],['../namespacepact__consumer_1_1matchers.html#a29c5fe3515e380dd79d52a2f31bfea3f',1,'pact_consumer::matchers::Matching(std::string regex)']]],
-  ['minarraylike_45',['MinArrayLike',['../namespacepact__consumer_1_1matchers.html#a0d610018da0d7cd5476f36abe0082fff',1,'pact_consumer::matchers::MinArrayLike(int min, const IMatcher::Ptr obj)'],['../namespacepact__consumer_1_1matchers.html#a057f106b274725ca06e1335c0c9da45f',1,'pact_consumer::matchers::MinArrayLike(int min, int examples, const IMatcher::Ptr obj)']]],
-  ['mismatches_46',['Mismatches',['../namespacepact__consumer.html#a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be',1,'pact_consumer']]],
-  ['mockserverfailed_47',['MockServerFailed',['../namespacepact__consumer.html#a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea',1,'pact_consumer']]],
-  ['mockserverhandle_48',['MockServerHandle',['../classpact__consumer_1_1MockServerHandle.html',1,'pact_consumer::MockServerHandle'],['../classpact__consumer_1_1MockServerHandle.html#a8ec5a62b26a7551101312afd3ea542a4',1,'pact_consumer::MockServerHandle::MockServerHandle()']]]
+  ['nullmatcher_46',['NullMatcher',['../classpact__consumer_1_1matchers_1_1NullMatcher.html',1,'pact_consumer::matchers']]],
+  ['nullvalue_47',['NullValue',['../namespacepact__consumer_1_1matchers.html#a0713635f17e43e8f4a4973cdb50a7008',1,'pact_consumer::matchers']]],
+  ['numbermatcher_48',['NumberMatcher',['../classpact__consumer_1_1matchers_1_1NumberMatcher.html',1,'pact_consumer::matchers::NumberMatcher&lt; T &gt;'],['../classpact__consumer_1_1matchers_1_1NumberMatcher.html#a27c9dd090644dcc2df22fb437af8afcc',1,'pact_consumer::matchers::NumberMatcher::NumberMatcher()'],['../classpact__consumer_1_1matchers_1_1NumberMatcher.html#a8e9d378a6383ee84e356de3fa630d1c5',1,'pact_consumer::matchers::NumberMatcher::NumberMatcher(T v)']]],
+  ['numeric_49',['Numeric',['../namespacepact__consumer_1_1matchers.html#a5b09c8fb2e37ca8c610bb3df63b65bb6',1,'pact_consumer::matchers::Numeric(int example)'],['../namespacepact__consumer_1_1matchers.html#a02ab80cff207fe8f808e738e4085e00c',1,'pact_consumer::matchers::Numeric(long example)'],['../namespacepact__consumer_1_1matchers.html#a492350f247cc0ffe0651f5c6327e92b5',1,'pact_consumer::matchers::Numeric(float example)'],['../namespacepact__consumer_1_1matchers.html#a346d30c12586a914b26dd3ca2c9bd879',1,'pact_consumer::matchers::Numeric(double example)'],['../namespacepact__consumer_1_1matchers.html#af805123c41e4789af759efa739772286',1,'pact_consumer::matchers::Numeric()']]]
 ];

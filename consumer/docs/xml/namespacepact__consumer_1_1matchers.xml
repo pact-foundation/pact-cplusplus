@@ -21,13 +21,13 @@
     <innerclass refid="classpact__consumer_1_1matchers_1_1UrlMatcher" prot="public">pact_consumer::matchers::UrlMatcher</innerclass>
     <innerclass refid="classpact__consumer_1_1matchers_1_1UuidMatcher" prot="public">pact_consumer::matchers::UuidMatcher</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a48c1224bc9f3dcadae973c074cd68407" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a75bcf07c65576f27643f4d21a1f45881" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Object</definition>
-        <argsstring>(const std::unordered_map&lt; std::string, IMatcher::Ptr &gt; fields)</argsstring>
+        <argsstring>(const std::unordered_map&lt; std::string, IMatcher::Ptr &gt; &amp;fields)</argsstring>
         <name>Object</name>
         <param>
-          <type>const std::unordered_map&lt; std::string, <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
+          <type>const std::unordered_map&lt; std::string, <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt; &amp;</type>
           <declname>fields</declname>
         </param>
         <briefdescription>
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="7" column="17" bodyfile="src/matchers.cpp" bodystart="7" bodyend="9" declfile="include/matchers.h" declline="220" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="10" column="17" bodyfile="src/matchers.cpp" bodystart="10" bodyend="12" declfile="include/matchers.h" declline="218" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a4857b8996e54c5dc7e8cb5a814d595dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="11" column="17" bodyfile="src/matchers.cpp" bodystart="11" bodyend="13" declfile="include/matchers.h" declline="225" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="14" column="17" bodyfile="src/matchers.cpp" bodystart="14" bodyend="16" declfile="include/matchers.h" declline="223" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ab3eba43ca56c78c36b3dda251a0e1faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="15" column="17" bodyfile="src/matchers.cpp" bodystart="15" bodyend="17" declfile="include/matchers.h" declline="230" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="18" column="17" bodyfile="src/matchers.cpp" bodystart="18" bodyend="20" declfile="include/matchers.h" declline="228" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa97242d2caf82ab8b512686962c9945e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="19" column="17" bodyfile="src/matchers.cpp" bodystart="19" bodyend="21" declfile="include/matchers.h" declline="235" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="22" column="17" bodyfile="src/matchers.cpp" bodystart="22" bodyend="24" declfile="include/matchers.h" declline="233" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a3d266fa3fc12cec88e0a23a50ba4219d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="23" column="17" bodyfile="src/matchers.cpp" bodystart="23" bodyend="25" declfile="include/matchers.h" declline="240" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="26" column="17" bodyfile="src/matchers.cpp" bodystart="26" bodyend="28" declfile="include/matchers.h" declline="238" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a83ea48364b267e159a6e82802bd8300c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="27" column="17" bodyfile="src/matchers.cpp" bodystart="27" bodyend="29" declfile="include/matchers.h" declline="244" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="30" column="17" bodyfile="src/matchers.cpp" bodystart="30" bodyend="32" declfile="include/matchers.h" declline="242" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a6ec3cd8bb6b06b62522886ff2c73d256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -141,25 +141,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="31" column="17" bodyfile="src/matchers.cpp" bodystart="31" bodyend="33" declfile="include/matchers.h" declline="248" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="34" column="17" bodyfile="src/matchers.cpp" bodystart="34" bodyend="36" declfile="include/matchers.h" declline="246" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ad00d5ad3bca29d5452724a845a667b59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a0e7fe8ef25809bc7971c552636ec2057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Like</definition>
-        <argsstring>(std::string value)</argsstring>
+        <argsstring>(const std::string &amp;value)</argsstring>
         <name>Like</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>value</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Matchers value based on the value type </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="35" column="17" bodyfile="src/matchers.cpp" bodystart="35" bodyend="37" declfile="include/matchers.h" declline="252" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="38" column="17" bodyfile="src/matchers.cpp" bodystart="38" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa07b63501393ef2a1ee4458f6558d8a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -177,7 +176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="39" column="17" bodyfile="src/matchers.cpp" bodystart="39" bodyend="41" declfile="include/matchers.h" declline="256" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="42" column="17" bodyfile="src/matchers.cpp" bodystart="42" bodyend="44" declfile="include/matchers.h" declline="254" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a6dd0effb347f57ad878e230082e1c546" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -195,19 +194,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="43" column="17" bodyfile="src/matchers.cpp" bodystart="43" bodyend="45" declfile="include/matchers.h" declline="260" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="46" column="17" bodyfile="src/matchers.cpp" bodystart="46" bodyend="48" declfile="include/matchers.h" declline="258" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa85192c01eb593ba5a5c5312e98de4a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a85517d3c436fab9ebfcf64f83b2228e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::DateTime</definition>
-        <argsstring>(std::string format, std::string example)</argsstring>
+        <argsstring>(const std::string &amp;format, const std::string &amp;example)</argsstring>
         <name>DateTime</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -234,15 +233,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="47" column="17" bodyfile="src/matchers.cpp" bodystart="47" bodyend="49" declfile="include/matchers.h" declline="267" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="50" column="17" bodyfile="src/matchers.cpp" bodystart="50" bodyend="52" declfile="include/matchers.h" declline="265" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1af4f8c9981bf2c9728c2402cf7106de8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa7dd31a9908dd2d3f0537d22c7f00fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::DateTime</definition>
-        <argsstring>(std::string format)</argsstring>
+        <argsstring>(const std::string &amp;format)</argsstring>
         <name>DateTime</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <briefdescription>
@@ -261,19 +260,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="51" column="17" bodyfile="src/matchers.cpp" bodystart="51" bodyend="53" declfile="include/matchers.h" declline="273" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="54" column="17" bodyfile="src/matchers.cpp" bodystart="54" bodyend="56" declfile="include/matchers.h" declline="271" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1acc1c453f71347fc736f2f95fe0473783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a1dc23cb6b8e020bcc3e85499841994ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Date</definition>
-        <argsstring>(std::string format, std::string example)</argsstring>
+        <argsstring>(const std::string &amp;format, const std::string &amp;example)</argsstring>
         <name>Date</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -300,15 +299,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="55" column="17" bodyfile="src/matchers.cpp" bodystart="55" bodyend="57" declfile="include/matchers.h" declline="280" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="58" column="17" bodyfile="src/matchers.cpp" bodystart="58" bodyend="60" declfile="include/matchers.h" declline="278" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a396cfddf79276bc2423fbd9a9744b9f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ab73e9cc53a6337357ddc8feb0772410d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Date</definition>
-        <argsstring>(std::string format)</argsstring>
+        <argsstring>(const std::string &amp;format)</argsstring>
         <name>Date</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <briefdescription>
@@ -327,19 +326,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="59" column="17" bodyfile="src/matchers.cpp" bodystart="59" bodyend="61" declfile="include/matchers.h" declline="286" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="62" column="17" bodyfile="src/matchers.cpp" bodystart="62" bodyend="64" declfile="include/matchers.h" declline="284" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a407967a1a434eeb4c09d1398cf4487a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a4ee7077e9e16c8efdadf0876d9020041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Time</definition>
-        <argsstring>(std::string format, std::string example)</argsstring>
+        <argsstring>(const std::string &amp;format, const std::string &amp;example)</argsstring>
         <name>Time</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -366,15 +365,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="63" column="17" bodyfile="src/matchers.cpp" bodystart="63" bodyend="65" declfile="include/matchers.h" declline="293" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="66" column="17" bodyfile="src/matchers.cpp" bodystart="66" bodyend="68" declfile="include/matchers.h" declline="291" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a8afbf69f0f1c8e941bcb7460c1f4a56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aaa158ac8c4fe42b3c120453dbdc33020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Time</definition>
-        <argsstring>(std::string format)</argsstring>
+        <argsstring>(const std::string &amp;format)</argsstring>
         <name>Time</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>format</declname>
         </param>
         <briefdescription>
@@ -393,19 +392,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="67" column="17" bodyfile="src/matchers.cpp" bodystart="67" bodyend="69" declfile="include/matchers.h" declline="299" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="70" column="17" bodyfile="src/matchers.cpp" bodystart="70" bodyend="72" declfile="include/matchers.h" declline="297" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a4ab5cbf4a1e1707ecec14ab691432f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ab7dd9cd96c833d67693ed621d7951442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Matching</definition>
-        <argsstring>(std::string regex, std::string example)</argsstring>
+        <argsstring>(const std::string &amp;regex, const std::string &amp;example)</argsstring>
         <name>Matching</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>regex</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -415,15 +414,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="71" column="17" bodyfile="src/matchers.cpp" bodystart="71" bodyend="73" declfile="include/matchers.h" declline="304" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="74" column="17" bodyfile="src/matchers.cpp" bodystart="74" bodyend="76" declfile="include/matchers.h" declline="302" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a29c5fe3515e380dd79d52a2f31bfea3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a11e3831cfbeb4fa8a11b706fbbb6677f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Matching</definition>
-        <argsstring>(std::string regex)</argsstring>
+        <argsstring>(const std::string &amp;regex)</argsstring>
         <name>Matching</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>regex</declname>
         </param>
         <briefdescription>
@@ -433,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="75" column="17" bodyfile="src/matchers.cpp" bodystart="75" bodyend="77" declfile="include/matchers.h" declline="309" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="78" column="17" bodyfile="src/matchers.cpp" bodystart="78" bodyend="80" declfile="include/matchers.h" declline="307" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a373d5b4e09f56d4245ecafe400044bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -451,7 +450,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="79" column="17" bodyfile="src/matchers.cpp" bodystart="79" bodyend="81" declfile="include/matchers.h" declline="314" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="82" column="17" bodyfile="src/matchers.cpp" bodystart="82" bodyend="84" declfile="include/matchers.h" declline="312" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a301d266f66d722e7a76bc8301c211991" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -482,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="83" column="17" bodyfile="src/matchers.cpp" bodystart="83" bodyend="85" declfile="include/matchers.h" declline="320" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="86" column="17" bodyfile="src/matchers.cpp" bodystart="86" bodyend="88" declfile="include/matchers.h" declline="318" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a25f4cc8d8a3afadfd5b4c5245746ebc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -500,7 +499,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="87" column="17" bodyfile="src/matchers.cpp" bodystart="87" bodyend="89" declfile="include/matchers.h" declline="325" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="90" column="17" bodyfile="src/matchers.cpp" bodystart="90" bodyend="92" declfile="include/matchers.h" declline="323" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a8f530d7b5f9122e1c6b137f1e3f62858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -531,15 +530,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="91" column="17" bodyfile="src/matchers.cpp" bodystart="91" bodyend="93" declfile="include/matchers.h" declline="331" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="94" column="17" bodyfile="src/matchers.cpp" bodystart="94" bodyend="96" declfile="include/matchers.h" declline="329" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a070f84d4e4e2f948f14dda6c15e48ca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a6097e61920812f2a75d708569c1605e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::HexValue</definition>
-        <argsstring>(const std::string example)</argsstring>
+        <argsstring>(const std::string &amp;example)</argsstring>
         <name>HexValue</name>
         <param>
-          <type>const std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -558,7 +557,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="95" column="17" bodyfile="src/matchers.cpp" bodystart="95" bodyend="97" declfile="include/matchers.h" declline="337" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="98" column="17" bodyfile="src/matchers.cpp" bodystart="98" bodyend="100" declfile="include/matchers.h" declline="335" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a627f4d81bff337fe7b7fb87b7ae35414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -572,15 +571,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="99" column="17" bodyfile="src/matchers.cpp" bodystart="99" bodyend="101" declfile="include/matchers.h" declline="342" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="102" column="17" bodyfile="src/matchers.cpp" bodystart="102" bodyend="104" declfile="include/matchers.h" declline="340" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a198b0154d9509cbcd3a65b755107bd58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1af78b59b345716d7f9958ac5688657022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::IPAddress</definition>
-        <argsstring>(const std::string example)</argsstring>
+        <argsstring>(const std::string &amp;example)</argsstring>
         <name>IPAddress</name>
         <param>
-          <type>const std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -599,7 +598,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="103" column="17" bodyfile="src/matchers.cpp" bodystart="103" bodyend="105" declfile="include/matchers.h" declline="348" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="106" column="17" bodyfile="src/matchers.cpp" bodystart="106" bodyend="108" declfile="include/matchers.h" declline="346" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a2a07a602dd54b0ce820af22484987bf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -613,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="107" column="17" bodyfile="src/matchers.cpp" bodystart="107" bodyend="109" declfile="include/matchers.h" declline="353" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="110" column="17" bodyfile="src/matchers.cpp" bodystart="110" bodyend="112" declfile="include/matchers.h" declline="351" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a5b09c8fb2e37ca8c610bb3df63b65bb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -640,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="111" column="17" bodyfile="src/matchers.cpp" bodystart="111" bodyend="113" declfile="include/matchers.h" declline="359" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="114" column="17" bodyfile="src/matchers.cpp" bodystart="114" bodyend="116" declfile="include/matchers.h" declline="357" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a02ab80cff207fe8f808e738e4085e00c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -667,7 +666,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="115" column="17" bodyfile="src/matchers.cpp" bodystart="115" bodyend="117" declfile="include/matchers.h" declline="365" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="118" column="17" bodyfile="src/matchers.cpp" bodystart="118" bodyend="120" declfile="include/matchers.h" declline="363" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a492350f247cc0ffe0651f5c6327e92b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -694,7 +693,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="119" column="17" bodyfile="src/matchers.cpp" bodystart="119" bodyend="121" declfile="include/matchers.h" declline="371" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="122" column="17" bodyfile="src/matchers.cpp" bodystart="122" bodyend="124" declfile="include/matchers.h" declline="369" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a346d30c12586a914b26dd3ca2c9bd879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -721,7 +720,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="123" column="17" bodyfile="src/matchers.cpp" bodystart="123" bodyend="125" declfile="include/matchers.h" declline="377" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="126" column="17" bodyfile="src/matchers.cpp" bodystart="126" bodyend="128" declfile="include/matchers.h" declline="375" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1af805123c41e4789af759efa739772286" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -735,7 +734,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="127" column="17" bodyfile="src/matchers.cpp" bodystart="127" bodyend="129" declfile="include/matchers.h" declline="382" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="130" column="17" bodyfile="src/matchers.cpp" bodystart="130" bodyend="132" declfile="include/matchers.h" declline="380" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1afcc8d7fa449dc781049af11353f63680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -762,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="131" column="17" bodyfile="src/matchers.cpp" bodystart="131" bodyend="133" declfile="include/matchers.h" declline="388" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="134" column="17" bodyfile="src/matchers.cpp" bodystart="134" bodyend="136" declfile="include/matchers.h" declline="386" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a0033957c079590c59da96e95f2f89b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -789,7 +788,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="135" column="17" bodyfile="src/matchers.cpp" bodystart="135" bodyend="137" declfile="include/matchers.h" declline="394" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="138" column="17" bodyfile="src/matchers.cpp" bodystart="138" bodyend="140" declfile="include/matchers.h" declline="392" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a9b2546fe1ad56f3434e7028a3499bfd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -803,15 +802,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="139" column="17" bodyfile="src/matchers.cpp" bodystart="139" bodyend="141" declfile="include/matchers.h" declline="400" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="142" column="17" bodyfile="src/matchers.cpp" bodystart="142" bodyend="144" declfile="include/matchers.h" declline="398" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a9fa0a81706a15dcb89a49f19376c5242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a1665b020f1998e12d2e3b06edf59037b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Uuid</definition>
-        <argsstring>(const std::string example)</argsstring>
+        <argsstring>(const std::string &amp;example)</argsstring>
         <name>Uuid</name>
         <param>
-          <type>const std::string</type>
+          <type>const std::string &amp;</type>
           <declname>example</declname>
         </param>
         <briefdescription>
@@ -830,7 +829,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="143" column="17" bodyfile="src/matchers.cpp" bodystart="143" bodyend="145" declfile="include/matchers.h" declline="406" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="146" column="17" bodyfile="src/matchers.cpp" bodystart="146" bodyend="148" declfile="include/matchers.h" declline="404" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aab0a2b88f2fd1bb46fe26e5642d61c1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -844,7 +843,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="147" column="17" bodyfile="src/matchers.cpp" bodystart="147" bodyend="149" declfile="include/matchers.h" declline="411" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="150" column="17" bodyfile="src/matchers.cpp" bodystart="150" bodyend="152" declfile="include/matchers.h" declline="409" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a8ad798ea440fcad6ee7f0d6877880cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -875,7 +874,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="151" column="17" bodyfile="src/matchers.cpp" bodystart="151" bodyend="153" declfile="include/matchers.h" declline="417" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="154" column="17" bodyfile="src/matchers.cpp" bodystart="154" bodyend="156" declfile="include/matchers.h" declline="415" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1acf9636daddf7702ee686dbc3768f73ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -918,7 +917,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="155" column="17" bodyfile="src/matchers.cpp" bodystart="155" bodyend="157" declfile="include/matchers.h" declline="424" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="158" column="17" bodyfile="src/matchers.cpp" bodystart="158" bodyend="160" declfile="include/matchers.h" declline="422" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a0d610018da0d7cd5476f36abe0082fff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -949,7 +948,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="159" column="17" bodyfile="src/matchers.cpp" bodystart="159" bodyend="161" declfile="include/matchers.h" declline="430" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="162" column="17" bodyfile="src/matchers.cpp" bodystart="162" bodyend="164" declfile="include/matchers.h" declline="428" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a057f106b274725ca06e1335c0c9da45f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -992,7 +991,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="163" column="17" bodyfile="src/matchers.cpp" bodystart="163" bodyend="165" declfile="include/matchers.h" declline="437" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="166" column="17" bodyfile="src/matchers.cpp" bodystart="166" bodyend="168" declfile="include/matchers.h" declline="435" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa56a8e2c0bf49cfb794738471b8a5be4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1035,7 +1034,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="167" column="17" bodyfile="src/matchers.cpp" bodystart="167" bodyend="169" declfile="include/matchers.h" declline="444" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="170" column="17" bodyfile="src/matchers.cpp" bodystart="170" bodyend="172" declfile="include/matchers.h" declline="442" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a8a572f179ab00138064e74ae28bde134" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1090,7 +1089,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="171" column="17" bodyfile="src/matchers.cpp" bodystart="171" bodyend="173" declfile="include/matchers.h" declline="452" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="174" column="17" bodyfile="src/matchers.cpp" bodystart="174" bodyend="176" declfile="include/matchers.h" declline="450" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1afe9e52d692ad1abe7727f08f0dc9a4f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1117,7 +1116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="175" column="17" bodyfile="src/matchers.cpp" bodystart="175" bodyend="177" declfile="include/matchers.h" declline="458" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="178" column="17" bodyfile="src/matchers.cpp" bodystart="178" bodyend="180" declfile="include/matchers.h" declline="456" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1abdfa9cb6995ab04d829ff6a843d4c69e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1144,7 +1143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="179" column="17" bodyfile="src/matchers.cpp" bodystart="179" bodyend="181" declfile="include/matchers.h" declline="464" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="182" column="17" bodyfile="src/matchers.cpp" bodystart="182" bodyend="184" declfile="include/matchers.h" declline="462" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1aa9e1890dd24fa778e0db53f52df0efb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1171,7 +1170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="183" column="17" bodyfile="src/matchers.cpp" bodystart="183" bodyend="185" declfile="include/matchers.h" declline="470" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="186" column="17" bodyfile="src/matchers.cpp" bodystart="186" bodyend="188" declfile="include/matchers.h" declline="468" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ab21bb806b113cd85560dd4be1b6badca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1198,15 +1197,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="187" column="17" bodyfile="src/matchers.cpp" bodystart="187" bodyend="189" declfile="include/matchers.h" declline="476" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="190" column="17" bodyfile="src/matchers.cpp" bodystart="190" bodyend="192" declfile="include/matchers.h" declline="474" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a7ce10198f8601f4f6941593ff516f6ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1af43a1623b3acd13c56391a276813da5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::EqualTo</definition>
-        <argsstring>(std::string value)</argsstring>
+        <argsstring>(const std::string &amp;value)</argsstring>
         <name>EqualTo</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>value</declname>
         </param>
         <briefdescription>
@@ -1225,7 +1224,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="191" column="17" bodyfile="src/matchers.cpp" bodystart="191" bodyend="193" declfile="include/matchers.h" declline="482" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="194" column="17" bodyfile="src/matchers.cpp" bodystart="194" bodyend="196" declfile="include/matchers.h" declline="480" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a9b85916baba1ca1d86d93af79bde5b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+        <definition>IMatcher::Ptr pact_consumer::matchers::EqualTo</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>EqualTo</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Match by equality. This is mainly used to reset the cascading type matchers. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to match to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/matchers.cpp" line="198" column="17" bodyfile="src/matchers.cpp" bodystart="198" bodyend="200" declfile="include/matchers.h" declline="486" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a1931ffa4a97f768d81bcebf9406592ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1252,15 +1278,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="195" column="17" bodyfile="src/matchers.cpp" bodystart="195" bodyend="197" declfile="include/matchers.h" declline="488" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="202" column="17" bodyfile="src/matchers.cpp" bodystart="202" bodyend="204" declfile="include/matchers.h" declline="492" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1af77644d3d7c23c3d776483f5e02aad89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a4b543ff4c6f35f548d64f82c2f5543b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::IncludesStr</definition>
-        <argsstring>(std::string value)</argsstring>
+        <argsstring>(const std::string &amp;value)</argsstring>
         <name>IncludesStr</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>value</declname>
         </param>
         <briefdescription>
@@ -1279,7 +1305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="199" column="17" bodyfile="src/matchers.cpp" bodystart="199" bodyend="201" declfile="include/matchers.h" declline="494" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="206" column="17" bodyfile="src/matchers.cpp" bodystart="206" bodyend="208" declfile="include/matchers.h" declline="498" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a0713635f17e43e8f4a4973cdb50a7008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
@@ -1293,19 +1319,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="203" column="17" bodyfile="src/matchers.cpp" bodystart="203" bodyend="205" declfile="include/matchers.h" declline="499" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="210" column="17" bodyfile="src/matchers.cpp" bodystart="210" bodyend="212" declfile="include/matchers.h" declline="503" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a86b9a0ab8b9beb9fc26964b344bdad28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1a2c4278f99e116245c369c5bb8788ca43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
         <definition>IMatcher::Ptr pact_consumer::matchers::Url</definition>
-        <argsstring>(std::string basePath, std::vector&lt; IMatcher::Ptr &gt; pathFragments)</argsstring>
+        <argsstring>(const std::string &amp;basePath, const std::vector&lt; IMatcher::Ptr &gt; &amp;pathFragments)</argsstring>
         <name>Url</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>basePath</declname>
         </param>
         <param>
-          <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
+          <type>const std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt; &amp;</type>
           <declname>pathFragments</declname>
         </param>
         <briefdescription>
@@ -1332,13 +1358,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/matchers.cpp" line="207" column="17" bodyfile="src/matchers.cpp" bodystart="207" bodyend="209" declfile="include/matchers.h" declline="506" declcolumn="17"/>
+        <location file="src/matchers.cpp" line="214" column="17" bodyfile="src/matchers.cpp" bodystart="214" bodyend="216" declfile="include/matchers.h" declline="510" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__consumer_1_1matchers_1ad00d5ad3bca29d5452724a845a667b59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
+        <definition>IMatcher::Ptr pact_consumer::matchers::Like</definition>
+        <argsstring>(std::string value)</argsstring>
+        <name>Like</name>
+        <param>
+          <type>std::string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Matchers value based on the value type </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="250" column="17" declfile="include/matchers.h" declline="250" declcolumn="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/matchers.cpp" line="5" column="33"/>
+    <location file="src/matchers.cpp" line="8" column="33"/>
   </compounddef>
 </doxygen>

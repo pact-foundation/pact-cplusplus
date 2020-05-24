@@ -3,10 +3,10 @@
   <compounddef id="CMakeLists_8txt" kind="file" language="C++">
     <compoundname>CMakeLists.txt</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="CMakeLists_8txt_1af013478212973bcd7a492bb9b6b37efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="CMakeLists_8txt_1ac40a84742e18e3c42e295a10da04e229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>cmake_minimum_required</definition>
-        <argsstring>(VERSION 3.16) project(pact-cpp-consumer VERSION 0.0.0) set(CMAKE_CXX_STANDARD 17) set(CMAKE_CXX_STANDARD_REQUIRED True) add_library(pact-cpp-consumer consumer.cpp body.cpp matchers.cpp) target_include_directories(pact-cpp-consumer PUBLIC $&lt; INSTALL_INTERFACE</argsstring>
+        <argsstring>(VERSION 3.16) project(pact-cpp-consumer VERSION 0.0.0) set(CMAKE_CXX_STANDARD 17) set(CMAKE_CXX_STANDARD_REQUIRED True) add_library(pact-cpp-consumer consumer.cpp matchers.cpp) target_include_directories(pact-cpp-consumer PUBLIC $&lt; INSTALL_INTERFACE</argsstring>
         <name>cmake_minimum_required</name>
         <param>
           <type>VERSION 3.</type>
@@ -26,7 +26,7 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="normal"><ref refid="CMakeLists_8txt_1af013478212973bcd7a492bb9b6b37efb" kindref="member">cmake_minimum_required</ref>(VERSION<sp/>3.16)</highlight></codeline>
+<codeline lineno="1"><highlight class="normal"><ref refid="CMakeLists_8txt_1ac40a84742e18e3c42e295a10da04e229" kindref="member">cmake_minimum_required</ref>(VERSION<sp/>3.16)</highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>set<sp/>the<sp/>project<sp/>name</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal">project(pact-cpp-consumer<sp/>VERSION<sp/>0.0.0)</highlight></codeline>
@@ -39,7 +39,7 @@
 <codeline lineno="11"><highlight class="normal">INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)</highlight></codeline>
 <codeline lineno="12"><highlight class="normal">CONAN_BASIC_SETUP()</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal">add_library(pact-cpp-consumer<sp/>consumer.cpp<sp/>body.cpp<sp/>matchers.cpp)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">add_library(pact-cpp-consumer<sp/>consumer.cpp<sp/>matchers.cpp)</highlight></codeline>
 <codeline lineno="15"><highlight class="normal">target_include_directories(pact-cpp-consumer</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>PUBLIC<sp/></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$&lt;INSTALL_INTERFACE:include&gt;<sp/><sp/><sp/><sp/></highlight></codeline>

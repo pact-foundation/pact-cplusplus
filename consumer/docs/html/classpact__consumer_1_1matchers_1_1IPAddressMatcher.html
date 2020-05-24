@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Pact C++ Consumer DSL
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.0.2</span>
    </div>
    <div id="projectbrief">DSL to support writing consumer tests in C++</div>
   </td>
@@ -93,10 +93,10 @@ Collaboration diagram for pact_consumer::matchers::IPAddressMatcher:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acfbc504a485c42a3561973f7e877afb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IPAddressMatcher.html#acfbc504a485c42a3561973f7e877afb5">IPAddressMatcher</a> ()</td></tr>
 <tr class="separator:acfbc504a485c42a3561973f7e877afb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44d7b87e25b7d99c7bde3a45f43011d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IPAddressMatcher.html#ac44d7b87e25b7d99c7bde3a45f43011d">IPAddressMatcher</a> (std::string address)</td></tr>
-<tr class="separator:ac44d7b87e25b7d99c7bde3a45f43011d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8650595d732644d12817d182f4c99976"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="consumer_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IPAddressMatcher.html#a8650595d732644d12817d182f4c99976">getJson</a> () const</td></tr>
-<tr class="separator:a8650595d732644d12817d182f4c99976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a307eb182c33860b4c5454f659d85047f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IPAddressMatcher.html#a307eb182c33860b4c5454f659d85047f">IPAddressMatcher</a> (const std::string &amp;address)</td></tr>
+<tr class="separator:a307eb182c33860b4c5454f659d85047f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33d15487bd5839fcf322b66cc7d4c47f"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IPAddressMatcher.html#a33d15487bd5839fcf322b66cc7d4c47f">getJson</a> () const</td></tr>
+<tr class="separator:a33d15487bd5839fcf322b66cc7d4c47f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classpact__consumer_1_1matchers_1_1IMatcher"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classpact__consumer_1_1matchers_1_1IMatcher')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html">pact_consumer::matchers::IMatcher</a></td></tr>
 <tr class="memitem:a83c8f74ac502ccd4085d857548683b32 inherit pub_methods_classpact__consumer_1_1matchers_1_1IMatcher"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html#a83c8f74ac502ccd4085d857548683b32">as_example</a> () const</td></tr>
 <tr class="separator:a83c8f74ac502ccd4085d857548683b32 inherit pub_methods_classpact__consumer_1_1matchers_1_1IMatcher"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,8 +135,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ac44d7b87e25b7d99c7bde3a45f43011d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac44d7b87e25b7d99c7bde3a45f43011d">&#9670;&nbsp;</a></span>IPAddressMatcher() <span class="overload">[2/2]</span></h2>
+<a id="a307eb182c33860b4c5454f659d85047f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307eb182c33860b4c5454f659d85047f">&#9670;&nbsp;</a></span>IPAddressMatcher() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +147,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>address</em></td><td>)</td>
           <td></td>
         </tr>
@@ -162,8 +162,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8650595d732644d12817d182f4c99976"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8650595d732644d12817d182f4c99976">&#9670;&nbsp;</a></span>getJson()</h2>
+<a id="a33d15487bd5839fcf322b66cc7d4c47f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d15487bd5839fcf322b66cc7d4c47f">&#9670;&nbsp;</a></span>getJson()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +172,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="consumer_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> pact_consumer::matchers::IPAddressMatcher::getJson </td>
+          <td class="memname">std::string pact_consumer::matchers::IPAddressMatcher::getJson </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -185,7 +185,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html#ad0e36b49acc57119b7db27a418cd9a5b">pact_consumer::matchers::IMatcher</a>.</p>
+<p>Implements <a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html#a39e26483e294d88851ae826ec0ac131a">pact_consumer::matchers::IMatcher</a>.</p>
 
 </div>
 </div>

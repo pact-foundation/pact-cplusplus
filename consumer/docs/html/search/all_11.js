@@ -1,9 +1,16 @@
 var searchData=
 [
-  ['uponreceiving_73',['uponReceiving',['../classpact__consumer_1_1Pact.html#a05713ce4758ee154989b327c686dc18d',1,'pact_consumer::Pact::uponReceiving()'],['../classpact__consumer_1_1Interaction.html#a4d6a8acadad3b486a3996a5fd4819be2',1,'pact_consumer::Interaction::uponReceiving()']]],
-  ['url_74',['Url',['../namespacepact__consumer_1_1matchers.html#a86b9a0ab8b9beb9fc26964b344bdad28',1,'pact_consumer::matchers']]],
-  ['urlmatcher_75',['UrlMatcher',['../classpact__consumer_1_1matchers_1_1UrlMatcher.html',1,'pact_consumer::matchers::UrlMatcher'],['../classpact__consumer_1_1matchers_1_1UrlMatcher.html#a30672a90c069786fe7e52485a20a7fed',1,'pact_consumer::matchers::UrlMatcher::UrlMatcher()']]],
-  ['usercodefailed_76',['UserCodeFailed',['../namespacepact__consumer.html#a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb',1,'pact_consumer']]],
-  ['uuid_77',['Uuid',['../namespacepact__consumer_1_1matchers.html#a9fa0a81706a15dcb89a49f19376c5242',1,'pact_consumer::matchers::Uuid(const std::string example)'],['../namespacepact__consumer_1_1matchers.html#aab0a2b88f2fd1bb46fe26e5642d61c1e',1,'pact_consumer::matchers::Uuid()']]],
-  ['uuidmatcher_78',['UuidMatcher',['../classpact__consumer_1_1matchers_1_1UuidMatcher.html',1,'pact_consumer::matchers::UuidMatcher'],['../classpact__consumer_1_1matchers_1_1UuidMatcher.html#a1fd7cca306b66645c8d9c3714c76d14d',1,'pact_consumer::matchers::UuidMatcher::UuidMatcher()'],['../classpact__consumer_1_1matchers_1_1UuidMatcher.html#a341279e31305c6db7bd6952c6ea5f8af',1,'pact_consumer::matchers::UuidMatcher::UuidMatcher(std::string uuid)']]]
+  ['willrespondwith_72',['willRespondWith',['../classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45',1,'pact_consumer::Interaction']]],
+  ['withbinaryfile_73',['withBinaryFile',['../classpact__consumer_1_1Interaction.html#a75c38b21021c4f643efb1d8370f59960',1,'pact_consumer::Interaction']]],
+  ['withbody_74',['withBody',['../classpact__consumer_1_1Interaction.html#adb859362ac2bdad9bbd0d2f6039c94cd',1,'pact_consumer::Interaction']]],
+  ['withheaders_75',['withHeaders',['../classpact__consumer_1_1Interaction.html#a7cb127ccade3facb0b20655e38d939d1',1,'pact_consumer::Interaction']]],
+  ['withjsonbody_76',['withJsonBody',['../classpact__consumer_1_1Interaction.html#abeb14a7a082e64f78644d9803825e0cb',1,'pact_consumer::Interaction']]],
+  ['withmultipartfileupload_77',['withMultipartFileUpload',['../classpact__consumer_1_1Interaction.html#a85284f4436485cf03b70f1db27df02b8',1,'pact_consumer::Interaction']]],
+  ['withquery_78',['withQuery',['../classpact__consumer_1_1Interaction.html#a35cdc26f67b6c97167b49e270a68d59c',1,'pact_consumer::Interaction']]],
+  ['withrequest_79',['withRequest',['../classpact__consumer_1_1Interaction.html#ac29f5f3c8c0dfe941e00bee09334b341',1,'pact_consumer::Interaction']]],
+  ['withresponsebinaryfile_80',['withResponseBinaryFile',['../classpact__consumer_1_1Interaction.html#a52a3088b74d645bd57704a38d6e7da8e',1,'pact_consumer::Interaction']]],
+  ['withresponsebody_81',['withResponseBody',['../classpact__consumer_1_1Interaction.html#a48ff23f6e9f43f487125088ff0921b9e',1,'pact_consumer::Interaction']]],
+  ['withresponseheaders_82',['withResponseHeaders',['../classpact__consumer_1_1Interaction.html#a193531af24474f18bceda3a4c4d0ddb4',1,'pact_consumer::Interaction']]],
+  ['withresponsejsonbody_83',['withResponseJsonBody',['../classpact__consumer_1_1Interaction.html#a82bea9bd7fd64a0ae56924c086891863',1,'pact_consumer::Interaction']]],
+  ['withresponsemultipartfileupload_84',['withResponseMultipartFileUpload',['../classpact__consumer_1_1Interaction.html#a1ccff8adb3ce7581e9dba80fc8ee0ffc',1,'pact_consumer::Interaction']]]
 ];

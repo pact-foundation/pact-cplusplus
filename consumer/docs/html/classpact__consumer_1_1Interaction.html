@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Pact C++ Consumer DSL
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.0.2</span>
    </div>
    <div id="projectbrief">DSL to support writing consumer tests in C++</div>
   </td>
@@ -84,32 +84,36 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adfdeefe452d43765c863764c8010dacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab317881a13f364c21ba4d773103f6fa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#ab317881a13f364c21ba4d773103f6fa9">given</a> (const char *provider_state) const</td></tr>
 <tr class="separator:ab317881a13f364c21ba4d773103f6fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5acf88deed519e9053db782bb836f1ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a5acf88deed519e9053db782bb836f1ed">given</a> (const char *provider_state, std::unordered_map&lt; std::string, std::string &gt; parameters) const</td></tr>
-<tr class="separator:a5acf88deed519e9053db782bb836f1ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c5c59d34af5a49364dcb50fa5b019f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a26c5c59d34af5a49364dcb50fa5b019f">given</a> (const char *provider_state, const std::unordered_map&lt; std::string, std::string &gt; &amp;parameters) const</td></tr>
+<tr class="separator:a26c5c59d34af5a49364dcb50fa5b019f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d6a8acadad3b486a3996a5fd4819be2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a4d6a8acadad3b486a3996a5fd4819be2">uponReceiving</a> (const char *description) const</td></tr>
 <tr class="separator:a4d6a8acadad3b486a3996a5fd4819be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29f5f3c8c0dfe941e00bee09334b341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#ac29f5f3c8c0dfe941e00bee09334b341">withRequest</a> (const char *method, const char *path) const</td></tr>
 <tr class="separator:ac29f5f3c8c0dfe941e00bee09334b341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac73dc56507068dcf186dc76ebb848b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#ac73dc56507068dcf186dc76ebb848b30">withQuery</a> (std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; query) const</td></tr>
-<tr class="separator:ac73dc56507068dcf186dc76ebb848b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d4c0519d5e17bc14e4b062fd4361c71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a8d4c0519d5e17bc14e4b062fd4361c71">withHeaders</a> (std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; headers) const</td></tr>
-<tr class="separator:a8d4c0519d5e17bc14e4b062fd4361c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7cbcf570140343c007522be4091afb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#ac7cbcf570140343c007522be4091afb7">withJsonBody</a> (void(*callback)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a> *)) const</td></tr>
-<tr class="separator:ac7cbcf570140343c007522be4091afb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35cdc26f67b6c97167b49e270a68d59c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a35cdc26f67b6c97167b49e270a68d59c">withQuery</a> (const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;query) const</td></tr>
+<tr class="separator:a35cdc26f67b6c97167b49e270a68d59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb127ccade3facb0b20655e38d939d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a7cb127ccade3facb0b20655e38d939d1">withHeaders</a> (const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;headers) const</td></tr>
+<tr class="separator:a7cb127ccade3facb0b20655e38d939d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb859362ac2bdad9bbd0d2f6039c94cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#adb859362ac2bdad9bbd0d2f6039c94cd">withBody</a> (const std::string &amp;body, const std::string &amp;content_type) const</td></tr>
+<tr class="separator:adb859362ac2bdad9bbd0d2f6039c94cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeb14a7a082e64f78644d9803825e0cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#abeb14a7a082e64f78644d9803825e0cb">withJsonBody</a> (<a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html#a36aa47dbb9f50f5d8432977bc7ae9a5b">pact_consumer::matchers::IMatcher::Ptr</a> body) const</td></tr>
 <tr class="separator:abeb14a7a082e64f78644d9803825e0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d4f4973538d33d5abe1889d0c8365f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a32d4f4973538d33d5abe1889d0c8365f">withBinaryFile</a> (std::string content_type, std::filesystem::path example_file) const</td></tr>
-<tr class="separator:a32d4f4973538d33d5abe1889d0c8365f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c38b21021c4f643efb1d8370f59960"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a75c38b21021c4f643efb1d8370f59960">withBinaryFile</a> (const std::string &amp;content_type, const std::filesystem::path &amp;example_file) const</td></tr>
+<tr class="separator:a75c38b21021c4f643efb1d8370f59960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85284f4436485cf03b70f1db27df02b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a85284f4436485cf03b70f1db27df02b8">withMultipartFileUpload</a> (const std::string &amp;part_name, const std::string &amp;content_type, const std::filesystem::path &amp;example_file) const</td></tr>
+<tr class="separator:a85284f4436485cf03b70f1db27df02b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4b399b152b384682d17436ac648d45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#adb4b399b152b384682d17436ac648d45">willRespondWith</a> (size_t status) const</td></tr>
 <tr class="separator:adb4b399b152b384682d17436ac648d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0915c5ab54bff6e33a9ca8e9464baa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a9d0915c5ab54bff6e33a9ca8e9464baa">withResponseHeaders</a> (std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; headers) const</td></tr>
-<tr class="separator:a9d0915c5ab54bff6e33a9ca8e9464baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa30f026c1c2cb12d366ea23f27ff255"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#afa30f026c1c2cb12d366ea23f27ff255">withResponseJsonBody</a> (void(*callback)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a> *)) const</td></tr>
-<tr class="separator:afa30f026c1c2cb12d366ea23f27ff255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193531af24474f18bceda3a4c4d0ddb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a193531af24474f18bceda3a4c4d0ddb4">withResponseHeaders</a> (const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;headers) const</td></tr>
+<tr class="separator:a193531af24474f18bceda3a4c4d0ddb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ff23f6e9f43f487125088ff0921b9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a48ff23f6e9f43f487125088ff0921b9e">withResponseBody</a> (const std::string &amp;body, const std::string &amp;content_type) const</td></tr>
+<tr class="separator:a48ff23f6e9f43f487125088ff0921b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82bea9bd7fd64a0ae56924c086891863"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a82bea9bd7fd64a0ae56924c086891863">withResponseJsonBody</a> (<a class="el" href="classpact__consumer_1_1matchers_1_1IMatcher.html#a36aa47dbb9f50f5d8432977bc7ae9a5b">pact_consumer::matchers::IMatcher::Ptr</a> body) const</td></tr>
 <tr class="separator:a82bea9bd7fd64a0ae56924c086891863"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3489e6576ddb7e22fd6dbc45d35fefd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a3489e6576ddb7e22fd6dbc45d35fefd8">withResponseBinaryFile</a> (std::string content_type, std::filesystem::path example_file) const</td></tr>
-<tr class="separator:a3489e6576ddb7e22fd6dbc45d35fefd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a3088b74d645bd57704a38d6e7da8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a52a3088b74d645bd57704a38d6e7da8e">withResponseBinaryFile</a> (const std::string &amp;content_type, const std::filesystem::path &amp;example_file) const</td></tr>
+<tr class="separator:a52a3088b74d645bd57704a38d6e7da8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ccff8adb3ce7581e9dba80fc8ee0ffc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpact__consumer_1_1Interaction.html#a1ccff8adb3ce7581e9dba80fc8ee0ffc">withResponseMultipartFileUpload</a> (const std::string &amp;part_name, const std::string &amp;content_type, const std::filesystem::path &amp;example_file) const</td></tr>
+<tr class="separator:a1ccff8adb3ce7581e9dba80fc8ee0ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -167,8 +171,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5acf88deed519e9053db782bb836f1ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5acf88deed519e9053db782bb836f1ed">&#9670;&nbsp;</a></span>given() <span class="overload">[2/2]</span></h2>
+<a id="a26c5c59d34af5a49364dcb50fa5b019f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c5c59d34af5a49364dcb50fa5b019f">&#9670;&nbsp;</a></span>given() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +186,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unordered_map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td>
           <td class="paramname"><em>parameters</em>&#160;</td>
         </tr>
         <tr>
@@ -234,8 +238,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a32d4f4973538d33d5abe1889d0c8365f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d4f4973538d33d5abe1889d0c8365f">&#9670;&nbsp;</a></span>withBinaryFile()</h2>
+<a id="a75c38b21021c4f643efb1d8370f59960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c38b21021c4f643efb1d8370f59960">&#9670;&nbsp;</a></span>withBinaryFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,13 +247,13 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withBinaryFile </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>content_type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::filesystem::path&#160;</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
           <td class="paramname"><em>example_file</em>&#160;</td>
         </tr>
         <tr>
@@ -263,8 +267,37 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8d4c0519d5e17bc14e4b062fd4361c71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d4c0519d5e17bc14e4b062fd4361c71">&#9670;&nbsp;</a></span>withHeaders()</h2>
+<a id="adb859362ac2bdad9bbd0d2f6039c94cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb859362ac2bdad9bbd0d2f6039c94cd">&#9670;&nbsp;</a></span>withBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withBody </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>body</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the body for the request to the string contents. </p>
+
+</div>
+</div>
+<a id="a7cb127ccade3facb0b20655e38d939d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb127ccade3facb0b20655e38d939d1">&#9670;&nbsp;</a></span>withHeaders()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,7 +305,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withHeaders </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;&#160;</td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>headers</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -283,7 +316,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="abeb14a7a082e64f78644d9803825e0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeb14a7a082e64f78644d9803825e0cb">&#9670;&nbsp;</a></span>withJsonBody() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb14a7a082e64f78644d9803825e0cb">&#9670;&nbsp;</a></span>withJsonBody()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,31 +330,47 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the body for the request using the provided body template </p>
+<p>Sets the body for the request using the provided body template. </p>
 
 </div>
 </div>
-<a id="ac7cbcf570140343c007522be4091afb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7cbcf570140343c007522be4091afb7">&#9670;&nbsp;</a></span>withJsonBody() <span class="overload">[2/2]</span></h2>
+<a id="a85284f4436485cf03b70f1db27df02b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85284f4436485cf03b70f1db27df02b8">&#9670;&nbsp;</a></span>withMultipartFileUpload()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withJsonBody </td>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withMultipartFileUpload </td>
           <td>(</td>
-          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a> *)&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>part_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>example_file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </p>
+<p>Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. </p>
 
 </div>
 </div>
-<a id="ac73dc56507068dcf186dc76ebb848b30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac73dc56507068dcf186dc76ebb848b30">&#9670;&nbsp;</a></span>withQuery()</h2>
+<a id="a35cdc26f67b6c97167b49e270a68d59c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35cdc26f67b6c97167b49e270a68d59c">&#9670;&nbsp;</a></span>withQuery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,7 +378,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withQuery </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;&#160;</td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>query</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -368,8 +417,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3489e6576ddb7e22fd6dbc45d35fefd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3489e6576ddb7e22fd6dbc45d35fefd8">&#9670;&nbsp;</a></span>withResponseBinaryFile()</h2>
+<a id="a52a3088b74d645bd57704a38d6e7da8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52a3088b74d645bd57704a38d6e7da8e">&#9670;&nbsp;</a></span>withResponseBinaryFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,13 +426,13 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseBinaryFile </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>content_type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::filesystem::path&#160;</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
           <td class="paramname"><em>example_file</em>&#160;</td>
         </tr>
         <tr>
@@ -397,8 +446,37 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9d0915c5ab54bff6e33a9ca8e9464baa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d0915c5ab54bff6e33a9ca8e9464baa">&#9670;&nbsp;</a></span>withResponseHeaders()</h2>
+<a id="a48ff23f6e9f43f487125088ff0921b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ff23f6e9f43f487125088ff0921b9e">&#9670;&nbsp;</a></span>withResponseBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseBody </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>body</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the body for the response to the string contents. </p>
+
+</div>
+</div>
+<a id="a193531af24474f18bceda3a4c4d0ddb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193531af24474f18bceda3a4c4d0ddb4">&#9670;&nbsp;</a></span>withResponseHeaders()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -406,7 +484,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseHeaders </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt;&#160;</td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>headers</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -417,7 +495,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a82bea9bd7fd64a0ae56924c086891863"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82bea9bd7fd64a0ae56924c086891863">&#9670;&nbsp;</a></span>withResponseJsonBody() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bea9bd7fd64a0ae56924c086891863">&#9670;&nbsp;</a></span>withResponseJsonBody()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -435,22 +513,38 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afa30f026c1c2cb12d366ea23f27ff255"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa30f026c1c2cb12d366ea23f27ff255">&#9670;&nbsp;</a></span>withResponseJsonBody() <span class="overload">[2/2]</span></h2>
+<a id="a1ccff8adb3ce7581e9dba80fc8ee0ffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ccff8adb3ce7581e9dba80fc8ee0ffc">&#9670;&nbsp;</a></span>withResponseMultipartFileUpload()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseJsonBody </td>
+          <td class="memname"><a class="el" href="classpact__consumer_1_1Interaction.html">Interaction</a> pact_consumer::Interaction::withResponseMultipartFileUpload </td>
           <td>(</td>
-          <td class="paramtype">void(*)(<a class="el" href="classpact__consumer_1_1PactJsonBuilder.html">PactJsonBuilder</a> *)&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>part_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>example_file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body. </p>
+<p>Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. </p>
 
 </div>
 </div>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Pact C++ Consumer DSL
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.0.2</span>
    </div>
    <div id="projectbrief">DSL to support writing consumer tests in C++</div>
   </td>
@@ -75,11 +75,11 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a630248129b4a610fd15d94d08c6fb6f5">given</a>(const char *provider_state) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a00772d7384c5484206c87990cd09cfdf">given</a>(const char *provider_state, std::unordered_map&lt; std::string, std::string &gt; parameters) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a17fcecc8bc54bf6cc0f4a5eaae31a555">given</a>(const char *provider_state, const std::unordered_map&lt; std::string, std::string &gt; &amp;parameters) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a907de956f18c074634ceba0980fa8630">Pact</a>(const char *consumer, const char *provider)</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a43a945f3d3b363c9c251f5954e76b915">pact</a></td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a2d71145b2d9394a13b2ec104b031cdd2">pact_directory</a></td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a3428f3cbc0ad30377867377efe84fef2">run_test</a>(bool(*callback)(MockServerHandle *)) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#ab1f98bc36f5865fcc5fb1fbcc20220ea">run_test</a>(std::function&lt; bool(const MockServerHandle *)&gt; callback) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html#a05713ce4758ee154989b327c686dc18d">uponReceiving</a>(const char *description) const</td><td class="entry"><a class="el" href="classpact__consumer_1_1Pact.html">pact_consumer::Pact</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->

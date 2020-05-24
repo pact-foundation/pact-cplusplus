@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="190" column="15" bodyfile="include/consumer.h" bodystart="190" bodyend="-1"/>
+        <location file="include/consumer.h" line="45" column="15" bodyfile="include/consumer.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="171" column="7" bodyfile="src/consumer.cpp" bodystart="207" bodyend="209"/>
+        <location file="include/consumer.h" line="26" column="7" bodyfile="src/consumer.cpp" bodystart="226" bodyend="228"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="172" column="7" bodyfile="src/consumer.cpp" bodystart="211" bodyend="213"/>
+        <location file="include/consumer.h" line="27" column="7" bodyfile="src/consumer.cpp" bodystart="230" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="177" column="12" bodyfile="src/consumer.cpp" bodystart="215" bodyend="217"/>
+        <location file="include/consumer.h" line="32" column="12" bodyfile="src/consumer.cpp" bodystart="234" bodyend="236"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="182" column="19" bodyfile="src/consumer.cpp" bodystart="219" bodyend="223"/>
+        <location file="include/consumer.h" line="37" column="19" bodyfile="src/consumer.cpp" bodystart="238" bodyend="242"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int32_t</type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="187" column="15" bodyfile="src/consumer.cpp" bodystart="225" bodyend="227"/>
+        <location file="include/consumer.h" line="42" column="15" bodyfile="src/consumer.cpp" bodystart="244" bodyend="246"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -97,7 +97,7 @@
     <detaileddescription>
 <para>Mock server handle to the mock server started for the test </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="169" column="25" bodyfile="include/consumer.h" bodystart="169" bodyend="191"/>
+    <location file="include/consumer.h" line="24" column="25" bodyfile="include/consumer.h" bodystart="24" bodyend="46"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_port</name></member>
       <member refid="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_url</name></member>

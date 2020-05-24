@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="166" column="19" bodyfile="include/matchers.h" bodystart="166" bodyend="-1"/>
+        <location file="include/matchers.h" line="164" column="19" bodyfile="include/matchers.h" bodystart="164" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -31,15 +31,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="160" column="7" bodyfile="include/matchers.h" bodystart="160" bodyend="160"/>
+        <location file="include/matchers.h" line="158" column="7" bodyfile="include/matchers.h" bodystart="158" bodyend="158"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a0b59b83837f897532e92db8875208cba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a3ac2112235cce297740438121fc06287" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::HexadecimalMatcher::HexadecimalMatcher</definition>
-        <argsstring>(std::string hex)</argsstring>
+        <argsstring>(const std::string &amp;hex)</argsstring>
         <name>HexadecimalMatcher</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>hex</declname>
         </param>
         <briefdescription>
@@ -48,21 +48,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="161" column="7" bodyfile="include/matchers.h" bodystart="161" bodyend="161"/>
+        <location file="include/matchers.h" line="159" column="7" bodyfile="include/matchers.h" bodystart="159" bodyend="159"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a669207f1929f15220fa33d3251ee7047" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
-        <definition>json pact_consumer::matchers::HexadecimalMatcher::getJson</definition>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::HexadecimalMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="163" column="20" bodyfile="src/matchers.cpp" bodystart="393" bodyend="418"/>
+        <location file="include/matchers.h" line="161" column="27" bodyfile="src/matchers.cpp" bodystart="406" bodyend="433"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -93,14 +93,14 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="158" column="43" bodyfile="include/matchers.h" bodystart="158" bodyend="167"/>
+    <location file="include/matchers.h" line="156" column="43" bodyfile="include/matchers.h" bodystart="156" bodyend="165"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>as_regex</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ab2a19e5efcd034cc472ce3d854e34449" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>example</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a669207f1929f15220fa33d3251ee7047" prot="public" virt="virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa" prot="public" virt="virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>getJson</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a88d4e7f050653386a9bce507d1ebfb7c" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>HexadecimalMatcher</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a0b59b83837f897532e92db8875208cba" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>HexadecimalMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a3ac2112235cce297740438121fc06287" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>HexadecimalMatcher</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::HexadecimalMatcher</scope><name>Ptr</name></member>
     </listofallmembers>
   </compounddef>

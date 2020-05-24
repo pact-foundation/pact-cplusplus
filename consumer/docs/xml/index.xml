@@ -3,23 +3,23 @@
   <compound refid="classpact__consumer_1_1matchers_1_1DateMatcher" kind="class"><name>pact_consumer::matchers::DateMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a03408e7aff0b6b62757410495b60db41" kind="variable"><name>format</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1acac51a8a7c5d1f893c607184655955c8" kind="variable"><name>example</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a6723b3dd8546a852f01a26958c5600a5" kind="function"><name>DateMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a1154eab79153a1e0b89287b4712577c0" kind="function"><name>DateMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a607ec8245653311981a48af6d8a4af01" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a98e00fac884fdc6f6b43606cbd3cd1e6" kind="function"><name>DateMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a5d5051df92746fc56771f70fc2d81db9" kind="function"><name>DateMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a62acbf5a85f2eb2cd915ecc1e01a19a7" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher" kind="class"><name>pact_consumer::matchers::DateTimeMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1ac4af36564fa1d4560a8b89d6b274ac15" kind="variable"><name>format</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1ae6a222d32099bda58b142714650a3c1d" kind="variable"><name>example</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a82391f7c27b81bf856541e2f9535c7ed" kind="function"><name>DateTimeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a624fefce3ecef9cc4ec811905cc061d3" kind="function"><name>DateTimeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a4bfa2b1633fc9a411fc0bb4ae5257cb6" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1ae846d329ef76200275951d2fb3ca8aa1" kind="function"><name>DateTimeMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1ad7d24327286933a068d99c2398d6af49" kind="function"><name>DateTimeMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a5a4d5ee26da003046e49cf2e6ede47c2" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1DecimalMatcher" kind="class"><name>pact_consumer::matchers::DecimalMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1ababae086600e101af278d3f92379bad1" kind="variable"><name>value</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a8cc13a35a6c01a7ad2034db6499d8148" kind="function"><name>DecimalMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a718f029d1aee790d29882e21c2d30bb6" kind="function"><name>DecimalMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1aee590f8b4474b327b4ead0c65ede152f" kind="function"><name>DecimalMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a7d54db15ef35b2eb827f0fa9f3e67403" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a9622d5c88013538472db3e438561dd85" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher" kind="class"><name>pact_consumer::matchers::EachlikeMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae31c64a0384d014deb2672d407299c61" kind="variable"><name>examples</name></member>
@@ -30,37 +30,37 @@
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a048dc280cac528a7ad7447fc7a7dce8b" kind="function"><name>EachlikeMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ac37dc7ce91825ae207e2040cb2e6c01e" kind="function"><name>EachlikeMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ace9a9d9048656816f662e5cd141da3a0" kind="function"><name>EachlikeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a60a4f05c8a9f1d09273fd1da08aeb4ae" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a5b10e36b3dfcf5d139ef164bf12b3f68" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1EqualsMatcher" kind="class"><name>pact_consumer::matchers::EqualsMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afdadc2ce9e9657af14b2ecf9f866f90d" kind="variable"><name>value</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1afe9e104f7dc744804e6956cc009304b9" kind="function"><name>EqualsMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a19cbad1fa3ef261b8aea853de8f195e5" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a6db6f2fda0dc721ebb1bc353200e4ce0" kind="function"><name>getJson</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32" kind="function"><name>as_example</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher" kind="class"><name>pact_consumer::matchers::HexadecimalMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ab2a19e5efcd034cc472ce3d854e34449" kind="variable"><name>example</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a88d4e7f050653386a9bce507d1ebfb7c" kind="function"><name>HexadecimalMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a0b59b83837f897532e92db8875208cba" kind="function"><name>HexadecimalMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a669207f1929f15220fa33d3251ee7047" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a3ac2112235cce297740438121fc06287" kind="function"><name>HexadecimalMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1IMatcher" kind="class"><name>pact_consumer::matchers::IMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kind="typedef"><name>Ptr</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a" kind="function"><name>getJson</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" kind="function"><name>as_example</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" kind="function"><name>as_regex</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1IncludesMatcher" kind="class"><name>pact_consumer::matchers::IncludesMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1aed12ac43a9b86341cbe909daabc653b3" kind="variable"><name>value</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a55de88bf627606e5b9903db166269e15" kind="function"><name>IncludesMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1af08ed47534033b8cfcd8c88c2ca07af6" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a3e05b127313310dfd7a61b28433dfaf6" kind="function"><name>IncludesMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a9772243d99cf7f3bbe041b25905496c1" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1IntegerMatcher" kind="class"><name>pact_consumer::matchers::IntegerMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0e778c8d4b22a41bf2db40cc77e53940" kind="variable"><name>value</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0991d669ed3b7d53466713a2e38d0281" kind="function"><name>IntegerMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a46f4b7c8cbbb1f6f19fc61c77cca9066" kind="function"><name>IntegerMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a1fe7460a246233d51bb1e2275ba15229" kind="function"><name>IntegerMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a42d49becb285591a6dacaa6c4737f03b" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a60a44f613d7600a69d5773c737cb9494" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1Interaction" kind="class"><name>pact_consumer::Interaction</name>
     <member refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" kind="variable"><name>interaction</name></member>
@@ -68,25 +68,27 @@
     <member refid="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" kind="variable"><name>pact</name></member>
     <member refid="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" kind="function"><name>Interaction</name></member>
     <member refid="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" kind="function"><name>given</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a5acf88deed519e9053db782bb836f1ed" kind="function"><name>given</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a26c5c59d34af5a49364dcb50fa5b019f" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" kind="function"><name>uponReceiving</name></member>
     <member refid="classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341" kind="function"><name>withRequest</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1ac73dc56507068dcf186dc76ebb848b30" kind="function"><name>withQuery</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a8d4c0519d5e17bc14e4b062fd4361c71" kind="function"><name>withHeaders</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1ac7cbcf570140343c007522be4091afb7" kind="function"><name>withJsonBody</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a35cdc26f67b6c97167b49e270a68d59c" kind="function"><name>withQuery</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a7cb127ccade3facb0b20655e38d939d1" kind="function"><name>withHeaders</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1adb859362ac2bdad9bbd0d2f6039c94cd" kind="function"><name>withBody</name></member>
     <member refid="classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb" kind="function"><name>withJsonBody</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a32d4f4973538d33d5abe1889d0c8365f" kind="function"><name>withBinaryFile</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a75c38b21021c4f643efb1d8370f59960" kind="function"><name>withBinaryFile</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a85284f4436485cf03b70f1db27df02b8" kind="function"><name>withMultipartFileUpload</name></member>
     <member refid="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" kind="function"><name>willRespondWith</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a9d0915c5ab54bff6e33a9ca8e9464baa" kind="function"><name>withResponseHeaders</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1afa30f026c1c2cb12d366ea23f27ff255" kind="function"><name>withResponseJsonBody</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a193531af24474f18bceda3a4c4d0ddb4" kind="function"><name>withResponseHeaders</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a48ff23f6e9f43f487125088ff0921b9e" kind="function"><name>withResponseBody</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863" kind="function"><name>withResponseJsonBody</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a3489e6576ddb7e22fd6dbc45d35fefd8" kind="function"><name>withResponseBinaryFile</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a52a3088b74d645bd57704a38d6e7da8e" kind="function"><name>withResponseBinaryFile</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a1ccff8adb3ce7581e9dba80fc8ee0ffc" kind="function"><name>withResponseMultipartFileUpload</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher" kind="class"><name>pact_consumer::matchers::IPAddressMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1af4b986c1404414f5e976bd53cd4bbc78" kind="variable"><name>example</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1acfbc504a485c42a3561973f7e877afb5" kind="function"><name>IPAddressMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1ac44d7b87e25b7d99c7bde3a45f43011d" kind="function"><name>IPAddressMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a8650595d732644d12817d182f4c99976" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a307eb182c33860b4c5454f659d85047f" kind="function"><name>IPAddressMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a33d15487bd5839fcf322b66cc7d4c47f" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1MockServerHandle" kind="class"><name>pact_consumer::MockServerHandle</name>
     <member refid="classpact__consumer_1_1MockServerHandle_1adbcb6a08fe8ffa6b1b3a69a6265930d7" kind="variable"><name>port</name></member>
@@ -97,18 +99,18 @@
     <member refid="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" kind="function"><name>get_port</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1NullMatcher" kind="class"><name>pact_consumer::matchers::NullMatcher</name>
-    <member refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a6ac909e261e9ff32dcc5c69f9a40369e" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a744590aa3bb3f70a807013600048a6da" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1NumberMatcher" kind="class"><name>pact_consumer::matchers::NumberMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1af32437a970a0879d4e02fc244e4a224f" kind="variable"><name>value</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a27c9dd090644dcc2df22fb437af8afcc" kind="function"><name>NumberMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a8e9d378a6383ee84e356de3fa630d1c5" kind="function"><name>NumberMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a78c2577dce8fc71786bf237d044f3023" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1ObjectMatcher" kind="class"><name>pact_consumer::matchers::ObjectMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1a9c7e506ce3a5f394fd090e45a22af0fc" kind="variable"><name>fields</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1a180b4b1205e90677961cb68c2bb5e3da" kind="function"><name>ObjectMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1aaeb0b78b715cc6fe1a531f82c7e838d6" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1a1bdcc25961def476ac53857744bbb985" kind="function"><name>ObjectMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1ac7b875e4be7c487c3bec741ccdc7a34b" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1Pact" kind="class"><name>pact_consumer::Pact</name>
     <member refid="classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915" kind="variable"><name>pact</name></member>
@@ -117,33 +119,9 @@
     <member refid="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" kind="variable"><name>provider</name></member>
     <member refid="classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630" kind="function"><name>Pact</name></member>
     <member refid="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" kind="function"><name>given</name></member>
-    <member refid="classpact__consumer_1_1Pact_1a00772d7384c5484206c87990cd09cfdf" kind="function"><name>given</name></member>
+    <member refid="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" kind="function"><name>uponReceiving</name></member>
-    <member refid="classpact__consumer_1_1Pact_1a3428f3cbc0ad30377867377efe84fef2" kind="function"><name>run_test</name></member>
-  </compound>
-  <compound refid="classpact__consumer_1_1PactJsonBuilder" kind="class"><name>pact_consumer::PactJsonBuilder</name>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a3d8d7f30fe89eb0af69e37308a3f85e2" kind="variable"><name>parent</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a9ab8c238036670d01940ab2a539d051b" kind="variable"><name>obj</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1aa805a10ce64aa7a9fc7f0d3b3dcbe697" kind="function"><name>PactJsonBuilder</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a2636f4008e8c8a66adaf61ff9e858571" kind="function"><name>eachLike</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a33e402dd87b5a63c00f6923b067091b7" kind="function"><name>eachLike</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a29dac043b1bcb5e4a6a61021ea26cebc" kind="function"><name>atLeastOneLike</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1ae69caf6e8088277037ec4757a0fa570d" kind="function"><name>atLeastOneLike</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a1c2313cac83d46a0eae974638e5c41c7" kind="function"><name>integer</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1ade5ddccbcbcf1751c626f322a233bfad" kind="function"><name>integer</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a09d0204658f06b97fbfcb35542cfef1d" kind="function"><name>decimal</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a9415c87b39a702a7f1d842c8facf4024" kind="function"><name>decimal</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a8a129fb5eccbf58e79d04a6e2f4eb425" kind="function"><name>number</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a81ede32b19f5526f9eb63b4cf72e8c4a" kind="function"><name>number</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1ac7e41cb54bc646094a033f0f70ff47b4" kind="function"><name>number</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a64cd45052d249fac2df28f4e25ef9109" kind="function"><name>string</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a72e13ca23c7d35334e446bb30198edf6" kind="function"><name>string</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a0465bbc9df6c990ed353d21ba83a58df" kind="function"><name>regex</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a98faa827ae350b7bcd5f038a61ee0dff" kind="function"><name>regex</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a687934cbab5262ff82360fd92c44fd8f" kind="function"><name>datetime</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1ac8fc12d46da35e07eb2b05192a1a8a98" kind="function"><name>datetime</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1afda7b8c27b11afb4c732c1544bc81030" kind="function"><name>boolean</name></member>
-    <member refid="classpact__consumer_1_1PactJsonBuilder_1a7bbc3c584b6236d0cfe87f8cd5ea7ad7" kind="function"><name>get_json</name></member>
+    <member refid="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" kind="function"><name>run_test</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1PactTestResult" kind="class"><name>pact_consumer::PactTestResult</name>
     <member refid="classpact__consumer_1_1PactTestResult_1a2ae85ba465790a5ff8450fbe0ca2ef9f" kind="variable"><name>status</name></member>
@@ -159,35 +137,35 @@
   <compound refid="classpact__consumer_1_1matchers_1_1RegexMatcher" kind="class"><name>pact_consumer::matchers::RegexMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a69df3ecde9a9cbeefd537aee3a184dc1" kind="variable"><name>regex</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a783d95d4d1ffffa9d1a46bca69a605ec" kind="variable"><name>example</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afbc8a3f78f38df77301fa271a06f05cb" kind="function"><name>RegexMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a43d35298ae2413d2cbb447b52b4b724f" kind="function"><name>RegexMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1aba83023303c31c27f5b6a0dbe9fa03de" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1acbe8de8435c2fb052a847e4ca2a762bb" kind="function"><name>RegexMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a8c4d91701b428fce2cf1011b9fd8a8ae" kind="function"><name>RegexMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc" kind="function"><name>getJson</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" kind="function"><name>as_example</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48" kind="function"><name>as_regex</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1TimeMatcher" kind="class"><name>pact_consumer::matchers::TimeMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1ab9796b3600b8964d1a831061654578b7" kind="variable"><name>format</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1a166139f2bc925adcb1b051f9ee6a7465" kind="variable"><name>example</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1a3d4419eeb2265bd764ec231e5f738cc8" kind="function"><name>TimeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1ac046e8d7763d30ad98d14d5490a39c89" kind="function"><name>TimeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1a257ac9db3b5fb71a4a1fe0b6156606ce" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1a6fbb3f8931ef93cb9c129fd3157b315b" kind="function"><name>TimeMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1af28caf2945fd4b16ac9bf06239c18376" kind="function"><name>TimeMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1aed92aaeea30c962016a2313ce6a5502a" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1TypeMatcher" kind="class"><name>pact_consumer::matchers::TypeMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1ae08f0bc2365e15844a3540eff899a214" kind="variable"><name>value</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1a11577167bb784d1c1662a45ec8f78197" kind="function"><name>TypeMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1ae96f1375296be7ea2a78e9fec7a6cca5" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1addaffee04e0ecf86d71dc41faa79fe67" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1UrlMatcher" kind="class"><name>pact_consumer::matchers::UrlMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1ae7342765b05453b78bca2198d8956661" kind="variable"><name>basePath</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a53caf16ca88c6037e6127ba8a8258962" kind="variable"><name>pathFragments</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a30672a90c069786fe7e52485a20a7fed" kind="function"><name>UrlMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1abb43488b2c0d7bc2fa87c102c34db57e" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a40e576cfa7eab926302704a03a81fae2" kind="function"><name>UrlMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1UuidMatcher" kind="class"><name>pact_consumer::matchers::UuidMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1064288895c66dd0e239db92a99da0b4" kind="variable"><name>example</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1fd7cca306b66645c8d9c3714c76d14d" kind="function"><name>UuidMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a341279e31305c6db7bd6952c6ea5f8af" kind="function"><name>UuidMatcher</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a3e71e2f36be6c3db39ef819bafb353ed" kind="function"><name>getJson</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a6c24bba35ac07da7ec606bf659570147" kind="function"><name>UuidMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a9a9a00a6a4d6b3af4ea314901bd34eac" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="namespacepact__consumer" kind="namespace"><name>pact_consumer</name>
     <member refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" kind="enum"><name>TestResultState</name></member>
@@ -198,31 +176,31 @@
     <member refid="namespacepact__consumer_1aaa6b9d5d2099c6ad833338cb2c1d4b11" kind="function"><name>init</name></member>
   </compound>
   <compound refid="namespacepact__consumer_1_1matchers" kind="namespace"><name>pact_consumer::matchers</name>
-    <member refid="namespacepact__consumer_1_1matchers_1a48c1224bc9f3dcadae973c074cd68407" kind="function"><name>Object</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a75bcf07c65576f27643f4d21a1f45881" kind="function"><name>Object</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a4857b8996e54c5dc7e8cb5a814d595dd" kind="function"><name>Integer</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1ab3eba43ca56c78c36b3dda251a0e1faa" kind="function"><name>Integer</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1aa97242d2caf82ab8b512686962c9945e" kind="function"><name>Integer</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a3d266fa3fc12cec88e0a23a50ba4219d" kind="function"><name>Like</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a83ea48364b267e159a6e82802bd8300c" kind="function"><name>Like</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a6ec3cd8bb6b06b62522886ff2c73d256" kind="function"><name>Like</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1ad00d5ad3bca29d5452724a845a667b59" kind="function"><name>Like</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a0e7fe8ef25809bc7971c552636ec2057" kind="function"><name>Like</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1aa07b63501393ef2a1ee4458f6558d8a0" kind="function"><name>Like</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a6dd0effb347f57ad878e230082e1c546" kind="function"><name>Like</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1aa85192c01eb593ba5a5c5312e98de4a0" kind="function"><name>DateTime</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1af4f8c9981bf2c9728c2402cf7106de8e" kind="function"><name>DateTime</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1acc1c453f71347fc736f2f95fe0473783" kind="function"><name>Date</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a396cfddf79276bc2423fbd9a9744b9f9" kind="function"><name>Date</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a407967a1a434eeb4c09d1398cf4487a8" kind="function"><name>Time</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a8afbf69f0f1c8e941bcb7460c1f4a56c" kind="function"><name>Time</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a4ab5cbf4a1e1707ecec14ab691432f31" kind="function"><name>Matching</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a29c5fe3515e380dd79d52a2f31bfea3f" kind="function"><name>Matching</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a85517d3c436fab9ebfcf64f83b2228e1" kind="function"><name>DateTime</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1aa7dd31a9908dd2d3f0537d22c7f00fdc" kind="function"><name>DateTime</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a1dc23cb6b8e020bcc3e85499841994ab" kind="function"><name>Date</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1ab73e9cc53a6337357ddc8feb0772410d" kind="function"><name>Date</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a4ee7077e9e16c8efdadf0876d9020041" kind="function"><name>Time</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1aaa158ac8c4fe42b3c120453dbdc33020" kind="function"><name>Time</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1ab7dd9cd96c833d67693ed621d7951442" kind="function"><name>Matching</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a11e3831cfbeb4fa8a11b706fbbb6677f" kind="function"><name>Matching</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a373d5b4e09f56d4245ecafe400044bcd" kind="function"><name>EachLike</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a301d266f66d722e7a76bc8301c211991" kind="function"><name>EachLike</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a25f4cc8d8a3afadfd5b4c5245746ebc1" kind="function"><name>AtLeastOneLike</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a8f530d7b5f9122e1c6b137f1e3f62858" kind="function"><name>AtLeastOneLike</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a070f84d4e4e2f948f14dda6c15e48ca5" kind="function"><name>HexValue</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a6097e61920812f2a75d708569c1605e6" kind="function"><name>HexValue</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a627f4d81bff337fe7b7fb87b7ae35414" kind="function"><name>HexValue</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a198b0154d9509cbcd3a65b755107bd58" kind="function"><name>IPAddress</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1af78b59b345716d7f9958ac5688657022" kind="function"><name>IPAddress</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a2a07a602dd54b0ce820af22484987bf2" kind="function"><name>IPAddress</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a5b09c8fb2e37ca8c610bb3df63b65bb6" kind="function"><name>Numeric</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a02ab80cff207fe8f808e738e4085e00c" kind="function"><name>Numeric</name></member>
@@ -232,7 +210,7 @@
     <member refid="namespacepact__consumer_1_1matchers_1afcc8d7fa449dc781049af11353f63680" kind="function"><name>Decimal</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a0033957c079590c59da96e95f2f89b9e" kind="function"><name>Decimal</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a9b2546fe1ad56f3434e7028a3499bfd4" kind="function"><name>Decimal</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a9fa0a81706a15dcb89a49f19376c5242" kind="function"><name>Uuid</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a1665b020f1998e12d2e3b06edf59037b" kind="function"><name>Uuid</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1aab0a2b88f2fd1bb46fe26e5642d61c1e" kind="function"><name>Uuid</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a8ad798ea440fcad6ee7f0d6877880cd8" kind="function"><name>AtMostLike</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1acf9636daddf7702ee686dbc3768f73ab" kind="function"><name>AtMostLike</name></member>
@@ -244,28 +222,28 @@
     <member refid="namespacepact__consumer_1_1matchers_1abdfa9cb6995ab04d829ff6a843d4c69e" kind="function"><name>EqualTo</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1aa9e1890dd24fa778e0db53f52df0efb8" kind="function"><name>EqualTo</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1ab21bb806b113cd85560dd4be1b6badca" kind="function"><name>EqualTo</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a7ce10198f8601f4f6941593ff516f6ad" kind="function"><name>EqualTo</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1af43a1623b3acd13c56391a276813da5f" kind="function"><name>EqualTo</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a9b85916baba1ca1d86d93af79bde5b43" kind="function"><name>EqualTo</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a1931ffa4a97f768d81bcebf9406592ee" kind="function"><name>EqualTo</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1af77644d3d7c23c3d776483f5e02aad89" kind="function"><name>IncludesStr</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a4b543ff4c6f35f548d64f82c2f5543b3" kind="function"><name>IncludesStr</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a0713635f17e43e8f4a4973cdb50a7008" kind="function"><name>NullValue</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1a86b9a0ab8b9beb9fc26964b344bdad28" kind="function"><name>Url</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1a2c4278f99e116245c369c5bb8788ca43" kind="function"><name>Url</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1ad00d5ad3bca29d5452724a845a667b59" kind="function"><name>Like</name></member>
   </compound>
   <compound refid="namespacepact__mock__server__ffi" kind="namespace"><name>pact_mock_server_ffi</name>
   </compound>
   <compound refid="consumer_8h" kind="file"><name>consumer.h</name>
-    <member refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="matchers_8h" kind="file"><name>matchers.h</name>
-    <member refid="matchers_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
-  </compound>
-  <compound refid="body_8cpp" kind="file"><name>body.cpp</name>
   </compound>
   <compound refid="CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="CMakeLists_8txt_1af013478212973bcd7a492bb9b6b37efb" kind="function"><name>cmake_minimum_required</name></member>
+    <member refid="CMakeLists_8txt_1ac40a84742e18e3c42e295a10da04e229" kind="function"><name>cmake_minimum_required</name></member>
   </compound>
   <compound refid="consumer_8cpp" kind="file"><name>consumer.cpp</name>
+    <member refid="consumer_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="matchers_8cpp" kind="file"><name>matchers.cpp</name>
+    <member refid="matchers_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>

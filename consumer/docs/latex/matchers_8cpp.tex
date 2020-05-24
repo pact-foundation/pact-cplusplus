@@ -3,6 +3,7 @@
 {\ttfamily \#include \char`\"{}matchers.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$pact\+\_\+mock\+\_\+server\+\_\+ffi.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
 Include dependency graph for matchers.\+cpp\+:
 % FIG 0
 \doxysubsection*{Namespaces}
@@ -12,10 +13,15 @@ Include dependency graph for matchers.\+cpp\+:
 \item 
  \mbox{\hyperlink{namespacepact__consumer_1_1matchers}{pact\+\_\+consumer\+::matchers}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{matchers_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = nlohmann\+::json
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a48c1224bc9f3dcadae973c074cd68407}{pact\+\_\+consumer\+::matchers\+::\+Object}} (const std\+::unordered\+\_\+map$<$ std\+::string, I\+Matcher\+::\+Ptr $>$ fields)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a75bcf07c65576f27643f4d21a1f45881}{pact\+\_\+consumer\+::matchers\+::\+Object}} (const std\+::unordered\+\_\+map$<$ std\+::string, I\+Matcher\+::\+Ptr $>$ \&fields)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a4857b8996e54c5dc7e8cb5a814d595dd}{pact\+\_\+consumer\+::matchers\+::\+Integer}} (long value)
 \item 
@@ -29,27 +35,27 @@ I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a83ea48
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a6ec3cd8bb6b06b62522886ff2c73d256}{pact\+\_\+consumer\+::matchers\+::\+Like}} (double value)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_ad00d5ad3bca29d5452724a845a667b59}{pact\+\_\+consumer\+::matchers\+::\+Like}} (std\+::string value)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a0e7fe8ef25809bc7971c552636ec2057}{pact\+\_\+consumer\+::matchers\+::\+Like}} (const std\+::string \&value)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aa07b63501393ef2a1ee4458f6558d8a0}{pact\+\_\+consumer\+::matchers\+::\+Like}} (const char $\ast$value)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a6dd0effb347f57ad878e230082e1c546}{pact\+\_\+consumer\+::matchers\+::\+Like}} (bool value)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aa85192c01eb593ba5a5c5312e98de4a0}{pact\+\_\+consumer\+::matchers\+::\+Date\+Time}} (std\+::string format, std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a85517d3c436fab9ebfcf64f83b2228e1}{pact\+\_\+consumer\+::matchers\+::\+Date\+Time}} (const std\+::string \&format, const std\+::string \&example)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_af4f8c9981bf2c9728c2402cf7106de8e}{pact\+\_\+consumer\+::matchers\+::\+Date\+Time}} (std\+::string format)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aa7dd31a9908dd2d3f0537d22c7f00fdc}{pact\+\_\+consumer\+::matchers\+::\+Date\+Time}} (const std\+::string \&format)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_acc1c453f71347fc736f2f95fe0473783}{pact\+\_\+consumer\+::matchers\+::\+Date}} (std\+::string format, std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a1dc23cb6b8e020bcc3e85499841994ab}{pact\+\_\+consumer\+::matchers\+::\+Date}} (const std\+::string \&format, const std\+::string \&example)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a396cfddf79276bc2423fbd9a9744b9f9}{pact\+\_\+consumer\+::matchers\+::\+Date}} (std\+::string format)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_ab73e9cc53a6337357ddc8feb0772410d}{pact\+\_\+consumer\+::matchers\+::\+Date}} (const std\+::string \&format)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a407967a1a434eeb4c09d1398cf4487a8}{pact\+\_\+consumer\+::matchers\+::\+Time}} (std\+::string format, std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a4ee7077e9e16c8efdadf0876d9020041}{pact\+\_\+consumer\+::matchers\+::\+Time}} (const std\+::string \&format, const std\+::string \&example)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a8afbf69f0f1c8e941bcb7460c1f4a56c}{pact\+\_\+consumer\+::matchers\+::\+Time}} (std\+::string format)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aaa158ac8c4fe42b3c120453dbdc33020}{pact\+\_\+consumer\+::matchers\+::\+Time}} (const std\+::string \&format)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a4ab5cbf4a1e1707ecec14ab691432f31}{pact\+\_\+consumer\+::matchers\+::\+Matching}} (std\+::string regex, std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_ab7dd9cd96c833d67693ed621d7951442}{pact\+\_\+consumer\+::matchers\+::\+Matching}} (const std\+::string \&regex, const std\+::string \&example)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a29c5fe3515e380dd79d52a2f31bfea3f}{pact\+\_\+consumer\+::matchers\+::\+Matching}} (std\+::string regex)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a11e3831cfbeb4fa8a11b706fbbb6677f}{pact\+\_\+consumer\+::matchers\+::\+Matching}} (const std\+::string \&regex)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a373d5b4e09f56d4245ecafe400044bcd}{pact\+\_\+consumer\+::matchers\+::\+Each\+Like}} (const I\+Matcher\+::\+Ptr obj)
 \item 
@@ -59,11 +65,11 @@ I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a25f4cc
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a8f530d7b5f9122e1c6b137f1e3f62858}{pact\+\_\+consumer\+::matchers\+::\+At\+Least\+One\+Like}} (int examples, const I\+Matcher\+::\+Ptr obj)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a070f84d4e4e2f948f14dda6c15e48ca5}{pact\+\_\+consumer\+::matchers\+::\+Hex\+Value}} (const std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a6097e61920812f2a75d708569c1605e6}{pact\+\_\+consumer\+::matchers\+::\+Hex\+Value}} (const std\+::string \&example)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a627f4d81bff337fe7b7fb87b7ae35414}{pact\+\_\+consumer\+::matchers\+::\+Hex\+Value}} ()
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a198b0154d9509cbcd3a65b755107bd58}{pact\+\_\+consumer\+::matchers\+::\+I\+P\+Address}} (const std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_af78b59b345716d7f9958ac5688657022}{pact\+\_\+consumer\+::matchers\+::\+I\+P\+Address}} (const std\+::string \&example)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a2a07a602dd54b0ce820af22484987bf2}{pact\+\_\+consumer\+::matchers\+::\+I\+P\+Address}} ()
 \item 
@@ -83,7 +89,7 @@ I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a003395
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a9b2546fe1ad56f3434e7028a3499bfd4}{pact\+\_\+consumer\+::matchers\+::\+Decimal}} ()
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a9fa0a81706a15dcb89a49f19376c5242}{pact\+\_\+consumer\+::matchers\+::\+Uuid}} (const std\+::string example)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a1665b020f1998e12d2e3b06edf59037b}{pact\+\_\+consumer\+::matchers\+::\+Uuid}} (const std\+::string \&example)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aab0a2b88f2fd1bb46fe26e5642d61c1e}{pact\+\_\+consumer\+::matchers\+::\+Uuid}} ()
 \item 
@@ -107,13 +113,24 @@ I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_aa9e189
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_ab21bb806b113cd85560dd4be1b6badca}{pact\+\_\+consumer\+::matchers\+::\+Equal\+To}} (double value)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a7ce10198f8601f4f6941593ff516f6ad}{pact\+\_\+consumer\+::matchers\+::\+Equal\+To}} (std\+::string value)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_af43a1623b3acd13c56391a276813da5f}{pact\+\_\+consumer\+::matchers\+::\+Equal\+To}} (const std\+::string \&value)
+\item 
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a9b85916baba1ca1d86d93af79bde5b43}{pact\+\_\+consumer\+::matchers\+::\+Equal\+To}} (const char $\ast$value)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a1931ffa4a97f768d81bcebf9406592ee}{pact\+\_\+consumer\+::matchers\+::\+Equal\+To}} (bool value)
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_af77644d3d7c23c3d776483f5e02aad89}{pact\+\_\+consumer\+::matchers\+::\+Includes\+Str}} (std\+::string value)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a4b543ff4c6f35f548d64f82c2f5543b3}{pact\+\_\+consumer\+::matchers\+::\+Includes\+Str}} (const std\+::string \&value)
 \item 
 I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a0713635f17e43e8f4a4973cdb50a7008}{pact\+\_\+consumer\+::matchers\+::\+Null\+Value}} ()
 \item 
-I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a86b9a0ab8b9beb9fc26964b344bdad28}{pact\+\_\+consumer\+::matchers\+::\+Url}} (std\+::string base\+Path, std\+::vector$<$ I\+Matcher\+::\+Ptr $>$ path\+Fragments)
+I\+Matcher\+::\+Ptr \mbox{\hyperlink{namespacepact__consumer_1_1matchers_a2c4278f99e116245c369c5bb8788ca43}{pact\+\_\+consumer\+::matchers\+::\+Url}} (const std\+::string \&base\+Path, const std\+::vector$<$ I\+Matcher\+::\+Ptr $>$ \&path\+Fragments)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{matchers_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{matchers_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{matchers.cpp@{matchers.cpp}!json@{json}}
+\index{json@{json}!matchers.cpp@{matchers.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{consumer_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  nlohmann\+::json}
+

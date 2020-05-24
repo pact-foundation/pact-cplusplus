@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="77" column="21" bodyfile="include/matchers.h" bodystart="77" bodyend="-1"/>
+        <location file="include/matchers.h" line="75" column="21" bodyfile="include/matchers.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="71" column="7" bodyfile="include/matchers.h" bodystart="71" bodyend="71"/>
+        <location file="include/matchers.h" line="69" column="7" bodyfile="include/matchers.h" bodystart="69" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1NumberMatcher_1a8e9d378a6383ee84e356de3fa630d1c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -53,21 +53,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="72" column="7" bodyfile="include/matchers.h" bodystart="72" bodyend="72"/>
+        <location file="include/matchers.h" line="70" column="7" bodyfile="include/matchers.h" bodystart="70" bodyend="70"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1NumberMatcher_1a78c2577dce8fc71786bf237d044f3023" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
-        <definition>json pact_consumer::matchers::NumberMatcher&lt; T &gt;::getJson</definition>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::NumberMatcher&lt; T &gt;::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="74" column="20" bodyfile="src/matchers.cpp" bodystart="255" bodyend="266"/>
+        <location file="include/matchers.h" line="72" column="27" bodyfile="src/matchers.cpp" bodystart="262" bodyend="273"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -98,11 +98,11 @@
         <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="69" column="38" bodyfile="include/matchers.h" bodystart="69" bodyend="78"/>
+    <location file="include/matchers.h" line="67" column="38" bodyfile="include/matchers.h" bodystart="67" bodyend="76"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>as_regex</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a78c2577dce8fc71786bf237d044f3023" prot="public" virt="virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138" prot="public" virt="virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>getJson</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a27c9dd090644dcc2df22fb437af8afcc" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>NumberMatcher</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a8e9d378a6383ee84e356de3fa630d1c5" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>NumberMatcher</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::NumberMatcher</scope><name>Ptr</name></member>

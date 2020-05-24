@@ -4,9 +4,9 @@
 {\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$pact\+\_\+mock\+\_\+server\+\_\+ffi.\+h$>$}\newline
-{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
 {\ttfamily \#include $<$filesystem$>$}\newline
 {\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
 {\ttfamily \#include \char`\"{}matchers.\+h\char`\"{}}\newline
 Include dependency graph for consumer.\+h\+:
 \nopagebreak
@@ -16,7 +16,8 @@ Include dependency graph for consumer.\+h\+:
 \includegraphics[width=350pt]{consumer_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,8 +26,6 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{classpact__consumer_1_1PactJsonBuilder}{pact\+\_\+consumer\+::\+Pact\+Json\+Builder}}
 \item 
 class \mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{pact\+\_\+consumer\+::\+Mock\+Server\+Handle}}
 \item 
@@ -40,11 +39,6 @@ class \mbox{\hyperlink{classpact__consumer_1_1Interaction}{pact\+\_\+consumer\+:
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespacepact__consumer}{pact\+\_\+consumer}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-using \mbox{\hyperlink{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = nlohmann\+::json
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -60,12 +54,3 @@ enum \mbox{\hyperlink{namespacepact__consumer_a52ee54250f0c10cc1cb80909bef7b68c}
 \item 
 void \mbox{\hyperlink{namespacepact__consumer_aaa6b9d5d2099c6ad833338cb2c1d4b11}{pact\+\_\+consumer\+::init}} ()
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}\label{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}} 
-\index{consumer.h@{consumer.h}!json@{json}}
-\index{json@{json}!consumer.h@{consumer.h}}
-\doxysubsubsection{\texorpdfstring{json}{json}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{consumer_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  nlohmann\+::json}
-

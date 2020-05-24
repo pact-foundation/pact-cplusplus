@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="272" column="40" bodyfile="include/consumer.h" bodystart="272" bodyend="-1"/>
+        <location file="include/consumer.h" line="127" column="40" bodyfile="include/consumer.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="277" column="19" bodyfile="include/consumer.h" bodystart="277" bodyend="-1"/>
+        <location file="include/consumer.h" line="132" column="19" bodyfile="include/consumer.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="280" column="19" bodyfile="include/consumer.h" bodystart="280" bodyend="-1"/>
+        <location file="include/consumer.h" line="135" column="19" bodyfile="include/consumer.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="281" column="19" bodyfile="include/consumer.h" bodystart="281" bodyend="-1"/>
+        <location file="include/consumer.h" line="136" column="19" bodyfile="include/consumer.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="249" column="7" bodyfile="src/consumer.cpp" bodystart="19" bodyend="23"/>
+        <location file="include/consumer.h" line="104" column="7" bodyfile="src/consumer.cpp" bodystart="21" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -99,19 +99,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="254" column="19" bodyfile="src/consumer.cpp" bodystart="29" bodyend="31"/>
+        <location file="include/consumer.h" line="109" column="19" bodyfile="src/consumer.cpp" bodystart="31" bodyend="33"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a00772d7384c5484206c87990cd09cfdf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
         <definition>Interaction pact_consumer::Pact::given</definition>
-        <argsstring>(const char *provider_state, std::unordered_map&lt; std::string, std::string &gt; parameters) const</argsstring>
+        <argsstring>(const char *provider_state, const std::unordered_map&lt; std::string, std::string &gt; &amp;parameters) const</argsstring>
         <name>given</name>
         <param>
           <type>const char *</type>
           <declname>provider_state</declname>
         </param>
         <param>
-          <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+          <type>const std::unordered_map&lt; std::string, std::string &gt; &amp;</type>
           <declname>parameters</declname>
         </param>
         <briefdescription>
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="259" column="19" bodyfile="src/consumer.cpp" bodystart="33" bodyend="35"/>
+        <location file="include/consumer.h" line="114" column="19" bodyfile="src/consumer.cpp" bodystart="35" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -139,15 +139,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="264" column="19" bodyfile="src/consumer.cpp" bodystart="25" bodyend="27"/>
+        <location file="include/consumer.h" line="119" column="19" bodyfile="src/consumer.cpp" bodystart="27" bodyend="29"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a3428f3cbc0ad30377867377efe84fef2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1PactTestResult" kindref="compound">PactTestResult</ref></type>
         <definition>PactTestResult pact_consumer::Pact::run_test</definition>
-        <argsstring>(bool(*callback)(MockServerHandle *)) const</argsstring>
+        <argsstring>(std::function&lt; bool(const MockServerHandle *)&gt; callback) const</argsstring>
         <name>run_test</name>
         <param>
-          <type>bool(*)(<ref refid="classpact__consumer_1_1MockServerHandle" kindref="compound">MockServerHandle</ref> *)</type>
+          <type>std::function&lt; bool(const <ref refid="classpact__consumer_1_1MockServerHandle" kindref="compound">MockServerHandle</ref> *)&gt;</type>
           <declname>callback</declname>
         </param>
         <briefdescription>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="270" column="22" bodyfile="src/consumer.cpp" bodystart="37" bodyend="78"/>
+        <location file="include/consumer.h" line="125" column="22" bodyfile="src/consumer.cpp" bodystart="39" bodyend="80"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -165,16 +165,16 @@
     <detaileddescription>
 <para>Class that defines a <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> between a consumer and provider </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="244" column="13" bodyfile="include/consumer.h" bodystart="244" bodyend="282"/>
+    <location file="include/consumer.h" line="99" column="13" bodyfile="include/consumer.h" bodystart="99" bodyend="137"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1Pact_1a1275784f044dcfd19537c66493037be2" prot="private" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>consumer</name></member>
       <member refid="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>given</name></member>
-      <member refid="classpact__consumer_1_1Pact_1a00772d7384c5484206c87990cd09cfdf" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>given</name></member>
+      <member refid="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>given</name></member>
       <member refid="classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>Pact</name></member>
       <member refid="classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>pact</name></member>
       <member refid="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>pact_directory</name></member>
       <member refid="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" prot="private" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>provider</name></member>
-      <member refid="classpact__consumer_1_1Pact_1a3428f3cbc0ad30377867377efe84fef2" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>run_test</name></member>
+      <member refid="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>run_test</name></member>
       <member refid="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>uponReceiving</name></member>
     </listofallmembers>
   </compounddef>

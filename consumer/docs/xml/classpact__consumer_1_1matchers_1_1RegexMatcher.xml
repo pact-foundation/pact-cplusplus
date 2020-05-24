@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="141" column="19" bodyfile="include/matchers.h" bodystart="138" bodyend="-1"/>
+        <location file="include/matchers.h" line="139" column="19" bodyfile="include/matchers.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a783d95d4d1ffffa9d1a46bca69a605ec" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -29,17 +29,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="141" column="25" bodyfile="include/matchers.h" bodystart="141" bodyend="-1"/>
+        <location file="include/matchers.h" line="139" column="25" bodyfile="include/matchers.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1afbc8a3f78f38df77301fa271a06f05cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1acbe8de8435c2fb052a847e4ca2a762bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::RegexMatcher::RegexMatcher</definition>
-        <argsstring>(std::string r)</argsstring>
+        <argsstring>(const std::string &amp;r)</argsstring>
         <name>RegexMatcher</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -48,19 +48,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="132" column="7" bodyfile="include/matchers.h" bodystart="132" bodyend="132"/>
+        <location file="include/matchers.h" line="130" column="7" bodyfile="include/matchers.h" bodystart="130" bodyend="130"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a43d35298ae2413d2cbb447b52b4b724f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a8c4d91701b428fce2cf1011b9fd8a8ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::RegexMatcher::RegexMatcher</definition>
-        <argsstring>(std::string r, std::string e)</argsstring>
+        <argsstring>(const std::string &amp;r, const std::string &amp;e)</argsstring>
         <name>RegexMatcher</name>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>e</declname>
         </param>
         <briefdescription>
@@ -69,21 +69,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="133" column="7" bodyfile="include/matchers.h" bodystart="133" bodyend="133"/>
+        <location file="include/matchers.h" line="131" column="7" bodyfile="include/matchers.h" bodystart="131" bodyend="131"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1aba83023303c31c27f5b6a0dbe9fa03de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
-        <definition>json pact_consumer::matchers::RegexMatcher::getJson</definition>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::RegexMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b">getJson</reimplements>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="135" column="20" bodyfile="src/matchers.cpp" bodystart="336" bodyend="360"/>
+        <location file="include/matchers.h" line="133" column="27" bodyfile="src/matchers.cpp" bodystart="346" bodyend="372"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="137" column="27" bodyfile="include/matchers.h" bodystart="137" bodyend="137"/>
+        <location file="include/matchers.h" line="135" column="27" bodyfile="include/matchers.h" bodystart="135" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="138" column="27" bodyfile="include/matchers.h" bodystart="138" bodyend="138"/>
+        <location file="include/matchers.h" line="136" column="27" bodyfile="include/matchers.h" bodystart="136" bodyend="136"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -142,16 +142,16 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="130" column="37" bodyfile="include/matchers.h" bodystart="130" bodyend="142"/>
+    <location file="include/matchers.h" line="128" column="37" bodyfile="include/matchers.h" bodystart="128" bodyend="140"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>as_regex</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a783d95d4d1ffffa9d1a46bca69a605ec" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>example</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1aba83023303c31c27f5b6a0dbe9fa03de" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>getJson</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>Ptr</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a69df3ecde9a9cbeefd537aee3a184dc1" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>regex</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afbc8a3f78f38df77301fa271a06f05cb" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>RegexMatcher</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a43d35298ae2413d2cbb447b52b4b724f" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>RegexMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1acbe8de8435c2fb052a847e4ca2a762bb" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>RegexMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a8c4d91701b428fce2cf1011b9fd8a8ae" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>RegexMatcher</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

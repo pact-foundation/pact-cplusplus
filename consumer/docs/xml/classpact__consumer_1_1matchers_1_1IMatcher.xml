@@ -32,39 +32,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="17" column="7" bodyfile="include/matchers.h" bodystart="17" bodyend="-1"/>
+        <location file="include/matchers.h" line="15" column="7" bodyfile="include/matchers.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json</ref></type>
-        <definition>virtual json pact_consumer::matchers::IMatcher::getJson</definition>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string pact_consumer::matchers::IMatcher::getJson</definition>
         <argsstring>() const =0</argsstring>
         <name>getJson</name>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1aaeb0b78b715cc6fe1a531f82c7e838d6">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a42d49becb285591a6dacaa6c4737f03b">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a7d54db15ef35b2eb827f0fa9f3e67403">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1ae96f1375296be7ea2a78e9fec7a6cca5">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1a78c2577dce8fc71786bf237d044f3023">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a19cbad1fa3ef261b8aea853de8f195e5">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a4bfa2b1633fc9a411fc0bb4ae5257cb6">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a607ec8245653311981a48af6d8a4af01">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1a257ac9db3b5fb71a4a1fe0b6156606ce">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1aba83023303c31c27f5b6a0dbe9fa03de">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a60a4f05c8a9f1d09273fd1da08aeb4ae">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a669207f1929f15220fa33d3251ee7047">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a8650595d732644d12817d182f4c99976">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a3e71e2f36be6c3db39ef819bafb353ed">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1af08ed47534033b8cfcd8c88c2ca07af6">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a6ac909e261e9ff32dcc5c69f9a40369e">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1abb43488b2c0d7bc2fa87c102c34db57e">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1ac7b875e4be7c487c3bec741ccdc7a34b">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a60a44f613d7600a69d5773c737cb9494">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a9622d5c88013538472db3e438561dd85">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1addaffee04e0ecf86d71dc41faa79fe67">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a6db6f2fda0dc721ebb1bc353200e4ce0">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a5a4d5ee26da003046e49cf2e6ede47c2">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a62acbf5a85f2eb2cd915ecc1e01a19a7">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1aed92aaeea30c962016a2313ce6a5502a">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a5b10e36b3dfcf5d139ef164bf12b3f68">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a33d15487bd5839fcf322b66cc7d4c47f">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a9a9a00a6a4d6b3af4ea314901bd34eac">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a9772243d99cf7f3bbe041b25905496c1">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a744590aa3bb3f70a807013600048a6da">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693">getJson</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="18" column="20"/>
+        <location file="include/matchers.h" line="16" column="27"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="19" column="27" bodyfile="include/matchers.h" bodystart="19" bodyend="19"/>
+        <location file="include/matchers.h" line="17" column="27" bodyfile="include/matchers.h" bodystart="17" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="20" column="27" bodyfile="include/matchers.h" bodystart="20" bodyend="20"/>
+        <location file="include/matchers.h" line="18" column="27" bodyfile="include/matchers.h" bodystart="18" bodyend="18"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -208,11 +208,11 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="include/matchers.h" line="15" column="17" bodyfile="include/matchers.h" bodystart="15" bodyend="21"/>
+    <location file="include/matchers.h" line="13" column="17" bodyfile="include/matchers.h" bodystart="13" bodyend="19"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::IMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::IMatcher</scope><name>as_regex</name></member>
-      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b" prot="public" virt="pure-virtual"><scope>pact_consumer::matchers::IMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a" prot="public" virt="pure-virtual"><scope>pact_consumer::matchers::IMatcher</scope><name>getJson</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::IMatcher</scope><name>Ptr</name></member>
     </listofallmembers>
   </compounddef>
