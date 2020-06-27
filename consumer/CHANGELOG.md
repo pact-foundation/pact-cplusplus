@@ -1,6 +1,6 @@
 To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD .` replacing TAGNAME and HEAD as appropriate.
 
-# 0.0.2 - Code cleanup + support multipart form posts with binary files
+## 0.0.2 - Code cleanup + support multipart form posts with binary files
 
 * eaf913f - chore: update docygen docs (Ronald Holshausen, Sun May 24 12:35:28 2020 +1000)
 * 9bfdf17 - feat: support multipart form posts with binary files (Ronald Holshausen, Sun May 24 12:33:04 2020 +1000)
@@ -9,7 +9,7 @@ To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD 
 * bcc14ac - refactor: implemented changes from feedback from Aligntech (Ronald Holshausen, Fri May 22 12:40:26 2020 +1000)
 * e29e8f9 - bump version to 0.0.2 (Ronald Holshausen, Fri May 15 17:05:39 2020 +1000)
 
-# 0.0.1 - Bugfixes + Updated Matcher DSL
+## 0.0.1 - Bugfixes + Updated Matcher DSL
 
 * d76d0e0 - chore: updated readme (Ronald Holshausen, Fri May 15 16:18:09 2020 +1000)
 * 95c8f51 - fix: URL matcher (Ronald Holshausen, Fri May 15 16:16:00 2020 +1000)
@@ -35,7 +35,7 @@ To generate the log, run `git log --pretty='* %h - %s (%an, %ad)' TAGNAME..HEAD 
 * 3fcb0c9 - chore: updated Readmes (Ronald Holshausen, Tue Apr 28 15:04:15 2020 +1000)
 * 2b4be55 - Revert "Revert "bump version to 0.0.1"" (Ronald Holshausen, Tue Apr 28 15:03:46 2020 +1000)
 
-# 0.0.0 - First release
+## 0.0.0 - First release
 
 * b16ed85 - chore: add release prep script (Ronald Holshausen, Tue Apr 28 12:42:34 2020 +1000)
 * e44e41d - chore: rename consumer library to pact-cpp-consumer (Ronald Holshausen, Tue Apr 28 12:22:27 2020 +1000)
