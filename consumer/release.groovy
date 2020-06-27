@@ -65,7 +65,7 @@ ask('Update Changelog?: [Y]') {
     p.println(changeLogFileLines[0])
 
     p.println()
-    p.println("# $releaseVer - $releaseDesc")
+    p.println("## $releaseVer - $releaseDesc")
     p.println()
     changelog.each {
       p.println(it)
