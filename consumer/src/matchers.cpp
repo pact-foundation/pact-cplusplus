@@ -168,7 +168,7 @@ namespace pact_consumer::matchers {
   }
 
   IMatcher::Ptr ConstrainedArrayLike(int min, int max, const IMatcher::Ptr obj) {
-    return std::make_shared<EachlikeMatcher>(1, min, max, obj);
+    return std::make_shared<EachlikeMatcher>(min, min, max, obj);
   }
 
   IMatcher::Ptr ConstrainedArrayLike(int min, int max, int examples, const IMatcher::Ptr obj) {

@@ -28,3 +28,19 @@ TEST(UrlMatcher, WithStringAndRegexInPath) {
   std::string json = matcher->getJson();
   EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*\\\\/1001\\\\/\\\\d+\",\"value\":\"http://localhost/tasks/1001/200\"}");
 }
+
+TEST(ConstrainedArrayLike, WithNoExamples) { 
+  auto matcher = ConstrainedArrayLike(2, 4, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"max\":4,\"min\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(ConstrainedArrayLike, WithExamples) { 
+  auto matcher = ConstrainedArrayLike(2, 4, 3, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"max\":4,\"min\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
