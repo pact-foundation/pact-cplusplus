@@ -247,7 +247,7 @@ namespace pact_consumer::matchers {
   /**
    * Matchers value based on the value type
    */
-  IMatcher::Ptr Like(std::string value);
+  IMatcher::Ptr Like(const std::string& value);
   /**
    * Matchers value based on the value type
    */
