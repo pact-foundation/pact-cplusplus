@@ -141,15 +141,17 @@ namespace pact_consumer::matchers {
 
   class EachlikeMatcher : public IMatcher {
     public:
-      EachlikeMatcher(IMatcher::Ptr t) : obj { t }, examples { 1 }, min { 0 } {};
-      EachlikeMatcher(int e, IMatcher::Ptr t) : obj { t }, examples { e }, min { 0 } {};
+      EachlikeMatcher(IMatcher::Ptr t) : obj { t } {};
+      EachlikeMatcher(int e, IMatcher::Ptr t) : obj { t }, examples { e } {};
       EachlikeMatcher(int e, int m, IMatcher::Ptr t) : obj { t }, examples { e }, min { m } {};
       EachlikeMatcher(int e, int m, int mx, IMatcher::Ptr t) : obj { t }, examples { e }, min { m }, max { mx } {};
 
       virtual std::string getJson() const;
 
     private:
-      int examples, min, max;
+      int examples = 1;
+      std::optional<int> min;
+      std::optional<int> max;
       IMatcher::Ptr obj;
   };
 

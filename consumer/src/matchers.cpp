@@ -160,7 +160,7 @@ namespace pact_consumer::matchers {
   }
 
   IMatcher::Ptr MinArrayLike(int min, const IMatcher::Ptr obj) {
-    return std::make_shared<EachlikeMatcher>(1, min, obj);
+    return std::make_shared<EachlikeMatcher>(min, min, obj);
   }
 
   IMatcher::Ptr MinArrayLike(int min, int examples, const IMatcher::Ptr obj) {
@@ -372,17 +372,17 @@ namespace pact_consumer::matchers {
   }
 
   std::string EachlikeMatcher::getJson() const {
-    if (min > 0 && max > 0 && min > max) {
+    if (min && min.value() > 0 && max && max.value() > 0 && min.value() > max.value()) {
       std::ostringstream stringStream;
-      stringStream << "eachLike: Min array size " << min << " is greater than the max size " << max;
+      stringStream << "eachLike: Min array size " << min.value() << " is greater than the max size " << max.value();
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
-    } else if (min > 0 && examples < min) {
+    } else if (min && min.value() > 0 && examples < min.value()) {
       std::ostringstream stringStream;
-      stringStream << "eachLike: Number of examples " << examples << " is less than the min size " << min;
+      stringStream << "eachLike: Number of examples " << examples << " is less than the min size " << min.value();
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
-    } else if (max > 0 && examples > max) {
+    } else if (max && max.value() > 0 && examples > max.value()) {
       std::ostringstream stringStream;
-      stringStream << "eachLike: Number of examples " << examples << " is greater than the max size " << max;
+      stringStream << "eachLike: Number of examples " << examples << " is greater than the max size " << max.value();
       BOOST_THROW_EXCEPTION(std::runtime_error(stringStream.str()));
     }
 
@@ -394,11 +394,11 @@ namespace pact_consumer::matchers {
     json j;
     j["pact:matcher:type"] = "type";
     j["value"] = array;
-    if (min > 0) {
-      j["min"] = min;
+    if (min && min.value() > 0) {
+      j["min"] = min.value();
     }
-    if (max > 0) {
-      j["max"] = max;
+    if (max && max.value() > 0) {
+      j["max"] = max.value();
     }
     return j.dump();
   }

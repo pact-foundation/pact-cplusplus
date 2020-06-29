@@ -44,3 +44,102 @@ TEST(ConstrainedArrayLike, WithExamples) {
   std::string json = matcher->getJson();
   EXPECT_EQ(json, "{\"max\":4,\"min\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
 }
+
+TEST(ConstrainedArrayLike, WithNumberOfExamplesLessThanMin) { 
+  auto matcher = ConstrainedArrayLike(2, 4, 1, Object({
+    { "id", Integer(3) }
+  }));
+  ASSERT_THROW(matcher->getJson(), std::runtime_error);
+}
+
+TEST(ConstrainedArrayLike, WithNumberOfExamplesGreaterThanMax) { 
+  auto matcher = ConstrainedArrayLike(2, 4, 5, Object({
+    { "id", Integer(3) }
+  }));
+  ASSERT_THROW(matcher->getJson(), std::runtime_error);
+}
+
+TEST(ConstrainedArrayLike, WithMinGreaterThanMax) { 
+  auto matcher = ConstrainedArrayLike(4, 2, 2, Object({
+    { "id", Integer(3) }
+  }));
+  ASSERT_THROW(matcher->getJson(), std::runtime_error);
+}
+
+TEST(EachlikeMatcher, WithNoExamples) {
+  auto matcher = EachLike(Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(EachlikeMatcher, WithNumberOfExamples) { 
+  auto matcher = EachLike(2, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(AtLeastOneLike, WithNoExamples) {
+  auto matcher = AtLeastOneLike(Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"min\":1,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(AtLeastOneLike, WithNumberOfExamples) { 
+  auto matcher = AtLeastOneLike(2, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"min\":1,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(AtMostLike, WithNoExamples) {
+  auto matcher = AtMostLike(2, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"max\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(AtMostLike, WithNumberOfExamples) { 
+  auto matcher = AtMostLike(4, 2, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"max\":4,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(AtMostLike, WithNumberOfExamplesGreaterThanMax) { 
+  auto matcher = AtMostLike(2, 4, Object({
+    { "id", Integer(3) }
+  }));
+  ASSERT_THROW(matcher->getJson(), std::runtime_error);
+}
+
+TEST(MinArrayLike, WithNoExamples) {
+  auto matcher = MinArrayLike(2, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"min\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(MinArrayLike, WithNumberOfExamples) { 
+  auto matcher = MinArrayLike(2, 3, Object({
+    { "id", Integer(3) }
+  }));
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"min\":2,\"pact:matcher:type\":\"type\",\"value\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}}]}");
+}
+
+TEST(MinArrayLike, WithNumberOfExamplesLessThanMin) { 
+  auto matcher = MinArrayLike(4, 2, Object({
+    { "id", Integer(3) }
+  }));
+  ASSERT_THROW(matcher->getJson(), std::runtime_error);
+}
