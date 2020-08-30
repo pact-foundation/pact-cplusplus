@@ -13,7 +13,7 @@ and provider as parameters, and can then be used to define the expectations.
 
 For instance:
 
-```c++
+```cpp
   auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
   provider
     .given("i have a list of projects")
