@@ -1,4 +1,20 @@
 
+
+## 0.0.3 - Fixes from upstream pact_mock_server_ffi lib
+
+* 33afb8f - chore: updfate to the latest pact_mock_server_ffi lib (Ronald Holshausen, Mon Sep 28 13:27:38 2020 +1000)
+* 7688c49 - docs: use cpp instead of c++ for code gates (Beth Skurrie, Sun Aug 30 16:30:53 2020 +1000)
+* 40524d4 - docs: try cpp instead of c++ (Beth Skurrie, Sun Aug 30 16:28:44 2020 +1000)
+* 2a34a61 - chore: update to the latest pact_mock_server_ffi lib (Ronald Holshausen, Mon Jun 29 16:13:23 2020 +1000)
+* d140320 - fix: made min and max for type matcher optionals (Ronald Holshausen, Mon Jun 29 14:14:51 2020 +1000)
+* b1df88c - fix: ConstrainedArrayLike should set the examples to the minimum (Ronald Holshausen, Mon Jun 29 13:30:09 2020 +1000)
+* aa2ed2c - fix: missing const on Like function (Ronald Holshausen, Mon Jun 29 13:20:35 2020 +1000)
+* 02bd2f1 - chore: update link to doxygem docs (Ronald Holshausen, Sun Jun 28 10:47:39 2020 +1000)
+* 8899e5b - chore: update readmes for doc site (Ronald Holshausen, Sun Jun 28 10:29:25 2020 +1000)
+* 5250004 - chore: update changelog (Ronald Holshausen, Sat Jun 27 16:49:21 2020 +1000)
+* 45231d0 - chore: update release script (Ronald Holshausen, Sat Jun 27 16:37:51 2020 +1000)
+* 7ba66f3 - chore: make changelog use H2 headings (Ronald Holshausen, Sat Jun 27 16:36:41 2020 +1000)
+* e94a36b - bump version to 0.0.3 (Ronald Holshausen, Sun May 24 12:41:59 2020 +1000)
 ## 0.0.2 - Code cleanup + support multipart form posts with binary files
 
 * eaf913f - chore: update docygen docs (Ronald Holshausen, Sun May 24 12:35:28 2020 +1000)
