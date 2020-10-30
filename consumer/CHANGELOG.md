@@ -15,6 +15,7 @@
 * 45231d0 - chore: update release script (Ronald Holshausen, Sat Jun 27 16:37:51 2020 +1000)
 * 7ba66f3 - chore: make changelog use H2 headings (Ronald Holshausen, Sat Jun 27 16:36:41 2020 +1000)
 * e94a36b - bump version to 0.0.3 (Ronald Holshausen, Sun May 24 12:41:59 2020 +1000)
+
 ## 0.0.2 - Code cleanup + support multipart form posts with binary files
 
 * eaf913f - chore: update docygen docs (Ronald Holshausen, Sun May 24 12:35:28 2020 +1000)
