@@ -1,5 +1,11 @@
 
 
+## 0.0.4 - Array contains matcher
+
+* 6840446 - feat: add support for array contains matcher (Ronald Holshausen, Fri Oct 30 15:35:33 2020 +1100)
+* d35c67f - chore: updfate to the latest pact_mock_server_ffi lib (0.0.11) (Ronald Holshausen, Fri Oct 30 13:48:34 2020 +1100)
+* f68942c - bump version to 0.0.4 (Ronald Holshausen, Mon Sep 28 13:37:18 2020 +1000)
+
 ## 0.0.3 - Fixes from upstream pact_mock_server_ffi lib
 
 * 33afb8f - chore: updfate to the latest pact_mock_server_ffi lib (Ronald Holshausen, Mon Sep 28 13:27:38 2020 +1000)
