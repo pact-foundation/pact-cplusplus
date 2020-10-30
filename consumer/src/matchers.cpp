@@ -215,6 +215,10 @@ namespace pact_consumer::matchers {
     return std::make_shared<UrlMatcher>(basePath, pathFragments);
   }
 
+  IMatcher::Ptr ArrayContaining(const std::vector<IMatcher::Ptr>& variants) {
+    return std::make_shared<ArrayContainsMatcher>(variants);
+  }
+
   std::string ObjectMatcher::getJson() const {
     auto obj = json::object();
 
@@ -507,6 +511,19 @@ namespace pact_consumer::matchers {
       example += "/" + p->as_example();
     }
     j["value"] = example;
+    return j.dump();
+  }
+
+  std::string ArrayContainsMatcher::getJson() const {
+    json j;
+    j["pact:matcher:type"] = "arrayContains";
+
+    json array = json::array();
+    for (const auto &v : variants) {
+      array.push_back(json::parse(v->getJson()));
+    }
+    j["variants"] = array;
+    
     return j.dump();
   }
 }

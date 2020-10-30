@@ -155,6 +155,16 @@ namespace pact_consumer::matchers {
       IMatcher::Ptr obj;
   };
 
+  class ArrayContainsMatcher : public IMatcher {
+    public:
+      ArrayContainsMatcher(const std::vector<IMatcher::Ptr>& i_variants) : variants { i_variants } {};
+
+      virtual std::string getJson() const;
+
+    private:
+      std::vector<IMatcher::Ptr> variants;
+  };
+
   class HexadecimalMatcher : public IMatcher {
     public:
       HexadecimalMatcher() {};
@@ -510,4 +520,13 @@ namespace pact_consumer::matchers {
    * @param pathFragments list of path fragments, can be regular expressions. Only the Equals and Matching matchers will work.
    */
   IMatcher::Ptr Url(const std::string& basePath, const std::vector<IMatcher::Ptr>& pathFragments);
+
+  /**
+   * Matches the items in an array against a number of variants. Matching is successful if each variant 
+   * occurs once in the array. Variants may be objects containing matching rules.
+   * @param min The minimum size of the array
+   * @param max The maximum size of the array
+   * @param examples number of examples to generate.
+   */
+  IMatcher::Ptr ArrayContaining(const std::vector<IMatcher::Ptr>& variants);
 }

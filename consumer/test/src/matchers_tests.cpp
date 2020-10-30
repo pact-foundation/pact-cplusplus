@@ -143,3 +143,9 @@ TEST(MinArrayLike, WithNumberOfExamplesLessThanMin) {
   }));
   ASSERT_THROW(matcher->getJson(), std::runtime_error);
 }
+
+TEST(ArrayContaining, WithTwoVariants) { 
+  auto matcher = ArrayContaining({ Object({ { "id", Integer(3) } }), Matching("\\d+", "100") });
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"arrayContains\",\"variants\":[{\"id\":{\"pact:matcher:type\":\"integer\",\"value\":3}},{\"pact:matcher:type\":\"regex\",\"regex\":\"\\\\d+\",\"value\":\"100\"}]}");
+}
