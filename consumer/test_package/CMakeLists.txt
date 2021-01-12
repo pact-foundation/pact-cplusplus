@@ -10,7 +10,7 @@ conan_basic_setup()
 
 add_executable(example example.cpp)
 if(WIN32)
-    TARGET_LINK_LIBRARIES(example ${CONAN_LIBS} ws2_32 userenv crypt32 secur32 dnsapi ncrypt)
+    TARGET_LINK_LIBRARIES(example ${CONAN_LIBS} ws2_32 userenv crypt32 secur32 dnsapi ncrypt ntdll)
 elseif(UNIX) # LINUX or APPLE
     TARGET_LINK_LIBRARIES(example ${CONAN_LIBS})
 endif()
