@@ -3,7 +3,7 @@ from conans import ConanFile, CMake
 
 class PactcppconsumerConan(ConanFile):
     name = "pact_cpp_consumer"
-    version = "0.0.6"
+    version = "0.0.7"
     license = "MIT"
     homepage = "https://github.com/pact-foundation/pact-cplusplus"
     description = "Pact C++ Consumer DSL"
