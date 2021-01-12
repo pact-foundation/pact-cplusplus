@@ -215,6 +215,10 @@ namespace pact_consumer::matchers {
     return std::make_shared<UrlMatcher>(basePath, pathFragments);
   }
 
+  IMatcher::Ptr Url(const std::vector<IMatcher::Ptr>& pathFragments) {
+    return std::make_shared<UrlMatcher>("", pathFragments);
+  }
+
   IMatcher::Ptr ArrayContaining(const std::vector<IMatcher::Ptr>& variants) {
     return std::make_shared<ArrayContainsMatcher>(variants);
   }
@@ -501,16 +505,32 @@ namespace pact_consumer::matchers {
   std::string UrlMatcher::getJson() const {
     json j;
     j["pact:matcher:type"] = "regex";
-    std::string regex = ".*";
-    for (const auto &p : pathFragments) {
-      regex += "\\/" + p->as_regex();
+    std::string regex;
+    if (pathFragments.empty()) {
+      regex = ".*";
+    } else {
+      regex = ".*(";
+      for (const auto &p : pathFragments) {
+        regex += "\\/" + p->as_regex();
+      }
+      regex += ")$";
     }
     j["regex"] = regex;
     std::string example = basePath;
+    if (basePath.empty()) {
+      example = "http://localhost:8080";
+    }
     for (const auto &p : pathFragments) {
       example += "/" + p->as_example();
     }
+
+    // Temporary fix for inconsistancies between matchers and generators. Matchers use "value" attribute for
+    // example values, while generators use "example"
     j["value"] = example;
+    if (basePath.empty()) {
+      j["example"] = example;
+      j["pact:generator:type"] = "MockServerURL";
+    }
     return j.dump();
   }
 

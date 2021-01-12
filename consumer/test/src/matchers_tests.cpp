@@ -13,20 +13,26 @@ TEST(UrlMatcher, WithEmptyPath) {
 TEST(UrlMatcher, WithStringInPath) { 
   auto matcher = Url("http://localhost/tasks", { EqualTo("test") });
   std::string json = matcher->getJson();
-  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*\\\\/test\",\"value\":\"http://localhost/tasks/test\"}");
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*(\\\\/test)$\",\"value\":\"http://localhost/tasks/test\"}");
 }
 
 TEST(UrlMatcher, WithRegexInPath) { 
   auto matcher = Url("http://localhost/tasks", { Matching("\\d+", "100") });
   std::string json = matcher->getJson();
-  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*\\\\/\\\\d+\",\"value\":\"http://localhost/tasks/100\"}");
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*(\\\\/\\\\d+)$\",\"value\":\"http://localhost/tasks/100\"}");
 }
 
 
 TEST(UrlMatcher, WithStringAndRegexInPath) { 
   auto matcher = Url("http://localhost/tasks", { EqualTo("1001"), Matching("\\d+", "200") });
   std::string json = matcher->getJson();
-  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*\\\\/1001\\\\/\\\\d+\",\"value\":\"http://localhost/tasks/1001/200\"}");
+  EXPECT_EQ(json, "{\"pact:matcher:type\":\"regex\",\"regex\":\".*(\\\\/1001\\\\/\\\\d+)$\",\"value\":\"http://localhost/tasks/1001/200\"}");
+}
+
+TEST(UrlMatcher, WithNoBasePath) { 
+  auto matcher = Url({ EqualTo("1001"), Matching("\\d+", "200") });
+  std::string json = matcher->getJson();
+  EXPECT_EQ(json, "{\"example\":\"http://localhost:8080/1001/200\",\"pact:generator:type\":\"MockServerURL\",\"pact:matcher:type\":\"regex\",\"regex\":\".*(\\\\/1001\\\\/\\\\d+)$\",\"value\":\"http://localhost:8080/1001/200\"}");
 }
 
 TEST(ConstrainedArrayLike, WithNoExamples) { 

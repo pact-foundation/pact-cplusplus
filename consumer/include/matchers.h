@@ -522,6 +522,12 @@ namespace pact_consumer::matchers {
   IMatcher::Ptr Url(const std::string& basePath, const std::vector<IMatcher::Ptr>& pathFragments);
 
   /**
+   * Matches a URL composed of a base path and a list of path fragments. The base URL from the mock server will be used.
+   * @param pathFragments list of path fragments, can be regular expressions. Only the Equals and Matching matchers will work.
+   */
+  IMatcher::Ptr Url(const std::vector<IMatcher::Ptr>& pathFragments);
+
+  /**
    * Matches the items in an array against a number of variants. Matching is successful if each variant 
    * occurs once in the array. Variants may be objects containing matching rules.
    * @param min The minimum size of the array
