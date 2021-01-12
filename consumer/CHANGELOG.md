@@ -1,5 +1,10 @@
 
 
+## 0.0.6 - Fix release pipeline
+
+* c4507f0 - chore: build fixes (Ronald Holshausen, Tue Jan 12 15:52:19 2021 +1100)
+* 08d45ce - bump version to 0.0.6 (Ronald Holshausen, Tue Jan 12 15:28:03 2021 +1100)
+
 ## 0.0.5 - support for MockServerURL generator in consumer DSL
 
 * b66a905 - fix: try link test binary to ntdll on windows (Ronald Holshausen, Tue Jan 12 14:53:23 2021 +1100)
