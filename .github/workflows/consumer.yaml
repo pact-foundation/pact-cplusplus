@@ -25,6 +25,7 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
           conan remote add pact-foundation https://api.bintray.com/conan/pact-foundation/conan
           conan profile update settings.compiler.libcxx=libstdc++11 default
+          conan profile update settings.compiler.cppstd=14 default
           conan install .. --build missing
         working-directory: consumer/build
         env:
