@@ -1,7 +1,6 @@
 # pact-cplusplus
 
 ![https://github.com/pact-foundation/pact-cplusplus/actions](https://github.com/pact-foundation/pact-cplusplus/workflows/Consumer%20Project/badge.svg)
-[ ![Download Consumer Lib](https://api.bintray.com/packages/pact-foundation/conan/pact_cpp_consumer%3Apact/images/download.svg) ](https://bintray.com/pact-foundation/conan/pact_cpp_consumer%3Apact/_latestVersion)
 
 C++ implementation of the consumer driven contract library [pact](https://github.com/pact-foundation/pact-specification).
 
