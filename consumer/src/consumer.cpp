@@ -45,7 +45,7 @@ namespace pact_consumer {
         bool callback_result = callback(&mockServer);
         bool mock_server_result = mock_server_matched(mockServer.get_port());
         if (callback_result && mock_server_result) {
-          auto write_result = write_pact_file(mockServer.get_port(), this->pact_directory.data());
+          auto write_result = write_pact_file(mockServer.get_port(), this->pact_directory.data(), false);
           switch (write_result) {
             case 1:
               result.add_state(TestResultState::PactFileError, "A general panic was caught");
@@ -150,7 +150,7 @@ namespace pact_consumer {
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
       pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
-        buffer.data(), size);
+        (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
       throw std::string("Could not read file contents: ") + example_file.string();
@@ -201,7 +201,7 @@ namespace pact_consumer {
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
       pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
-        buffer.data(), size);
+        (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
       throw std::string("Could not read file contents: ") + example_file.string();
