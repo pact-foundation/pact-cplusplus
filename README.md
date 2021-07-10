@@ -1,6 +1,7 @@
 # pact-cplusplus
 
-![https://github.com/pact-foundation/pact-cplusplus/actions](https://github.com/pact-foundation/pact-cplusplus/workflows/Consumer%20Project/badge.svg)
+[![Pact-C++ Build](https://github.com/pact-foundation/pact-cplusplus/workflows/Consumer%20Project/badge.svg)](https://github.com/pact-foundation/pact-cplusplus/actions/workflows/consumer.yaml)
+
 
 C++ implementation of the consumer driven contract library [pact](https://github.com/pact-foundation/pact-specification).
 
