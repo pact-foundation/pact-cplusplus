@@ -23,7 +23,7 @@
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_adb859362ac2bdad9bbd0d2f6039c94cd}{with\+Body}} (const std\+::string \&body, const std\+::string \&content\+\_\+type) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_abeb14a7a082e64f78644d9803825e0cb}{with\+Json\+Body}} (\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+I\+Matcher\+::\+Ptr}} body) const
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_abeb14a7a082e64f78644d9803825e0cb}{with\+Json\+Body}} (\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+IMatcher\+::\+Ptr}} body) const
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a75c38b21021c4f643efb1d8370f59960}{with\+Binary\+File}} (const std\+::string \&content\+\_\+type, const std\+::filesystem\+::path \&example\+\_\+file) const
 \item 
@@ -35,7 +35,7 @@
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a48ff23f6e9f43f487125088ff0921b9e}{with\+Response\+Body}} (const std\+::string \&body, const std\+::string \&content\+\_\+type) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a82bea9bd7fd64a0ae56924c086891863}{with\+Response\+Json\+Body}} (\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+I\+Matcher\+::\+Ptr}} body) const
+\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a82bea9bd7fd64a0ae56924c086891863}{with\+Response\+Json\+Body}} (\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+IMatcher\+::\+Ptr}} body) const
 \item 
 \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Interaction_a52a3088b74d645bd57704a38d6e7da8e}{with\+Response\+Binary\+File}} (const std\+::string \&content\+\_\+type, const std\+::filesystem\+::path \&example\+\_\+file) const
 \item 
@@ -44,7 +44,7 @@
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Interaction\+Handle \mbox{\hyperlink{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}{interaction}}
+Interaction\+Handle \mbox{\hyperlink{classpact__consumer_1_1Interaction_a41c538141355d45d41736d455d5870dc}{interaction}}
 \end{DoxyCompactItemize}
 
 
@@ -107,7 +107,7 @@ Sets the headers for the request \mbox{\Hypertarget{classpact__consumer_1_1Inter
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withJsonBody@{withJsonBody}}
 \index{withJsonBody@{withJsonBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{withJsonBody()}{withJsonBody()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Json\+Body (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+I\+Matcher\+::\+Ptr}}}]{body }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Json\+Body (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+IMatcher\+::\+Ptr}}}]{body }\end{DoxyParamCaption}) const}
 
 Sets the body for the request using the provided body template. \mbox{\Hypertarget{classpact__consumer_1_1Interaction_a85284f4436485cf03b70f1db27df02b8}\label{classpact__consumer_1_1Interaction_a85284f4436485cf03b70f1db27df02b8}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withMultipartFileUpload@{withMultipartFileUpload}}
@@ -115,7 +115,7 @@ Sets the body for the request using the provided body template. \mbox{\Hypertarg
 \doxysubsubsection{\texorpdfstring{withMultipartFileUpload()}{withMultipartFileUpload()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Multipart\+File\+Upload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{part\+\_\+name,  }\item[{const std\+::string \&}]{content\+\_\+type,  }\item[{const std\+::filesystem\+::path \&}]{example\+\_\+file }\end{DoxyParamCaption}) const}
 
-Sets the body for the request as a M\+I\+ME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. \mbox{\Hypertarget{classpact__consumer_1_1Interaction_a35cdc26f67b6c97167b49e270a68d59c}\label{classpact__consumer_1_1Interaction_a35cdc26f67b6c97167b49e270a68d59c}} 
+Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. \mbox{\Hypertarget{classpact__consumer_1_1Interaction_a35cdc26f67b6c97167b49e270a68d59c}\label{classpact__consumer_1_1Interaction_a35cdc26f67b6c97167b49e270a68d59c}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withQuery@{withQuery}}
 \index{withQuery@{withQuery}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{withQuery()}{withQuery()}}
@@ -149,7 +149,7 @@ Sets the headers for the response \mbox{\Hypertarget{classpact__consumer_1_1Inte
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withResponseJsonBody@{withResponseJsonBody}}
 \index{withResponseJsonBody@{withResponseJsonBody}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{withResponseJsonBody()}{withResponseJsonBody()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Json\+Body (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+I\+Matcher\+::\+Ptr}}}]{body }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Json\+Body (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{pact\+\_\+consumer\+::matchers\+::\+IMatcher\+::\+Ptr}}}]{body }\end{DoxyParamCaption}) const}
 
 Sets the body for the request using the provided body template \mbox{\Hypertarget{classpact__consumer_1_1Interaction_a1ccff8adb3ce7581e9dba80fc8ee0ffc}\label{classpact__consumer_1_1Interaction_a1ccff8adb3ce7581e9dba80fc8ee0ffc}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!withResponseMultipartFileUpload@{withResponseMultipartFileUpload}}
@@ -157,14 +157,14 @@ Sets the body for the request using the provided body template \mbox{\Hypertarge
 \doxysubsubsection{\texorpdfstring{withResponseMultipartFileUpload()}{withResponseMultipartFileUpload()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Interaction\+::with\+Response\+Multipart\+File\+Upload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{part\+\_\+name,  }\item[{const std\+::string \&}]{content\+\_\+type,  }\item[{const std\+::filesystem\+::path \&}]{example\+\_\+file }\end{DoxyParamCaption}) const}
 
-Sets the body for the response as a M\+I\+ME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. 
+Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}\label{classpact__consumer_1_1Interaction_a89bc107360700c1ba7741061910d4485}} 
+\mbox{\Hypertarget{classpact__consumer_1_1Interaction_a41c538141355d45d41736d455d5870dc}\label{classpact__consumer_1_1Interaction_a41c538141355d45d41736d455d5870dc}} 
 \index{pact\_consumer::Interaction@{pact\_consumer::Interaction}!interaction@{interaction}}
 \index{interaction@{interaction}!pact\_consumer::Interaction@{pact\_consumer::Interaction}}
 \doxysubsubsection{\texorpdfstring{interaction}{interaction}}
-{\footnotesize\ttfamily pact\+\_\+mock\+\_\+server\+\_\+ffi\+::\+Interaction\+Handle pact\+\_\+consumer\+::\+Interaction\+::interaction}
+{\footnotesize\ttfamily Interaction\+Handle pact\+\_\+consumer\+::\+Interaction\+::interaction}
 
 
 

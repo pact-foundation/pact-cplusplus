@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher" kind="class" language="C++" prot="public">
+    <compoundname>pact_consumer::matchers::ArrayContainsMatcher</compoundname>
+    <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
+    <includes refid="matchers_8h" local="no">matchers.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1ae1d17dbc9fe99d3a1e5d66aed22f031c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
+        <definition>std::vector&lt;IMatcher::Ptr&gt; pact_consumer::matchers::ArrayContainsMatcher::variants</definition>
+        <argsstring></argsstring>
+        <name>variants</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="165" column="19" bodyfile="include/matchers.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1a51a8af29070b8ea132278d8e871f65f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_consumer::matchers::ArrayContainsMatcher::ArrayContainsMatcher</definition>
+        <argsstring>(const std::vector&lt; IMatcher::Ptr &gt; &amp;i_variants)</argsstring>
+        <name>ArrayContainsMatcher</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt; &amp;</type>
+          <declname>i_variants</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="160" column="7" bodyfile="include/matchers.h" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1acc65451435ebb7cac8be1ae7a7e33e88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string pact_consumer::matchers::ArrayContainsMatcher::getJson</definition>
+        <argsstring>() const</argsstring>
+        <name>getJson</name>
+        <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/matchers.h" line="162" column="27" bodyfile="src/matchers.cpp" bodystart="537" bodyend="548"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>pact_consumer::matchers::ArrayContainsMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>pact_consumer::matchers::ArrayContainsMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/matchers.h" line="158" column="3" bodyfile="include/matchers.h" bodystart="158" bodyend="166"/>
+    <listofallmembers>
+      <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1a51a8af29070b8ea132278d8e871f65f2" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>ArrayContainsMatcher</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>as_example</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>as_regex</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1acc65451435ebb7cac8be1ae7a7e33e88" prot="public" virt="virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>getJson</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" virt="non-virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>Ptr</name></member>
+      <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1ae1d17dbc9fe99d3a1e5d66aed22f031c" prot="private" virt="non-virtual"><scope>pact_consumer::matchers::ArrayContainsMatcher</scope><name>variants</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

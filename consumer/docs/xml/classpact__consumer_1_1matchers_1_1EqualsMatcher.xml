@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1EqualsMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::EqualsMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="83" column="27" bodyfile="src/matchers.cpp" bodystart="276" bodyend="281"/>
+        <location file="include/matchers.h" line="83" column="27" bodyfile="src/matchers.cpp" bodystart="284" bodyend="289"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -99,7 +99,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="79" column="38" bodyfile="include/matchers.h" bodystart="79" bodyend="93"/>
+    <location file="include/matchers.h" line="79" column="3" bodyfile="include/matchers.h" bodystart="79" bodyend="93"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32" prot="public" virt="virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::EqualsMatcher</scope><name>as_regex</name></member>

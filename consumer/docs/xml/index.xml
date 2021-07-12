@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher" kind="class"><name>pact_consumer::matchers::ArrayContainsMatcher</name>
+    <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1ae1d17dbc9fe99d3a1e5d66aed22f031c" kind="variable"><name>variants</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1a51a8af29070b8ea132278d8e871f65f2" kind="function"><name>ArrayContainsMatcher</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1acc65451435ebb7cac8be1ae7a7e33e88" kind="function"><name>getJson</name></member>
+  </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1DateMatcher" kind="class"><name>pact_consumer::matchers::DateMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a03408e7aff0b6b62757410495b60db41" kind="variable"><name>format</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1DateMatcher_1acac51a8a7c5d1f893c607184655955c8" kind="variable"><name>example</name></member>
@@ -23,8 +28,8 @@
   </compound>
   <compound refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher" kind="class"><name>pact_consumer::matchers::EachlikeMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae31c64a0384d014deb2672d407299c61" kind="variable"><name>examples</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a914171736bb07f9395e09e7b66d666c0" kind="variable"><name>min</name></member>
-    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1aa0377945b218992c3bf95c0500f72804" kind="variable"><name>max</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a36cd8982e40bb088a9df1b47069ca15f" kind="variable"><name>min</name></member>
+    <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae844fd20735660d0d6a7f315898ad79b" kind="variable"><name>max</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1abf7ba8292a0627ca0f7dad65d93d61b8" kind="variable"><name>obj</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae7bf8f7982ca2281d0dba65c762bdb46" kind="function"><name>EachlikeMatcher</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a048dc280cac528a7ad7447fc7a7dce8b" kind="function"><name>EachlikeMatcher</name></member>
@@ -63,7 +68,7 @@
     <member refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a60a44f613d7600a69d5773c737cb9494" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1Interaction" kind="class"><name>pact_consumer::Interaction</name>
-    <member refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" kind="variable"><name>interaction</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" kind="variable"><name>interaction</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a0e5407e90621a6caf6c2020fd829c5d4" kind="variable"><name>description</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" kind="variable"><name>pact</name></member>
     <member refid="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" kind="function"><name>Interaction</name></member>
@@ -92,7 +97,7 @@
   </compound>
   <compound refid="classpact__consumer_1_1MockServerHandle" kind="class"><name>pact_consumer::MockServerHandle</name>
     <member refid="classpact__consumer_1_1MockServerHandle_1adbcb6a08fe8ffa6b1b3a69a6265930d7" kind="variable"><name>port</name></member>
-    <member refid="classpact__consumer_1_1MockServerHandle_1a8ec5a62b26a7551101312afd3ea542a4" kind="function"><name>MockServerHandle</name></member>
+    <member refid="classpact__consumer_1_1MockServerHandle_1a26c264a9d9c1a32d761363a5f6cf85c0" kind="function"><name>MockServerHandle</name></member>
     <member refid="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" kind="function"><name>~MockServerHandle</name></member>
     <member refid="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" kind="function"><name>started_ok</name></member>
     <member refid="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" kind="function"><name>get_url</name></member>
@@ -113,7 +118,7 @@
     <member refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1ac7b875e4be7c487c3bec741ccdc7a34b" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1Pact" kind="class"><name>pact_consumer::Pact</name>
-    <member refid="classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915" kind="variable"><name>pact</name></member>
+    <member refid="classpact__consumer_1_1Pact_1a5e142f1242ac87124aa4d8f880bcd4b3" kind="variable"><name>pact</name></member>
     <member refid="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" kind="variable"><name>pact_directory</name></member>
     <member refid="classpact__consumer_1_1Pact_1a1275784f044dcfd19537c66493037be2" kind="variable"><name>consumer</name></member>
     <member refid="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" kind="variable"><name>provider</name></member>
@@ -228,9 +233,8 @@
     <member refid="namespacepact__consumer_1_1matchers_1a4b543ff4c6f35f548d64f82c2f5543b3" kind="function"><name>IncludesStr</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a0713635f17e43e8f4a4973cdb50a7008" kind="function"><name>NullValue</name></member>
     <member refid="namespacepact__consumer_1_1matchers_1a2c4278f99e116245c369c5bb8788ca43" kind="function"><name>Url</name></member>
-    <member refid="namespacepact__consumer_1_1matchers_1ad00d5ad3bca29d5452724a845a667b59" kind="function"><name>Like</name></member>
-  </compound>
-  <compound refid="namespacepact__mock__server__ffi" kind="namespace"><name>pact_mock_server_ffi</name>
+    <member refid="namespacepact__consumer_1_1matchers_1a2cd9b4c8032622e39d8bcf40c3bf1cf0" kind="function"><name>Url</name></member>
+    <member refid="namespacepact__consumer_1_1matchers_1aa072894ea5f3446527b3b4e1642339cf" kind="function"><name>ArrayContaining</name></member>
   </compound>
   <compound refid="consumer_8h" kind="file"><name>consumer.h</name>
   </compound>

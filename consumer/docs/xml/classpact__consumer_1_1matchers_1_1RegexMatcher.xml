@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1RegexMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::RegexMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="133" column="27" bodyfile="src/matchers.cpp" bodystart="346" bodyend="372"/>
+        <location file="include/matchers.h" line="133" column="27" bodyfile="src/matchers.cpp" bodystart="354" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -142,7 +142,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="128" column="37" bodyfile="include/matchers.h" bodystart="128" bodyend="140"/>
+    <location file="include/matchers.h" line="128" column="3" bodyfile="include/matchers.h" bodystart="128" bodyend="140"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48" prot="public" virt="virtual"><scope>pact_consumer::matchers::RegexMatcher</scope><name>as_regex</name></member>

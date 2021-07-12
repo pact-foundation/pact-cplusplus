@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1IncludesMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::IncludesMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="196" column="19" bodyfile="include/matchers.h" bodystart="196" bodyend="-1"/>
+        <location file="include/matchers.h" line="208" column="19" bodyfile="include/matchers.h" bodystart="208" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="191" column="7" bodyfile="include/matchers.h" bodystart="191" bodyend="191"/>
+        <location file="include/matchers.h" line="203" column="7" bodyfile="include/matchers.h" bodystart="203" bodyend="203"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a9772243d99cf7f3bbe041b25905496c1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>std::string</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="193" column="27" bodyfile="src/matchers.cpp" bodystart="484" bodyend="489"/>
+        <location file="include/matchers.h" line="205" column="27" bodyfile="src/matchers.cpp" bodystart="492" bodyend="497"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -80,7 +80,7 @@
         <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="189" column="40" bodyfile="include/matchers.h" bodystart="189" bodyend="197"/>
+    <location file="include/matchers.h" line="201" column="3" bodyfile="include/matchers.h" bodystart="201" bodyend="209"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::IncludesMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::IncludesMatcher</scope><name>as_regex</name></member>

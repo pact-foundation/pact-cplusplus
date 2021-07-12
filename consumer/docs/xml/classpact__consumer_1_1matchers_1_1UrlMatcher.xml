@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1UrlMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::UrlMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="211" column="19" bodyfile="include/matchers.h" bodystart="211" bodyend="-1"/>
+        <location file="include/matchers.h" line="223" column="19" bodyfile="include/matchers.h" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a53caf16ca88c6037e6127ba8a8258962" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="212" column="19" bodyfile="include/matchers.h" bodystart="212" bodyend="-1"/>
+        <location file="include/matchers.h" line="224" column="19" bodyfile="include/matchers.h" bodystart="224" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="206" column="7" bodyfile="include/matchers.h" bodystart="206" bodyend="206"/>
+        <location file="include/matchers.h" line="218" column="7" bodyfile="include/matchers.h" bodystart="218" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>std::string</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="208" column="27" bodyfile="src/matchers.cpp" bodystart="497" bodyend="511"/>
+        <location file="include/matchers.h" line="220" column="27" bodyfile="src/matchers.cpp" bodystart="505" bodyend="535"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -97,7 +97,7 @@
         <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
-    <location file="include/matchers.h" line="204" column="35" bodyfile="include/matchers.h" bodystart="204" bodyend="213"/>
+    <location file="include/matchers.h" line="216" column="3" bodyfile="include/matchers.h" bodystart="216" bodyend="225"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>as_example</name></member>
       <member refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b" prot="public" virt="virtual"><scope>pact_consumer::matchers::UrlMatcher</scope><name>as_regex</name></member>

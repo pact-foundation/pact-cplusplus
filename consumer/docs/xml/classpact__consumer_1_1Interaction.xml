@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1Interaction" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::Interaction</compoundname>
     <includes refid="consumer_8h" local="no">consumer.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" prot="public" static="no" mutable="no">
-        <type>pact_mock_server_ffi::InteractionHandle</type>
-        <definition>pact_mock_server_ffi::InteractionHandle pact_consumer::Interaction::interaction</definition>
+      <memberdef kind="variable" id="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" prot="public" static="no" mutable="no">
+        <type>InteractionHandle</type>
+        <definition>InteractionHandle pact_consumer::Interaction::interaction</definition>
         <argsstring></argsstring>
         <name>interaction</name>
         <briefdescription>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="230" column="45" bodyfile="include/consumer.h" bodystart="230" bodyend="-1"/>
+        <location file="include/consumer.h" line="230" column="23" bodyfile="include/consumer.h" bodystart="230" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="144" column="5" bodyfile="src/consumer.cpp" bodystart="86" bodyend="93"/>
+        <location file="include/consumer.h" line="144" column="5" bodyfile="src/consumer.cpp" bodystart="85" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="149" column="17" bodyfile="src/consumer.cpp" bodystart="100" bodyend="103"/>
+        <location file="include/consumer.h" line="149" column="17" bodyfile="src/consumer.cpp" bodystart="99" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a26c5c59d34af5a49364dcb50fa5b019f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="154" column="17" bodyfile="src/consumer.cpp" bodystart="105" bodyend="110"/>
+        <location file="include/consumer.h" line="154" column="17" bodyfile="src/consumer.cpp" bodystart="104" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="159" column="17" bodyfile="src/consumer.cpp" bodystart="95" bodyend="98"/>
+        <location file="include/consumer.h" line="159" column="17" bodyfile="src/consumer.cpp" bodystart="94" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="164" column="17" bodyfile="src/consumer.cpp" bodystart="112" bodyend="115"/>
+        <location file="include/consumer.h" line="164" column="17" bodyfile="src/consumer.cpp" bodystart="111" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a35cdc26f67b6c97167b49e270a68d59c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="169" column="17" bodyfile="src/consumer.cpp" bodystart="117" bodyend="124"/>
+        <location file="include/consumer.h" line="169" column="17" bodyfile="src/consumer.cpp" bodystart="116" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a7cb127ccade3facb0b20655e38d939d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="174" column="17" bodyfile="src/consumer.cpp" bodystart="126" bodyend="133"/>
+        <location file="include/consumer.h" line="174" column="17" bodyfile="src/consumer.cpp" bodystart="125" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1adb859362ac2bdad9bbd0d2f6039c94cd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -204,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="179" column="17" bodyfile="src/consumer.cpp" bodystart="135" bodyend="138"/>
+        <location file="include/consumer.h" line="179" column="17" bodyfile="src/consumer.cpp" bodystart="134" bodyend="137"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -222,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="184" column="17" bodyfile="src/consumer.cpp" bodystart="140" bodyend="144"/>
+        <location file="include/consumer.h" line="184" column="17" bodyfile="src/consumer.cpp" bodystart="139" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a75c38b21021c4f643efb1d8370f59960" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -244,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="190" column="17" bodyfile="src/consumer.cpp" bodystart="146" bodyend="158"/>
+        <location file="include/consumer.h" line="190" column="17" bodyfile="src/consumer.cpp" bodystart="145" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a85284f4436485cf03b70f1db27df02b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -270,7 +270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="196" column="17" bodyfile="src/consumer.cpp" bodystart="160" bodyend="169"/>
+        <location file="include/consumer.h" line="196" column="17" bodyfile="src/consumer.cpp" bodystart="159" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="201" column="17" bodyfile="src/consumer.cpp" bodystart="171" bodyend="174"/>
+        <location file="include/consumer.h" line="201" column="17" bodyfile="src/consumer.cpp" bodystart="170" bodyend="173"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a193531af24474f18bceda3a4c4d0ddb4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="206" column="17" bodyfile="src/consumer.cpp" bodystart="176" bodyend="183"/>
+        <location file="include/consumer.h" line="206" column="17" bodyfile="src/consumer.cpp" bodystart="175" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a48ff23f6e9f43f487125088ff0921b9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -328,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="211" column="17" bodyfile="src/consumer.cpp" bodystart="185" bodyend="189"/>
+        <location file="include/consumer.h" line="211" column="17" bodyfile="src/consumer.cpp" bodystart="184" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -346,7 +346,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="216" column="17" bodyfile="src/consumer.cpp" bodystart="191" bodyend="195"/>
+        <location file="include/consumer.h" line="216" column="17" bodyfile="src/consumer.cpp" bodystart="190" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a52a3088b74d645bd57704a38d6e7da8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -368,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="222" column="17" bodyfile="src/consumer.cpp" bodystart="197" bodyend="209"/>
+        <location file="include/consumer.h" line="222" column="17" bodyfile="src/consumer.cpp" bodystart="196" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Interaction_1a1ccff8adb3ce7581e9dba80fc8ee0ffc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
@@ -394,7 +394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="228" column="17" bodyfile="src/consumer.cpp" bodystart="211" bodyend="220"/>
+        <location file="include/consumer.h" line="228" column="17" bodyfile="src/consumer.cpp" bodystart="210" bodyend="219"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -402,13 +402,13 @@
     <detaileddescription>
 <para>Class that defines an interaction between a consumer and provider </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="142" column="20" bodyfile="include/consumer.h" bodystart="142" bodyend="235"/>
+    <location file="include/consumer.h" line="142" column="3" bodyfile="include/consumer.h" bodystart="142" bodyend="235"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1Interaction_1a0e5407e90621a6caf6c2020fd829c5d4" prot="private" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>description</name></member>
       <member refid="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>given</name></member>
       <member refid="classpact__consumer_1_1Interaction_1a26c5c59d34af5a49364dcb50fa5b019f" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>given</name></member>
       <member refid="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>Interaction</name></member>
-      <member refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>interaction</name></member>
+      <member refid="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>interaction</name></member>
       <member refid="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" prot="private" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>pact</name></member>
       <member refid="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>uponReceiving</name></member>
       <member refid="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" prot="public" virt="non-virtual"><scope>pact_consumer::Interaction</scope><name>willRespondWith</name></member>

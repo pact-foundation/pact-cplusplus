@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="consumer_8h" kind="file" language="C++">
     <compoundname>consumer.h</compoundname>
     <includes local="no">string</includes>
     <includes local="no">unordered_map</includes>
     <includes local="no">vector</includes>
-    <includes local="no">pact_mock_server_ffi.h</includes>
+    <includes local="no">pact.h</includes>
     <includes local="no">filesystem</includes>
     <includes local="no">optional</includes>
     <includes local="no">functional</includes>
@@ -25,7 +25,7 @@
         <label>string</label>
       </node>
       <node id="5">
-        <label>pact_mock_server_ffi.h</label>
+        <label>pact.h</label>
       </node>
       <node id="7">
         <label>optional</label>
@@ -108,7 +108,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pact_mock_server_ffi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pact.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;filesystem&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
@@ -122,7 +122,7 @@
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24" refid="classpact__consumer_1_1MockServerHandle" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpact__consumer_1_1MockServerHandle" kindref="compound">MockServerHandle</ref><sp/>{</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__consumer_1_1MockServerHandle_1a8ec5a62b26a7551101312afd3ea542a4" kindref="member">MockServerHandle</ref>(pact_mock_server_ffi::PactHandle);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__consumer_1_1MockServerHandle_1a26c264a9d9c1a32d761363a5f6cf85c0" kindref="member">MockServerHandle</ref>(PactHandle);</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" kindref="member">~MockServerHandle</ref>();</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" kindref="member">started_ok</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
@@ -139,8 +139,8 @@
 <codeline lineno="52" refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be" kindref="member">Mismatches</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(1u<sp/>&lt;&lt;<sp/>0),</highlight></codeline>
 <codeline lineno="53" refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb" kindref="member">UserCodeFailed</ref><sp/><sp/><sp/><sp/>=<sp/>(1u<sp/>&lt;&lt;<sp/>1),</highlight></codeline>
 <codeline lineno="54" refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca2af45b15140f31c228c6fee2cf6317c2" kindref="member">PactFileError</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>(1u<sp/>&lt;&lt;<sp/>2),</highlight></codeline>
-<codeline lineno="55" refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea" kindref="member">MockServerFailed</ref><sp/><sp/>=<sp/>(1u<sp/>&lt;&lt;<sp/>3)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea" kindref="member">MockServerFailed</ref><sp/><sp/>=<sp/>(1u<sp/>&lt;&lt;<sp/>3)</highlight></codeline>
+<codeline lineno="56" refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca8ae50beaa972c0fda0fef93885f811ea" refkind="member"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="61" refid="classpact__consumer_1_1PactTestResult" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpact__consumer_1_1PactTestResult" kindref="compound">PactTestResult</ref><sp/>{</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
@@ -174,7 +174,7 @@
 <codeline lineno="120"><highlight class="normal"></highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__consumer_1_1PactTestResult" kindref="compound">PactTestResult</ref><sp/><ref refid="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" kindref="member">run_test</ref>(std::function&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classpact__consumer_1_1MockServerHandle" kindref="compound">MockServerHandle</ref>*)&gt;<sp/>callback)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127" refid="classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pact_mock_server_ffi::PactHandle<sp/><ref refid="classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915" kindref="member">pact</ref>;</highlight></codeline>
+<codeline lineno="127" refid="classpact__consumer_1_1Pact_1a5e142f1242ac87124aa4d8f880bcd4b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PactHandle<sp/><ref refid="classpact__consumer_1_1Pact_1a5e142f1242ac87124aa4d8f880bcd4b3" kindref="member">pact</ref>;</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
 <codeline lineno="132" refid="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" kindref="member">pact_directory</ref>;</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"></highlight></codeline>
@@ -219,7 +219,7 @@
 <codeline lineno="223"><highlight class="normal"></highlight></codeline>
 <codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref><sp/><ref refid="classpact__consumer_1_1Interaction_1a1ccff8adb3ce7581e9dba80fc8ee0ffc" kindref="member">withResponseMultipartFileUpload</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>part_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>content_type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::filesystem::path&amp;<sp/>example_file)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230" refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>pact_mock_server_ffi::InteractionHandle<sp/><ref refid="classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485" kindref="member">interaction</ref>;</highlight></codeline>
+<codeline lineno="230" refid="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>InteractionHandle<sp/><ref refid="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" kindref="member">interaction</ref>;</highlight></codeline>
 <codeline lineno="231"><highlight class="normal"></highlight></codeline>
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>description;</highlight></codeline>

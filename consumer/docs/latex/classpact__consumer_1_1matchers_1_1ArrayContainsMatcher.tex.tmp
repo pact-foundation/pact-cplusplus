@@ -1,0 +1,50 @@
+\hypertarget{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher}{}\doxysection{pact\+\_\+consumer\+::matchers\+::Array\+Contains\+Matcher Class Reference}
+\label{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher}\index{pact\_consumer::matchers::ArrayContainsMatcher@{pact\_consumer::matchers::ArrayContainsMatcher}}
+
+
+{\ttfamily \#include $<$matchers.\+h$>$}
+
+
+
+Inheritance diagram for pact\+\_\+consumer\+::matchers\+::Array\+Contains\+Matcher\+:
+% FIG 0
+
+
+Collaboration diagram for pact\+\_\+consumer\+::matchers\+::Array\+Contains\+Matcher\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_a51a8af29070b8ea132278d8e871f65f2}{Array\+Contains\+Matcher}} (const std\+::vector$<$ \mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher\+::\+Ptr}} $>$ \&i\+\_\+variants)
+\item 
+virtual std\+::string \mbox{\hyperlink{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_acc65451435ebb7cac8be1ae7a7e33e88}{get\+Json}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_a51a8af29070b8ea132278d8e871f65f2}\label{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_a51a8af29070b8ea132278d8e871f65f2}} 
+\index{pact\_consumer::matchers::ArrayContainsMatcher@{pact\_consumer::matchers::ArrayContainsMatcher}!ArrayContainsMatcher@{ArrayContainsMatcher}}
+\index{ArrayContainsMatcher@{ArrayContainsMatcher}!pact\_consumer::matchers::ArrayContainsMatcher@{pact\_consumer::matchers::ArrayContainsMatcher}}
+\doxysubsubsection{\texorpdfstring{ArrayContainsMatcher()}{ArrayContainsMatcher()}}
+{\footnotesize\ttfamily pact\+\_\+consumer\+::matchers\+::\+Array\+Contains\+Matcher\+::\+Array\+Contains\+Matcher (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher\+::\+Ptr}} $>$ \&}]{i\+\_\+variants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_acc65451435ebb7cac8be1ae7a7e33e88}\label{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_acc65451435ebb7cac8be1ae7a7e33e88}} 
+\index{pact\_consumer::matchers::ArrayContainsMatcher@{pact\_consumer::matchers::ArrayContainsMatcher}!getJson@{getJson}}
+\index{getJson@{getJson}!pact\_consumer::matchers::ArrayContainsMatcher@{pact\_consumer::matchers::ArrayContainsMatcher}}
+\doxysubsubsection{\texorpdfstring{getJson()}{getJson()}}
+{\footnotesize\ttfamily std\+::string pact\+\_\+consumer\+::matchers\+::\+Array\+Contains\+Matcher\+::get\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a39e26483e294d88851ae826ec0ac131a}{pact\+\_\+consumer\+::matchers\+::\+IMatcher}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{matchers_8h}{matchers.\+h}}\item 
+src/\mbox{\hyperlink{matchers_8cpp}{matchers.\+cpp}}\end{DoxyCompactItemize}
