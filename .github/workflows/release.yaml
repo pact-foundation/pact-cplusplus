@@ -41,7 +41,7 @@ jobs:
           cmake --build .
           cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c build/install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-linux.a.gz
+          gzip -c install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-linux.a.gz
           openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-linux.a.gz > artifacts/libpact-cpp-consumer-linux.a.gz.sha256
           cp ../include/* artifacts
         working-directory: consumer/build
@@ -92,7 +92,7 @@ jobs:
           cmake --build . --config Release
           cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c build/install/lib//pact-cpp-consumer.lib > artifacts/pact-cpp-consumer-windows.lib.gz
+          gzip -c install/lib/pact-cpp-consumer.lib > artifacts/pact-cpp-consumer-windows.lib.gz
           openssl dgst -sha256 -r artifacts/pact-cpp-consumer-windows.lib.gz > artifacts/pact-cpp-consumer-windows.lib.gz.sha256
         working-directory: consumer/build
       - name: Build conan package
@@ -144,7 +144,7 @@ jobs:
           cmake --build .
           cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c build/install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-osx.a.gz
+          gzip -c install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-osx.a.gz
           openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-osx.a.gz > artifacts/libpact-cpp-consumer-osx.a.gz.sha256
         working-directory: consumer/build
       - name: Build conan package
