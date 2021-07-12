@@ -29,7 +29,7 @@ jobs:
           export PATH=$PATH:/home/runner/.local/bin
           conan profile new default --detect
           conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
+          conan profile update settings.compiler.libcxx=libstdc++11 default
           conan install .. --build missing
         working-directory: consumer/build
         env:
@@ -39,8 +39,9 @@ jobs:
         run: |
           cmake ..
           cmake --build .
+          cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c src/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-linux.a.gz
+          gzip -c build/install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-linux.a.gz
           openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-linux.a.gz > artifacts/libpact-cpp-consumer-linux.a.gz.sha256
           cp ../include/* artifacts
         working-directory: consumer/build
@@ -89,8 +90,9 @@ jobs:
         run: |
           cmake ..
           cmake --build . --config Release
+          cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c src/lib/pact-cpp-consumer.lib > artifacts/pact-cpp-consumer-windows.lib.gz
+          gzip -c build/install/lib//pact-cpp-consumer.lib > artifacts/pact-cpp-consumer-windows.lib.gz
           openssl dgst -sha256 -r artifacts/pact-cpp-consumer-windows.lib.gz > artifacts/pact-cpp-consumer-windows.lib.gz.sha256
         working-directory: consumer/build
       - name: Build conan package
@@ -140,8 +142,9 @@ jobs:
         run: |
           cmake ..
           cmake --build .
+          cmake --install . --prefix install
           mkdir -p artifacts
-          gzip -c src/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-osx.a.gz
+          gzip -c build/install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-osx.a.gz
           openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-osx.a.gz > artifacts/libpact-cpp-consumer-osx.a.gz.sha256
         working-directory: consumer/build
       - name: Build conan package
