@@ -1,5 +1,13 @@
 
 
+## 0.1.0 - Update to new pact_ffi lib and JFrog conan repositry
+
+* 8d92bfe - chore: bump minor version (Ronald Holshausen, Mon Jul 12 12:32:45 2021 +1000)
+* 433fc19 - fix: Update to new pact_ffi lib and JFrog conan repositry (Ronald Holshausen, Mon Jul 12 11:05:14 2021 +1000)
+* acb4e08 - fix: Fixed errors in consumer.cpp (Talank Baral, Fri Jul 9 14:39:48 2021 +0545)
+* e6f50df - chore: update readme about bintray shutting down (Ronald Holshausen, Mon May 24 15:02:26 2021 +1000)
+* 1a00b53 - bump version to 0.0.7 (Ronald Holshausen, Tue Jan 12 16:07:34 2021 +1100)
+
 ## 0.0.6 - Fix release pipeline
 
 * c4507f0 - chore: build fixes (Ronald Holshausen, Tue Jan 12 15:52:19 2021 +1100)
