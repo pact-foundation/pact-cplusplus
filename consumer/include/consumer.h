@@ -3,7 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <pact_mock_server_ffi.h>
+#include <pact.h>
 #include <filesystem>
 #include <optional>
 #include <functional>
@@ -23,7 +23,7 @@ namespace pact_consumer {
    */
   class MockServerHandle {
     public:
-      MockServerHandle(pact_mock_server_ffi::PactHandle);
+      MockServerHandle(PactHandle);
       ~MockServerHandle();
 
       /**
@@ -124,7 +124,7 @@ namespace pact_consumer {
        */
       PactTestResult run_test(std::function<bool(const MockServerHandle*)> callback) const;
 
-      pact_mock_server_ffi::PactHandle pact;
+      PactHandle pact;
 
       /**
        * Directory to write pact files to
@@ -227,7 +227,7 @@ namespace pact_consumer {
      */
     Interaction withResponseMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const;
 
-    pact_mock_server_ffi::InteractionHandle interaction;
+    InteractionHandle interaction;
 
     private:
       std::string description;

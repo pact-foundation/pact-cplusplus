@@ -6,12 +6,11 @@
 #include <boost/exception/diagnostic_information.hpp>
 #include <nlohmann/json.hpp>
 
-using namespace pact_mock_server_ffi;
 using json = nlohmann::json;
 
 namespace pact_consumer {
   void init() {
-    pact_mock_server_ffi::init("LOG_LEVEL");
+    pactffi_init("LOG_LEVEL");
   }
 
   ////////////////////////////////////
@@ -19,7 +18,7 @@ namespace pact_consumer {
   ////////////////////////////////////
 
   Pact::Pact(const char* consumer_name, const char* provider_name) {
-    this->pact =  pact_mock_server_ffi::new_pact(consumer_name, provider_name);
+    this->pact =  pactffi_new_pact(consumer_name, provider_name);
     this->consumer = consumer_name;
     this->provider = provider_name;
   }
@@ -43,9 +42,9 @@ namespace pact_consumer {
     if (mockServer.started_ok()) {
       try {
         bool callback_result = callback(&mockServer);
-        bool mock_server_result = mock_server_matched(mockServer.get_port());
+        bool mock_server_result = pactffi_mock_server_matched(mockServer.get_port());
         if (callback_result && mock_server_result) {
-          auto write_result = write_pact_file(mockServer.get_port(), this->pact_directory.data(), false);
+          auto write_result = pactffi_write_pact_file(mockServer.get_port(), this->pact_directory.data(), false);
           switch (write_result) {
             case 1:
               result.add_state(TestResultState::PactFileError, "A general panic was caught");
@@ -64,8 +63,8 @@ namespace pact_consumer {
         result.add_state(TestResultState::UserCodeFailed);
       }
 
-      if (!mock_server_matched(mockServer.get_port())) {
-        std::string mismatches = mock_server_mismatches(mockServer.get_port());
+      if (!pactffi_mock_server_matched(mockServer.get_port())) {
+        std::string mismatches = pactffi_mock_server_mismatches(mockServer.get_port());
         result.add_state(TestResultState::Mismatches, mismatches);
       }
     } else {
@@ -86,38 +85,38 @@ namespace pact_consumer {
   Interaction::Interaction(const Pact* parent, const char* description) {
     this->pact =  parent;
     this->description = description;
-    this->interaction = pact_mock_server_ffi::new_interaction(parent->pact, description);
+    this->interaction = pactffi_new_interaction(parent->pact, description);
     if (this->interaction.interaction == 0) {
       throw std::string("Could not create a new interaction with description ") + description;
     }
   }
 
   Interaction Interaction::uponReceiving(const char* description) const {
-    pact_mock_server_ffi::upon_receiving(this->interaction, description);
+    pactffi_upon_receiving(this->interaction, description);
     return *this;
   }
 
   Interaction Interaction::given(const char* provider_state) const {
-    pact_mock_server_ffi::given(this->interaction, provider_state);
+    pactffi_given(this->interaction, provider_state);
     return *this;
   }
 
   Interaction Interaction::given(const char* provider_state, const std::unordered_map<std::string, std::string>& parameters) const {
     for (auto& p : parameters) {
-      pact_mock_server_ffi::given_with_param(this->interaction, provider_state, p.first.data(), p.second.data());
+      pactffi_given_with_param(this->interaction, provider_state, p.first.data(), p.second.data());
     }
     return *this;
   }
 
   Interaction Interaction::withRequest(const char* method, const char* path) const {
-    pact_mock_server_ffi::with_request(this->interaction, method, path);
+    pactffi_with_request(this->interaction, method, path);
     return *this;
   }
 
   Interaction Interaction::withQuery(const std::unordered_map<std::string, std::vector<std::string>>& query) const {
     for (auto& q : query) {
       for (auto it = q.second.begin(); it != q.second.end(); it++) {
-        pact_mock_server_ffi::with_query_parameter(this->interaction, q.first.data(), it - q.second.begin(), it->data());
+        pactffi_with_query_parameter(this->interaction, q.first.data(), it - q.second.begin(), it->data());
       }
     }
     return *this;
@@ -126,19 +125,19 @@ namespace pact_consumer {
   Interaction Interaction::withHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const {
     for (auto& h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
-        pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Request, h.first.data(), it - h.second.begin(), it->data());
+        pactffi_with_header(this->interaction, InteractionPart_Request, h.first.data(), it - h.second.begin(), it->data());
       }
     }
     return *this;
   }
 
   Interaction Interaction::withBody(const std::string& body, const std::string& content_type) const {
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), body.data());
+    pactffi_with_body(this->interaction, InteractionPart_Request, content_type.data(), body.data());
     return *this;
   }
 
   Interaction Interaction::withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Request, "application/json;charset=UTF-8", 
+    pactffi_with_body(this->interaction, InteractionPart_Request, "application/json;charset=UTF-8", 
       body->getJson().data());
     return *this;
   }
@@ -149,7 +148,7 @@ namespace pact_consumer {
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
-      pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
+      pactffi_with_binary_file(this->interaction, InteractionPart_Request, content_type.data(), 
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
@@ -158,38 +157,38 @@ namespace pact_consumer {
   }
 
   Interaction Interaction::withMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const {
-    auto result = pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Request, content_type.data(), 
+    auto result = pactffi_with_multipart_file(this->interaction, InteractionPart_Request, content_type.data(), 
       example_file.string().data(), part_name.data());
-    if (result.tag == pact_mock_server_ffi::StringResult::Tag::Failed) {
-      std::string error = result.failed._0;
-      pact_mock_server_ffi::free_string(result.failed._0);
+    if (result.tag == StringResult_Failed) {
+      std::string error = result.failed;
+      pactffi_free_string(result.failed);
       BOOST_THROW_EXCEPTION(std::runtime_error(error));
     }
     return *this;
   }
 
   Interaction Interaction::willRespondWith(size_t status) const {
-    pact_mock_server_ffi::response_status(this->interaction, status);
+    pactffi_response_status(this->interaction, status);
     return *this;
   }
 
   Interaction Interaction::withResponseHeaders(const std::unordered_map<std::string, std::vector<std::string>>& headers) const {
     for (auto h : headers) {
       for (auto it = h.second.begin(); it != h.second.end(); it++) {
-        pact_mock_server_ffi::with_header(this->interaction, pact_mock_server_ffi::InteractionPart::Response, h.first.data(), it - h.second.begin(), it->data());
+        pactffi_with_header(this->interaction, InteractionPart_Response, h.first.data(), it - h.second.begin(), it->data());
       }
     }
     return *this;
   }
 
   Interaction Interaction::withResponseBody(const std::string& body, const std::string& content_type) const {
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+    pactffi_with_body(this->interaction, InteractionPart_Response, content_type.data(), 
       body.data());
     return *this;
   }
 
   Interaction Interaction::withResponseJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
-    pact_mock_server_ffi::with_body(this->interaction, pact_mock_server_ffi::InteractionPart::Response, "application/json;charset=UTF-8", 
+    pactffi_with_body(this->interaction, InteractionPart_Response, "application/json;charset=UTF-8", 
       body->getJson().data());
     return *this;
   }
@@ -200,7 +199,7 @@ namespace pact_consumer {
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
     if (file.read(buffer.data(), size)) {
-      pact_mock_server_ffi::with_binary_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+      pactffi_with_binary_file(this->interaction, InteractionPart_Response, content_type.data(), 
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
@@ -209,11 +208,11 @@ namespace pact_consumer {
   }
 
   Interaction Interaction::withResponseMultipartFileUpload(const std::string& part_name, const std::string& content_type, const std::filesystem::path& example_file) const {
-    auto result = pact_mock_server_ffi::with_multipart_file(this->interaction, pact_mock_server_ffi::InteractionPart::Response, content_type.data(), 
+    auto result = pactffi_with_multipart_file(this->interaction, InteractionPart_Response, content_type.data(), 
       example_file.string().data(), part_name.data());
-    if (result.tag == pact_mock_server_ffi::StringResult::Tag::Failed) {
-      std::string error = result.failed._0;
-      pact_mock_server_ffi::free_string(result.failed._0);
+    if (result.tag == StringResult_Failed) {
+      std::string error = result.failed;
+      pactffi_free_string(result.failed);
       BOOST_THROW_EXCEPTION(std::runtime_error(error));
     }
     return *this;
@@ -223,12 +222,12 @@ namespace pact_consumer {
   // Mock Server Class
   ////////////////////////////////////
 
-  MockServerHandle::MockServerHandle(pact_mock_server_ffi::PactHandle pact) {
-    this->port = pact_mock_server_ffi::create_mock_server_for_pact(pact, "127.0.0.1:0", false);
+  MockServerHandle::MockServerHandle(PactHandle pact) {
+    this->port = pactffi_create_mock_server_for_pact(pact, "127.0.0.1:0", false);
   }
 
   MockServerHandle::~MockServerHandle() {
-    pact_mock_server_ffi::cleanup_mock_server(this->port);
+    pactffi_cleanup_mock_server(this->port);
   }
 
   bool MockServerHandle::started_ok() const {

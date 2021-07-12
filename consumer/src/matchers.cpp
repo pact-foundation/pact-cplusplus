@@ -1,5 +1,5 @@
 #include "matchers.h"
-#include <pact_mock_server_ffi.h>
+#include <pact.h>
 #include <iostream>
 #include <nlohmann/json.hpp>
 
@@ -296,13 +296,13 @@ namespace pact_consumer::matchers {
       j["value"] = example;
     } else {
       j["pact:generator:type"] = "DateTime";
-      auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        j["value"] = result.ok._0;
-        pact_mock_server_ffi::free_string(result.ok._0);
+      auto result = pactffi_generate_datetime_string(format.data());
+      if (result.tag == StringResult_Ok) {
+        j["value"] = result.ok;
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -317,13 +317,13 @@ namespace pact_consumer::matchers {
       j["value"] = example;
     } else {
       j["pact:generator:type"] = "Date";
-      auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        j["value"] = result.ok._0;
-        pact_mock_server_ffi::free_string(result.ok._0);
+      auto result = pactffi_generate_datetime_string(format.data());
+      if (result.tag == StringResult_Ok) {
+        j["value"] = result.ok;
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -338,13 +338,13 @@ namespace pact_consumer::matchers {
       j["value"] = example;
     } else {
       j["pact:generator:type"] = "Time";
-      auto result = pact_mock_server_ffi::generate_datetime_string(format.data());
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        j["value"] = result.ok._0;
-        pact_mock_server_ffi::free_string(result.ok._0);
+      auto result = pactffi_generate_datetime_string(format.data());
+      if (result.tag == StringResult_Ok) {
+        j["value"] = result.ok;
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -356,7 +356,7 @@ namespace pact_consumer::matchers {
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
     if (!example.empty()) {
-      if (pact_mock_server_ffi::check_regex(regex.data(), example.data())) {
+      if (pactffi_check_regex(regex.data(), example.data())) {
         j["value"] = example;
       } else {
         std::ostringstream stringStream;
@@ -365,14 +365,14 @@ namespace pact_consumer::matchers {
       }
     } else {
       j["pact:generator:type"] = "Regex";
-      auto result = pact_mock_server_ffi::generate_regex_value(regex.data());
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        std::string value = result.ok._0;
+      auto result = pactffi_generate_regex_value(regex.data());
+      if (result.tag == StringResult_Ok) {
+        std::string value = result.ok;
         j["value"] = value;
-        pact_mock_server_ffi::free_string(result.ok._0);
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -417,7 +417,7 @@ namespace pact_consumer::matchers {
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
     if (!example.empty()) {
-      if (pact_mock_server_ffi::check_regex(regex, example.data())) {
+      if (pactffi_check_regex(regex, example.data())) {
         j["value"] = example;
       } else {
         std::ostringstream stringStream;
@@ -426,14 +426,14 @@ namespace pact_consumer::matchers {
       }
     } else {
       j["pact:generator:type"] = "Regex";
-      auto result = pact_mock_server_ffi::generate_regex_value(regex);
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        std::string value = result.ok._0;
+      auto result = pactffi_generate_regex_value(regex);
+      if (result.tag == StringResult_Ok) {
+        std::string value = result.ok;
         j["value"] = value;
-        pact_mock_server_ffi::free_string(result.ok._0);
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -446,7 +446,7 @@ namespace pact_consumer::matchers {
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
     if (!example.empty()) {
-      if (pact_mock_server_ffi::check_regex(regex, example.data())) {
+      if (pactffi_check_regex(regex, example.data())) {
         j["value"] = example;
       } else {
         std::ostringstream stringStream;
@@ -455,14 +455,14 @@ namespace pact_consumer::matchers {
       }
     } else {
       j["pact:generator:type"] = "Regex";
-      auto result = pact_mock_server_ffi::generate_regex_value(regex);
-      if (result.tag == pact_mock_server_ffi::StringResult::Tag::Ok) {
-        std::string value = result.ok._0;
+      auto result = pactffi_generate_regex_value(regex);
+      if (result.tag == StringResult_Ok) {
+        std::string value = result.ok;
         j["value"] = value;
-        pact_mock_server_ffi::free_string(result.ok._0);
+        pactffi_free_string(result.ok);
       } else {
-        std::string error = result.failed._0;
-        pact_mock_server_ffi::free_string(result.failed._0);
+        std::string error = result.failed;
+        pactffi_free_string(result.failed);
         BOOST_THROW_EXCEPTION(std::runtime_error(error));
       }
     }
@@ -475,7 +475,7 @@ namespace pact_consumer::matchers {
     j["pact:matcher:type"] = "regex";
     j["regex"] = regex;
     if (!example.empty()) {
-      if (pact_mock_server_ffi::check_regex(regex, example.data())) {
+      if (pactffi_check_regex(regex, example.data())) {
         j["value"] = example;
       } else {
         std::ostringstream stringStream;
