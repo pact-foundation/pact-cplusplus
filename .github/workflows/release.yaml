@@ -4,6 +4,9 @@ on:
   release:
     types: [published]
 
+env:
+  CONAN_REVISIONS_ENABLED: 1
+
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
