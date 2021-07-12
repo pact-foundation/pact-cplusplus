@@ -1,6 +1,9 @@
 name: Consumer Project
 on: [push]
 
+env:
+  CONAN_REVISIONS_ENABLED: 1
+
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
