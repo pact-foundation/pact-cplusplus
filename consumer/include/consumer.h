@@ -3,7 +3,9 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+extern "C" {
 #include <pact.h>
+}
 #include <filesystem>
 #include <optional>
 #include <functional>

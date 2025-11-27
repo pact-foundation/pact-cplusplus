@@ -86,7 +86,7 @@ namespace pact_consumer {
     this->pact =  parent;
     this->description = description;
     this->interaction = pactffi_new_interaction(parent->pact, description);
-    if (this->interaction.interaction == 0) {
+    if (this->interaction == 0) {
       throw std::string("Could not create a new interaction with description ") + description;
     }
   }
