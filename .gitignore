@@ -59,4 +59,4 @@ test/build
 .vs/
 consumer/CMakeSettings.json
 
-cmake-build.sh
+cmake-build.*

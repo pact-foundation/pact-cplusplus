@@ -63,7 +63,10 @@ message(STATUS "PactFFI: resolved arch '${PACT_FFI_ARCH}'")
 add_subdirectory(src)
 
 ######### Link to pact_ffi #########
-set(PACT_FFI_ROOT "/Users/avancir/dev/pact_ffi-v0.4.28") # Adjust this path as needed
+set(PACT_FFI_ROOT "${PACT_FFI_ROOT}" CACHE PATH "Root directory of pact_ffi installation")
+if(NOT PACT_FFI_ROOT OR PACT_FFI_ROOT STREQUAL "")
+    message(FATAL_ERROR "PACT_FFI_ROOT not set; please set to the root of your pact_ffi installation")
+endif()
 set(PACT_FFI_INCLUDE "${PACT_FFI_ROOT}/include")
 set(PACT_FFI_LIB_DIR "${PACT_FFI_ROOT}/lib")
 
@@ -73,8 +76,9 @@ if(APPLE)
   set(_PACT_FFI_KIND STATIC)
 elseif(WIN32)
   set(PACT_FFI_OS_ARCH "windows-${PACT_FFI_ARCH}")
-  set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.dll")
+  set(_PACT_FFI_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.lib")
   set(_PACT_FFI_KIND SHARED)
+  set(_PACT_FFI_DLL_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.dll")
 else()
   set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
@@ -135,8 +139,16 @@ install(TARGETS pact-cpp-consumer DESTINATION lib)
 install(FILES include/consumer.h include/matchers.h DESTINATION include)
 
 # Install pact_ffi artifacts alongside pact-cpp-consumer
+# Install pact_ffi artifacts alongside pact-cpp-consumer
 if(EXISTS "${PACT_FFI_LIB}")
   install(FILES "${PACT_FFI_LIB}" DESTINATION lib)
+endif()
+# On Windows, also install the DLL
+if(WIN32 AND DEFINED _PACT_FFI_DLL_FILENAME)
+  set(PACT_FFI_DLL "${PACT_FFI_LIB_DIR}/${_PACT_FFI_DLL_FILENAME}")
+  if(EXISTS "${PACT_FFI_DLL}")
+    install(FILES "${PACT_FFI_DLL}" DESTINATION bin)
+  endif()
 endif()
 if(EXISTS "${PACT_FFI_INCLUDE}")
   install(DIRECTORY "${PACT_FFI_INCLUDE}/" DESTINATION include FILES_MATCHING PATTERN "*.h")
