@@ -17,14 +17,18 @@ if(PactUseConan)
 	endif()
 endif()
 
-add_library(pact-cpp-consumer consumer.cpp matchers.cpp)
+add_library(pact-cpp-consumer STATIC consumer.cpp matchers.cpp)
+
 target_include_directories(pact-cpp-consumer
-    PUBLIC 
-        $<INSTALL_INTERFACE:include>    
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}
+  PUBLIC
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+  PRIVATE
+    ${PACT_FFI_INCLUDE}
 )
+
+# Link deps privately so they aren’t required by client apps
+target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" Boost::filesystem Boost::system nlohmann_json::nlohmann_json)
 
 if(PactUseConan)
     TARGET_LINK_LIBRARIES(pact-cpp-consumer ${CONAN_LIBS})
