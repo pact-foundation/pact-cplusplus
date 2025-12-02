@@ -87,26 +87,17 @@ endif()
 set(PACT_FFI_LIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_FILENAME}")
 ########################################
 
-######### Find and link Boost #########
-# Allow overriding Boost root from command line:
-#   cmake -S consumer -B build -DBoost_ROOT=/path/to/boost
-# Only set by user
-set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost installation")
-
-# Derive library dir if not provided
-set(Boost_LIBRARY_DIR "${Boost_LIBRARY_DIR}" CACHE PATH "Boost library directory")
-if(NOT Boost_LIBRARY_DIR OR Boost_LIBRARY_DIR STREQUAL "")
-    set(Boost_LIBRARY_DIR "${Boost_ROOT}/lib/release/lib")
+# Require Boost_ROOT and add headers
+set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost")
+if(NOT Boost_ROOT OR Boost_ROOT STREQUAL "")
+  message(FATAL_ERROR "Boost_ROOT is required. Example: -DBoost_ROOT=\"D:/dev/fusion/3P/BOOST/1.1850.1/win64_0002\"")
 endif()
+#if(NOT EXISTS "${Boost_ROOT}/include")
+#  message(FATAL_ERROR "Boost include directory not found at '${Boost_ROOT}/include'")
+#endif()
+include_directories("${Boost_ROOT}")
 
-set(Boost_NO_SYSTEM_PATHS ON)          # force use of given root
-set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_RELEASE_LIBS ON)
-
-find_package(Boost 1.85.0 REQUIRED COMPONENTS filesystem system)
-#########################################
-
+# Fetch nlohmann/json
 include(FetchContent)
 FetchContent_Declare(
   nlohmann_json
@@ -119,8 +110,8 @@ add_subdirectory(src)
 
 # Link deps privately (do not propagate to client apps)
 if(TARGET pact-cpp-consumer)
-  target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}" ${Boost_INCLUDE_DIR})
-  target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" Boost::filesystem Boost::system nlohmann_json::nlohmann_json)
+  target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
+  target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 endif()
 
 # Install your lib + headers (versioned)
