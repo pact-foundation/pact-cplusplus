@@ -60,3 +60,4 @@ test/build
 consumer/CMakeSettings.json
 
 cmake-build.*
+.DS_Store

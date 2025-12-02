@@ -69,11 +69,11 @@ endif()
 
 set(PACT_FFI_INCLUDE "${PACT_FFI_ROOT}/include")
 set(PACT_FFI_LIB_DIR "${PACT_FFI_ROOT}/lib")
-set(PACT_FFI_OS_ARCH "macos-${PACT_FFI_ARCH}")
 
 if(APPLE)
+  set(PACT_FFI_OS_ARCH "macos-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
-  set(_PACT_FFI_KIND STATIC)
+  set(_PACT_FFI_SHARED "libpact_ffi-${PACT_FFI_OS_ARCH}.dylib")
 elseif(WIN32)
   set(PACT_FFI_OS_ARCH "windows-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.lib")
@@ -81,7 +81,7 @@ elseif(WIN32)
 else()
   set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
-  set(_PACT_FFI_KIND STATIC)
+  set(_PACT_FFI_SHARED "libpact_ffi-${PACT_FFI_OS_ARCH}.so")
 endif()
 
 set(PACT_FFI_LIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_FILENAME}")
@@ -150,6 +150,19 @@ elseif(APPLE OR UNIX)
     install(FILES "${PACT_FFI_LIB}"
             DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
             RENAME libpact_ffi.a)
+  endif()
+  if(DEFINED _PACT_FFI_SHARED)
+    set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED}")
+    # Shared lib renamed to conventional name
+    if(APPLE)
+      install(FILES "${PACT_FFI_SHARED}"
+              DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+              RENAME libpact_ffi.dylib)
+    else()
+      install(FILES "${PACT_FFI_SHARED}"
+              DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+              RENAME libpact_ffi.so)
+    endif()
   endif()
 endif()
 
