@@ -1,26 +1,23 @@
 cmake_minimum_required(VERSION 3.16)
 
-# set the project name
 project(pact-cpp-consumer VERSION 0.1.0)
 
-# specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Conan integration (optional)
+# Conan integration (optional, default OFF)
 #    cmake -S consumer -B build -DPactUseConan=ON/OFF
-# Default ON: use conan build info when available
-option(PactUseConan "Use Conan build integration if available" ON)
+option(PactUseConan "Use Conan build integration if available" OFF)
 if(PactUseConan)
-	if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-		include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+  if(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
+    include("${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
 		conan_basic_setup()
 	else()
-		message(STATUS "Conan disabled or build info not found; continuing without Conan")
+    message(STATUS "Conan ON but build info not found; continuing without Conan")
 	endif()
 endif()
 
-# Detect macOS CPU architecture
+# Detect target arch for pact_ffi
 if(NOT DEFINED PACT_FFI_ARCH AND DEFINED ENV{PACT_FFI_ARCH})
   set(PACT_FFI_ARCH "$ENV{PACT_FFI_ARCH}")
 endif()
@@ -41,7 +38,6 @@ if(NOT DEFINED PACT_FFI_ARCH)
       endif()
     endif()
   else()
-    # Non-mac: use CMAKE_SYSTEM_PROCESSOR, fallback to host, then pointer size
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
       set(PACT_FFI_ARCH aarch64)
     elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64")
@@ -73,7 +69,7 @@ set(PACT_FFI_LIB_DIR "${PACT_FFI_ROOT}/lib")
 if(APPLE)
   set(PACT_FFI_OS_ARCH "macos-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
-  set(_PACT_FFI_SHARED "libpact_ffi-${PACT_FFI_OS_ARCH}.dylib")
+  set(_PACT_FFI_SHARED_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.dylib")
 elseif(WIN32)
   set(PACT_FFI_OS_ARCH "windows-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.lib")
@@ -81,20 +77,61 @@ elseif(WIN32)
 else()
   set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
-  set(_PACT_FFI_SHARED "libpact_ffi-${PACT_FFI_OS_ARCH}.so")
+  set(_PACT_FFI_SHARED_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.so")
 endif()
 
 set(PACT_FFI_LIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_FILENAME}")
-########################################
+if(DEFINED _PACT_FFI_SHARED_FILENAME)
+  set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED_FILENAME}")
+endif()
 
-# Require Boost_ROOT and add headers
+# Optional macOS universal build via lipo for pact_ffi
+# Provide -DPactBuildUniversal=ON; expects both arm64 and x86_64 libs in the same PACT_FFI_ROOT/lib
+option(PactBuildUniversal "Build macOS universal binaries (arm64 + x86_64)" ON)
+if(APPLE AND PactBuildUniversal)
+  set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS architectures" FORCE)
+
+  # Expect these files under ${PACT_FFI_ROOT}/lib
+  set(_ffi_lib_arm64 "${PACT_FFI_LIB_DIR}/libpact_ffi-macos-aarch64.a")
+  set(_ffi_lib_x86   "${PACT_FFI_LIB_DIR}/libpact_ffi-macos-x86_64.a")
+  set(_ffi_dyl_arm64 "${PACT_FFI_LIB_DIR}/libpact_ffi-macos-aarch64.dylib")
+  set(_ffi_dyl_x86   "${PACT_FFI_LIB_DIR}/libpact_ffi-macos-x86_64.dylib")
+
+  set(_ffi_univ_lib "${CMAKE_BINARY_DIR}/libpact_ffi-macos-universal.a")
+  set(_ffi_univ_dyl "${CMAKE_BINARY_DIR}/libpact_ffi-macos-universal.dylib")
+
+  add_custom_command(
+    OUTPUT "${_ffi_univ_lib}"
+    BYPRODUCTS "${_ffi_univ_lib}"
+    COMMAND /usr/bin/lipo -create "${_ffi_lib_arm64}" "${_ffi_lib_x86}" -output "${_ffi_univ_lib}"
+    DEPENDS "${_ffi_lib_arm64}" "${_ffi_lib_x86}"
+    COMMENT "Creating universal static pact_ffi via lipo"
+    VERBATIM
+  )
+  add_custom_command(
+    OUTPUT "${_ffi_univ_dyl}"
+    BYPRODUCTS "${_ffi_univ_dyl}"
+    COMMAND /usr/bin/lipo -create "${_ffi_dyl_arm64}" "${_ffi_dyl_x86}" -output "${_ffi_univ_dyl}"
+    DEPENDS "${_ffi_dyl_arm64}" "${_ffi_dyl_x86}"
+    COMMENT "Creating universal shared pact_ffi via lipo"
+    VERBATIM
+  )
+  
+  # Build universal outputs as part of the default 'all' target
+  add_custom_target(pact_ffi_universal ALL
+    DEPENDS "${_ffi_univ_lib}" "${_ffi_univ_dyl}"
+  )
+
+  # Link with universal static pact_ffi and install universal shared
+  set(PACT_FFI_LIB "${_ffi_univ_lib}")
+  set(PACT_FFI_SHARED_UNIV "${_ffi_univ_dyl}")
+endif()
+
+# Boost config
 set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost")
 if(NOT Boost_ROOT OR Boost_ROOT STREQUAL "")
   message(FATAL_ERROR "Boost_ROOT is required. Example: -DBoost_ROOT=\"D:/dev/fusion/3P/BOOST/1.1850.1/win64_0002\"")
 endif()
-#if(NOT EXISTS "${Boost_ROOT}/include")
-#  message(FATAL_ERROR "Boost include directory not found at '${Boost_ROOT}/include'")
-#endif()
 include_directories("${Boost_ROOT}")
 
 # Fetch nlohmann/json
@@ -106,15 +143,18 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
+# Sources
 add_subdirectory(src)
 
-# Link deps privately (do not propagate to client apps)
 if(TARGET pact-cpp-consumer)
+  set_target_properties(pact-cpp-consumer PROPERTIES
+    OUTPUT_NAME "pact-cpp-consumer"
+  )
   target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
   target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 endif()
 
-# Install your lib + headers (versioned)
+# Install project lib + headers
 install(TARGETS pact-cpp-consumer
   ARCHIVE DESTINATION pact-cpp-consumer/${PROJECT_VERSION}/lib
 )
@@ -129,7 +169,7 @@ if(EXISTS "${PACT_FFI_INCLUDE}")
           FILES_MATCHING PATTERN "*.h")
 endif()
 
-# Library + (Windows) DLL renamed
+# Install pact_ffi libraries
 if(WIN32)
   if(EXISTS "${PACT_FFI_LIB}")
     install(FILES "${PACT_FFI_LIB}"
@@ -144,16 +184,23 @@ if(WIN32)
               RENAME pact_ffi.dll)
     endif()
   endif()
-elseif(APPLE OR UNIX)
+else()
+  if(APPLE AND PactBuildUniversal)
+    # Universal install: no existence guards, because pact-cpp-consumer depends on pact_ffi_universal
+    install(FILES "${_ffi_univ_lib}"
+            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+            RENAME libpact_ffi.a)
+    install(FILES "${_ffi_univ_dyl}"
+            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+            RENAME libpact_ffi.dylib)
+  else()
+    # Per-arch fallback
   if(EXISTS "${PACT_FFI_LIB}")
-    # Static archive renamed to conventional libpact_ffi.a
     install(FILES "${PACT_FFI_LIB}"
             DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
             RENAME libpact_ffi.a)
   endif()
-  if(DEFINED _PACT_FFI_SHARED)
-    set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED}")
-    # Shared lib renamed to conventional name
+    if(DEFINED PACT_FFI_SHARED AND EXISTS "${PACT_FFI_SHARED}")
     if(APPLE)
       install(FILES "${PACT_FFI_SHARED}"
               DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
@@ -162,6 +209,7 @@ elseif(APPLE OR UNIX)
       install(FILES "${PACT_FFI_SHARED}"
               DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
               RENAME libpact_ffi.so)
+      endif()
     endif()
   endif()
 endif()
