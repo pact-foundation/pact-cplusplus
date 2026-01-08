@@ -61,7 +61,7 @@ endif()
 message(STATUS "PactFFI: resolved arch '${PACT_FFI_ARCH}'")
 
 ######### Link to pact_ffi #########
-set(PACT_FFI_VERSION "0.5.0")
+set(PACT_FFI_VERSION "${PACT_FFI_VERSION}" CACHE STRING "Version of pact_ffi to use")
 set(PACT_FFI_ROOT "${PACT_FFI_ROOT}" CACHE PATH "Root directory of pact_ffi installation")
 if(NOT PACT_FFI_ROOT OR PACT_FFI_ROOT STREQUAL "")
     message(FATAL_ERROR "PACT_FFI_ROOT not set; please set to the root of your pact_ffi installation")
