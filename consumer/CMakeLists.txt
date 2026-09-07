@@ -17,6 +17,18 @@ if(PactUseConan)
 	endif()
 endif()
 
+# Ask the compiler what it actually targets. Under emulation (e.g. an x86_64
+# OrbStack machine on Apple Silicon) uname/CMAKE_*_SYSTEM_PROCESSOR can still
+# report the native host arch, which would select the wrong pact_ffi binary.
+if(UNIX AND NOT APPLE)
+  execute_process(
+    COMMAND "${CMAKE_CXX_COMPILER}" -dumpmachine
+    OUTPUT_VARIABLE _pact_ffi_triple
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+  )
+endif()
+
 # Detect target arch for pact_ffi
 if(NOT DEFINED PACT_FFI_ARCH AND DEFINED ENV{PACT_FFI_ARCH})
   set(PACT_FFI_ARCH "$ENV{PACT_FFI_ARCH}")
@@ -38,16 +50,6 @@ if(NOT DEFINED PACT_FFI_ARCH)
       endif()
     endif()
   else()
-    # Ask the compiler what it actually targets. Under emulation (e.g. an x86_64
-    # OrbStack machine on Apple Silicon) uname/CMAKE_*_SYSTEM_PROCESSOR can still
-    # report the native host arch, which would select the wrong pact_ffi binary.
-    execute_process(
-      COMMAND "${CMAKE_CXX_COMPILER}" -dumpmachine
-      OUTPUT_VARIABLE _pact_ffi_triple
-      OUTPUT_STRIP_TRAILING_WHITESPACE
-      ERROR_QUIET
-    )
-
     if(_pact_ffi_triple MATCHES "^(arm64|aarch64)")
       set(PACT_FFI_ARCH aarch64)
     elseif(_pact_ffi_triple MATCHES "^(x86_64|amd64)")
@@ -68,7 +70,31 @@ if(NOT DEFINED PACT_FFI_ARCH)
   endif()
 endif()
 
+# Detect target libc on Linux (gnu or musl/Alpine)
+if(NOT DEFINED PACT_FFI_LIBC AND DEFINED ENV{PACT_FFI_LIBC})
+  set(PACT_FFI_LIBC "$ENV{PACT_FFI_LIBC}")
+endif()
+
+if(UNIX AND NOT APPLE AND NOT DEFINED PACT_FFI_LIBC)
+  if(_pact_ffi_triple MATCHES "musl")
+    set(PACT_FFI_LIBC musl)
+  elseif(EXISTS "/etc/alpine-release")
+    set(PACT_FFI_LIBC musl)
+  else()
+    set(PACT_FFI_LIBC gnu)
+  endif()
+endif()
+
+if(PACT_FFI_LIBC STREQUAL "musl")
+  set(_PACT_FFI_LIBC_SUFFIX "-musl")
+else()
+  set(_PACT_FFI_LIBC_SUFFIX "")
+endif()
+
 message(STATUS "PactFFI: resolved arch '${PACT_FFI_ARCH}'")
+if(UNIX AND NOT APPLE)
+  message(STATUS "PactFFI: resolved libc '${PACT_FFI_LIBC}'")
+endif()
 
 ######### Link to pact_ffi #########
 set(PACT_FFI_VERSION "${PACT_FFI_VERSION}" CACHE STRING "Version of pact_ffi to use")
@@ -89,7 +115,7 @@ elseif(WIN32)
   set(_PACT_FFI_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.lib")
   set(_PACT_FFI_DLL_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.dll")
 else()
-  set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}")
+  set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}${_PACT_FFI_LIBC_SUFFIX}")
   set(_PACT_FFI_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.a")
   set(_PACT_FFI_SHARED_FILENAME "libpact_ffi-${PACT_FFI_OS_ARCH}.so")
 endif()

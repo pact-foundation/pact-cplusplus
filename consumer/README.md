@@ -385,7 +385,7 @@ sudo apt install build-essential python3 libbz2-dev libz-dev libicu-dev libboost
 ### Alpine
 
 ```
-
+apk add build-base cmake boost-dev git bash
 ```
 
 ### MacOS
