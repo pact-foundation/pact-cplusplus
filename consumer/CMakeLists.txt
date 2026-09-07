@@ -7,15 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Conan integration (optional, default OFF)
 #    cmake -S consumer -B build -DPactUseConan=ON/OFF
+# Conan 2 supplies dependencies through CMakeDeps/CMakeToolchain, so nothing is
+# needed here beyond skipping the vendored FetchContent fallbacks below.
 option(PactUseConan "Use Conan build integration if available" OFF)
-if(PactUseConan)
-  if(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
-    include("${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
-		conan_basic_setup()
-	else()
-    message(STATUS "Conan ON but build info not found; continuing without Conan")
-	endif()
-endif()
 
 # Ask the compiler what it actually targets. Under emulation (e.g. an x86_64
 # OrbStack machine on Apple Silicon) uname/CMAKE_*_SYSTEM_PROCESSOR can still
@@ -125,9 +119,20 @@ if(DEFINED _PACT_FFI_SHARED_FILENAME)
   set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED_FILENAME}")
 endif()
 
+# Add test
+#    cmake -S consumer -B build -DPactBuildTests=ON/OFF
+# Default OFF: do not build tests unless explicitly requested
+option(PactBuildTests "Build consumer tests" OFF)
+
 # Optional macOS universal build via lipo for pact_ffi
 # Provide -DPactBuildUniversal=ON; expects both arm64 and x86_64 libs in the same PACT_FFI_ROOT/lib
-option(PactBuildUniversal "Build macOS universal binaries (arm64 + x86_64)" ON)
+# Conan/test dependencies are built for a single arch, so universal is off in that case
+if(PactUseConan OR PactBuildTests)
+  set(_pact_universal_default OFF)
+else()
+  set(_pact_universal_default ON)
+endif()
+option(PactBuildUniversal "Build macOS universal binaries (arm64 + x86_64)" ${_pact_universal_default})
 if(APPLE AND PactBuildUniversal)
   set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS architectures" FORCE)
 
@@ -168,20 +173,28 @@ if(APPLE AND PactBuildUniversal)
 endif()
 
 # Boost config
-set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost")
-if(NOT Boost_ROOT OR Boost_ROOT STREQUAL "")
-  message(FATAL_ERROR "Boost_ROOT is required. Example: -DBoost_ROOT=\"D:/dev/fusion/3P/BOOST/1.1850.1/win64_0002\"")
+if(PactUseConan)
+  find_package(Boost REQUIRED CONFIG)
+else()
+  set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost")
+  if(NOT Boost_ROOT OR Boost_ROOT STREQUAL "")
+    message(FATAL_ERROR "Boost_ROOT is required. Example: -DBoost_ROOT=\"D:/dev/fusion/3P/BOOST/1.1850.1/win64_0002\"")
+  endif()
+  include_directories("${Boost_ROOT}")
 endif()
-include_directories("${Boost_ROOT}")
 
-# Fetch nlohmann/json
-include(FetchContent)
-FetchContent_Declare(
-  nlohmann_json
-  GIT_REPOSITORY https://github.com/nlohmann/json.git
-  GIT_TAG v3.12.0
-)
-FetchContent_MakeAvailable(nlohmann_json)
+if(PactUseConan)
+  find_package(nlohmann_json REQUIRED CONFIG)
+else()
+  # Fetch nlohmann/json
+  include(FetchContent)
+  FetchContent_Declare(
+    nlohmann_json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.12.0
+  )
+  FetchContent_MakeAvailable(nlohmann_json)
+endif()
 
 # Sources
 add_subdirectory(src)
@@ -192,6 +205,20 @@ if(TARGET pact-cpp-consumer)
   )
   target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
   target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
+
+  # System dependencies of the Rust crates bundled inside the static pact_ffi archive
+  if(APPLE)
+    target_link_libraries(pact-cpp-consumer PUBLIC
+      "-framework CoreFoundation"
+      "-framework Security"
+      "-framework SystemConfiguration"
+      "-framework IOKit"
+      bz2 lzma iconv)
+  elseif(UNIX)
+    find_package(Threads REQUIRED)
+    target_link_libraries(pact-cpp-consumer PUBLIC
+      Threads::Threads ${CMAKE_DL_LIBS} m bz2 lzma)
+  endif()
 endif()
 
 # Install project lib + headers
@@ -256,8 +283,6 @@ endif()
 
 # Add test
 #    cmake -S consumer -B build -DPactBuildTests=ON/OFF
-# Default OFF: do not build tests unless explicitly requested
-option(PactBuildTests "Build consumer tests" OFF)
 if(PactBuildTests)
     enable_testing()
     add_subdirectory(test)

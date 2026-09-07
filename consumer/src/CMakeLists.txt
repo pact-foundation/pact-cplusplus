@@ -8,14 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Initialize Conan
-if(PactUseConan)
-	if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-		include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-		conan_basic_setup()
-	else()
-		message(STATUS "Conan disabled or build info not found; continuing without Conan")
-	endif()
-endif()
+# Conan 2 injects dependencies via CMakeDeps, so the targets are already available.
 
 add_library(pact-cpp-consumer STATIC consumer.cpp matchers.cpp)
 
@@ -31,5 +24,6 @@ target_include_directories(pact-cpp-consumer
 target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 
 if(PactUseConan)
-    TARGET_LINK_LIBRARIES(pact-cpp-consumer ${CONAN_LIBS})
+    # matchers.h is an installed header that includes Boost, so it is a public dep
+    target_link_libraries(pact-cpp-consumer PUBLIC Boost::headers)
 endif()

@@ -2,115 +2,90 @@ name: Consumer Project
 on: [push]
 
 env:
-  CONAN_REVISIONS_ENABLED: 1
+  PACT_FFI_VERSION: v0.5.0
 
 jobs:
-  build-ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
-      - name: Install conan
-        run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan --version
-      - name: conan install dependencies
-        run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.libcxx=libstdc++11 default
-          conan install .. --build missing
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9    
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
-        env:
-          LOG_LEVEL: DEBUG
-
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir consumer\build
-      - run: |
-          rm -rf $HOME/.conan/data/pact_ffi
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
         shell: bash
-      - name: Install conan
-        run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: conan install dependencies Windows
-        run: |
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library Windows
-        run: |
-          cmake ..
-          cmake --build . --config Release
-          cp ../test/example.jpg .
-        shell: bash
-        working-directory: consumer/build
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
-        env:
-          LOG_LEVEL: DEBUG
-
-  build-osx:
-    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install act dependencies
+        if: env.ACT == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev libicu-dev libboost-all-dev cmake 
       - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
+
       - name: Install conan
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
+          pip3 install --upgrade pip
+          pip3 install "conan>=2.0"
           conan --version
-      - name: conan install dependencies
+
+      - name: Download pact_ffi
         run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library
+          set -euo pipefail
+          root="consumer/libpact_ffi-${PACT_FFI_VERSION}"
+          base="https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}"
+          mkdir -p "$root/include" "$root/lib"
+          curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
+          curl -sSfL -o "$root/include/pact-cpp.h" "$base/pact-cpp.h"
+          case "${{ matrix.ffi_arch }}" in
+            windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll" ;;
+            macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
+            *)         files="libpact_ffi-linux-x86_64.a libpact_ffi-linux-x86_64.so" ;;
+          esac
+          for f in $files; do
+            curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
+            gunzip -f "$root/lib/$f.gz"
+          done
+
+      - name: Create conan profile
         run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
+          conan profile detect --force
+          conan profile show
+
+      - name: Conan install dependencies
+        run: |
+          conan install conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
+
+      - name: Build library and tests
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          cmake --preset $preset \
+            -DPactUseConan=ON \
+            -DPactBuildTests=ON \
+            -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
+            -DPACT_FFI_ROOT="$PWD/libpact_ffi-$PACT_FFI_VERSION"
+          cmake --build --preset conan-release
+        working-directory: consumer
+
       - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
+        run: ctest --preset conan-release --output-on-failure --verbose
+        working-directory: consumer
         env:
           LOG_LEVEL: DEBUG

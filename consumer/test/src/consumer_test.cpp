@@ -9,7 +9,7 @@ using namespace pact_consumer;
 using namespace pact_consumer::matchers;
 
 TEST(PactConsumerTest, GetJsonProjects) {
-  auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
+  auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
   provider.pact_directory = "pacts";
   
   std::unordered_map<std::string, std::vector<std::string>> query;
@@ -63,7 +63,7 @@ TEST(PactConsumerTest, GetJsonProjects) {
 }
 
 TEST(PactConsumerTest, PutProjectImage) {
-  auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
+  auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
   provider.pact_directory = "pacts";
   
   provider
