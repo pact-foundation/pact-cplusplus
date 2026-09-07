@@ -38,7 +38,21 @@ if(NOT DEFINED PACT_FFI_ARCH)
       endif()
     endif()
   else()
-    if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
+    # Ask the compiler what it actually targets. Under emulation (e.g. an x86_64
+    # OrbStack machine on Apple Silicon) uname/CMAKE_*_SYSTEM_PROCESSOR can still
+    # report the native host arch, which would select the wrong pact_ffi binary.
+    execute_process(
+      COMMAND "${CMAKE_CXX_COMPILER}" -dumpmachine
+      OUTPUT_VARIABLE _pact_ffi_triple
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+      ERROR_QUIET
+    )
+
+    if(_pact_ffi_triple MATCHES "^(arm64|aarch64)")
+      set(PACT_FFI_ARCH aarch64)
+    elseif(_pact_ffi_triple MATCHES "^(x86_64|amd64)")
+      set(PACT_FFI_ARCH x86_64)
+    elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
       set(PACT_FFI_ARCH aarch64)
     elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64")
       set(PACT_FFI_ARCH x86_64)

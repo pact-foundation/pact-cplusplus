@@ -371,3 +371,27 @@ cmake --build . --config Release
 ```
 cmake --install . --prefix install
 ```
+
+## Dependencies
+
+### Linux
+
+#### Ubuntu
+
+```
+sudo apt install build-essential python3 libbz2-dev libz-dev libicu-dev libboost-all-dev cmake git
+```
+
+### Alpine
+
+```
+
+```
+
+### MacOS
+
+```
+brew install cmake boost conan
+```
+
+### Windows

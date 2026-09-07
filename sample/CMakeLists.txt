@@ -16,7 +16,25 @@ set(PACT_FFI_VERSION "v0.5.0" CACHE STRING "Pact FFI release version")
 set(PACT_CPP_CONSUMER_ROOT "${PACT_CPP_ROOT}/pact-cpp-consumer/${PACT_CPP_CONSUMER_VERSION}")
 set(PACT_FFI_ROOT "${PACT_CPP_ROOT}/pact_ffi/${PACT_FFI_VERSION}")
 
-find_package(Boost REQUIRED)
+# Boost is only used for headers here, so fall back to a plain header search
+# when no BoostConfig.cmake is installed (common on Debian/Ubuntu).
+find_package(Boost QUIET CONFIG)
+if(NOT TARGET Boost::headers)
+    # Drop a cached path from a build dir configured on another host/OS.
+    if(Boost_INCLUDE_DIR AND NOT EXISTS "${Boost_INCLUDE_DIR}/boost/version.hpp")
+        unset(Boost_INCLUDE_DIR CACHE)
+    endif()
+    find_path(Boost_INCLUDE_DIR boost/version.hpp
+        HINTS "${Boost_ROOT}" "$ENV{Boost_ROOT}" "${BOOST_ROOT}" "$ENV{BOOST_ROOT}"
+        PATH_SUFFIXES include)
+    if(NOT Boost_INCLUDE_DIR)
+        message(FATAL_ERROR "Boost headers not found. Install Boost (e.g. 'apt-get install libboost-dev') or pass -DBoost_ROOT=<prefix>.")
+    endif()
+    add_library(Boost::headers INTERFACE IMPORTED)
+    set_target_properties(Boost::headers PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${Boost_INCLUDE_DIR}")
+    message(STATUS "Boost headers: ${Boost_INCLUDE_DIR}")
+endif()
 
 find_path(PACT_CPP_CONSUMER_INCLUDE_DIR consumer.h
     PATHS "${PACT_CPP_CONSUMER_ROOT}/include" REQUIRED NO_DEFAULT_PATH)

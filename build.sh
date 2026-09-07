@@ -36,8 +36,8 @@ if [ "$ARG_OS" == "mac" ]; then
   export _PACT_FFI_ROOT=$(pwd)/consumer/libpact_ffi-$_PACT_FFI_VERSION
   echo "Building for macOS"
 else
-  export _BOOST_ROOT=/home/buser/client-delivery/3P/BOOST/1.1850.1/linux_0003
-  export _PACT_FFI_ROOT=/home/buser/pact_ffi-$_PACT_FFI_VERSION
+  export _BOOST_ROOT=/usr/include/boost
+  export _PACT_FFI_ROOT=$(pwd)/consumer/libpact_ffi-$_PACT_FFI_VERSION
   echo "Building for linux"
 fi
 
