@@ -60,3 +60,7 @@ test/build
 consumer/CMakeSettings.json
 
 .DS_Store
+
+## FFI Libs
+
+consumer/libpact_ffi-*/

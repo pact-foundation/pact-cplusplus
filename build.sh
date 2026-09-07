@@ -13,6 +13,16 @@
 # cd lib
 # wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-x86_64.a.gz
 # wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-x86_64.so.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-aarch64.a.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-aarch64.so.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-x86_64-musl.a.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-x86_64-musl.so.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-aarch64-musl.a.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-linux-aarch64-musl.so.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-macos-aarch64.a.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-macos-aarch64.dylib.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-macos-x86_64.a.gz
+# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.0/libpact_ffi-macos-x86_64.dylib.gz
 # gunzip *.gz
 
 ARG_OS=${1:-}
@@ -22,8 +32,8 @@ export _CMAKE_OSX_ARCHITECTURES=""
 
 if [ "$ARG_OS" == "mac" ]; then
   export _CMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-  export _BOOST_ROOT=/Users/avancir/dev/fusion/3P/BOOST/1.1850.1/mac64_0002
-  export _PACT_FFI_ROOT=/Users/avancir/dev/pact_ffi-$_PACT_FFI_VERSION 
+  export _BOOST_ROOT=$(brew --prefix boost)/include
+  export _PACT_FFI_ROOT=$(pwd)/consumer/libpact_ffi-$_PACT_FFI_VERSION
   echo "Building for macOS"
 else
   export _BOOST_ROOT=/home/buser/client-delivery/3P/BOOST/1.1850.1/linux_0003
