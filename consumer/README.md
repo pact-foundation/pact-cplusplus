@@ -309,6 +309,78 @@ auto result = provider.run_test([] (auto mock_server) {
 
 The `run_test` method will return a `PactTestResult`. Your test should check that this value is ok.
 
+## Pact specification V4: messages and plugins
+
+By default, pacts are written using whichever specification version `pact_ffi` defaults to. To use V4-only
+features such as async/sync messages or plugins, opt in with `withSpecification`:
+
+```cpp
+auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
+provider.withSpecification(PactSpecification_V4);
+```
+
+### Asynchronous messages
+
+Use `newMessage` to describe a message a consumer expects to receive (e.g. from a message queue):
+
+```cpp
+provider
+  .newMessage("a project created event")
+  .given("i have a list of projects")
+  .withMetadata("contentType", "application/json")
+  .withJsonBody(Object({
+    { "id", Integer(1001) },
+    { "name", Like("Home Chores") }
+  }));
+```
+
+### Synchronous messages
+
+Use `newSyncMessage` for request/response style messaging. The request is configured with `withBody`/`withJsonBody`
+and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions:
+
+```cpp
+provider
+  .newSyncMessage("a request for a project by id")
+  .given("i have a list of projects")
+  .withBody("{\"id\": 1001}", "application/json")
+  .withResponseMetadata("contentType", "application/json")
+  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+```
+
+### Running message tests
+
+Message and plugin interactions don't need an HTTP mock server, so use `run_message_test` instead of `run_test`.
+It invokes your callback and, if it returns `true`, writes the pact file:
+
+```cpp
+auto result = provider.run_message_test([] {
+  // invoke your message handler/consumer code here
+  return true;
+});
+EXPECT_TRUE(result.is_ok()) << "Test failed";
+```
+
+### Plugins (e.g. gRPC via the protobuf plugin)
+
+Load a plugin on the `Pact` with `usingPlugin`, then configure the interaction's request/response using
+`withPluginContents`/`withResponsePluginContents`, passing the plugin-specific JSON configuration (refer to the
+plugin's own documentation for the expected format). Call `cleanupPlugins` once you're done to shut down the
+plugin process:
+
+```cpp
+provider.withSpecification(PactSpecification_V4);
+provider.usingPlugin("protobuf", "0.3.15");
+
+provider
+  .newSyncMessage("a gRPC request")
+  .withPluginContents("application/protobuf", protobufInteractionJson)
+  .withResponsePluginContents("application/protobuf", protobufResponseJson);
+
+auto result = provider.run_message_test([] { /* ... */ return true; });
+provider.cleanupPlugins();
+```
+
 ## Using the Conan package
 
 The library has been released to a JFrog Artifactory repository as a Conan package. To use it in your project, you need to add https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan as a remote.

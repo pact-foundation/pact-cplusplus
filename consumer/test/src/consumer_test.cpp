@@ -87,6 +87,40 @@ TEST(PactConsumerTest, PutProjectImage) {
   EXPECT_TRUE(result.is_ok()) << "Test failed";
 }
 
+TEST(PactConsumerTest, AsyncMessage) {
+  auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
+  provider.pact_directory = "pacts";
+  provider.withSpecification(PactSpecification_V4);
+
+  provider
+    .newMessage("a project created event")
+    .given("i have a list of projects")
+    .withMetadata("contentType", "application/json")
+    .withJsonBody(Object({
+      { "id", Integer(1001) },
+      { "name", Like("Home Chores") }
+    }));
+
+  auto result = provider.run_message_test([] { return true; });
+  EXPECT_TRUE(result.is_ok()) << "Test failed";
+}
+
+TEST(PactConsumerTest, SyncMessage) {
+  auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
+  provider.pact_directory = "pacts";
+  provider.withSpecification(PactSpecification_V4);
+
+  provider
+    .newSyncMessage("a request for a project by id")
+    .given("i have a list of projects")
+    .withBody("{\"id\": 1001}", "application/json")
+    .withResponseMetadata("contentType", "application/json")
+    .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+
+  auto result = provider.run_message_test([] { return true; });
+  EXPECT_TRUE(result.is_ok()) << "Test failed";
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   init();

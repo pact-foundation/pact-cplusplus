@@ -35,6 +35,27 @@ namespace pact_consumer {
     return Interaction(this, "__new_interaction__").given(provider_state, parameters);
   }
 
+  void Pact::withSpecification(PactSpecification version) const {
+    pactffi_with_specification(this->pact, version);
+  }
+
+  bool Pact::usingPlugin(const std::string& plugin_name, const std::string& plugin_version) const {
+    const char* version = plugin_version.empty() ? nullptr : plugin_version.data();
+    return pactffi_using_plugin(this->pact, plugin_name.data(), version) == 0;
+  }
+
+  void Pact::cleanupPlugins() const {
+    pactffi_cleanup_plugins(this->pact);
+  }
+
+  Interaction Pact::newMessage(const char* description) const {
+    return Interaction(this, description, InteractionType::Message);
+  }
+
+  Interaction Pact::newSyncMessage(const char* description) const {
+    return Interaction(this, description, InteractionType::SyncMessage);
+  }
+
   PactTestResult Pact::run_test(std::function<bool(const MockServerHandle*)> callback) const {
     MockServerHandle mockServer(this->pact);
     PactTestResult result;
@@ -78,14 +99,58 @@ namespace pact_consumer {
     return result;
   }
 
+  PactTestResult Pact::run_message_test(std::function<bool()> callback) const {
+    PactTestResult result;
+
+    try {
+      bool callback_result = callback();
+      if (callback_result) {
+        auto write_result = pactffi_pact_handle_write_file(this->pact, this->pact_directory.data(), false);
+        switch (write_result) {
+          case 1:
+            result.add_state(TestResultState::PactFileError, "A general panic was caught");
+            break;
+          case 2:
+            result.add_state(TestResultState::PactFileError, "The pact file was not able to be written");
+            break;
+          case 3:
+            result.add_state(TestResultState::PactFileError, "The pact for the given handle was not found");
+            break;
+        }
+      } else {
+        result.add_state(TestResultState::UserCodeFailed);
+      }
+    } catch(const std::exception& e) {
+      result.add_state(TestResultState::UserCodeFailed, e.what(), boost::current_exception_diagnostic_information());
+    } catch (...) {
+      result.add_state(TestResultState::UserCodeFailed);
+    }
+
+    if (!result.is_ok()) {
+      result.display_errors();
+    }
+
+    return result;
+  }
+
   ////////////////////////////////////
   // Interaction Class
   ////////////////////////////////////
 
-  Interaction::Interaction(const Pact* parent, const char* description) {
+  Interaction::Interaction(const Pact* parent, const char* description, InteractionType type) {
     this->pact =  parent;
     this->description = description;
-    this->interaction = pactffi_new_interaction(parent->pact, description);
+    switch (type) {
+      case InteractionType::Message:
+        this->interaction = pactffi_new_message_interaction(parent->pact, description);
+        break;
+      case InteractionType::SyncMessage:
+        this->interaction = pactffi_new_sync_message_interaction(parent->pact, description);
+        break;
+      default:
+        this->interaction = pactffi_new_interaction(parent->pact, description);
+        break;
+    }
     if (this->interaction == 0) {
       throw std::string("Could not create a new interaction with description ") + description;
     }
@@ -139,6 +204,26 @@ namespace pact_consumer {
   Interaction Interaction::withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const {
     pactffi_with_body(this->interaction, InteractionPart_Request, "application/json;charset=UTF-8", 
       body->getJson().data());
+    return *this;
+  }
+
+  Interaction Interaction::withMetadata(const std::string& key, const std::string& value) const {
+    pactffi_with_metadata(this->interaction, key.data(), value.data(), InteractionPart_Request);
+    return *this;
+  }
+
+  Interaction Interaction::withResponseMetadata(const std::string& key, const std::string& value) const {
+    pactffi_with_metadata(this->interaction, key.data(), value.data(), InteractionPart_Response);
+    return *this;
+  }
+
+  Interaction Interaction::withPluginContents(const std::string& content_type, const std::string& contents) const {
+    pactffi_interaction_contents(this->interaction, InteractionPart_Request, content_type.data(), contents.data());
+    return *this;
+  }
+
+  Interaction Interaction::withResponsePluginContents(const std::string& content_type, const std::string& contents) const {
+    pactffi_interaction_contents(this->interaction, InteractionPart_Response, content_type.data(), contents.data());
     return *this;
   }
 

@@ -21,6 +21,15 @@ namespace pact_consumer {
   class Interaction;
 
   /**
+   * The kind of interaction to create, controlling which pact_ffi constructor is used.
+   */
+  enum class InteractionType {
+    Http,
+    Message,
+    SyncMessage
+  };
+
+  /**
    * Mock server handle to the mock server started for the test
    */
   class MockServerHandle {
@@ -121,10 +130,44 @@ namespace pact_consumer {
       Interaction uponReceiving(const char* description) const;
 
       /**
+       * Sets the Pact specification version to generate the pact file for (V1 - V4). Required
+       * for V4-only features such as sync/async messages and plugins.
+       */
+      void withSpecification(PactSpecification version) const;
+
+      /**
+       * Adds a plugin (e.g. protobuf/gRPC) to be used by the test. The plugin must be installed
+       * for this to succeed. Returns true on success.
+       */
+      bool usingPlugin(const std::string& plugin_name, const std::string& plugin_version = "") const;
+
+      /**
+       * Shuts down any plugins that are no longer required by this Pact.
+       */
+      void cleanupPlugins() const;
+
+      /**
+       * Creates a new V4 asynchronous message interaction with the provided description.
+       */
+      Interaction newMessage(const char* description) const;
+
+      /**
+       * Creates a new V4 synchronous (request/response) message interaction with the provided description.
+       */
+      Interaction newSyncMessage(const char* description) const;
+
+      /**
        * Starts a mock server for this pact, and then passes it to the callback. The callback
        * needs to return a boolean value to indicate of the test was successful.
        */
       PactTestResult run_test(std::function<bool(const MockServerHandle*)> callback) const;
+
+      /**
+       * Runs a message/plugin test that doesn't require a mock server (e.g. async/sync messages,
+       * or plugin-driven interactions such as gRPC). The callback needs to return a boolean value
+       * to indicate if the test was successful, after which the pact file is written.
+       */
+      PactTestResult run_message_test(std::function<bool()> callback) const;
 
       PactHandle pact;
 
@@ -143,7 +186,7 @@ namespace pact_consumer {
    */
   class Interaction {
     public:
-    Interaction(const Pact* parent, const char *description);
+    Interaction(const Pact* parent, const char *description, InteractionType type = InteractionType::Http);
 
     /**
      * Adds the provider state to the interaction
@@ -184,6 +227,29 @@ namespace pact_consumer {
      * Sets the body for the request using the provided body template.
      */
     Interaction withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const;
+
+    /**
+     * Sets metadata on a message (or the request part of a synchronous message), such as the
+     * queue name or message type. Only relevant for message interactions.
+     */
+    Interaction withMetadata(const std::string& key, const std::string& value) const;
+
+    /**
+     * Sets metadata on the response part of a synchronous message.
+     */
+    Interaction withResponseMetadata(const std::string& key, const std::string& value) const;
+
+    /**
+     * Configures the request part of the interaction using a plugin (e.g. protobuf/gRPC). The
+     * contents is a JSON string passed on to the plugin to configure the interaction; refer to
+     * the plugin documentation for the expected format.
+     */
+    Interaction withPluginContents(const std::string& content_type, const std::string& contents) const;
+
+    /**
+     * Configures the response part of the interaction using a plugin (e.g. protobuf/gRPC).
+     */
+    Interaction withResponsePluginContents(const std::string& content_type, const std::string& contents) const;
 
     /**
      * Sets the body for the request using the example file and content type. Note that this will attempt to load the
