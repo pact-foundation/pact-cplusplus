@@ -1,8 +1,11 @@
 [requires]
 gtest/1.15.0
-boost/1.83.0
+boost/1.86.0
 libcurl/8.10.1
 nlohmann_json/3.11.3
+
+[options]
+boost/*:header_only=True
 
 [generators]
 CMakeDeps

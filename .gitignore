@@ -64,3 +64,6 @@ consumer/CMakeSettings.json
 ## FFI Libs
 
 consumer/libpact_ffi-*/
+artifacts/
+install/
+CMakeUserPresets.json
