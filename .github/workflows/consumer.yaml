@@ -32,6 +32,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libbz2-dev libz-dev libicu-dev libboost-all-dev cmake 
+      - name: Install act dependencies
+        if: env.ACT != 'true' && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' )
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev 
       - run: cmake --version
 
       - name: Install conan
@@ -63,6 +68,14 @@ jobs:
           conan profile detect --force
           conan profile show
 
+      - name: Cache conan packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.conan2/p
+          key: conan-${{ matrix.os }}-${{ hashFiles('consumer/conanfile.py') }}
+          restore-keys: |
+            conan-${{ matrix.os }}-
+
       - name: Conan install dependencies
         run: |
           conan install conanfile.py \
@@ -71,6 +84,10 @@ jobs:
             -s compiler.cppstd=17 \
             -c tools.build:jobs=2
         working-directory: consumer
+
+      # Drop source/build temporaries so only the built packages are cached
+      - name: Trim conan cache
+        run: conan cache clean "*" --source --build --temp
 
       - name: Build library and tests
         run: |
