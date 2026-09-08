@@ -17,7 +17,7 @@ target_link_libraries(pact-consumer-tests PRIVATE
     nlohmann_json::nlohmann_json)
 
 if(WIN32)
-    target_link_libraries(pact-consumer-tests PRIVATE ws2_32 userenv crypt32 secur32 dnsapi ncrypt ntdll)
+    target_link_libraries(pact-consumer-tests PRIVATE ws2_32 userenv crypt32 secur32 dnsapi ncrypt ntdll pdh netapi32 iphlpapi powrprof psapi)
 endif()
 
 add_custom_command(TARGET pact-consumer-tests POST_BUILD
