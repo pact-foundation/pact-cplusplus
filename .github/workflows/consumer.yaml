@@ -147,7 +147,7 @@ jobs:
             -e CONAN_PASSWORD="${{ secrets.JFROG_ACCESS_TOKEN }}" \
             ${{ matrix.container }} sh -c '
               set -euo pipefail
-              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash aclocal
+              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash automake autoconf libtool
               pip3 install --upgrade pip --break-system-packages
               pip3 install "conan>=2.0" --break-system-packages
               conan profile detect --force
