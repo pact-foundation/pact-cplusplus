@@ -56,7 +56,7 @@ jobs:
           case "${{ matrix.ffi_arch }}" in
             windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll" ;;
             macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
-            *)         files="libpact_ffi-linux-x86_64.a libpact_ffi-linux-x86_64.so" ;;
+            linux-*)    files="libpact_ffi-${{ matrix.ffi_arch }}.a libpact_ffi-${{ matrix.ffi_arch }}.so" ;;
           esac
           for f in $files; do
             curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
