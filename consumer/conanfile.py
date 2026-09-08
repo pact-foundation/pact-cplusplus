@@ -59,7 +59,9 @@ class PactcppconsumerConan(ConanFile):
             return {f"libpact_ffi-macos-{arch}.a": "libpact_ffi.a"}
         if self.settings.os == "Windows":
             return {f"pact_ffi-windows-{arch}.lib": "pact_ffi.lib"}
-        libc = "-musl" if os.environ.get("PACT_FFI_LIBC") == "musl" else ""
+        # os.distro=alpine is a settings_user.yml sub-setting (see conan-io/conan#16179);
+        # it's what actually differentiates musl package_ids across the whole dependency graph
+        libc = "-musl" if self.settings.get_safe("os.distro") == "alpine" else ""
         return {f"libpact_ffi-linux-{arch}{libc}.a": "libpact_ffi.a"}
 
     def package(self):

@@ -15,14 +15,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - os: ubuntu-latest
-          #   ffi_arch: linux-x86_64
-          # - os: ubuntu-22.04-arm
-          #   ffi_arch: linux-aarch64
-          # - os: macos-latest
-          #   ffi_arch: macos-aarch64
-          # - os: windows-latest
-          #   ffi_arch: windows-x86_64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
           - os: ubuntu-latest
             ffi_arch: linux-x86_64-musl
             container: alpine:3.23
@@ -138,6 +138,7 @@ jobs:
             -w /workspace/consumer \
             -e PACT_FFI_VERSION \
             -e PACT_FFI_ROOT=/workspace/consumer/libpact_ffi-$PACT_FFI_VERSION \
+            -e PACT_FFI_LIBC=musl \
             -e LOG_LEVEL=DEBUG \
             -e FFI_ARCH="${{ matrix.ffi_arch }}" \
             -e GITHUB_EVENT_NAME="${{ github.event_name }}" \
@@ -151,13 +152,17 @@ jobs:
               pip3 install --upgrade pip --break-system-packages
               pip3 install "conan>=2.0" --break-system-packages
               conan profile detect --force
+              # Register os.distro (conan-io/conan#16179) so every package in the graph gets a
+              # musl-specific package_id, instead of silently reusing glibc binaries on Alpine
+              printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
+              echo "os.distro=alpine" >> ~/.conan2/profiles/default
               conan install conanfile.py --build=missing --build="m4/*" -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
               conan cache clean "*" --source --build --temp
               cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON -DPACT_FFI_VERSION="$PACT_FFI_VERSION" -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
               cmake --build --preset conan-release
               ctest --preset conan-release --output-on-failure --verbose
 
-              if [ "$GITHUB_EVENT_NAME" = "release" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+              if [ "$GITHUB_EVENT_NAME" = "release" ]; then
                 cmake --install build/Release --config Release --prefix install
               fi
 
