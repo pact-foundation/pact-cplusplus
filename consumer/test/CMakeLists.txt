@@ -43,3 +43,7 @@ if(NOT WIN32)
     set_tests_properties(consumer PROPERTIES
         ENVIRONMENT "DYLD_LIBRARY_PATH=${PACT_FFI_LIB_DIR}:$ENV{DYLD_LIBRARY_PATH};LD_LIBRARY_PATH=${PACT_FFI_LIB_DIR}:$ENV{LD_LIBRARY_PATH}")
 endif()
+
+# Without an explicit timeout ctest computes an effectively infinite one, so a hung
+# test (e.g. a stalled mock server on Windows CI) runs until the whole CI job times out.
+set_tests_properties(consumer PROPERTIES TIMEOUT 300)

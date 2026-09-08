@@ -72,6 +72,9 @@ namespace {
         curl_easy_setopt(handle_, CURLOPT_WRITEFUNCTION, write_callback);
         curl_easy_setopt(handle_, CURLOPT_WRITEDATA, &response.body);
         curl_easy_setopt(handle_, CURLOPT_FOLLOWLOCATION, 1L);
+        // Avoid hanging indefinitely if the mock server never responds (seen on Windows CI).
+        curl_easy_setopt(handle_, CURLOPT_CONNECTTIMEOUT, 10L);
+        curl_easy_setopt(handle_, CURLOPT_TIMEOUT, 30L);
         if (headers_) {
           curl_easy_setopt(handle_, CURLOPT_HTTPHEADER, headers_);
         }
