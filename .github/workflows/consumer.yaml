@@ -23,6 +23,12 @@ jobs:
             ffi_arch: macos-aarch64
           - os: windows-latest
             ffi_arch: windows-x86_64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64-musl
+            container: alpine:3.20
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64-musl
+            container: alpine:3.20
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -38,13 +44,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libbz2-dev libz-dev liblzma-dev libicu-dev libboost-all-dev cmake
       - name: Install linux dependencies
-        if: env.ACT != 'true' && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' )
+        if: env.ACT != 'true' && !matrix.container && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' )
         run: |
           sudo apt-get update
           sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
       - run: cmake --version
+        if: ${{ !matrix.container }}
 
       - name: Install conan
+        if: ${{ !matrix.container }}
         run: |
           pip3 install --upgrade pip
           pip3 install "conan>=2.0"
@@ -70,6 +78,7 @@ jobs:
           echo "PACT_FFI_ROOT=$PWD/$root" >> $GITHUB_ENV
 
       - name: Create conan profile
+        if: ${{ !matrix.container }}
         run: |
           conan profile detect --force
           conan profile show
@@ -78,11 +87,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.conan2/p
-          key: conan-${{ matrix.os }}-${{ hashFiles('consumer/conanfile.py') }}
+          key: conan-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-${{ hashFiles('consumer/conanfile.py') }}
           restore-keys: |
-            conan-${{ matrix.os }}-
+            conan-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-
 
       - name: Conan install dependencies
+        if: ${{ !matrix.container }}
         run: |
           conan install conanfile.py \
             --build=missing \
@@ -93,9 +103,11 @@ jobs:
 
       # Drop source/build temporaries so only the built packages are cached
       - name: Trim conan cache
+        if: ${{ !matrix.container }}
         run: conan cache clean "*" --source --build --temp
 
       - name: Build library and tests
+        if: ${{ !matrix.container }}
         run: |
           # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
           if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
@@ -108,21 +120,72 @@ jobs:
         working-directory: consumer
 
       - name: Run pact-consumer-tests
+        if: ${{ !matrix.container }}
         run: ctest --preset conan-release --output-on-failure --verbose
         working-directory: consumer
         env:
           LOG_LEVEL: DEBUG
 
+      # musl (Alpine) builds run via `docker run`, bind-mounting the workspace, conan cache
+      # and apk cache dirs, so no Node.js/actions compatibility shim is needed in the container.
+      # Release packaging/upload runs in the same invocation so it shares the container's toolchain.
+      - name: Build, test and release (musl container)
+        if: ${{ matrix.container }}
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            -v "$HOME/.conan2:/root/.conan2" \
+            -w /workspace/consumer \
+            -e PACT_FFI_VERSION \
+            -e PACT_FFI_ROOT=/workspace/consumer/libpact_ffi-$PACT_FFI_VERSION \
+            -e LOG_LEVEL=DEBUG \
+            -e FFI_ARCH="${{ matrix.ffi_arch }}" \
+            -e GITHUB_EVENT_NAME="${{ github.event_name }}" \
+            -e CONAN_REMOTE="$CONAN_REMOTE" \
+            -e CONAN_REMOTE_URL="$CONAN_REMOTE_URL" \
+            -e CONAN_USER="${{ secrets.JFROG_USER }}" \
+            -e CONAN_PASSWORD="${{ secrets.JFROG_ACCESS_TOKEN }}" \
+            ${{ matrix.container }} sh -c '
+              set -euo pipefail
+              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers
+              pip3 install --upgrade pip --break-system-packages
+              pip3 install "conan>=2.0" --break-system-packages
+              conan profile detect --force
+              conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              conan cache clean "*" --source --build --temp
+              cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON -DPACT_FFI_VERSION="$PACT_FFI_VERSION" -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+              cmake --build --preset conan-release
+              ctest --preset conan-release --output-on-failure --verbose
+
+              if [ "$GITHUB_EVENT_NAME" = "release" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+                cmake --install build/Release --config Release --prefix install
+              fi
+
+              if [ "$GITHUB_EVENT_NAME" = "release" ]; then
+                mkdir -p artifacts
+                lib=$(find install/pact-cpp-consumer -type f -name "*pact-cpp-consumer.*" | head -1)
+                name=$(basename "$lib")
+                gzip -c "$lib" > "artifacts/${name%.*}-${FFI_ARCH}.${name##*.}.gz"
+                cp include/*.h artifacts
+                (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+
+                conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+                conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
+                conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
+                conan upload "pact_cpp_consumer/*" -r="$CONAN_REMOTE" --confirm
+              fi
+            '
+
       # Release-only steps below reuse the conan cache and build tree from the steps above
       - name: Install library
-        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        if: ${{ !matrix.container && (github.event_name == 'release' || github.event_name == 'workflow_dispatch') }}
         run: |
           if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
           cmake --install "$builddir" --config Release --prefix install
         working-directory: consumer
 
       - name: Package release artifacts
-        if: github.event_name == 'release'
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
           set -euo pipefail
           mkdir -p artifacts
@@ -134,7 +197,7 @@ jobs:
         working-directory: consumer
 
       - name: Create conan package
-        if: github.event_name == 'release'
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
           conan create conanfile.py \
             --build=missing \
@@ -144,7 +207,7 @@ jobs:
         working-directory: consumer
 
       - name: Upload conan package
-        if: github.event_name == 'release'
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
           conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
           conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
