@@ -151,7 +151,7 @@ jobs:
               pip3 install --upgrade pip --break-system-packages
               pip3 install "conan>=2.0" --break-system-packages
               conan profile detect --force
-              conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              conan install conanfile.py --build=missing --build="m4/*" -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
               conan cache clean "*" --source --build --temp
               cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON -DPACT_FFI_VERSION="$PACT_FFI_VERSION" -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
               cmake --build --preset conan-release
