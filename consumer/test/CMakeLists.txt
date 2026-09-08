@@ -25,6 +25,15 @@ add_custom_command(TARGET pact-consumer-tests POST_BUILD
         "${CMAKE_CURRENT_SOURCE_DIR}/example.jpg"
         "$<TARGET_FILE_DIR:pact-consumer-tests>")
 
+# pact-cpp-consumer links against the DLL's import lib, so the actual pact_ffi.dll
+# needs to sit next to the test binary for the loader to find it at runtime.
+if(WIN32 AND DEFINED PACT_FFI_DLL AND EXISTS "${PACT_FFI_DLL}")
+    add_custom_command(TARGET pact-consumer-tests POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${PACT_FFI_DLL}"
+            "$<TARGET_FILE_DIR:pact-consumer-tests>")
+endif()
+
 # Include test
 add_test(NAME consumer
          WORKING_DIRECTORY $<TARGET_FILE_DIR:pact-consumer-tests>

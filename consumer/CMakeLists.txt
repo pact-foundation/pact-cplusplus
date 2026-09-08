@@ -107,6 +107,7 @@ if(APPLE)
 elseif(WIN32)
   set(PACT_FFI_OS_ARCH "windows-${PACT_FFI_ARCH}")
   set(_PACT_FFI_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.lib")
+  set(_PACT_FFI_IMPLIB_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.dll.lib")
   set(_PACT_FFI_DLL_FILENAME "pact_ffi-${PACT_FFI_OS_ARCH}.dll")
 else()
   set(PACT_FFI_OS_ARCH "linux-${PACT_FFI_ARCH}${_PACT_FFI_LIBC_SUFFIX}")
@@ -118,15 +119,21 @@ set(PACT_FFI_LIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_FILENAME}")
 if(DEFINED _PACT_FFI_SHARED_FILENAME)
   set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED_FILENAME}")
 endif()
+if(DEFINED _PACT_FFI_IMPLIB_FILENAME)
+  set(PACT_FFI_IMPLIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_IMPLIB_FILENAME}")
+endif()
+if(DEFINED _PACT_FFI_DLL_FILENAME)
+  set(PACT_FFI_DLL "${PACT_FFI_LIB_DIR}/${_PACT_FFI_DLL_FILENAME}")
+endif()
 
 # Rust's staticlib output doesn't bundle native static libs pulled in by a
 # dependency's build script (pact-plugin-driver's mlua uses vendored+lua54,
-# compiled via a `cc` build script), so the .a is missing Lua symbols such as
-# luaL_newstate. The .dylib/.so is fully linked and has no such gaps, so link
-# against it everywhere except Windows, which already links the DLL via its
-# import .lib.
+# compiled via a `cc` build script), so the plain .lib/.a is missing Lua
+# symbols such as lua_pushinteger. Link against the fully-linked shared
+# artifact instead: the DLL's import .lib on Windows, the .dylib/.so
+# elsewhere.
 if(WIN32)
-  set(PACT_FFI_LINK_LIB "${PACT_FFI_LIB}")
+  set(PACT_FFI_LINK_LIB "${PACT_FFI_IMPLIB}")
 else()
   set(PACT_FFI_LINK_LIB "${PACT_FFI_SHARED}")
 
@@ -270,6 +277,11 @@ if(WIN32)
     install(FILES "${PACT_FFI_LIB}"
             DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
             RENAME pact_ffi.lib)
+  endif()
+  if(DEFINED PACT_FFI_IMPLIB AND EXISTS "${PACT_FFI_IMPLIB}")
+    install(FILES "${PACT_FFI_IMPLIB}"
+            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+            RENAME pact_ffi.dll.lib)
   endif()
   if(DEFINED _PACT_FFI_DLL_FILENAME)
     set(PACT_FFI_DLL "${PACT_FFI_LIB_DIR}/${_PACT_FFI_DLL_FILENAME}")

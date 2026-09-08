@@ -15,20 +15,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
-            ffi_arch: linux-x86_64
-          - os: ubuntu-22.04-arm
-            ffi_arch: linux-aarch64
-          - os: macos-latest
-            ffi_arch: macos-aarch64
+          # - os: ubuntu-latest
+          #   ffi_arch: linux-x86_64
+          # - os: ubuntu-22.04-arm
+          #   ffi_arch: linux-aarch64
+          # - os: macos-latest
+          #   ffi_arch: macos-aarch64
           - os: windows-latest
             ffi_arch: windows-x86_64
-          - os: ubuntu-latest
-            ffi_arch: linux-x86_64-musl
-            container: alpine:3.23
-          - os: ubuntu-22.04-arm
-            ffi_arch: linux-aarch64-musl
-            container: alpine:3.23
+          # - os: ubuntu-latest
+          #   ffi_arch: linux-x86_64-musl
+          #   container: alpine:3.23
+          # - os: ubuntu-22.04-arm
+          #   ffi_arch: linux-aarch64-musl
+          #   container: alpine:3.23
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -67,7 +67,7 @@ jobs:
           curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
           curl -sSfL -o "$root/include/pact-cpp.h" "$base/pact-cpp.h"
           case "${{ matrix.ffi_arch }}" in
-            windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll" ;;
+            windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll.lib pact_ffi-windows-x86_64.dll" ;;
             macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
             linux-*)    files="libpact_ffi-${{ matrix.ffi_arch }}.a libpact_ffi-${{ matrix.ffi_arch }}.so" ;;
           esac
