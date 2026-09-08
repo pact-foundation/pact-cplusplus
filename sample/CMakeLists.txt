@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(PACT_CPP_ROOT "${CMAKE_CURRENT_LIST_DIR}/../build/install/pact-cpp" CACHE PATH
     "Path to the Pact C++ release installation")
 set(PACT_CPP_CONSUMER_VERSION "0.1.0" CACHE STRING "Pact C++ Consumer release version")
-set(PACT_FFI_VERSION "v0.5.0" CACHE STRING "Pact FFI release version")
+set(PACT_FFI_VERSION "v0.5.6" CACHE STRING "Pact FFI release version")
 
 set(PACT_CPP_CONSUMER_ROOT "${PACT_CPP_ROOT}/pact-cpp-consumer/${PACT_CPP_CONSUMER_VERSION}")
 set(PACT_FFI_ROOT "${PACT_CPP_ROOT}/pact_ffi/${PACT_FFI_VERSION}")

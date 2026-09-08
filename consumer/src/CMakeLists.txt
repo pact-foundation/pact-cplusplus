@@ -21,7 +21,7 @@ target_include_directories(pact-cpp-consumer
 )
 
 # Link deps privately so they aren’t required by client apps
-target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
+target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LINK_LIB}" nlohmann_json::nlohmann_json)
 
 if(PactUseConan)
     # matchers.h is an installed header that includes Boost, so it is a public dep

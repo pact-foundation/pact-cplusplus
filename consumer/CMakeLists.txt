@@ -119,6 +119,33 @@ if(DEFINED _PACT_FFI_SHARED_FILENAME)
   set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED_FILENAME}")
 endif()
 
+# Rust's staticlib output doesn't bundle native static libs pulled in by a
+# dependency's build script (pact-plugin-driver's mlua uses vendored+lua54,
+# compiled via a `cc` build script), so the .a is missing Lua symbols such as
+# luaL_newstate. The .dylib/.so is fully linked and has no such gaps, so link
+# against it everywhere except Windows, which already links the DLL via its
+# import .lib.
+if(WIN32)
+  set(PACT_FFI_LINK_LIB "${PACT_FFI_LIB}")
+else()
+  set(PACT_FFI_LINK_LIB "${PACT_FFI_SHARED}")
+
+  # The released dylib/so's install name/soname is the bare "libpact_ffi.dylib"/
+  # ".so" (no path), so the dynamic loader won't find the arch-suffixed filename
+  # we downloaded it as. Symlink a bare-named copy alongside it so DYLD/LD
+  # library path lookups against PACT_FFI_LIB_DIR succeed for local builds/tests.
+  if(DEFINED PACT_FFI_SHARED AND EXISTS "${PACT_FFI_SHARED}")
+    if(APPLE)
+      set(_pact_ffi_bare "${PACT_FFI_LIB_DIR}/libpact_ffi.dylib")
+    else()
+      set(_pact_ffi_bare "${PACT_FFI_LIB_DIR}/libpact_ffi.so")
+    endif()
+    if(NOT EXISTS "${_pact_ffi_bare}")
+      file(CREATE_LINK "${PACT_FFI_SHARED}" "${_pact_ffi_bare}" SYMBOLIC)
+    endif()
+  endif()
+endif()
+
 # Add test
 #    cmake -S consumer -B build -DPactBuildTests=ON/OFF
 # Default OFF: do not build tests unless explicitly requested
@@ -170,6 +197,7 @@ if(APPLE AND PactBuildUniversal)
   # Link with universal static pact_ffi and install universal shared
   set(PACT_FFI_LIB "${_ffi_univ_lib}")
   set(PACT_FFI_SHARED_UNIV "${_ffi_univ_dyl}")
+  set(PACT_FFI_LINK_LIB "${_ffi_univ_dyl}")
 endif()
 
 # Boost config

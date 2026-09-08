@@ -45,7 +45,7 @@ class PactcppconsumerConan(ConanFile):
         if not ffi_root:
             raise ConanInvalidConfiguration("PACT_FFI_ROOT must point at the pact_ffi installation")
         tc.cache_variables["PACT_FFI_ROOT"] = ffi_root.replace("\\", "/")
-        tc.cache_variables["PACT_FFI_VERSION"] = os.environ.get("PACT_FFI_VERSION", "v0.5.0")
+        tc.cache_variables["PACT_FFI_VERSION"] = os.environ.get("PACT_FFI_VERSION", "v0.5.6")
         tc.generate()
 
     def build(self):

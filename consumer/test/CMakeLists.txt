@@ -29,3 +29,8 @@ add_custom_command(TARGET pact-consumer-tests POST_BUILD
 add_test(NAME consumer
          WORKING_DIRECTORY $<TARGET_FILE_DIR:pact-consumer-tests>
          COMMAND ${PROJECT_NAME})
+
+if(NOT WIN32)
+    set_tests_properties(consumer PROPERTIES
+        ENVIRONMENT "DYLD_LIBRARY_PATH=${PACT_FFI_LIB_DIR}:$ENV{DYLD_LIBRARY_PATH};LD_LIBRARY_PATH=${PACT_FFI_LIB_DIR}:$ENV{LD_LIBRARY_PATH}")
+endif()

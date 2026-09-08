@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  PACT_FFI_VERSION: v0.5.0
+  PACT_FFI_VERSION: v0.5.6
   CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
   CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
 
