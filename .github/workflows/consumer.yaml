@@ -62,6 +62,7 @@ jobs:
             curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
             gunzip -f "$root/lib/$f.gz"
           done
+          echo "PACT_FFI_ROOT=$PWD/$root" >> $GITHUB_ENV
 
       - name: Create conan profile
         run: |
@@ -97,7 +98,7 @@ jobs:
             -DPactUseConan=ON \
             -DPactBuildTests=ON \
             -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
-            -DPACT_FFI_ROOT="$PWD/libpact_ffi-$PACT_FFI_VERSION"
+            -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
           cmake --build --preset conan-release
         working-directory: consumer
 
