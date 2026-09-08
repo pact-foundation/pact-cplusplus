@@ -1,8 +1,13 @@
 name: Consumer Project
-on: [push]
+on:
+  push:
+  release:
+    types: [published]
 
 env:
   PACT_FFI_VERSION: v0.5.0
+  CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
+  CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
 
 jobs:
   build:
@@ -107,3 +112,53 @@ jobs:
         working-directory: consumer
         env:
           LOG_LEVEL: DEBUG
+
+      # Release-only steps below reuse the conan cache and build tree from the steps above
+      - name: Install library
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
+          cmake --install "$builddir" --config Release --prefix install
+        working-directory: consumer
+
+      - name: Package release artifacts
+        if: github.event_name == 'release'
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          lib=$(find install/pact-cpp-consumer -type f -name "*pact-cpp-consumer.*" | head -1)
+          name=$(basename "$lib")
+          gzip -c "$lib" > "artifacts/${name%.*}-${{ matrix.ffi_arch }}.${name##*.}.gz"
+          cp include/*.h artifacts
+          (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+        working-directory: consumer
+
+      - name: Create conan package
+        if: github.event_name == 'release'
+        run: |
+          conan create conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
+
+      - name: Upload conan package
+        if: github.event_name == 'release'
+        run: |
+          conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
+          conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
+          conan upload "pact_cpp_consumer/*" -r="$CONAN_REMOTE" --confirm
+        working-directory: consumer
+        env:
+          CONAN_USER: ${{ secrets.JFROG_USER }}
+          CONAN_PASSWORD: ${{ secrets.JFROG_ACCESS_TOKEN }}
+
+      - name: Upload Release Assets
+        if: github.event_name == 'release'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: consumer/artifacts/*
+          file_glob: true
+          tag: ${{ github.ref }}
