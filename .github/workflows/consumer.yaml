@@ -31,12 +31,12 @@ jobs:
         if: env.ACT == 'true'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libbz2-dev libz-dev libicu-dev libboost-all-dev cmake 
-      - name: Install act dependencies
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev libicu-dev libboost-all-dev cmake
+      - name: Install linux dependencies
         if: env.ACT != 'true' && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' )
         run: |
           sudo apt-get update
-          sudo apt-get install -y libbz2-dev libz-dev 
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
       - run: cmake --version
 
       - name: Install conan
