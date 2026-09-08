@@ -94,8 +94,13 @@ jobs:
       - name: Conan install dependencies
         if: ${{ !matrix.container }}
         run: |
+          # m4 fails to build from source on aarch64/musl, so only force it on x86_64
+          extra_build=""
+          case "${{ matrix.ffi_arch }}" in
+            linux-*) extra_build="--build=m4/*" ;;
+          esac
           conan install conanfile.py \
-            --build=missing \
+            --build=missing $extra_build \
             -s build_type=Release \
             -s compiler.cppstd=17 \
             -c tools.build:jobs=2
@@ -156,7 +161,11 @@ jobs:
               # musl-specific package_id, instead of silently reusing glibc binaries on Alpine
               printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
               echo "os.distro=alpine" >> ~/.conan2/profiles/default
-              conan install conanfile.py --build=missing --build="m4/*" -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              extra_build=""
+              case "$FFI_ARCH" in
+                linux-x86_64*) extra_build="--build=m4/*" ;;
+              esac
+              conan install conanfile.py --build=missing $extra_build -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
               conan cache clean "*" --source --build --temp
               cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON -DPACT_FFI_VERSION="$PACT_FFI_VERSION" -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
               cmake --build --preset conan-release
