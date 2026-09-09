@@ -34,7 +34,7 @@ namespace pact_consumer {
    */
   class MockServerHandle {
     public:
-      MockServerHandle(PactHandle);
+      MockServerHandle(PactHandle, const std::string& transport = "");
       ~MockServerHandle();
 
       /**
@@ -161,6 +161,13 @@ namespace pact_consumer {
        * needs to return a boolean value to indicate of the test was successful.
        */
       PactTestResult run_test(std::function<bool(const MockServerHandle*)> callback) const;
+
+      /**
+       * Starts a mock server for a plugin-provided transport (for example, "grpc")
+       * and executes the callback against it.
+       */
+      PactTestResult run_test(const std::string& transport,
+        std::function<bool(const MockServerHandle*)> callback) const;
 
       /**
        * Runs a message/plugin test that doesn't require a mock server (e.g. async/sync messages,

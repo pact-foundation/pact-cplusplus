@@ -370,16 +370,23 @@ plugin process:
 
 ```cpp
 provider.withSpecification(PactSpecification_V4);
-provider.usingPlugin("protobuf", "0.3.15");
+provider.usingPlugin("protobuf", "0.8.0");
 
 provider
   .newSyncMessage("a gRPC request")
-  .withPluginContents("application/protobuf", protobufInteractionJson)
-  .withResponsePluginContents("application/protobuf", protobufResponseJson);
+  .withPluginContents("application/protobuf", protobufInteractionJson);
 
-auto result = provider.run_message_test([] { /* ... */ return true; });
+auto result = provider.run_test("grpc", [](const auto* mock_server) {
+  // Point the gRPC client at 127.0.0.1:mock_server->get_port().
+  return true;
+});
 provider.cleanupPlugins();
 ```
+
+For a gRPC service call, include both the `request` and `response` objects in
+the JSON passed to `withPluginContents`. The protobuf plugin owns the gRPC mock
+transport, so use `run_test("grpc", ...)`; reserve `run_message_test` for
+plugin interactions that do not start a transport.
 
 ## Using the Conan package
 

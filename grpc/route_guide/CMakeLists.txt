@@ -1,89 +1,131 @@
-# Copyright 2018 gRPC authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# cmake build file for C++ route_guide example.
-# Assumes protobuf and gRPC have been installed using cmake.
-# See cmake_externalproject/CMakeLists.txt for all-in-one cmake build
-# that automatically builds all the dependencies before building route_guide.
-
 cmake_minimum_required(VERSION 3.22)
 
-project(RouteGuide C CXX)
+project(RouteGuide LANGUAGES CXX)
 
-include(../cmake/common.cmake)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find absl package
 find_package(absl CONFIG REQUIRED)
+find_package(Protobuf CONFIG REQUIRED)
+find_package(gRPC CONFIG REQUIRED)
 
-# Proto file
-get_filename_component(rg_proto "../../protos/route_guide.proto" ABSOLUTE)
-get_filename_component(rg_proto_path "${rg_proto}" PATH)
+set(route_guide_proto "${CMAKE_CURRENT_SOURCE_DIR}/route_guide.proto")
+set(route_guide_proto_src "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.cc")
+set(route_guide_proto_hdr "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.h")
+set(route_guide_grpc_src "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.cc")
+set(route_guide_grpc_hdr "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.h")
 
-# Generated sources
-set(rg_proto_srcs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.cc")
-set(rg_proto_hdrs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.h")
-set(rg_grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.cc")
-set(rg_grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.h")
 add_custom_command(
-      OUTPUT "${rg_proto_srcs}" "${rg_proto_hdrs}" "${rg_grpc_srcs}" "${rg_grpc_hdrs}"
-      COMMAND ${_PROTOBUF_PROTOC}
-      ARGS --grpc_out "${CMAKE_CURRENT_BINARY_DIR}"
-        --cpp_out "${CMAKE_CURRENT_BINARY_DIR}"
-        -I "${rg_proto_path}"
-        --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_EXECUTABLE}"
-        "${rg_proto}"
-      DEPENDS "${rg_proto}")
+  OUTPUT
+    "${route_guide_proto_src}"
+    "${route_guide_proto_hdr}"
+    "${route_guide_grpc_src}"
+    "${route_guide_grpc_hdr}"
+  COMMAND protobuf::protoc
+  ARGS
+    --proto_path "${CMAKE_CURRENT_SOURCE_DIR}"
+    --cpp_out "${CMAKE_CURRENT_BINARY_DIR}"
+    --grpc_out "${CMAKE_CURRENT_BINARY_DIR}"
+    --plugin=protoc-gen-grpc=$<TARGET_FILE:gRPC::grpc_cpp_plugin>
+    "${route_guide_proto}"
+  DEPENDS "${route_guide_proto}"
+  VERBATIM)
 
-# Include generated *.pb.h files
-include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+add_library(route_guide_proto
+  "${route_guide_proto_src}"
+  "${route_guide_proto_hdr}"
+  "${route_guide_grpc_src}"
+  "${route_guide_grpc_hdr}")
+target_include_directories(route_guide_proto PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
+target_link_libraries(route_guide_proto PUBLIC gRPC::grpc++ protobuf::libprotobuf)
 
-# rg_grpc_proto
-add_library(rg_grpc_proto
-  ${rg_grpc_srcs}
-  ${rg_grpc_hdrs}
-  ${rg_proto_srcs}
-  ${rg_proto_hdrs})
-target_link_libraries(rg_grpc_proto
-  absl::absl_log
-  ${_REFLECTION}
-  ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+add_library(route_guide_core
+  helper.cc
+  route_guide_client_lib.cc
+  route_guide_service.cc)
+target_include_directories(route_guide_core PUBLIC
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  "${CMAKE_CURRENT_BINARY_DIR}")
+target_link_libraries(route_guide_core PUBLIC route_guide_proto)
 
-# route_guide_helper
-add_library(route_guide_helper
-  "helper.h"
-  "helper.cc")
-target_link_libraries(route_guide_helper
-  rg_grpc_proto
-  ${_REFLECTION}
-  ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+add_executable(route_guide_client route_guide_client.cc)
+target_link_libraries(route_guide_client PRIVATE
+  route_guide_core
+  absl::flags_parse
+  absl::log_initialize)
 
-# Targets route_guide_(client|server)
-foreach(_target
-  route_guide_client route_guide_server
-  route_guide_callback_client route_guide_callback_server)
-  add_executable(${_target}
-    "${_target}.cc")
-  target_link_libraries(${_target}
-    rg_grpc_proto
-    route_guide_helper
-    absl::flags_parse
-    absl::absl_log
-    absl::log_initialize
-    absl::log_globals
-    ${_REFLECTION}
-    ${_GRPC_GRPCPP}
-    ${_PROTOBUF_LIBPROTOBUF})
-endforeach()
+add_executable(route_guide_server route_guide_server.cc)
+target_link_libraries(route_guide_server PRIVATE
+  route_guide_core
+  absl::flags_parse
+  absl::log_initialize)
+
+option(RouteGuideBuildPactTests "Build RouteGuide Pact tests" OFF)
+if(RouteGuideBuildPactTests)
+  if(NOT PACT_FFI_ROOT)
+    message(FATAL_ERROR "PACT_FFI_ROOT is required to build Pact tests")
+  endif()
+  if(NOT EXISTS "${PACT_FFI_ROOT}/include/pact.h")
+    message(FATAL_ERROR
+      "PACT_FFI_ROOT does not contain include/pact.h: ${PACT_FFI_ROOT}")
+  endif()
+  if(APPLE)
+    file(GLOB route_guide_pact_ffi_runtime
+      "${PACT_FFI_ROOT}/lib/libpact_ffi-macos-*.dylib")
+  elseif(WIN32)
+    file(GLOB route_guide_pact_ffi_runtime
+      "${PACT_FFI_ROOT}/lib/pact_ffi-windows-*.dll.lib")
+  else()
+    file(GLOB route_guide_pact_ffi_runtime
+      "${PACT_FFI_ROOT}/lib/libpact_ffi-linux-*.so")
+  endif()
+  if(NOT route_guide_pact_ffi_runtime)
+    message(FATAL_ERROR
+      "PACT_FFI_ROOT does not contain a Pact FFI shared library for ${CMAKE_SYSTEM_NAME}: ${PACT_FFI_ROOT}/lib")
+  endif()
+
+  set(PactBuildTests OFF CACHE BOOL "" FORCE)
+  set(PactBuildUniversal OFF CACHE BOOL "" FORCE)
+  add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/../../consumer"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pact-consumer")
+  add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/../../verifier"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pact-verifier")
+
+  set(route_guide_pact_dir "${CMAKE_CURRENT_BINARY_DIR}/pacts")
+  set(route_guide_pact_file
+      "${route_guide_pact_dir}/route-guide-consumer-route-guide-provider.json")
+
+  add_executable(route_guide_consumer_test route_guide_consumer_test.cc)
+  target_compile_definitions(route_guide_consumer_test PRIVATE
+    ROUTE_GUIDE_PACT_DIR="${route_guide_pact_dir}"
+    ROUTE_GUIDE_PROTO_FILE="${route_guide_proto}")
+  target_include_directories(route_guide_consumer_test PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../consumer/include"
+    "${PACT_FFI_ROOT}/include"
+    "${Boost_ROOT}")
+  target_link_libraries(route_guide_consumer_test PRIVATE
+    route_guide_core pact-cpp-consumer)
+
+  add_executable(route_guide_provider_test route_guide_provider_test.cc)
+  target_compile_definitions(route_guide_provider_test PRIVATE
+    ROUTE_GUIDE_DATABASE="${CMAKE_CURRENT_SOURCE_DIR}/route_guide_db.json"
+    ROUTE_GUIDE_PACT_FILE="${route_guide_pact_file}")
+  target_include_directories(route_guide_provider_test PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../verifier/include"
+    "${PACT_FFI_ROOT}/include")
+  target_link_libraries(route_guide_provider_test PRIVATE
+    route_guide_core pact-cpp-verifier)
+
+  enable_testing()
+  add_test(NAME route_guide_consumer COMMAND route_guide_consumer_test)
+  add_test(NAME route_guide_provider COMMAND route_guide_provider_test)
+  set_tests_properties(route_guide_consumer PROPERTIES TIMEOUT 300)
+  set_tests_properties(route_guide_provider PROPERTIES
+    DEPENDS route_guide_consumer
+    TIMEOUT 300)
+  if(NOT WIN32)
+    set_tests_properties(route_guide_consumer route_guide_provider PROPERTIES
+      ENVIRONMENT
+        "DYLD_LIBRARY_PATH=${PACT_FFI_ROOT}/lib:$ENV{DYLD_LIBRARY_PATH};LD_LIBRARY_PATH=${PACT_FFI_ROOT}/lib:$ENV{LD_LIBRARY_PATH}")
+  endif()
+endif()

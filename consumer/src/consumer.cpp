@@ -57,7 +57,12 @@ namespace pact_consumer {
   }
 
   PactTestResult Pact::run_test(std::function<bool(const MockServerHandle*)> callback) const {
-    MockServerHandle mockServer(this->pact);
+    return run_test("", std::move(callback));
+  }
+
+  PactTestResult Pact::run_test(const std::string& transport,
+      std::function<bool(const MockServerHandle*)> callback) const {
+    MockServerHandle mockServer(this->pact, transport);
     PactTestResult result;
 
     if (mockServer.started_ok()) {
@@ -77,6 +82,8 @@ namespace pact_consumer {
               result.add_state(TestResultState::PactFileError, "A mock server with the provided port was not found");
               break;
           }
+        } else if (!callback_result) {
+          result.add_state(TestResultState::UserCodeFailed);
         }
       } catch(const std::exception& e) {
         result.add_state(TestResultState::UserCodeFailed, e.what(), boost::current_exception_diagnostic_information());
@@ -307,8 +314,10 @@ namespace pact_consumer {
   // Mock Server Class
   ////////////////////////////////////
 
-  MockServerHandle::MockServerHandle(PactHandle pact) {
-    this->port = pactffi_create_mock_server_for_transport(pact, "127.0.0.1", 0, NULL, NULL);
+  MockServerHandle::MockServerHandle(PactHandle pact, const std::string& transport) {
+    const char* transport_name = transport.empty() ? nullptr : transport.c_str();
+    this->port = pactffi_create_mock_server_for_transport(
+      pact, "127.0.0.1", 0, transport_name, nullptr);
   }
 
   MockServerHandle::~MockServerHandle() {

@@ -30,6 +30,7 @@
 #include <thread>
 
 #include "helper.h"
+#include "route_guide_client.h"
 #include "absl/flags/parse.h"
 #include "absl/log/initialize.h"
 #ifdef BAZEL_BUILD
@@ -73,10 +74,10 @@ RouteNote MakeRouteNote(const std::string& message, long latitude,
   return n;
 }
 
-class RouteGuideClient {
+class RouteGuideDemoClient {
  public:
-  RouteGuideClient(std::shared_ptr<Channel> channel, const std::string& db)
-      : stub_(RouteGuide::NewStub(channel)) {
+  RouteGuideDemoClient(std::shared_ptr<Channel> channel, const std::string& db)
+      : get_feature_client_(channel), stub_(RouteGuide::NewStub(channel)) {
     routeguide::ParseDb(db, &feature_list_);
   }
 
@@ -190,8 +191,7 @@ class RouteGuideClient {
 
  private:
   bool GetOneFeature(const Point& point, Feature* feature) {
-    ClientContext context;
-    Status status = stub_->GetFeature(&context, point, feature);
+    Status status = get_feature_client_.GetFeature(point, feature);
     if (!status.ok()) {
       std::cout << "GetFeature rpc failed." << std::endl;
       return false;
@@ -213,6 +213,7 @@ class RouteGuideClient {
   }
 
   const float kCoordFactor_ = 10000000.0;
+  ::RouteGuideClient get_feature_client_;
   std::unique_ptr<RouteGuide::Stub> stub_;
   std::vector<Feature> feature_list_;
 };
@@ -222,7 +223,7 @@ int main(int argc, char** argv) {
   absl::InitializeLog();
   // Expect only arg: --db_path=path/to/route_guide_db.json.
   std::string db = routeguide::GetDbFileContent(argc, argv);
-  RouteGuideClient guide(
+  RouteGuideDemoClient guide(
       grpc::CreateChannel("localhost:50051",
                           grpc::InsecureChannelCredentials()),
       db);

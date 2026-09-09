@@ -257,17 +257,37 @@ if(TARGET pact-cpp-consumer)
 endif()
 
 # Install project lib + headers
+function(pact_normalize_install_path output path)
+  if(COMMAND cmake_path)
+    cmake_path(SET normalized_path NORMALIZE "${path}")
+  else()
+    set(normalized_path "${path}")
+  endif()
+  set(${output} "${normalized_path}" PARENT_SCOPE)
+endfunction()
+
+pact_normalize_install_path(PACT_CONSUMER_INSTALL_LIB_DIR
+  "pact-cpp-consumer/${PROJECT_VERSION}/lib")
+pact_normalize_install_path(PACT_CONSUMER_INSTALL_INCLUDE_DIR
+  "pact-cpp-consumer/${PROJECT_VERSION}/include")
+pact_normalize_install_path(PACT_FFI_INSTALL_INCLUDE_DIR
+  "pact_ffi/${PACT_FFI_VERSION}/include")
+pact_normalize_install_path(PACT_FFI_INSTALL_LIB_DIR
+  "pact_ffi/${PACT_FFI_VERSION}/lib")
+pact_normalize_install_path(PACT_FFI_INSTALL_BIN_DIR
+  "pact_ffi/${PACT_FFI_VERSION}/bin")
+
 install(TARGETS pact-cpp-consumer
-  ARCHIVE DESTINATION pact-cpp-consumer/${PROJECT_VERSION}/lib
+  ARCHIVE DESTINATION "${PACT_CONSUMER_INSTALL_LIB_DIR}"
 )
 install(FILES include/consumer.h include/matchers.h
-  DESTINATION pact-cpp-consumer/${PROJECT_VERSION}/include
+  DESTINATION "${PACT_CONSUMER_INSTALL_INCLUDE_DIR}"
 )
 
 # Install pact_ffi headers
 if(EXISTS "${PACT_FFI_INCLUDE}")
   install(DIRECTORY "${PACT_FFI_INCLUDE}/"
-          DESTINATION pact_ffi/${PACT_FFI_VERSION}/include
+      DESTINATION "${PACT_FFI_INSTALL_INCLUDE_DIR}"
           FILES_MATCHING PATTERN "*.h")
 endif()
 
@@ -275,19 +295,19 @@ endif()
 if(WIN32)
   if(EXISTS "${PACT_FFI_LIB}")
     install(FILES "${PACT_FFI_LIB}"
-            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME pact_ffi.lib)
   endif()
   if(DEFINED PACT_FFI_IMPLIB AND EXISTS "${PACT_FFI_IMPLIB}")
     install(FILES "${PACT_FFI_IMPLIB}"
-            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME pact_ffi.dll.lib)
   endif()
   if(DEFINED _PACT_FFI_DLL_FILENAME)
     set(PACT_FFI_DLL "${PACT_FFI_LIB_DIR}/${_PACT_FFI_DLL_FILENAME}")
     if(EXISTS "${PACT_FFI_DLL}")
       install(FILES "${PACT_FFI_DLL}"
-              DESTINATION pact_ffi/${PACT_FFI_VERSION}/bin
+              DESTINATION "${PACT_FFI_INSTALL_BIN_DIR}"
               RENAME pact_ffi.dll)
     endif()
   endif()
@@ -295,26 +315,26 @@ else()
   if(APPLE AND PactBuildUniversal)
     # Universal install: no existence guards, because pact-cpp-consumer depends on pact_ffi_universal
     install(FILES "${_ffi_univ_lib}"
-            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME libpact_ffi.a)
     install(FILES "${_ffi_univ_dyl}"
-            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME libpact_ffi.dylib)
   else()
     # Per-arch fallback
   if(EXISTS "${PACT_FFI_LIB}")
     install(FILES "${PACT_FFI_LIB}"
-            DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME libpact_ffi.a)
   endif()
     if(DEFINED PACT_FFI_SHARED AND EXISTS "${PACT_FFI_SHARED}")
     if(APPLE)
       install(FILES "${PACT_FFI_SHARED}"
-              DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+              DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
               RENAME libpact_ffi.dylib)
     else()
       install(FILES "${PACT_FFI_SHARED}"
-              DESTINATION pact_ffi/${PACT_FFI_VERSION}/lib
+              DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
               RENAME libpact_ffi.so)
       endif()
     endif()
