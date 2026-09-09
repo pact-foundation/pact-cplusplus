@@ -15,20 +15,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - os: ubuntu-latest
-          #   ffi_arch: linux-x86_64
-          # - os: ubuntu-22.04-arm
-          #   ffi_arch: linux-aarch64
-          # - os: macos-latest
-          #   ffi_arch: macos-aarch64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
           - os: windows-latest
             ffi_arch: windows-x86_64
-          # - os: ubuntu-latest
-          #   ffi_arch: linux-x86_64-musl
-          #   container: alpine:3.23
-          # - os: ubuntu-22.04-arm
-          #   ffi_arch: linux-aarch64-musl
-          #   container: alpine:3.23
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64-musl
+            container: alpine:3.23
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64-musl
+            container: alpine:3.23
     runs-on: ${{ matrix.os }}
     defaults:
       run:
