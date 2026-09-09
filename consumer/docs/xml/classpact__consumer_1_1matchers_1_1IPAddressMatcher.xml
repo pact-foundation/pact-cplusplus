@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1IPAddressMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::IPAddressMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-    <sectiondef kind="private-attrib">
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1af4b986c1404414f5e976bd53cd4bbc78" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::IPAddressMatcher::example</definition>
         <argsstring></argsstring>
         <name>example</name>
-        <qualifiedname>pact_consumer::matchers::IPAddressMatcher::example</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -19,14 +18,13 @@
         </inbodydescription>
         <location file="include/matchers.h" line="187" column="19" bodyfile="include/matchers.h" bodystart="187" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1acfbc504a485c42a3561973f7e877afb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</definition>
         <argsstring>()</argsstring>
         <name>IPAddressMatcher</name>
-        <qualifiedname>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -40,7 +38,6 @@
         <definition>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</definition>
         <argsstring>(const std::string &amp;address)</argsstring>
         <name>IPAddressMatcher</name>
-        <qualifiedname>pact_consumer::matchers::IPAddressMatcher::IPAddressMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>address</declname>
@@ -58,7 +55,6 @@
         <definition>std::string pact_consumer::matchers::IPAddressMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <qualifiedname>pact_consumer::matchers::IPAddressMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -66,35 +62,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="184" column="27" bodyfile="src/matchers.cpp" bodystart="445" bodyend="472"/>
+        <location file="include/matchers.h" line="184" column="27" bodyfile="src/matchers.cpp" bodystart="443" bodyend="470"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::IPAddressMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::IPAddressMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
     <location file="include/matchers.h" line="179" column="3" bodyfile="include/matchers.h" bodystart="179" bodyend="188"/>

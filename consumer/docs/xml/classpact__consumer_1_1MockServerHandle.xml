@@ -1,31 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1MockServerHandle" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::MockServerHandle</compoundname>
     <includes refid="consumer_8h" local="no">consumer.h</includes>
-    <sectiondef kind="private-attrib">
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1MockServerHandle_1adbcb6a08fe8ffa6b1b3a69a6265930d7" prot="private" static="no" mutable="no">
         <type>int32_t</type>
         <definition>int32_t pact_consumer::MockServerHandle::port</definition>
         <argsstring></argsstring>
         <name>port</name>
-        <qualifiedname>pact_consumer::MockServerHandle::port</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="56" column="15" bodyfile="include/consumer.h" bodystart="56" bodyend="-1"/>
+        <location file="include/consumer.h" line="45" column="15" bodyfile="include/consumer.h" bodystart="45" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a26c264a9d9c1a32d761363a5f6cf85c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::MockServerHandle::MockServerHandle</definition>
         <argsstring>(PactHandle)</argsstring>
         <name>MockServerHandle</name>
-        <qualifiedname>pact_consumer::MockServerHandle::MockServerHandle</qualifiedname>
         <param>
           <type>PactHandle</type>
           <defname>pact</defname>
@@ -36,28 +34,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="37" column="7" bodyfile="src/consumer.cpp" bodystart="310" bodyend="312"/>
+        <location file="include/consumer.h" line="26" column="7" bodyfile="src/consumer.cpp" bodystart="225" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::MockServerHandle::~MockServerHandle</definition>
         <argsstring>()</argsstring>
         <name>~MockServerHandle</name>
-        <qualifiedname>pact_consumer::MockServerHandle::~MockServerHandle</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="38" column="7" bodyfile="src/consumer.cpp" bodystart="314" bodyend="316"/>
+        <location file="include/consumer.h" line="27" column="7" bodyfile="src/consumer.cpp" bodystart="229" bodyend="231"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool pact_consumer::MockServerHandle::started_ok</definition>
         <argsstring>() const</argsstring>
         <name>started_ok</name>
-        <qualifiedname>pact_consumer::MockServerHandle::started_ok</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -65,14 +61,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="43" column="12" bodyfile="src/consumer.cpp" bodystart="318" bodyend="320"/>
+        <location file="include/consumer.h" line="32" column="12" bodyfile="src/consumer.cpp" bodystart="233" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string pact_consumer::MockServerHandle::get_url</definition>
         <argsstring>() const</argsstring>
         <name>get_url</name>
-        <qualifiedname>pact_consumer::MockServerHandle::get_url</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -80,14 +75,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="48" column="19" bodyfile="src/consumer.cpp" bodystart="322" bodyend="326"/>
+        <location file="include/consumer.h" line="37" column="19" bodyfile="src/consumer.cpp" bodystart="237" bodyend="241"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int32_t</type>
         <definition>int32_t pact_consumer::MockServerHandle::get_port</definition>
         <argsstring>() const</argsstring>
         <name>get_port</name>
-        <qualifiedname>pact_consumer::MockServerHandle::get_port</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -95,15 +89,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="53" column="15" bodyfile="src/consumer.cpp" bodystart="328" bodyend="330"/>
+        <location file="include/consumer.h" line="42" column="15" bodyfile="src/consumer.cpp" bodystart="243" bodyend="245"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Mock server handle to the mock server started for the test </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="35" column="3" bodyfile="include/consumer.h" bodystart="35" bodyend="57"/>
+    <location file="include/consumer.h" line="24" column="3" bodyfile="include/consumer.h" bodystart="24" bodyend="46"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_port</name></member>
       <member refid="classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc" prot="public" virt="non-virtual"><scope>pact_consumer::MockServerHandle</scope><name>get_url</name></member>

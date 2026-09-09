@@ -1,30 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1RegexMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::RegexMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-    <sectiondef kind="private-attrib">
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a69df3ecde9a9cbeefd537aee3a184dc1" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::RegexMatcher::regex</definition>
         <argsstring></argsstring>
         <name>regex</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::regex</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="139" column="19" bodyfile="include/matchers.h" bodystart="139" bodyend="-1"/>
+        <location file="include/matchers.h" line="139" column="19" bodyfile="include/matchers.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1a783d95d4d1ffffa9d1a46bca69a605ec" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::RegexMatcher::example</definition>
         <argsstring></argsstring>
         <name>example</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::example</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -33,14 +31,13 @@
         </inbodydescription>
         <location file="include/matchers.h" line="139" column="25" bodyfile="include/matchers.h" bodystart="139" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1acbe8de8435c2fb052a847e4ca2a762bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::RegexMatcher::RegexMatcher</definition>
         <argsstring>(const std::string &amp;r)</argsstring>
         <name>RegexMatcher</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::RegexMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>r</declname>
@@ -58,7 +55,6 @@
         <definition>pact_consumer::matchers::RegexMatcher::RegexMatcher</definition>
         <argsstring>(const std::string &amp;r, const std::string &amp;e)</argsstring>
         <name>RegexMatcher</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::RegexMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>r</declname>
@@ -80,7 +76,6 @@
         <definition>std::string pact_consumer::matchers::RegexMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -88,14 +83,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="133" column="27" bodyfile="src/matchers.cpp" bodystart="356" bodyend="382"/>
+        <location file="include/matchers.h" line="133" column="27" bodyfile="src/matchers.cpp" bodystart="354" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
         <definition>virtual std::string pact_consumer::matchers::RegexMatcher::as_example</definition>
         <argsstring>() const</argsstring>
         <name>as_example</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::as_example</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32">as_example</reimplements>
         <briefdescription>
         </briefdescription>
@@ -110,7 +104,6 @@
         <definition>virtual std::string pact_consumer::matchers::RegexMatcher::as_regex</definition>
         <argsstring>() const</argsstring>
         <name>as_regex</name>
-        <qualifiedname>pact_consumer::matchers::RegexMatcher::as_regex</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b">as_regex</reimplements>
         <briefdescription>
         </briefdescription>
@@ -120,7 +113,7 @@
         </inbodydescription>
         <location file="include/matchers.h" line="136" column="27" bodyfile="include/matchers.h" bodystart="136" bodyend="136"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

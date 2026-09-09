@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1IMatcher" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>pact_consumer::matchers::IMatcher</compoundname>
     <derivedcompoundref refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::ArrayContainsMatcher</derivedcompoundref>
@@ -21,13 +21,12 @@
     <derivedcompoundref refid="classpact__consumer_1_1matchers_1_1UrlMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::UrlMatcher</derivedcompoundref>
     <derivedcompoundref refid="classpact__consumer_1_1matchers_1_1UuidMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::UuidMatcher</derivedcompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-    <sectiondef kind="public-type">
+      <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" prot="public" static="no">
         <type>std::shared_ptr&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher" kindref="compound">IMatcher</ref> &gt;</type>
-        <definition>using pact_consumer::matchers::IMatcher::Ptr = std::shared_ptr&lt;IMatcher&gt;</definition>
+        <definition>using pact_consumer::matchers::IMatcher::Ptr =  std::shared_ptr&lt;IMatcher&gt;</definition>
         <argsstring></argsstring>
         <name>Ptr</name>
-        <qualifiedname>pact_consumer::matchers::IMatcher::Ptr</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -36,32 +35,31 @@
         </inbodydescription>
         <location file="include/matchers.h" line="15" column="7" bodyfile="include/matchers.h" bodystart="15" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>std::string</type>
         <definition>virtual std::string pact_consumer::matchers::IMatcher::getJson</definition>
         <argsstring>() const =0</argsstring>
         <name>getJson</name>
-        <qualifiedname>pact_consumer::matchers::IMatcher::getJson</qualifiedname>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1acc65451435ebb7cac8be1ae7a7e33e88">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a62acbf5a85f2eb2cd915ecc1e01a19a7">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a5a4d5ee26da003046e49cf2e6ede47c2">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a9622d5c88013538472db3e438561dd85">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a5b10e36b3dfcf5d139ef164bf12b3f68">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a6db6f2fda0dc721ebb1bc353200e4ce0">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a9772243d99cf7f3bbe041b25905496c1">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a60a44f613d7600a69d5773c737cb9494">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a33d15487bd5839fcf322b66cc7d4c47f">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a744590aa3bb3f70a807013600048a6da">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138">getJson</reimplementedby>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1ObjectMatcher_1ac7b875e4be7c487c3bec741ccdc7a34b">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1aed92aaeea30c962016a2313ce6a5502a">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IntegerMatcher_1a60a44f613d7600a69d5773c737cb9494">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DecimalMatcher_1a9622d5c88013538472db3e438561dd85">getJson</reimplementedby>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1TypeMatcher_1addaffee04e0ecf86d71dc41faa79fe67">getJson</reimplementedby>
-        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NumberMatcher_1ac142138112f55e8b9aad2f4f46a59138">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a6db6f2fda0dc721ebb1bc353200e4ce0">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a5a4d5ee26da003046e49cf2e6ede47c2">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1DateMatcher_1a62acbf5a85f2eb2cd915ecc1e01a19a7">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1TimeMatcher_1aed92aaeea30c962016a2313ce6a5502a">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1afcd085e0487904c4c5dc2eafb3673bbc">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a5b10e36b3dfcf5d139ef164bf12b3f68">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1acc65451435ebb7cac8be1ae7a7e33e88">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1ad395d31365650b7c412d1951178f23fa">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a33d15487bd5839fcf322b66cc7d4c47f">getJson</reimplementedby>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a9a9a00a6a4d6b3af4ea314901bd34eac">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a9772243d99cf7f3bbe041b25905496c1">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1NullMatcher_1a744590aa3bb3f70a807013600048a6da">getJson</reimplementedby>
+        <reimplementedby refid="classpact__consumer_1_1matchers_1_1UrlMatcher_1a156eba21716287d08f38118fb10a9693">getJson</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -75,7 +73,6 @@
         <definition>virtual std::string pact_consumer::matchers::IMatcher::as_example</definition>
         <argsstring>() const</argsstring>
         <name>as_example</name>
-        <qualifiedname>pact_consumer::matchers::IMatcher::as_example</qualifiedname>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32">as_example</reimplementedby>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e">as_example</reimplementedby>
         <briefdescription>
@@ -91,7 +88,6 @@
         <definition>virtual std::string pact_consumer::matchers::IMatcher::as_regex</definition>
         <argsstring>() const</argsstring>
         <name>as_regex</name>
-        <qualifiedname>pact_consumer::matchers::IMatcher::as_regex</qualifiedname>
         <reimplementedby refid="classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48">as_regex</reimplementedby>
         <briefdescription>
         </briefdescription>
@@ -101,21 +97,15 @@
         </inbodydescription>
         <location file="include/matchers.h" line="18" column="27" bodyfile="include/matchers.h" bodystart="18" bodyend="18"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="2">
-        <label>pact_consumer::matchers::ArrayContainsMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>pact_consumer::matchers::DateMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1DateMatcher"/>
+      <node id="18">
+        <label>pact_consumer::matchers::UrlMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1UrlMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
@@ -131,43 +121,21 @@
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="6">
-        <label>pact_consumer::matchers::EachlikeMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
+      <node id="16">
+        <label>pact_consumer::matchers::TimeMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1TimeMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="7">
-        <label>pact_consumer::matchers::EqualsMatcher&lt; T &gt;</label>
-        <link refid="classpact__consumer_1_1matchers_1_1EqualsMatcher"/>
+      <node id="3">
+        <label>pact_consumer::matchers::DateMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1DateMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="8">
-        <label>pact_consumer::matchers::HexadecimalMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
-      <node id="9">
-        <label>pact_consumer::matchers::IPAddressMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>pact_consumer::matchers::IncludesMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IncludesMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>pact_consumer::matchers::IntegerMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IntegerMatcher"/>
+      <node id="14">
+        <label>pact_consumer::matchers::ObjectMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1ObjectMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
@@ -183,21 +151,9 @@
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="14">
-        <label>pact_consumer::matchers::ObjectMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1ObjectMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>pact_consumer::matchers::RegexMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1RegexMatcher"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>pact_consumer::matchers::TimeMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1TimeMatcher"/>
+      <node id="10">
+        <label>pact_consumer::matchers::IncludesMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IncludesMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
@@ -207,15 +163,55 @@
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="18">
-        <label>pact_consumer::matchers::UrlMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1UrlMatcher"/>
+      <node id="2">
+        <label>pact_consumer::matchers::ArrayContainsMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="9">
+        <label>pact_consumer::matchers::IPAddressMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IPAddressMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
       <node id="19">
         <label>pact_consumer::matchers::UuidMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1UuidMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>pact_consumer::matchers::EachlikeMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>pact_consumer::matchers::RegexMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1RegexMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>pact_consumer::matchers::EqualsMatcher&lt; T &gt;</label>
+        <link refid="classpact__consumer_1_1matchers_1_1EqualsMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>pact_consumer::matchers::HexadecimalMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1HexadecimalMatcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>pact_consumer::matchers::IntegerMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IntegerMatcher"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>

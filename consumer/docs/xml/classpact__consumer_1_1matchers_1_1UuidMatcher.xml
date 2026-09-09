@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1UuidMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::UuidMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-    <sectiondef kind="private-attrib">
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1064288895c66dd0e239db92a99da0b4" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::UuidMatcher::example</definition>
         <argsstring></argsstring>
         <name>example</name>
-        <qualifiedname>pact_consumer::matchers::UuidMatcher::example</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -19,14 +18,13 @@
         </inbodydescription>
         <location file="include/matchers.h" line="198" column="19" bodyfile="include/matchers.h" bodystart="198" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UuidMatcher_1a1fd7cca306b66645c8d9c3714c76d14d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::UuidMatcher::UuidMatcher</definition>
         <argsstring>()</argsstring>
         <name>UuidMatcher</name>
-        <qualifiedname>pact_consumer::matchers::UuidMatcher::UuidMatcher</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -40,7 +38,6 @@
         <definition>pact_consumer::matchers::UuidMatcher::UuidMatcher</definition>
         <argsstring>(const std::string &amp;uuid)</argsstring>
         <name>UuidMatcher</name>
-        <qualifiedname>pact_consumer::matchers::UuidMatcher::UuidMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>uuid</declname>
@@ -58,7 +55,6 @@
         <definition>std::string pact_consumer::matchers::UuidMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <qualifiedname>pact_consumer::matchers::UuidMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -66,9 +62,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="195" column="27" bodyfile="src/matchers.cpp" bodystart="474" bodyend="492"/>
+        <location file="include/matchers.h" line="195" column="27" bodyfile="src/matchers.cpp" bodystart="472" bodyend="490"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,3904 +1,1310 @@
-# Pact C++ Consumer Reference
+# namespace `pact_consumer`
 
-## Namespaces
 
-| Name | Description |
-|------|-------------|
-| [`pact_consumer`](#pact_consumer) |  |
-| [`matchers`](#matchers) |  |
 
-## Typedefs
+## Summary
 
----
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`namespace `[``matchers``](#namespacepact__consumer_1_1matchers)    | 
+`class `[``Interaction``](#classpact__consumer_1_1Interaction)    | 
+`class `[``MockServerHandle``](#classpact__consumer_1_1MockServerHandle)    | 
+`class `[``Pact``](#classpact__consumer_1_1Pact)    | 
+`class `[``PactJsonBuilder``](#classpact__consumer_1_1PactJsonBuilder)    | 
+`class `[``PactTestResult``](#classpact__consumer_1_1PactTestResult)    | 
 
-### json
+# namespace `matchers`
 
-```cpp
-using json = nlohmann::json
+
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`class `[``DateMatcher``](#classpact__consumer_1_1matchers_1_1DateMatcher)    | 
+`class `[``DateTimeMatcher``](#classpact__consumer_1_1matchers_1_1DateTimeMatcher)    | 
+`class `[``DecimalMatcher``](#classpact__consumer_1_1matchers_1_1DecimalMatcher)    | 
+`class `[``EachlikeMatcher``](#classpact__consumer_1_1matchers_1_1EachlikeMatcher)    | 
+`class `[``EqualsMatcher``](#classpact__consumer_1_1matchers_1_1EqualsMatcher)    | 
+`class `[``HexadecimalMatcher``](#classpact__consumer_1_1matchers_1_1HexadecimalMatcher)    | 
+`class `[``IMatcher``](#classpact__consumer_1_1matchers_1_1IMatcher)    | 
+`class `[``IncludesMatcher``](#classpact__consumer_1_1matchers_1_1IncludesMatcher)    | 
+`class `[``IntegerMatcher``](#classpact__consumer_1_1matchers_1_1IntegerMatcher)    | 
+`class `[``IPAddressMatcher``](#classpact__consumer_1_1matchers_1_1IPAddressMatcher)    | 
+`class `[``NullMatcher``](#classpact__consumer_1_1matchers_1_1NullMatcher)    | 
+`class `[``NumberMatcher``](#classpact__consumer_1_1matchers_1_1NumberMatcher)    | 
+`class `[``ObjectMatcher``](#classpact__consumer_1_1matchers_1_1ObjectMatcher)    | 
+`class `[``RegexMatcher``](#classpact__consumer_1_1matchers_1_1RegexMatcher)    | 
+`class `[``TimeMatcher``](#classpact__consumer_1_1matchers_1_1TimeMatcher)    | 
+`class `[``TypeMatcher``](#classpact__consumer_1_1matchers_1_1TypeMatcher)    | 
+`class `[``UrlMatcher``](#classpact__consumer_1_1matchers_1_1UrlMatcher)    | 
+`class `[``UuidMatcher``](#classpact__consumer_1_1matchers_1_1UuidMatcher)    | 
+
+# class `DateMatcher` {#classpact__consumer_1_1matchers_1_1DateMatcher}
+
 ```
+class DateMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in src/consumer.cpp:9
 
 
 
-## pact_consumer
 
-### Classes
+## Summary
 
-| Name | Description |
-|------|-------------|
-| [`MockServerHandle`](#mockserverhandle) | Mock server handle to the mock server started for the test |
-| [`PactTestResult`](#pacttestresult) | Result of the [Pact](#pact) test run |
-| [`Pact`](#pact) | Class that defines a [Pact](#pact) between a consumer and provider |
-| [`Interaction`](#interaction) | Class that defines an interaction between a consumer and provider |
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  DateMatcher(std::string f)` | 
+`public inline  DateMatcher(std::string f,std::string e)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-### Enumerations
+## Members
 
-| Name | Description |
-|------|-------------|
-| [`InteractionType`](#interactiontype)  | The kind of interaction to create, controlling which pact_ffi constructor is used. |
-| [`TestResultState`](#testresultstate)  | Type of [Pact](#pact) test result |
+### `public inline  DateMatcher(std::string f)` {#classpact__consumer_1_1matchers_1_1DateMatcher_1a6723b3dd8546a852f01a26958c5600a5}
 
----
 
-#### InteractionType
 
-```cpp
-enum InteractionType
+
+
+### `public inline  DateMatcher(std::string f,std::string e)` {#classpact__consumer_1_1matchers_1_1DateMatcher_1a1154eab79153a1e0b89287b4712577c0}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1DateMatcher_1a607ec8245653311981a48af6d8a4af01}
+
+
+
+
+
+
+# class `DateTimeMatcher` {#classpact__consumer_1_1matchers_1_1DateTimeMatcher}
+
 ```
+class DateTimeMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:26
 
-The kind of interaction to create, controlling which pact_ffi constructor is used.
 
-| Value | Description |
-|-------|-------------|
-| `Http` |  |
-| `Message` |  |
-| `SyncMessage` |  |
 
----
 
-#### TestResultState
+## Summary
 
-```cpp
-enum TestResultState
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  DateTimeMatcher(std::string f)` | 
+`public inline  DateTimeMatcher(std::string f,std::string e)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  DateTimeMatcher(std::string f)` {#classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a82391f7c27b81bf856541e2f9535c7ed}
+
+
+
+
+
+### `public inline  DateTimeMatcher(std::string f,std::string e)` {#classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a624fefce3ecef9cc4ec811905cc061d3}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1DateTimeMatcher_1a4bfa2b1633fc9a411fc0bb4ae5257cb6}
+
+
+
+
+
+
+# class `DecimalMatcher` {#classpact__consumer_1_1matchers_1_1DecimalMatcher}
+
 ```
+class DecimalMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:62
 
-Type of [Pact](#pact) test result
 
-| Value | Description |
-|-------|-------------|
-| `Mismatches` |  |
-| `UserCodeFailed` |  |
-| `PactFileError` |  |
-| `MockServerFailed` |  |
-### Functions
 
-| Return | Name | Description |
-|--------|------|-------------|
-| `void` | [`init`](#init)  | Initilise the pact test library |
 
----
+## Summary
 
-#### init
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  DecimalMatcher()` | 
+`public inline  DecimalMatcher(float v)` | 
+`public inline  DecimalMatcher(double v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-```cpp
-void init()
+## Members
+
+### `public inline  DecimalMatcher()` {#classpact__consumer_1_1matchers_1_1DecimalMatcher_1a8cc13a35a6c01a7ad2034db6499d8148}
+
+
+
+
+
+### `public inline  DecimalMatcher(float v)` {#classpact__consumer_1_1matchers_1_1DecimalMatcher_1a718f029d1aee790d29882e21c2d30bb6}
+
+
+
+
+
+### `public inline  DecimalMatcher(double v)` {#classpact__consumer_1_1matchers_1_1DecimalMatcher_1aee590f8b4474b327b4ead0c65ede152f}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1DecimalMatcher_1a7d54db15ef35b2eb827f0fa9f3e67403}
+
+
+
+
+
+
+# class `EachlikeMatcher` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher}
+
 ```
-
-Defined in src/consumer.cpp:12
-
-Initilise the pact test library
-
+class EachlikeMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
 
-## MockServerHandle
 
-```cpp
-#include <consumer.h>
+
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  EachlikeMatcher(`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` | 
+`public inline  EachlikeMatcher(int e,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` | 
+`public inline  EachlikeMatcher(int e,int m,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` | 
+`public inline  EachlikeMatcher(int e,int m,int mx,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  EachlikeMatcher(`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae7bf8f7982ca2281d0dba65c762bdb46}
+
+
+
+
+
+### `public inline  EachlikeMatcher(int e,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a048dc280cac528a7ad7447fc7a7dce8b}
+
+
+
+
+
+### `public inline  EachlikeMatcher(int e,int m,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ac37dc7ce91825ae207e2040cb2e6c01e}
+
+
+
+
+
+### `public inline  EachlikeMatcher(int e,int m,int mx,`[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` t)` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ace9a9d9048656816f662e5cd141da3a0}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1EachlikeMatcher_1a60a4f05c8a9f1d09273fd1da08aeb4ae}
+
+
+
+
+
+
+# class `EqualsMatcher` {#classpact__consumer_1_1matchers_1_1EqualsMatcher}
+
 ```
+class EqualsMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-```cpp
-class MockServerHandle
+
+
+
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  EqualsMatcher(T v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+`public inline virtual std::string as_example() const` | 
+
+## Members
+
+### `public inline  EqualsMatcher(T v)` {#classpact__consumer_1_1matchers_1_1EqualsMatcher_1afe9e104f7dc744804e6956cc009304b9}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1EqualsMatcher_1a19cbad1fa3ef261b8aea853de8f195e5}
+
+
+
+
+
+### `public inline virtual std::string as_example() const` {#classpact__consumer_1_1matchers_1_1EqualsMatcher_1a7034b7f61042ccce7228f6a3e7d36d32}
+
+
+
+
+
+
+# class `HexadecimalMatcher` {#classpact__consumer_1_1matchers_1_1HexadecimalMatcher}
+
 ```
+class HexadecimalMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:35
 
-Mock server handle to the mock server started for the test
 
-### Public Methods
 
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`MockServerHandle`](#mockserverhandle-1)  |  |
-|  | [`~MockServerHandle`](#mockserverhandle-2)  |  |
-| `bool` | [`started_ok`](#started_ok) `const` | Indicates the mock server was started ok |
-| `std::string` | [`get_url`](#get_url) `const` | The URL to the mock server |
-| `int32_t` | [`get_port`](#get_port) `const` | The port the mock server is running on |
 
----
+## Summary
 
-#### MockServerHandle
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  HexadecimalMatcher()` | 
+`public inline  HexadecimalMatcher(std::string hex)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-```cpp
-MockServerHandle(PactHandle)
+## Members
+
+### `public inline  HexadecimalMatcher()` {#classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a88d4e7f050653386a9bce507d1ebfb7c}
+
+
+
+
+
+### `public inline  HexadecimalMatcher(std::string hex)` {#classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a0b59b83837f897532e92db8875208cba}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1HexadecimalMatcher_1a669207f1929f15220fa33d3251ee7047}
+
+
+
+
+
+
+# class `IMatcher` {#classpact__consumer_1_1matchers_1_1IMatcher}
+
+
+
+
+
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+`public inline virtual std::string as_example() const` | 
+`public inline virtual std::string as_regex() const` | 
+
+## Members
+
+### `public `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1IMatcher_1ad0e36b49acc57119b7db27a418cd9a5b}
+
+
+
+
+
+### `public inline virtual std::string as_example() const` {#classpact__consumer_1_1matchers_1_1IMatcher_1a83c8f74ac502ccd4085d857548683b32}
+
+
+
+
+
+### `public inline virtual std::string as_regex() const` {#classpact__consumer_1_1matchers_1_1IMatcher_1aeae8817a251ac312f7d68b6a4b62f01b}
+
+
+
+
+
+
+# class `IncludesMatcher` {#classpact__consumer_1_1matchers_1_1IncludesMatcher}
+
 ```
+class IncludesMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:37
 
----
 
-#### ~MockServerHandle
 
-```cpp
-~MockServerHandle()
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  IncludesMatcher(std::string v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  IncludesMatcher(std::string v)` {#classpact__consumer_1_1matchers_1_1IncludesMatcher_1a55de88bf627606e5b9903db166269e15}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1IncludesMatcher_1af08ed47534033b8cfcd8c88c2ca07af6}
+
+
+
+
+
+
+# class `IntegerMatcher` {#classpact__consumer_1_1matchers_1_1IntegerMatcher}
+
 ```
+class IntegerMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:38
 
----
 
-#### started_ok
 
-`const`
 
-```cpp
-bool started_ok() const
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  IntegerMatcher()` | 
+`public inline  IntegerMatcher(long v)` | 
+`public inline  IntegerMatcher(int v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  IntegerMatcher()` {#classpact__consumer_1_1matchers_1_1IntegerMatcher_1a0991d669ed3b7d53466713a2e38d0281}
+
+
+
+
+
+### `public inline  IntegerMatcher(long v)` {#classpact__consumer_1_1matchers_1_1IntegerMatcher_1a46f4b7c8cbbb1f6f19fc61c77cca9066}
+
+
+
+
+
+### `public inline  IntegerMatcher(int v)` {#classpact__consumer_1_1matchers_1_1IntegerMatcher_1a1fe7460a246233d51bb1e2275ba15229}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1IntegerMatcher_1a42d49becb285591a6dacaa6c4737f03b}
+
+
+
+
+
+
+# class `IPAddressMatcher` {#classpact__consumer_1_1matchers_1_1IPAddressMatcher}
+
 ```
+class IPAddressMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:43
 
-Indicates the mock server was started ok
 
----
 
-#### get_url
 
-`const`
+## Summary
 
-```cpp
-std::string get_url() const
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  IPAddressMatcher()` | 
+`public inline  IPAddressMatcher(std::string address)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  IPAddressMatcher()` {#classpact__consumer_1_1matchers_1_1IPAddressMatcher_1acfbc504a485c42a3561973f7e877afb5}
+
+
+
+
+
+### `public inline  IPAddressMatcher(std::string address)` {#classpact__consumer_1_1matchers_1_1IPAddressMatcher_1ac44d7b87e25b7d99c7bde3a45f43011d}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1IPAddressMatcher_1a8650595d732644d12817d182f4c99976}
+
+
+
+
+
+
+# class `NullMatcher` {#classpact__consumer_1_1matchers_1_1NullMatcher}
+
 ```
+class NullMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:48
 
-The URL to the mock server
 
----
 
-#### get_port
 
-`const`
+## Summary
 
-```cpp
-int32_t get_port() const
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1NullMatcher_1a6ac909e261e9ff32dcc5c69f9a40369e}
+
+
+
+
+
+
+# class `NumberMatcher` {#classpact__consumer_1_1matchers_1_1NumberMatcher}
+
 ```
+class NumberMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:53
 
-The port the mock server is running on
 
-### Private Attributes
 
-| Return | Name | Description |
-|--------|------|-------------|
-| `int32_t` | [`port`](#port)  |  |
 
----
+## Summary
 
-#### port
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  NumberMatcher()` | 
+`public inline  NumberMatcher(T v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-```cpp
-int32_t port
+## Members
+
+### `public inline  NumberMatcher()` {#classpact__consumer_1_1matchers_1_1NumberMatcher_1a27c9dd090644dcc2df22fb437af8afcc}
+
+
+
+
+
+### `public inline  NumberMatcher(T v)` {#classpact__consumer_1_1matchers_1_1NumberMatcher_1a8e9d378a6383ee84e356de3fa630d1c5}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1NumberMatcher_1a78c2577dce8fc71786bf237d044f3023}
+
+
+
+
+
+
+# class `ObjectMatcher` {#classpact__consumer_1_1matchers_1_1ObjectMatcher}
+
 ```
+class ObjectMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:56
 
 
 
-## PactTestResult
 
-```cpp
-#include <consumer.h>
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  ObjectMatcher(const std::unordered_map< std::string, `[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` > i_fields)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  ObjectMatcher(const std::unordered_map< std::string, `[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` > i_fields)` {#classpact__consumer_1_1matchers_1_1ObjectMatcher_1a180b4b1205e90677961cb68c2bb5e3da}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1ObjectMatcher_1aaeb0b78b715cc6fe1a531f82c7e838d6}
+
+
+
+
+
+
+# class `RegexMatcher` {#classpact__consumer_1_1matchers_1_1RegexMatcher}
+
 ```
+class RegexMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-```cpp
-class PactTestResult
+
+
+
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  RegexMatcher(std::string r)` | 
+`public inline  RegexMatcher(std::string r,std::string e)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+`public inline virtual std::string as_example() const` | 
+`public inline virtual std::string as_regex() const` | 
+
+## Members
+
+### `public inline  RegexMatcher(std::string r)` {#classpact__consumer_1_1matchers_1_1RegexMatcher_1afbc8a3f78f38df77301fa271a06f05cb}
+
+
+
+
+
+### `public inline  RegexMatcher(std::string r,std::string e)` {#classpact__consumer_1_1matchers_1_1RegexMatcher_1a43d35298ae2413d2cbb447b52b4b724f}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1RegexMatcher_1aba83023303c31c27f5b6a0dbe9fa03de}
+
+
+
+
+
+### `public inline virtual std::string as_example() const` {#classpact__consumer_1_1matchers_1_1RegexMatcher_1af29f5e7788b898dc778838eeb20cb71e}
+
+
+
+
+
+### `public inline virtual std::string as_regex() const` {#classpact__consumer_1_1matchers_1_1RegexMatcher_1a92604e824c8ef352caa1fa4a14894f48}
+
+
+
+
+
+
+# class `TimeMatcher` {#classpact__consumer_1_1matchers_1_1TimeMatcher}
+
 ```
+class TimeMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:72
 
-Result of the [Pact](#pact) test run
 
-### Public Methods
 
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`PactTestResult`](#pacttestresult-1)  |  |
-| `void` | [`add_state`](#add_state)  | Adds a test state to the result |
-| `void` | [`add_state`](#add_state-1)  | Adds a test state with a message to the result |
-| `void` | [`add_state`](#add_state-2)  | Adds a test state with a message to the result |
-| `bool` | [`is_ok`](#is_ok) `const` | If there are no mismatches and the user code did not fail |
-| `void` | [`display_errors`](#display_errors)  | Logs all errors out |
 
----
+## Summary
 
-#### PactTestResult
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  TimeMatcher(std::string f)` | 
+`public inline  TimeMatcher(std::string f,std::string e)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-```cpp
-PactTestResult()
+## Members
+
+### `public inline  TimeMatcher(std::string f)` {#classpact__consumer_1_1matchers_1_1TimeMatcher_1a3d4419eeb2265bd764ec231e5f738cc8}
+
+
+
+
+
+### `public inline  TimeMatcher(std::string f,std::string e)` {#classpact__consumer_1_1matchers_1_1TimeMatcher_1ac046e8d7763d30ad98d14d5490a39c89}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1TimeMatcher_1a257ac9db3b5fb71a4a1fe0b6156606ce}
+
+
+
+
+
+
+# class `TypeMatcher` {#classpact__consumer_1_1matchers_1_1TypeMatcher}
+
 ```
+class TypeMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:74
 
----
 
-#### add_state
 
-```cpp
-void add_state(TestResultState state)
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  TypeMatcher(T v)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  TypeMatcher(T v)` {#classpact__consumer_1_1matchers_1_1TypeMatcher_1a11577167bb784d1c1662a45ec8f78197}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1TypeMatcher_1ae96f1375296be7ea2a78e9fec7a6cca5}
+
+
+
+
+
+
+# class `UrlMatcher` {#classpact__consumer_1_1matchers_1_1UrlMatcher}
+
 ```
+class UrlMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:79
 
-Adds a test state to the result
 
----
 
-#### add_state
 
-```cpp
-void add_state(TestResultState state, std::string message)
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  UrlMatcher(std::string b,std::vector< `[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` > f)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
+
+## Members
+
+### `public inline  UrlMatcher(std::string b,std::vector< `[`IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` > f)` {#classpact__consumer_1_1matchers_1_1UrlMatcher_1a30672a90c069786fe7e52485a20a7fed}
+
+
+
+
+
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1UrlMatcher_1abb43488b2c0d7bc2fa87c102c34db57e}
+
+
+
+
+
+
+# class `UuidMatcher` {#classpact__consumer_1_1matchers_1_1UuidMatcher}
+
 ```
+class UuidMatcher
+  : public pact_consumer::matchers::IMatcher
+```  
 
-Defined in include/consumer.h:84
 
-Adds a test state with a message to the result
 
----
 
-#### add_state
 
-```cpp
-void add_state(TestResultState state, std::string message, std::string ex)
-```
+## Summary
 
-Defined in include/consumer.h:89
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  UuidMatcher()` | 
+`public inline  UuidMatcher(std::string uuid)` | 
+`public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` | 
 
-Adds a test state with a message to the result
+## Members
 
----
+### `public inline  UuidMatcher()` {#classpact__consumer_1_1matchers_1_1UuidMatcher_1a1fd7cca306b66645c8d9c3714c76d14d}
 
-#### is_ok
 
-`const`
 
-```cpp
-bool is_ok() const
-```
 
-Defined in include/consumer.h:94
 
-If there are no mismatches and the user code did not fail
+### `public inline  UuidMatcher(std::string uuid)` {#classpact__consumer_1_1matchers_1_1UuidMatcher_1a341279e31305c6db7bd6952c6ea5f8af}
 
----
 
-#### display_errors
 
-```cpp
-void display_errors()
-```
 
-Defined in include/consumer.h:99
 
-Logs all errors out
+### `public virtual `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` getJson() const` {#classpact__consumer_1_1matchers_1_1UuidMatcher_1a3e71e2f36be6c3db39ef819bafb353ed}
 
-### Private Attributes
 
-| Return | Name | Description |
-|--------|------|-------------|
-| `unsigned int` | [`status`](#status)  |  |
-| `std::vector< std::string >` | [`messages`](#messages)  |  |
-| `std::optional< std::string >` | [`ex`](#ex)  |  |
 
----
 
-#### status
 
-```cpp
-unsigned int status = 0
-```
 
-Defined in include/consumer.h:102
+# class `Interaction` {#classpact__consumer_1_1Interaction}
 
----
 
-#### messages
 
-```cpp
-std::vector< std::string > messages
-```
-
-Defined in include/consumer.h:103
-
----
-
-#### ex
-
-```cpp
-std::optional< std::string > ex
-```
-
-Defined in include/consumer.h:104
-
-
-
-## Pact
-
-```cpp
-#include <consumer.h>
-```
-
-```cpp
-class Pact
-```
-
-Defined in include/consumer.h:110
-
-Class that defines a [Pact](#pact) between a consumer and provider
-
-### Public Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `PactHandle` | [`pact`](#pact-1)  |  |
-| `std::string` | [`pact_directory`](#pact_directory)  | Directory to write pact files to |
-
----
-
-#### pact
-
-```cpp
-PactHandle pact
-```
-
-Defined in include/consumer.h:172
-
----
-
-#### pact_directory
-
-```cpp
-std::string pact_directory
-```
-
-Defined in include/consumer.h:177
-
-Directory to write pact files to
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`Pact`](#pact-2)  | Constructs the [Pact](#pact) given the consumer and provider names |
-| [`Interaction`](#interaction) | [`given`](#given) `const` | Creates a new iteraction with a defined provider state |
-| [`Interaction`](#interaction) | [`given`](#given-1) `const` | Creates a new iteraction with a defined provider state and parameters |
-| [`Interaction`](#interaction) | [`uponReceiving`](#uponreceiving) `const` | Creates a new interaction with the provided description. |
-| `void` | [`withSpecification`](#withspecification) `const` | Sets the [Pact](#pact) specification version to generate the pact file for (V1 - V4). Required for V4-only features such as sync/async messages and plugins. |
-| `bool` | [`usingPlugin`](#usingplugin) `const` | Adds a plugin (e.g. protobuf/gRPC) to be used by the test. The plugin must be installed for this to succeed. Returns true on success. |
-| `void` | [`cleanupPlugins`](#cleanupplugins) `const` | Shuts down any plugins that are no longer required by this [Pact](#pact). |
-| [`Interaction`](#interaction) | [`newMessage`](#newmessage) `const` | Creates a new V4 asynchronous message interaction with the provided description. |
-| [`Interaction`](#interaction) | [`newSyncMessage`](#newsyncmessage) `const` | Creates a new V4 synchronous (request/response) message interaction with the provided description. |
-| [`PactTestResult`](#pacttestresult) | [`run_test`](#run_test) `const` | Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful. |
-| [`PactTestResult`](#pacttestresult) | [`run_message_test`](#run_message_test) `const` | Runs a message/plugin test that doesn't require a mock server (e.g. async/sync messages, or plugin-driven interactions such as gRPC). The callback needs to return a boolean value to indicate if the test was successful, after which the pact file is written. |
-
----
-
-#### Pact
-
-```cpp
-Pact(const char * consumer, const char * provider)
-```
-
-Defined in include/consumer.h:115
-
-Constructs the [Pact](#pact) given the consumer and provider names
-
----
-
-#### given
-
-`const`
-
-```cpp
-Interaction given(const char * provider_state) const
-```
-
-Defined in include/consumer.h:120
-
-Creates a new iteraction with a defined provider state
-
----
-
-#### given
-
-`const`
-
-```cpp
-Interaction given(const char * provider_state, const std::unordered_map< std::string, std::string > & parameters) const
-```
-
-Defined in include/consumer.h:125
-
-Creates a new iteraction with a defined provider state and parameters
-
----
-
-#### uponReceiving
-
-`const`
-
-```cpp
-Interaction uponReceiving(const char * description) const
-```
-
-Defined in include/consumer.h:130
-
-Creates a new interaction with the provided description.
-
----
-
-#### withSpecification
-
-`const`
-
-```cpp
-void withSpecification(PactSpecification version) const
-```
-
-Defined in include/consumer.h:136
-
-Sets the [Pact](#pact) specification version to generate the pact file for (V1 - V4). Required for V4-only features such as sync/async messages and plugins.
-
----
-
-#### usingPlugin
-
-`const`
-
-```cpp
-bool usingPlugin(const std::string & plugin_name, const std::string & plugin_version = "") const
-```
-
-Defined in include/consumer.h:142
-
-Adds a plugin (e.g. protobuf/gRPC) to be used by the test. The plugin must be installed for this to succeed. Returns true on success.
-
----
-
-#### cleanupPlugins
-
-`const`
-
-```cpp
-void cleanupPlugins() const
-```
-
-Defined in include/consumer.h:147
-
-Shuts down any plugins that are no longer required by this [Pact](#pact).
-
----
-
-#### newMessage
-
-`const`
-
-```cpp
-Interaction newMessage(const char * description) const
-```
-
-Defined in include/consumer.h:152
-
-Creates a new V4 asynchronous message interaction with the provided description.
-
----
-
-#### newSyncMessage
-
-`const`
-
-```cpp
-Interaction newSyncMessage(const char * description) const
-```
-
-Defined in include/consumer.h:157
-
-Creates a new V4 synchronous (request/response) message interaction with the provided description.
-
----
-
-#### run_test
-
-`const`
-
-```cpp
-PactTestResult run_test(std::function< bool(const MockServerHandle *)> callback) const
-```
-
-Defined in include/consumer.h:163
-
-Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful.
-
----
-
-#### run_message_test
-
-`const`
-
-```cpp
-PactTestResult run_message_test(std::function< bool()> callback) const
-```
-
-Defined in include/consumer.h:170
-
-Runs a message/plugin test that doesn't require a mock server (e.g. async/sync messages, or plugin-driven interactions such as gRPC). The callback needs to return a boolean value to indicate if the test was successful, after which the pact file is written.
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`consumer`](#consumer)  |  |
-| `std::string` | [`provider`](#provider)  |  |
-
----
-
-#### consumer
-
-```cpp
-std::string consumer
-```
-
-Defined in include/consumer.h:180
-
----
-
-#### provider
-
-```cpp
-std::string provider
-```
-
-Defined in include/consumer.h:181
-
-
-
-## Interaction
-
-```cpp
-#include <consumer.h>
-```
-
-```cpp
-class Interaction
-```
-
-Defined in include/consumer.h:187
 
 Class that defines an interaction between a consumer and provider
 
-### Public Attributes
+## Summary
 
-| Return | Name | Description |
-|--------|------|-------------|
-| `InteractionHandle` | [`interaction`](#interaction-1)  |  |
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public pact_mock_server_ffi::InteractionHandle interaction` | 
+`public  Interaction(const `[`Pact`](#classpact__consumer_1_1Pact)` * parent,const char * description)` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state,std::unordered_map< std::string, std::string > parameters) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` uponReceiving(const char * description) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withRequest(const char * method,const char * path) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withQuery(std::unordered_map< std::string, std::vector< std::string >> query) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withHeaders(std::unordered_map< std::string, std::vector< std::string >> headers) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withJsonBody(void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withJsonBody(`[`pact_consumer::matchers::IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` body) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withBinaryFile(std::string content_type,std::filesystem::path example_file) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` willRespondWith(size_t status) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseHeaders(std::unordered_map< std::string, std::vector< std::string >> headers) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseJsonBody(void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseJsonBody(`[`pact_consumer::matchers::IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` body) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseBinaryFile(std::string content_type,std::filesystem::path example_file) const` | 
 
----
+## Members
 
-#### interaction
+### `public pact_mock_server_ffi::InteractionHandle interaction` {#classpact__consumer_1_1Interaction_1a89bc107360700c1ba7741061910d4485}
 
-```cpp
-InteractionHandle interaction
-```
 
-Defined in include/consumer.h:298
 
-### Public Methods
 
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`Interaction`](#interaction-2)  |  |
-| [`Interaction`](#interaction-2) | [`given`](#given-2) `const` | Adds the provider state to the interaction |
-| [`Interaction`](#interaction-2) | [`given`](#given-3) `const` | Adds a provider state with parameters |
-| [`Interaction`](#interaction-2) | [`uponReceiving`](#uponreceiving-1) `const` | Sets the description for the interaction |
-| [`Interaction`](#interaction-2) | [`withRequest`](#withrequest) `const` | Sets the method and path for the request |
-| [`Interaction`](#interaction-2) | [`withQuery`](#withquery) `const` | Sets the query parameters for the request |
-| [`Interaction`](#interaction-2) | [`withHeaders`](#withheaders) `const` | Sets the headers for the request |
-| [`Interaction`](#interaction-2) | [`withBody`](#withbody) `const` | Sets the body for the request to the string contents. |
-| [`Interaction`](#interaction-2) | [`withJsonBody`](#withjsonbody) `const` | Sets the body for the request using the provided body template. |
-| [`Interaction`](#interaction-2) | [`withMetadata`](#withmetadata) `const` | Sets metadata on a message (or the request part of a synchronous message), such as the queue name or message type. Only relevant for message interactions. |
-| [`Interaction`](#interaction-2) | [`withResponseMetadata`](#withresponsemetadata) `const` | Sets metadata on the response part of a synchronous message. |
-| [`Interaction`](#interaction-2) | [`withPluginContents`](#withplugincontents) `const` | Configures the request part of the interaction using a plugin (e.g. protobuf/gRPC). The contents is a JSON string passed on to the plugin to configure the interaction; refer to the plugin documentation for the expected format. |
-| [`Interaction`](#interaction-2) | [`withResponsePluginContents`](#withresponseplugincontents) `const` | Configures the response part of the interaction using a plugin (e.g. protobuf/gRPC). |
-| [`Interaction`](#interaction-2) | [`withBinaryFile`](#withbinaryfile) `const` | Sets the body for the request using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. |
-| [`Interaction`](#interaction-2) | [`withMultipartFileUpload`](#withmultipartfileupload) `const` | Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. |
-| [`Interaction`](#interaction-2) | [`willRespondWith`](#willrespondwith) `const` | Sets the status code for the response |
-| [`Interaction`](#interaction-2) | [`withResponseHeaders`](#withresponseheaders) `const` | Sets the headers for the response |
-| [`Interaction`](#interaction-2) | [`withResponseBody`](#withresponsebody) `const` | Sets the body for the response to the string contents. |
-| [`Interaction`](#interaction-2) | [`withResponseJsonBody`](#withresponsejsonbody) `const` | Sets the body for the request using the provided body template |
-| [`Interaction`](#interaction-2) | [`withResponseBinaryFile`](#withresponsebinaryfile) `const` | Sets the body for the response using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. |
-| [`Interaction`](#interaction-2) | [`withResponseMultipartFileUpload`](#withresponsemultipartfileupload) `const` | Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing. |
 
----
+### `public  Interaction(const `[`Pact`](#classpact__consumer_1_1Pact)` * parent,const char * description)` {#classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb}
 
-#### Interaction
 
-```cpp
-Interaction(const Pact * parent, const char * description, InteractionType type = InteractionType::Http)
-```
 
-Defined in include/consumer.h:189
 
----
 
-#### given
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state) const` {#classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9}
 
-`const`
 
-```cpp
-Interaction given(const char * provider_state) const
-```
-
-Defined in include/consumer.h:194
 
 Adds the provider state to the interaction
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state,std::unordered_map< std::string, std::string > parameters) const` {#classpact__consumer_1_1Interaction_1a5acf88deed519e9053db782bb836f1ed}
 
-#### given
 
-`const`
-
-```cpp
-Interaction given(const char * provider_state, const std::unordered_map< std::string, std::string > & parameters) const
-```
-
-Defined in include/consumer.h:199
 
 Adds a provider state with parameters
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` uponReceiving(const char * description) const` {#classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2}
 
-#### uponReceiving
 
-`const`
-
-```cpp
-Interaction uponReceiving(const char * description) const
-```
-
-Defined in include/consumer.h:204
 
 Sets the description for the interaction
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withRequest(const char * method,const char * path) const` {#classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341}
 
-#### withRequest
 
-`const`
-
-```cpp
-Interaction withRequest(const char * method, const char * path) const
-```
-
-Defined in include/consumer.h:209
 
 Sets the method and path for the request
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withQuery(std::unordered_map< std::string, std::vector< std::string >> query) const` {#classpact__consumer_1_1Interaction_1ac73dc56507068dcf186dc76ebb848b30}
 
-#### withQuery
 
-`const`
-
-```cpp
-Interaction withQuery(const std::unordered_map< std::string, std::vector< std::string > > & query) const
-```
-
-Defined in include/consumer.h:214
 
 Sets the query parameters for the request
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withHeaders(std::unordered_map< std::string, std::vector< std::string >> headers) const` {#classpact__consumer_1_1Interaction_1a8d4c0519d5e17bc14e4b062fd4361c71}
 
-#### withHeaders
 
-`const`
-
-```cpp
-Interaction withHeaders(const std::unordered_map< std::string, std::vector< std::string > > & headers) const
-```
-
-Defined in include/consumer.h:219
 
 Sets the headers for the request
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withJsonBody(void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback) const` {#classpact__consumer_1_1Interaction_1ac7cbcf570140343c007522be4091afb7}
 
-#### withBody
 
-`const`
 
-```cpp
-Interaction withBody(const std::string & body, const std::string & content_type) const
-```
+Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body.
 
-Defined in include/consumer.h:224
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withJsonBody(`[`pact_consumer::matchers::IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` body) const` {#classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb}
 
-Sets the body for the request to the string contents.
 
----
-
-#### withJsonBody
-
-`const`
-
-```cpp
-Interaction withJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const
-```
-
-Defined in include/consumer.h:229
-
-Sets the body for the request using the provided body template.
-
----
-
-#### withMetadata
-
-`const`
-
-```cpp
-Interaction withMetadata(const std::string & key, const std::string & value) const
-```
-
-Defined in include/consumer.h:235
-
-Sets metadata on a message (or the request part of a synchronous message), such as the queue name or message type. Only relevant for message interactions.
-
----
-
-#### withResponseMetadata
-
-`const`
-
-```cpp
-Interaction withResponseMetadata(const std::string & key, const std::string & value) const
-```
-
-Defined in include/consumer.h:240
-
-Sets metadata on the response part of a synchronous message.
-
----
-
-#### withPluginContents
-
-`const`
-
-```cpp
-Interaction withPluginContents(const std::string & content_type, const std::string & contents) const
-```
-
-Defined in include/consumer.h:247
-
-Configures the request part of the interaction using a plugin (e.g. protobuf/gRPC). The contents is a JSON string passed on to the plugin to configure the interaction; refer to the plugin documentation for the expected format.
-
----
-
-#### withResponsePluginContents
-
-`const`
-
-```cpp
-Interaction withResponsePluginContents(const std::string & content_type, const std::string & contents) const
-```
-
-Defined in include/consumer.h:252
-
-Configures the response part of the interaction using a plugin (e.g. protobuf/gRPC).
-
----
-
-#### withBinaryFile
-
-`const`
-
-```cpp
-Interaction withBinaryFile(const std::string & content_type, const std::filesystem::path & example_file) const
-```
-
-Defined in include/consumer.h:258
-
-Sets the body for the request using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing.
-
----
-
-#### withMultipartFileUpload
-
-`const`
-
-```cpp
-Interaction withMultipartFileUpload(const std::string & part_name, const std::string & content_type, const std::filesystem::path & example_file) const
-```
-
-Defined in include/consumer.h:264
-
-Sets the body for the request as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing.
-
----
-
-#### willRespondWith
-
-`const`
-
-```cpp
-Interaction willRespondWith(size_t status) const
-```
-
-Defined in include/consumer.h:269
-
-Sets the status code for the response
-
----
-
-#### withResponseHeaders
-
-`const`
-
-```cpp
-Interaction withResponseHeaders(const std::unordered_map< std::string, std::vector< std::string > > & headers) const
-```
-
-Defined in include/consumer.h:274
-
-Sets the headers for the response
-
----
-
-#### withResponseBody
-
-`const`
-
-```cpp
-Interaction withResponseBody(const std::string & body, const std::string & content_type) const
-```
-
-Defined in include/consumer.h:279
-
-Sets the body for the response to the string contents.
-
----
-
-#### withResponseJsonBody
-
-`const`
-
-```cpp
-Interaction withResponseJsonBody(pact_consumer::matchers::IMatcher::Ptr body) const
-```
-
-Defined in include/consumer.h:284
 
 Sets the body for the request using the provided body template
 
----
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withBinaryFile(std::string content_type,std::filesystem::path example_file) const` {#classpact__consumer_1_1Interaction_1a32d4f4973538d33d5abe1889d0c8365f}
 
-#### withResponseBinaryFile
 
-`const`
 
-```cpp
-Interaction withResponseBinaryFile(const std::string & content_type, const std::filesystem::path & example_file) const
-```
+Sets the body for the request using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing.
 
-Defined in include/consumer.h:290
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` willRespondWith(size_t status) const` {#classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45}
+
+
+
+Sets the status code for the response
+
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseHeaders(std::unordered_map< std::string, std::vector< std::string >> headers) const` {#classpact__consumer_1_1Interaction_1a9d0915c5ab54bff6e33a9ca8e9464baa}
+
+
+
+Sets the headers for the response
+
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseJsonBody(void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback) const` {#classpact__consumer_1_1Interaction_1afa30f026c1c2cb12d366ea23f27ff255}
+
+
+
+Sets the body for the request using the callback. The callback will be invoked with a builder to construct the body.
+
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseJsonBody(`[`pact_consumer::matchers::IMatcher::Ptr`](#classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b)` body) const` {#classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863}
+
+
+
+Sets the body for the request using the provided body template
+
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` withResponseBinaryFile(std::string content_type,std::filesystem::path example_file) const` {#classpact__consumer_1_1Interaction_1a3489e6576ddb7e22fd6dbc45d35fefd8}
+
+
 
 Sets the body for the response using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing.
 
----
-
-#### withResponseMultipartFileUpload
-
-`const`
-
-```cpp
-Interaction withResponseMultipartFileUpload(const std::string & part_name, const std::string & content_type, const std::filesystem::path & example_file) const
-```
-
-Defined in include/consumer.h:296
-
-Sets the body for the response as a MIME multipart body using the example file and content type. Note that this will attempt to load the entire example file in memory. Use small files for your testing.
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`description`](#description)  |  |
-| const [`Pact`](#pact) * | [`pact`](#pact-3)  |  |
-
----
-
-#### description
-
-```cpp
-std::string description
-```
-
-Defined in include/consumer.h:301
-
----
-
-#### pact
-
-```cpp
-const Pact * pact
-```
-
-Type: const [`Pact`](#pact) *
-
-Defined in include/consumer.h:302
-
-
-
-## matchers
-
-### Classes
-
-| Name | Description |
-|------|-------------|
-| [`IMatcher`](#imatcher) |  |
-| [`ObjectMatcher`](#objectmatcher) |  |
-| [`IntegerMatcher`](#integermatcher) |  |
-| [`DecimalMatcher`](#decimalmatcher) |  |
-| [`TypeMatcher`](#typematcher) |  |
-| [`NumberMatcher`](#numbermatcher) |  |
-| [`EqualsMatcher`](#equalsmatcher) |  |
-| [`DateTimeMatcher`](#datetimematcher) |  |
-| [`DateMatcher`](#datematcher) |  |
-| [`TimeMatcher`](#timematcher) |  |
-| [`RegexMatcher`](#regexmatcher) |  |
-| [`EachlikeMatcher`](#eachlikematcher) |  |
-| [`ArrayContainsMatcher`](#arraycontainsmatcher) |  |
-| [`HexadecimalMatcher`](#hexadecimalmatcher) |  |
-| [`IPAddressMatcher`](#ipaddressmatcher) |  |
-| [`UuidMatcher`](#uuidmatcher) |  |
-| [`IncludesMatcher`](#includesmatcher) |  |
-| [`NullMatcher`](#nullmatcher) |  |
-| [`UrlMatcher`](#urlmatcher) |  |
-
-### Functions
-
-| Return | Name | Description |
-|--------|------|-------------|
-| [`IMatcher::Ptr`](#ptr) | [`Object`](#object)  | Represents a JSON object (map of string fields) |
-| [`IMatcher::Ptr`](#ptr) | [`Integer`](#integer)  | Matchers an integer value (must be a number and have no decimal places). |
-| [`IMatcher::Ptr`](#ptr) | [`Integer`](#integer-1)  | Matchers an integer value (must be a number and have no decimal places). |
-| [`IMatcher::Ptr`](#ptr) | [`Integer`](#integer-2)  | Matchers an integer value (must be a number and have no decimal places). A random example value will be generated. |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like-1)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like-2)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like-3)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like-4)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`Like`](#like-5)  | Matchers value based on the value type |
-| [`IMatcher::Ptr`](#ptr) | [`DateTime`](#datetime)  | String value that must match the provided datetime format string. |
-| [`IMatcher::Ptr`](#ptr) | [`DateTime`](#datetime-1)  | String value that must match the provided datetime format string. Example values will be generated using the current system date and time. |
-| [`IMatcher::Ptr`](#ptr) | [`Date`](#date)  | String value that must match the provided date format string. |
-| [`IMatcher::Ptr`](#ptr) | [`Date`](#date-1)  | String value that must match the provided date format string. Example values will be generated using the current system date and time. |
-| [`IMatcher::Ptr`](#ptr) | [`Time`](#time)  | String value that must match the provided time format string. |
-| [`IMatcher::Ptr`](#ptr) | [`Time`](#time-1)  | String value that must match the provided time format string. Example values will be generated using the current system date and time. |
-| [`IMatcher::Ptr`](#ptr) | [`Matching`](#matching)  | String value that must match the regular expression |
-| [`IMatcher::Ptr`](#ptr) | [`Matching`](#matching-1)  | String value that must match the regular expression. Random values will be generated for the examples. |
-| [`IMatcher::Ptr`](#ptr) | [`EachLike`](#eachlike)  | Array of values where each item in the array must match the provided template. |
-| [`IMatcher::Ptr`](#ptr) | [`EachLike`](#eachlike-1)  | Array of values where each item in the array must match the provided template. |
-| [`IMatcher::Ptr`](#ptr) | [`AtLeastOneLike`](#atleastonelike)  | Array of values that must have at least one value and each item in the array must match the provided template. |
-| [`IMatcher::Ptr`](#ptr) | [`AtLeastOneLike`](#atleastonelike-1)  | Array of values that must have at least one value and each item in the array must match the provided template. |
-| [`IMatcher::Ptr`](#ptr) | [`HexValue`](#hexvalue)  | Match a hexadecimal value |
-| [`IMatcher::Ptr`](#ptr) | [`HexValue`](#hexvalue-1)  | Match a hexadecimal value. Random examples will be generated. |
-| [`IMatcher::Ptr`](#ptr) | [`IPAddress`](#ipaddress)  | Match an IP Address |
-| [`IMatcher::Ptr`](#ptr) | [`IPAddress`](#ipaddress-1)  | Match an IP Address. Will use 127.0.0.1 for examples. |
-| [`IMatcher::Ptr`](#ptr) | [`Numeric`](#numeric)  | Match a numeric value. This will match any numeric type (integer or floating point). |
-| [`IMatcher::Ptr`](#ptr) | [`Numeric`](#numeric-1)  | Match a numeric value. This will match any numeric type (integer or floating point). |
-| [`IMatcher::Ptr`](#ptr) | [`Numeric`](#numeric-2)  | Match a numeric value. This will match any numeric type (integer or floating point). |
-| [`IMatcher::Ptr`](#ptr) | [`Numeric`](#numeric-3)  | Match a numeric value. This will match any numeric type (integer or floating point). |
-| [`IMatcher::Ptr`](#ptr) | [`Numeric`](#numeric-4)  | Match a numeric value. Random decimal values will be generated for examples. |
-| [`IMatcher::Ptr`](#ptr) | [`Decimal`](#decimal)  | Match a decimal value (number with atleast one digit after the decimal point) |
-| [`IMatcher::Ptr`](#ptr) | [`Decimal`](#decimal-1)  | Match a decimal value (number with atleast one digit after the decimal point) |
-| [`IMatcher::Ptr`](#ptr) | [`Decimal`](#decimal-2)  | Match a decimal value (number with atleast one digit after the decimal point). Random values will be generated for examples. |
-| [`IMatcher::Ptr`](#ptr) | [`Uuid`](#uuid)  | Match a universally unique identifier (UUID) |
-| [`IMatcher::Ptr`](#ptr) | [`Uuid`](#uuid-1)  | Match a universally unique identifier (UUID). Random values will be used for examples. |
-| [`IMatcher::Ptr`](#ptr) | [`AtMostLike`](#atmostlike)  | Array with maximum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`AtMostLike`](#atmostlike-1)  | Array with maximum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`MinArrayLike`](#minarraylike)  | Array with minimum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`MinArrayLike`](#minarraylike-1)  | Array with minimum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`ConstrainedArrayLike`](#constrainedarraylike)  | Array with minimum and maximum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`ConstrainedArrayLike`](#constrainedarraylike-1)  | Array with minimum and maximum size and each element like the template object. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-1)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-2)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-3)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-4)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-5)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`EqualTo`](#equalto-6)  | Match by equality. This is mainly used to reset the cascading type matchers. |
-| [`IMatcher::Ptr`](#ptr) | [`IncludesStr`](#includesstr)  | Matches if the string value contains the given value |
-| [`IMatcher::Ptr`](#ptr) | [`NullValue`](#nullvalue)  | Matches a JSON null value |
-| [`IMatcher::Ptr`](#ptr) | [`Url`](#url)  | Matches a URL composed of a base path and a list of path fragments |
-| [`IMatcher::Ptr`](#ptr) | [`Url`](#url-1)  | Matches a URL composed of a base path and a list of path fragments. The base URL from the mock server will be used. |
-| [`IMatcher::Ptr`](#ptr) | [`ArrayContaining`](#arraycontaining)  | Matches the items in an array against a number of variants. Matching is successful if each variant occurs once in the array. Variants may be objects containing matching rules. |
 
----
+# class `MockServerHandle` {#classpact__consumer_1_1MockServerHandle}
 
-#### Object
 
-```cpp
-IMatcher::Ptr Object(const std::unordered_map< std::string, IMatcher::Ptr > & fields)
-```
 
-Defined in src/matchers.cpp:12
 
-Represents a JSON object (map of string fields)
+Mock server handle to the mock server started for the test
 
----
+## Summary
 
-#### Integer
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  MockServerHandle(pact_mock_server_ffi::PactHandle)` | 
+`public  ~MockServerHandle()` | 
+`public bool started_ok() const` | 
+`public std::string get_url() const` | 
+`public int32_t get_port() const` | 
 
-```cpp
-IMatcher::Ptr Integer(long value)
-```
+## Members
 
-Defined in src/matchers.cpp:16
+### `public  MockServerHandle(pact_mock_server_ffi::PactHandle)` {#classpact__consumer_1_1MockServerHandle_1a8ec5a62b26a7551101312afd3ea542a4}
 
-Matchers an integer value (must be a number and have no decimal places).
 
----
 
-#### Integer
 
-```cpp
-IMatcher::Ptr Integer(int value)
-```
 
-Defined in src/matchers.cpp:20
+### `public  ~MockServerHandle()` {#classpact__consumer_1_1MockServerHandle_1a515457a59d2e3a74e22ec558a8e5a490}
 
-Matchers an integer value (must be a number and have no decimal places).
 
----
 
-#### Integer
 
-```cpp
-IMatcher::Ptr Integer()
-```
 
-Defined in src/matchers.cpp:24
+### `public bool started_ok() const` {#classpact__consumer_1_1MockServerHandle_1a5956a6aa4afb3cb782dae4ed58f7e5ad}
 
-Matchers an integer value (must be a number and have no decimal places). A random example value will be generated.
 
----
 
-#### Like
+Indicates the mock server was started ok
 
-```cpp
-IMatcher::Ptr Like(long value)
-```
+### `public std::string get_url() const` {#classpact__consumer_1_1MockServerHandle_1a7b9177aab903fca361cac6be60f2a7cc}
 
-Defined in src/matchers.cpp:28
 
-Matchers value based on the value type
 
----
+The URL to the mock server
 
-#### Like
+### `public int32_t get_port() const` {#classpact__consumer_1_1MockServerHandle_1ad3109a5b065ceac4e83e901c05625562}
 
-```cpp
-IMatcher::Ptr Like(int value)
-```
 
-Defined in src/matchers.cpp:32
 
-Matchers value based on the value type
+The port the mock server is running on
 
----
 
-#### Like
+# class `Pact` {#classpact__consumer_1_1Pact}
 
-```cpp
-IMatcher::Ptr Like(double value)
-```
 
-Defined in src/matchers.cpp:36
 
-Matchers value based on the value type
 
----
+Class that defines a [Pact](#classpact__consumer_1_1Pact) between a consumer and provider
 
-#### Like
+## Summary
 
-```cpp
-IMatcher::Ptr Like(const std::string & value)
-```
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public pact_mock_server_ffi::PactHandle pact` | 
+`public std::string pact_directory` | 
+`public  Pact(const char * consumer,const char * provider)` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state,std::unordered_map< std::string, std::string > parameters) const` | 
+`public `[`Interaction`](#classpact__consumer_1_1Interaction)` uponReceiving(const char * description) const` | 
+`public `[`PactTestResult`](#classpact__consumer_1_1PactTestResult)` run_test(bool(*)(`[`MockServerHandle`](#classpact__consumer_1_1MockServerHandle) *)` callback) const` | 
 
-Defined in src/matchers.cpp:40
+## Members
 
-Matchers value based on the value type
+### `public pact_mock_server_ffi::PactHandle pact` {#classpact__consumer_1_1Pact_1a43a945f3d3b363c9c251f5954e76b915}
 
----
 
-#### Like
 
-```cpp
-IMatcher::Ptr Like(const char * value)
-```
 
-Defined in src/matchers.cpp:44
 
-Matchers value based on the value type
+### `public std::string pact_directory` {#classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2}
 
----
 
-#### Like
 
-```cpp
-IMatcher::Ptr Like(bool value)
-```
+Directory to write pact files to
 
-Defined in src/matchers.cpp:48
+### `public  Pact(const char * consumer,const char * provider)` {#classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630}
 
-Matchers value based on the value type
 
----
 
-#### DateTime
+Constructs the [Pact](#classpact__consumer_1_1Pact) given the consumer and provider names
 
-```cpp
-IMatcher::Ptr DateTime(const std::string & format, const std::string & example)
-```
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state) const` {#classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5}
 
-Defined in src/matchers.cpp:52
 
-String value that must match the provided datetime format string.
 
-##### Parameters
+Creates a new iteraction with a defined provider state
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
-| `example` | `const std::string &` | Example value to use |
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` given(const char * provider_state,std::unordered_map< std::string, std::string > parameters) const` {#classpact__consumer_1_1Pact_1a00772d7384c5484206c87990cd09cfdf}
 
----
 
-#### DateTime
 
-```cpp
-IMatcher::Ptr DateTime(const std::string & format)
-```
+Creates a new iteraction with a defined provider state and parameters
 
-Defined in src/matchers.cpp:56
+### `public `[`Interaction`](#classpact__consumer_1_1Interaction)` uponReceiving(const char * description) const` {#classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d}
 
-String value that must match the provided datetime format string. Example values will be generated using the current system date and time.
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
+Creates a new interaction with the provided description.
 
----
+### `public `[`PactTestResult`](#classpact__consumer_1_1PactTestResult)` run_test(bool(*)(`[`MockServerHandle`](#classpact__consumer_1_1MockServerHandle) *)` callback) const` {#classpact__consumer_1_1Pact_1a3428f3cbc0ad30377867377efe84fef2}
 
-#### Date
 
-```cpp
-IMatcher::Ptr Date(const std::string & format, const std::string & example)
-```
 
-Defined in src/matchers.cpp:60
+Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful.
 
-String value that must match the provided date format string.
 
-##### Parameters
+# class `PactJsonBuilder` {#classpact__consumer_1_1PactJsonBuilder}
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
-| `example` | `const std::string &` | Example value to use |
 
----
 
-#### Date
 
-```cpp
-IMatcher::Ptr Date(const std::string & format)
-```
+Builder class to help construct JSON bodies
 
-Defined in src/matchers.cpp:64
+## Summary
 
-String value that must match the provided date format string. Example values will be generated using the current system date and time.
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  PactJsonBuilder(const `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` * parent)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & eachLike(std::string name,unsigned int examples,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & eachLike(std::string name,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & atLeastOneLike(std::string name,unsigned int examples,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & atLeastOneLike(std::string name,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & integer(std::string name,int example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & integer(std::string name)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & decimal(std::string name,double example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & decimal(std::string name)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name,double example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name,int example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & string(std::string name,std::string example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & string(std::string name)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & regex(std::string name,std::string regex,std::string example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & regex(std::string name,std::string regex)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & datetime(std::string name,std::string format,std::string example)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & datetime(std::string name,std::string format)` | 
+`public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & boolean(std::string name,bool b)` | 
+`public inline `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` get_json()` | 
 
-##### Parameters
+## Members
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
+### `public  PactJsonBuilder(const `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` * parent)` {#classpact__consumer_1_1PactJsonBuilder_1aa805a10ce64aa7a9fc7f0d3b3dcbe697}
 
----
 
-#### Time
 
-```cpp
-IMatcher::Ptr Time(const std::string & format, const std::string & example)
-```
 
-Defined in src/matchers.cpp:68
 
-String value that must match the provided time format string.
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & eachLike(std::string name,unsigned int examples,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` {#classpact__consumer_1_1PactJsonBuilder_1a2636f4008e8c8a66adaf61ff9e858571}
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
-| `example` | `const std::string &` | Example value to use |
 
----
+Attribute that is an array where each item in the array must match the constructed template 
+#### Parameters
+* `name` Attribute name 
 
-#### Time
 
-```cpp
-IMatcher::Ptr Time(const std::string & format)
-```
+* `examples` Number of examples to generate (defaults to 1) 
 
-Defined in src/matchers.cpp:72
 
-String value that must match the provided time format string. Example values will be generated using the current system date and time.
+* `callback` Callback that gets invoked to define the template
 
-##### Parameters
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & eachLike(std::string name,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` {#classpact__consumer_1_1PactJsonBuilder_1a33e402dd87b5a63c00f6923b067091b7}
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `format` | `const std::string &` | Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) |
 
----
 
-#### Matching
+Attribute that is an array where each item in the array must match the constructed template. Will only generate one example. 
+#### Parameters
+* `name` Attribute name 
 
-```cpp
-IMatcher::Ptr Matching(const std::string & regex, const std::string & example)
-```
 
-Defined in src/matchers.cpp:76
+* `callback` Callback that gets invoked to define the template
 
-String value that must match the regular expression
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & atLeastOneLike(std::string name,unsigned int examples,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` {#classpact__consumer_1_1PactJsonBuilder_1a29dac043b1bcb5e4a6a61021ea26cebc}
 
----
 
-#### Matching
 
-```cpp
-IMatcher::Ptr Matching(const std::string & regex)
-```
+Attribute that is an array that has to have at least one element and each element must match the given template 
+#### Parameters
+* `name` Attribute name 
 
-Defined in src/matchers.cpp:80
 
-String value that must match the regular expression. Random values will be generated for the examples.
+* `examples` Number of examples to generate (defaults to 1) 
 
----
 
-#### EachLike
+* `callback` Callback that gets invoked to define the template
 
-```cpp
-IMatcher::Ptr EachLike(const IMatcher::Ptr obj)
-```
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & atLeastOneLike(std::string name,void(*)(`[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder) *)` callback)` {#classpact__consumer_1_1PactJsonBuilder_1ae69caf6e8088277037ec4757a0fa570d}
 
-Defined in src/matchers.cpp:84
 
-Array of values where each item in the array must match the provided template.
 
----
+Attribute that is an array that has to have at least one element and each element must match the given template. Will only generate one example. 
+#### Parameters
+* `name` Attribute name 
 
-#### EachLike
 
-```cpp
-IMatcher::Ptr EachLike(int examples, const IMatcher::Ptr obj)
-```
+* `callback` Callback that gets invoked to define the template
 
-Defined in src/matchers.cpp:88
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & integer(std::string name,int example)` {#classpact__consumer_1_1PactJsonBuilder_1a1c2313cac83d46a0eae974638e5c41c7}
 
-Array of values where each item in the array must match the provided template.
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `examples` | `int` | The number of example values to generate |
+Attribute whose value must be an integer (must be a number and have no decimal places) 
+#### Parameters
+* `name` Attribute name 
 
----
 
-#### AtLeastOneLike
+* `example` Example value. If omitted a random value will be generated.
 
-```cpp
-IMatcher::Ptr AtLeastOneLike(const IMatcher::Ptr obj)
-```
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & integer(std::string name)` {#classpact__consumer_1_1PactJsonBuilder_1ade5ddccbcbcf1751c626f322a233bfad}
 
-Defined in src/matchers.cpp:92
 
-Array of values that must have at least one value and each item in the array must match the provided template.
 
----
+Attribute whose value must be an integer (must be a number and have no decimal places). A random value will be generated for any examples. 
+#### Parameters
+* `name` Attribute name
 
-#### AtLeastOneLike
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & decimal(std::string name,double example)` {#classpact__consumer_1_1PactJsonBuilder_1a09d0204658f06b97fbfcb35542cfef1d}
 
-```cpp
-IMatcher::Ptr AtLeastOneLike(int examples, const IMatcher::Ptr obj)
-```
 
-Defined in src/matchers.cpp:96
 
-Array of values that must have at least one value and each item in the array must match the provided template.
+Attribute whose value must be a decimal number (must be a number and have decimal places) 
+#### Parameters
+* `name` Attribute name 
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `examples` | `int` | The number of example values to generate |
+* `num` Example value. If omitted a random value will be generated.
 
----
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & decimal(std::string name)` {#classpact__consumer_1_1PactJsonBuilder_1a9415c87b39a702a7f1d842c8facf4024}
 
-#### HexValue
 
-```cpp
-IMatcher::Ptr HexValue(const std::string & example)
-```
 
-Defined in src/matchers.cpp:100
+Attribute whose value must be a decimal number (must be a number and have decimal places). A random value will be generated for any examples. 
+#### Parameters
+* `name` Attribute name
 
-Match a hexadecimal value
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name,double example)` {#classpact__consumer_1_1PactJsonBuilder_1a8a129fb5eccbf58e79d04a6e2f4eb425}
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `example` | `const std::string &` | Example value |
 
----
+Attribute whose value must be a number. 
+#### Parameters
+* `name` Attribute name 
 
-#### HexValue
 
-```cpp
-IMatcher::Ptr HexValue()
-```
+* `num` Example value. If omitted a random integer value will be generated.
 
-Defined in src/matchers.cpp:104
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name,int example)` {#classpact__consumer_1_1PactJsonBuilder_1a81ede32b19f5526f9eb63b4cf72e8c4a}
 
-Match a hexadecimal value. Random examples will be generated.
 
----
 
-#### IPAddress
+Attribute whose value must be a number. 
+#### Parameters
+* `name` Attribute name 
 
-```cpp
-IMatcher::Ptr IPAddress(const std::string & example)
-```
 
-Defined in src/matchers.cpp:108
+* `num` Example value. If omitted a random integer value will be generated.
 
-Match an IP Address
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & number(std::string name)` {#classpact__consumer_1_1PactJsonBuilder_1ac7e41cb54bc646094a033f0f70ff47b4}
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `example` | `const std::string &` | Example value |
 
----
+Attribute whose value must be a number. A random integer value will be generated for any examples. 
+#### Parameters
+* `name` Attribute name
 
-#### IPAddress
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & string(std::string name,std::string example)` {#classpact__consumer_1_1PactJsonBuilder_1a64cd45052d249fac2df28f4e25ef9109}
 
-```cpp
-IMatcher::Ptr IPAddress()
-```
 
-Defined in src/matchers.cpp:112
 
-Match an IP Address. Will use 127.0.0.1 for examples.
+Attribute whose value must be a string. 
+#### Parameters
+* `name` Attribute name 
 
----
 
-#### Numeric
+* `example` Example value.
 
-```cpp
-IMatcher::Ptr Numeric(int example)
-```
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & string(std::string name)` {#classpact__consumer_1_1PactJsonBuilder_1a72e13ca23c7d35334e446bb30198edf6}
 
-Defined in src/matchers.cpp:116
 
-Match a numeric value. This will match any numeric type (integer or floating point).
 
----
+Attribute whose value must be a string. A random string value will be generated for any examples. 
+#### Parameters
+* `name` Attribute name
 
-#### Numeric
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & regex(std::string name,std::string regex,std::string example)` {#classpact__consumer_1_1PactJsonBuilder_1a0465bbc9df6c990ed353d21ba83a58df}
 
-```cpp
-IMatcher::Ptr Numeric(long example)
-```
 
-Defined in src/matchers.cpp:120
 
-Match a numeric value. This will match any numeric type (integer or floating point).
+Attribute whose value that must match the given regular expression. 
+#### Parameters
+* `name` Attribute name 
 
----
 
-#### Numeric
+* `regex` Regular Expression to match 
 
-```cpp
-IMatcher::Ptr Numeric(float example)
-```
 
-Defined in src/matchers.cpp:124
+* `example` Example value
 
-Match a numeric value. This will match any numeric type (integer or floating point).
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & regex(std::string name,std::string regex)` {#classpact__consumer_1_1PactJsonBuilder_1a98faa827ae350b7bcd5f038a61ee0dff}
 
----
 
-#### Numeric
 
-```cpp
-IMatcher::Ptr Numeric(double example)
-```
+Attribute whose value that must match the given regular expression. A random string value will be generated for any examples. 
+#### Parameters
+* `name` Attribute name 
 
-Defined in src/matchers.cpp:128
 
-Match a numeric value. This will match any numeric type (integer or floating point).
+* `regex` Regular Expression to match
 
----
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & datetime(std::string name,std::string format,std::string example)` {#classpact__consumer_1_1PactJsonBuilder_1a687934cbab5262ff82360fd92c44fd8f}
 
-#### Numeric
 
-```cpp
-IMatcher::Ptr Numeric()
-```
 
-Defined in src/matchers.cpp:132
+String value that must match the provided datetime format string. 
+#### Parameters
+* `name` Attribute name 
 
-Match a numeric value. Random decimal values will be generated for examples.
 
----
+* `format` Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 
-#### Decimal
 
-```cpp
-IMatcher::Ptr Decimal(float example)
-```
+* `example` Example value to use. If omitted a value using the current system date and time will be generated.
 
-Defined in src/matchers.cpp:136
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & datetime(std::string name,std::string format)` {#classpact__consumer_1_1PactJsonBuilder_1ac8fc12d46da35e07eb2b05192a1a8a98}
 
-Match a decimal value (number with atleast one digit after the decimal point)
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `example` | `float` | Example value |
+String value that must match the provided datetime format string. A random value will be 
+#### Parameters
+* `name` Attribute name generated for any examples. 
 
----
 
-#### Decimal
+* `format` Datetime format string. See [Java SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 
-```cpp
-IMatcher::Ptr Decimal(double example)
-```
+### `public `[`PactJsonBuilder`](#classpact__consumer_1_1PactJsonBuilder)` & boolean(std::string name,bool b)` {#classpact__consumer_1_1PactJsonBuilder_1afda7b8c27b11afb4c732c1544bc81030}
 
-Defined in src/matchers.cpp:140
 
-Match a decimal value (number with atleast one digit after the decimal point)
 
-##### Parameters
+Value must be a boolean 
+#### Parameters
+* `name` Attribute name 
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `example` | `double` | Example value |
 
----
+* `b` Boolean example value
 
-#### Decimal
+### `public inline `[`json`](#consumer_8h_1ab701e3ac61a85b337ec5c1abaad6742d)` get_json()` {#classpact__consumer_1_1PactJsonBuilder_1a7bbc3c584b6236d0cfe87f8cd5ea7ad7}
 
-```cpp
-IMatcher::Ptr Decimal()
-```
 
-Defined in src/matchers.cpp:144
 
-Match a decimal value (number with atleast one digit after the decimal point). Random values will be generated for examples.
 
----
 
-#### Uuid
 
-```cpp
-IMatcher::Ptr Uuid(const std::string & example)
-```
+# class `PactTestResult` {#classpact__consumer_1_1PactTestResult}
 
-Defined in src/matchers.cpp:148
 
-Match a universally unique identifier (UUID)
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `example` | `const std::string &` | value to use for examples |
+Result of the [Pact](#classpact__consumer_1_1Pact) test run
 
----
+## Summary
 
-#### Uuid
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  PactTestResult()` | 
+`public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state)` | 
+`public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state,std::string message)` | 
+`public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state,std::string message,std::string ex)` | 
+`public bool is_ok() const` | 
+`public void display_errors()` | 
 
-```cpp
-IMatcher::Ptr Uuid()
-```
+## Members
 
-Defined in src/matchers.cpp:152
+### `public  PactTestResult()` {#classpact__consumer_1_1PactTestResult_1ad864d8a498509ff5b4bfa25eaf490a6c}
 
-Match a universally unique identifier (UUID). Random values will be used for examples.
 
----
 
-#### AtMostLike
 
-```cpp
-IMatcher::Ptr AtMostLike(int max, const IMatcher::Ptr obj)
-```
 
-Defined in src/matchers.cpp:156
+### `public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state)` {#classpact__consumer_1_1PactTestResult_1a17c49c0a25f96a69b1e37dbdcc0b88ad}
 
-Array with maximum size and each element like the template object.
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `max` | `int` | The maximum size of the array |
+Adds a test state to the result
 
----
+### `public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state,std::string message)` {#classpact__consumer_1_1PactTestResult_1a0e60ee0a59c060314b32bdaea6f3e67d}
 
-#### AtMostLike
 
-```cpp
-IMatcher::Ptr AtMostLike(int max, int examples, const IMatcher::Ptr obj)
-```
 
-Defined in src/matchers.cpp:160
+Adds a test state with a message to the result
 
-Array with maximum size and each element like the template object.
+### `public void add_state(`[`TestResultState`](#namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c)` state,std::string message,std::string ex)` {#classpact__consumer_1_1PactTestResult_1a7df2d4fade24fa975ae88e862de5b673}
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `max` | `int` | The maximum size of the array |
-| `examples` | `int` | Number of examples to generate. |
 
----
+Adds a test state with a message to the result
 
-#### MinArrayLike
+### `public bool is_ok() const` {#classpact__consumer_1_1PactTestResult_1af52c0d3521914b0398d0bc0d54cbd1a9}
 
-```cpp
-IMatcher::Ptr MinArrayLike(int min, const IMatcher::Ptr obj)
-```
 
-Defined in src/matchers.cpp:164
 
-Array with minimum size and each element like the template object.
+If there are no mismatches and the user code did not fail
 
-##### Parameters
+### `public void display_errors()` {#classpact__consumer_1_1PactTestResult_1ad559f0f824c26a6fd5f6c6b1fa89932a}
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | `int` | The minimum size of the array |
 
----
 
-#### MinArrayLike
+Logs all errors out
 
-```cpp
-IMatcher::Ptr MinArrayLike(int min, int examples, const IMatcher::Ptr obj)
-```
 
-Defined in src/matchers.cpp:168
+# namespace `pact_mock_server_ffi`
 
-Array with minimum size and each element like the template object.
 
-##### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | `int` | The minimum size of the array |
-| `examples` | `int` | Number of examples to generate. |
+## Summary
 
----
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
 
-#### ConstrainedArrayLike
-
-```cpp
-IMatcher::Ptr ConstrainedArrayLike(int min, int max, const IMatcher::Ptr obj)
-```
-
-Defined in src/matchers.cpp:172
-
-Array with minimum and maximum size and each element like the template object.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | `int` | The minimum size of the array |
-| `max` | `int` | The maximum size of the array |
-
----
-
-#### ConstrainedArrayLike
-
-```cpp
-IMatcher::Ptr ConstrainedArrayLike(int min, int max, int examples, const IMatcher::Ptr obj)
-```
-
-Defined in src/matchers.cpp:176
-
-Array with minimum and maximum size and each element like the template object.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | `int` | The minimum size of the array |
-| `max` | `int` | The maximum size of the array |
-| `examples` | `int` | number of examples to generate. |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(int value)
-```
-
-Defined in src/matchers.cpp:180
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `int` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(long value)
-```
-
-Defined in src/matchers.cpp:184
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `long` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(float value)
-```
-
-Defined in src/matchers.cpp:188
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `float` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(double value)
-```
-
-Defined in src/matchers.cpp:192
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `double` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(const std::string & value)
-```
-
-Defined in src/matchers.cpp:196
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `const std::string &` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(const char * value)
-```
-
-Defined in src/matchers.cpp:200
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `const char *` | Value to match to |
-
----
-
-#### EqualTo
-
-```cpp
-IMatcher::Ptr EqualTo(bool value)
-```
-
-Defined in src/matchers.cpp:204
-
-Match by equality. This is mainly used to reset the cascading type matchers.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `bool` | Value to match to |
-
----
-
-#### IncludesStr
-
-```cpp
-IMatcher::Ptr IncludesStr(const std::string & value)
-```
-
-Defined in src/matchers.cpp:208
-
-Matches if the string value contains the given value
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `const std::string &` | String value that must be present |
-
----
-
-#### NullValue
-
-```cpp
-IMatcher::Ptr NullValue()
-```
-
-Defined in src/matchers.cpp:212
-
-Matches a JSON null value
-
----
-
-#### Url
-
-```cpp
-IMatcher::Ptr Url(const std::string & basePath, const std::vector< IMatcher::Ptr > & pathFragments)
-```
-
-Defined in src/matchers.cpp:216
-
-Matches a URL composed of a base path and a list of path fragments
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `basePath` | `const std::string &` | Base path of the URL |
-| `pathFragments` | const std::vector< [`IMatcher::Ptr`](#ptr) > & | list of path fragments, can be regular expressions. Only the Equals and Matching matchers will work. |
-
----
-
-#### Url
-
-```cpp
-IMatcher::Ptr Url(const std::vector< IMatcher::Ptr > & pathFragments)
-```
-
-Defined in src/matchers.cpp:220
-
-Matches a URL composed of a base path and a list of path fragments. The base URL from the mock server will be used.
-
-##### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `pathFragments` | const std::vector< [`IMatcher::Ptr`](#ptr) > & | list of path fragments, can be regular expressions. Only the Equals and Matching matchers will work. |
-
----
-
-#### ArrayContaining
-
-```cpp
-IMatcher::Ptr ArrayContaining(const std::vector< IMatcher::Ptr > & variants)
-```
-
-Defined in src/matchers.cpp:224
-
-Matches the items in an array against a number of variants. Matching is successful if each variant occurs once in the array. Variants may be objects containing matching rules.
-
-
-
-## IMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class IMatcher
-```
-
-Defined in include/matchers.h:13
-
-> **Subclassed by:** [`ArrayContainsMatcher`](#arraycontainsmatcher), [`DateMatcher`](#datematcher), [`DateTimeMatcher`](#datetimematcher), [`DecimalMatcher`](#decimalmatcher), [`EachlikeMatcher`](#eachlikematcher), [`EqualsMatcher< T >`](#equalsmatcher), [`HexadecimalMatcher`](#hexadecimalmatcher), [`IPAddressMatcher`](#ipaddressmatcher), [`IncludesMatcher`](#includesmatcher), [`IntegerMatcher`](#integermatcher), [`NullMatcher`](#nullmatcher), [`NumberMatcher< T >`](#numbermatcher), [`ObjectMatcher`](#objectmatcher), [`RegexMatcher`](#regexmatcher), [`TimeMatcher`](#timematcher), [`TypeMatcher< T >`](#typematcher), [`UrlMatcher`](#urlmatcher), [`UuidMatcher`](#uuidmatcher)
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`getJson`](#getjson) `virtual` `const` |  |
-| `std::string` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `std::string` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:16
-
-##### Reimplemented by
-
-- [`getJson`](#getjson-12)
-- [`getJson`](#getjson-8)
-- [`getJson`](#getjson-7)
-- [`getJson`](#getjson-3)
-- [`getJson`](#getjson-11)
-- [`getJson`](#getjson-6)
-- [`getJson`](#getjson-13)
-- [`getJson`](#getjson-16)
-- [`getJson`](#getjson-2)
-- [`getJson`](#getjson-14)
-- [`getJson`](#getjson-17)
-- [`getJson`](#getjson-5)
-- [`getJson`](#getjson-1)
-- [`getJson`](#getjson-10)
-- [`getJson`](#getjson-9)
-- [`getJson`](#getjson-4)
-- [`getJson`](#getjson-18)
-- [`getJson`](#getjson-15)
-
----
-
-#### as_example
-
-`virtual` `const` `inline`
-
-```cpp
-virtual inline std::string as_example() const
-```
-
-Defined in include/matchers.h:17
-
-##### Reimplemented by
-
-- [`as_example`](#as_example-1)
-- [`as_example`](#as_example-2)
-
----
-
-#### as_regex
-
-`virtual` `const` `inline`
-
-```cpp
-virtual inline std::string as_regex() const
-```
-
-Defined in include/matchers.h:18
-
-##### Reimplemented by
-
-- [`as_regex`](#as_regex-1)
-
-### Public Types
-
-| Name | Description |
-|------|-------------|
-| [`Ptr`](#ptr)  |  |
-
----
-
-#### Ptr
-
-```cpp
-using Ptr = std::shared_ptr< IMatcher >
-```
-
-Type: std::shared_ptr< [`IMatcher`](#imatcher) >
-
-Defined in include/matchers.h:15
-
-
-
-## ObjectMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class ObjectMatcher
-```
-
-Defined in include/matchers.h:21
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`ObjectMatcher`](#objectmatcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-1) | `function` | Declared here |
-| [`fields`](#fields) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`ObjectMatcher`](#objectmatcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-1) `virtual` `const` |  |
-
----
-
-#### ObjectMatcher
-
-`inline`
-
-```cpp
-inline ObjectMatcher(const std::unordered_map< std::string, IMatcher::Ptr > & i_fields)
-```
-
-Defined in include/matchers.h:23
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:25
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| std::unordered_map< std::string, [`IMatcher::Ptr`](#ptr) > | [`fields`](#fields)  |  |
-
----
-
-#### fields
-
-```cpp
-std::unordered_map< std::string, IMatcher::Ptr > fields
-```
-
-Type: std::unordered_map< std::string, [`IMatcher::Ptr`](#ptr) >
-
-Defined in include/matchers.h:28
-
-
-
-## IntegerMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class IntegerMatcher
-```
-
-Defined in include/matchers.h:31
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`IntegerMatcher`](#integermatcher-1) | `function` | Declared here |
-| [`IntegerMatcher`](#integermatcher-2) | `function` | Declared here |
-| [`IntegerMatcher`](#integermatcher-3) | `function` | Declared here |
-| [`getJson`](#getjson-2) | `function` | Declared here |
-| [`value`](#value) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`IntegerMatcher`](#integermatcher-1) `inline` |  |
-|  | [`IntegerMatcher`](#integermatcher-2) `inline` |  |
-|  | [`IntegerMatcher`](#integermatcher-3) `inline` |  |
-| `std::string` | [`getJson`](#getjson-2) `virtual` `const` |  |
-
----
-
-#### IntegerMatcher
-
-`inline`
-
-```cpp
-inline IntegerMatcher()
-```
-
-Defined in include/matchers.h:33
-
----
-
-#### IntegerMatcher
-
-`inline`
-
-```cpp
-inline IntegerMatcher(long v)
-```
-
-Defined in include/matchers.h:34
-
----
-
-#### IntegerMatcher
-
-`inline`
-
-```cpp
-inline IntegerMatcher(int v)
-```
-
-Defined in include/matchers.h:35
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:37
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::optional< long >` | [`value`](#value)  |  |
-
----
-
-#### value
-
-```cpp
-std::optional< long > value
-```
-
-Defined in include/matchers.h:40
-
-
-
-## DecimalMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class DecimalMatcher
-```
-
-Defined in include/matchers.h:43
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`DecimalMatcher`](#decimalmatcher-1) | `function` | Declared here |
-| [`DecimalMatcher`](#decimalmatcher-2) | `function` | Declared here |
-| [`DecimalMatcher`](#decimalmatcher-3) | `function` | Declared here |
-| [`getJson`](#getjson-3) | `function` | Declared here |
-| [`value`](#value-1) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`DecimalMatcher`](#decimalmatcher-1) `inline` |  |
-|  | [`DecimalMatcher`](#decimalmatcher-2) `inline` |  |
-|  | [`DecimalMatcher`](#decimalmatcher-3) `inline` |  |
-| `std::string` | [`getJson`](#getjson-3) `virtual` `const` |  |
-
----
-
-#### DecimalMatcher
-
-`inline`
-
-```cpp
-inline DecimalMatcher()
-```
-
-Defined in include/matchers.h:45
-
----
-
-#### DecimalMatcher
-
-`inline`
-
-```cpp
-inline DecimalMatcher(float v)
-```
-
-Defined in include/matchers.h:46
-
----
-
-#### DecimalMatcher
-
-`inline`
-
-```cpp
-inline DecimalMatcher(double v)
-```
-
-Defined in include/matchers.h:47
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:49
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::optional< double >` | [`value`](#value-1)  |  |
-
----
-
-#### value
-
-```cpp
-std::optional< double > value
-```
-
-Defined in include/matchers.h:52
-
-
-
-## TypeMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-template<typename T>
-class TypeMatcher
-```
-
-Defined in include/matchers.h:56
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`TypeMatcher`](#typematcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-4) | `function` | Declared here |
-| [`value`](#value-2) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`TypeMatcher`](#typematcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-4) `virtual` `const` |  |
-
----
-
-#### TypeMatcher
-
-`inline`
-
-```cpp
-inline TypeMatcher(T v)
-```
-
-Defined in include/matchers.h:58
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:60
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `T` | [`value`](#value-2)  |  |
-
----
-
-#### value
-
-```cpp
-T value
-```
-
-Defined in include/matchers.h:63
-
-
-
-## NumberMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-template<typename T>
-class NumberMatcher
-```
-
-Defined in include/matchers.h:67
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`NumberMatcher`](#numbermatcher-1) | `function` | Declared here |
-| [`NumberMatcher`](#numbermatcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-5) | `function` | Declared here |
-| [`value`](#value-3) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`NumberMatcher`](#numbermatcher-1) `inline` |  |
-|  | [`NumberMatcher`](#numbermatcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-5) `virtual` `const` |  |
-
----
-
-#### NumberMatcher
-
-`inline`
-
-```cpp
-inline NumberMatcher()
-```
-
-Defined in include/matchers.h:69
-
----
-
-#### NumberMatcher
-
-`inline`
-
-```cpp
-inline NumberMatcher(T v)
-```
-
-Defined in include/matchers.h:70
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:72
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::optional< T >` | [`value`](#value-3)  |  |
-
----
-
-#### value
-
-```cpp
-std::optional< T > value
-```
-
-Defined in include/matchers.h:75
-
-
-
-## EqualsMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-template<typename T>
-class EqualsMatcher
-```
-
-Defined in include/matchers.h:79
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`EqualsMatcher`](#equalsmatcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-6) | `function` | Declared here |
-| [`as_example`](#as_example-1) | `function` | Declared here |
-| [`value`](#value-4) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`EqualsMatcher`](#equalsmatcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-6) `virtual` `const` |  |
-| `std::string` | [`as_example`](#as_example-1) `virtual` `const` `inline` |  |
-
----
-
-#### EqualsMatcher
-
-`inline`
-
-```cpp
-inline EqualsMatcher(T v)
-```
-
-Defined in include/matchers.h:81
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:83
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
----
-
-#### as_example
-
-`virtual` `const` `inline`
-
-```cpp
-virtual inline std::string as_example() const
-```
-
-Defined in include/matchers.h:85
-
-##### Reimplements
-
-- [`as_example`](#as_example)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `T` | [`value`](#value-4)  |  |
-
----
-
-#### value
-
-```cpp
-T value
-```
-
-Defined in include/matchers.h:92
-
-
-
-## DateTimeMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class DateTimeMatcher
-```
-
-Defined in include/matchers.h:95
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`DateTimeMatcher`](#datetimematcher-1) | `function` | Declared here |
-| [`DateTimeMatcher`](#datetimematcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-7) | `function` | Declared here |
-| [`format`](#format) | `variable` | Declared here |
-| [`example`](#example) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`DateTimeMatcher`](#datetimematcher-1) `inline` |  |
-|  | [`DateTimeMatcher`](#datetimematcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-7) `virtual` `const` |  |
-
----
-
-#### DateTimeMatcher
-
-`inline`
-
-```cpp
-inline DateTimeMatcher(const std::string & f)
-```
-
-Defined in include/matchers.h:97
-
----
-
-#### DateTimeMatcher
-
-`inline`
-
-```cpp
-inline DateTimeMatcher(const std::string & f, const std::string & e)
-```
-
-Defined in include/matchers.h:98
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:100
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`format`](#format)  |  |
-| `std::string` | [`example`](#example)  |  |
-
----
-
-#### format
-
-```cpp
-std::string format
-```
-
-Defined in include/matchers.h:103
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:103
-
-
-
-## DateMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class DateMatcher
-```
-
-Defined in include/matchers.h:106
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`DateMatcher`](#datematcher-1) | `function` | Declared here |
-| [`DateMatcher`](#datematcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-8) | `function` | Declared here |
-| [`format`](#format-1) | `variable` | Declared here |
-| [`example`](#example-1) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`DateMatcher`](#datematcher-1) `inline` |  |
-|  | [`DateMatcher`](#datematcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-8) `virtual` `const` |  |
-
----
-
-#### DateMatcher
-
-`inline`
-
-```cpp
-inline DateMatcher(const std::string & f)
-```
-
-Defined in include/matchers.h:108
-
----
-
-#### DateMatcher
-
-`inline`
-
-```cpp
-inline DateMatcher(const std::string & f, const std::string & e)
-```
-
-Defined in include/matchers.h:109
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:111
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`format`](#format-1)  |  |
-| `std::string` | [`example`](#example-1)  |  |
-
----
-
-#### format
-
-```cpp
-std::string format
-```
-
-Defined in include/matchers.h:114
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:114
-
-
-
-## TimeMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class TimeMatcher
-```
-
-Defined in include/matchers.h:117
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`TimeMatcher`](#timematcher-1) | `function` | Declared here |
-| [`TimeMatcher`](#timematcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-9) | `function` | Declared here |
-| [`format`](#format-2) | `variable` | Declared here |
-| [`example`](#example-2) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`TimeMatcher`](#timematcher-1) `inline` |  |
-|  | [`TimeMatcher`](#timematcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-9) `virtual` `const` |  |
-
----
-
-#### TimeMatcher
-
-`inline`
-
-```cpp
-inline TimeMatcher(const std::string & f)
-```
-
-Defined in include/matchers.h:119
-
----
-
-#### TimeMatcher
-
-`inline`
-
-```cpp
-inline TimeMatcher(const std::string & f, const std::string & e)
-```
-
-Defined in include/matchers.h:120
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:122
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`format`](#format-2)  |  |
-| `std::string` | [`example`](#example-2)  |  |
-
----
-
-#### format
-
-```cpp
-std::string format
-```
-
-Defined in include/matchers.h:125
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:125
-
-
-
-## RegexMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class RegexMatcher
-```
-
-Defined in include/matchers.h:128
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`RegexMatcher`](#regexmatcher-1) | `function` | Declared here |
-| [`RegexMatcher`](#regexmatcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-10) | `function` | Declared here |
-| [`as_example`](#as_example-2) | `function` | Declared here |
-| [`as_regex`](#as_regex-1) | `function` | Declared here |
-| [`regex`](#regex) | `variable` | Declared here |
-| [`example`](#example-3) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`RegexMatcher`](#regexmatcher-1) `inline` |  |
-|  | [`RegexMatcher`](#regexmatcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-10) `virtual` `const` |  |
-| `std::string` | [`as_example`](#as_example-2) `virtual` `const` `inline` |  |
-| `std::string` | [`as_regex`](#as_regex-1) `virtual` `const` `inline` |  |
-
----
-
-#### RegexMatcher
-
-`inline`
-
-```cpp
-inline RegexMatcher(const std::string & r)
-```
-
-Defined in include/matchers.h:130
-
----
-
-#### RegexMatcher
-
-`inline`
-
-```cpp
-inline RegexMatcher(const std::string & r, const std::string & e)
-```
-
-Defined in include/matchers.h:131
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:133
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
----
-
-#### as_example
-
-`virtual` `const` `inline`
-
-```cpp
-virtual inline std::string as_example() const
-```
-
-Defined in include/matchers.h:135
-
-##### Reimplements
-
-- [`as_example`](#as_example)
-
----
-
-#### as_regex
-
-`virtual` `const` `inline`
-
-```cpp
-virtual inline std::string as_regex() const
-```
-
-Defined in include/matchers.h:136
-
-##### Reimplements
-
-- [`as_regex`](#as_regex)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`regex`](#regex)  |  |
-| `std::string` | [`example`](#example-3)  |  |
-
----
-
-#### regex
-
-```cpp
-std::string regex
-```
-
-Defined in include/matchers.h:139
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:139
-
-
-
-## EachlikeMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class EachlikeMatcher
-```
-
-Defined in include/matchers.h:142
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`EachlikeMatcher`](#eachlikematcher-1) | `function` | Declared here |
-| [`EachlikeMatcher`](#eachlikematcher-2) | `function` | Declared here |
-| [`EachlikeMatcher`](#eachlikematcher-3) | `function` | Declared here |
-| [`EachlikeMatcher`](#eachlikematcher-4) | `function` | Declared here |
-| [`getJson`](#getjson-11) | `function` | Declared here |
-| [`examples`](#examples) | `variable` | Declared here |
-| [`min`](#min) | `variable` | Declared here |
-| [`max`](#max) | `variable` | Declared here |
-| [`obj`](#obj) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`EachlikeMatcher`](#eachlikematcher-1) `inline` |  |
-|  | [`EachlikeMatcher`](#eachlikematcher-2) `inline` |  |
-|  | [`EachlikeMatcher`](#eachlikematcher-3) `inline` |  |
-|  | [`EachlikeMatcher`](#eachlikematcher-4) `inline` |  |
-| `std::string` | [`getJson`](#getjson-11) `virtual` `const` |  |
-
----
-
-#### EachlikeMatcher
-
-`inline`
-
-```cpp
-inline EachlikeMatcher(IMatcher::Ptr t)
-```
-
-Defined in include/matchers.h:144
-
----
-
-#### EachlikeMatcher
-
-`inline`
-
-```cpp
-inline EachlikeMatcher(int e, IMatcher::Ptr t)
-```
-
-Defined in include/matchers.h:145
-
----
-
-#### EachlikeMatcher
-
-`inline`
-
-```cpp
-inline EachlikeMatcher(int e, int m, IMatcher::Ptr t)
-```
-
-Defined in include/matchers.h:146
-
----
-
-#### EachlikeMatcher
-
-`inline`
-
-```cpp
-inline EachlikeMatcher(int e, int m, int mx, IMatcher::Ptr t)
-```
-
-Defined in include/matchers.h:147
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:149
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `int` | [`examples`](#examples)  |  |
-| `std::optional< int >` | [`min`](#min)  |  |
-| `std::optional< int >` | [`max`](#max)  |  |
-| [`IMatcher::Ptr`](#ptr) | [`obj`](#obj)  |  |
-
----
-
-#### examples
-
-```cpp
-int examples = 1
-```
-
-Defined in include/matchers.h:152
-
----
-
-#### min
-
-```cpp
-std::optional< int > min
-```
-
-Defined in include/matchers.h:153
-
----
-
-#### max
-
-```cpp
-std::optional< int > max
-```
-
-Defined in include/matchers.h:154
-
----
-
-#### obj
-
-```cpp
-IMatcher::Ptr obj
-```
-
-Type: [`IMatcher::Ptr`](#ptr)
-
-Defined in include/matchers.h:155
-
-
-
-## ArrayContainsMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class ArrayContainsMatcher
-```
-
-Defined in include/matchers.h:158
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`ArrayContainsMatcher`](#arraycontainsmatcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-12) | `function` | Declared here |
-| [`variants`](#variants) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`ArrayContainsMatcher`](#arraycontainsmatcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-12) `virtual` `const` |  |
-
----
-
-#### ArrayContainsMatcher
-
-`inline`
-
-```cpp
-inline ArrayContainsMatcher(const std::vector< IMatcher::Ptr > & i_variants)
-```
-
-Defined in include/matchers.h:160
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:162
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| std::vector< [`IMatcher::Ptr`](#ptr) > | [`variants`](#variants)  |  |
-
----
-
-#### variants
-
-```cpp
-std::vector< IMatcher::Ptr > variants
-```
-
-Type: std::vector< [`IMatcher::Ptr`](#ptr) >
-
-Defined in include/matchers.h:165
-
-
-
-## HexadecimalMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class HexadecimalMatcher
-```
-
-Defined in include/matchers.h:168
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`HexadecimalMatcher`](#hexadecimalmatcher-1) | `function` | Declared here |
-| [`HexadecimalMatcher`](#hexadecimalmatcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-13) | `function` | Declared here |
-| [`example`](#example-4) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`HexadecimalMatcher`](#hexadecimalmatcher-1) `inline` |  |
-|  | [`HexadecimalMatcher`](#hexadecimalmatcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-13) `virtual` `const` |  |
-
----
-
-#### HexadecimalMatcher
-
-`inline`
-
-```cpp
-inline HexadecimalMatcher()
-```
-
-Defined in include/matchers.h:170
-
----
-
-#### HexadecimalMatcher
-
-`inline`
-
-```cpp
-inline HexadecimalMatcher(const std::string & hex)
-```
-
-Defined in include/matchers.h:171
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:173
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`example`](#example-4)  |  |
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:176
-
-
-
-## IPAddressMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class IPAddressMatcher
-```
-
-Defined in include/matchers.h:179
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`IPAddressMatcher`](#ipaddressmatcher-1) | `function` | Declared here |
-| [`IPAddressMatcher`](#ipaddressmatcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-14) | `function` | Declared here |
-| [`example`](#example-5) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`IPAddressMatcher`](#ipaddressmatcher-1) `inline` |  |
-|  | [`IPAddressMatcher`](#ipaddressmatcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-14) `virtual` `const` |  |
-
----
-
-#### IPAddressMatcher
-
-`inline`
-
-```cpp
-inline IPAddressMatcher()
-```
-
-Defined in include/matchers.h:181
-
----
-
-#### IPAddressMatcher
-
-`inline`
-
-```cpp
-inline IPAddressMatcher(const std::string & address)
-```
-
-Defined in include/matchers.h:182
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:184
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`example`](#example-5)  |  |
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:187
-
-
-
-## UuidMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class UuidMatcher
-```
-
-Defined in include/matchers.h:190
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`UuidMatcher`](#uuidmatcher-1) | `function` | Declared here |
-| [`UuidMatcher`](#uuidmatcher-2) | `function` | Declared here |
-| [`getJson`](#getjson-15) | `function` | Declared here |
-| [`example`](#example-6) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`UuidMatcher`](#uuidmatcher-1) `inline` |  |
-|  | [`UuidMatcher`](#uuidmatcher-2) `inline` |  |
-| `std::string` | [`getJson`](#getjson-15) `virtual` `const` |  |
-
----
-
-#### UuidMatcher
-
-`inline`
-
-```cpp
-inline UuidMatcher()
-```
-
-Defined in include/matchers.h:192
-
----
-
-#### UuidMatcher
-
-`inline`
-
-```cpp
-inline UuidMatcher(const std::string & uuid)
-```
-
-Defined in include/matchers.h:193
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:195
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`example`](#example-6)  |  |
-
----
-
-#### example
-
-```cpp
-std::string example
-```
-
-Defined in include/matchers.h:198
-
-
-
-## IncludesMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class IncludesMatcher
-```
-
-Defined in include/matchers.h:201
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`IncludesMatcher`](#includesmatcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-16) | `function` | Declared here |
-| [`value`](#value-5) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`IncludesMatcher`](#includesmatcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-16) `virtual` `const` |  |
-
----
-
-#### IncludesMatcher
-
-`inline`
-
-```cpp
-inline IncludesMatcher(const std::string & v)
-```
-
-Defined in include/matchers.h:203
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:205
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`value`](#value-5)  |  |
-
----
-
-#### value
-
-```cpp
-std::string value
-```
-
-Defined in include/matchers.h:208
-
-
-
-## NullMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class NullMatcher
-```
-
-Defined in include/matchers.h:211
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`getJson`](#getjson-17) | `function` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`getJson`](#getjson-17) `virtual` `const` |  |
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:213
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-
-
-## UrlMatcher
-
-```cpp
-#include <matchers.h>
-```
-
-```cpp
-class UrlMatcher
-```
-
-Defined in include/matchers.h:216
-
-> **Inherits:** [`IMatcher`](#imatcher)
-
-### List of all members
-
-| Name | Kind | Owner |
-|------|------|-------|
-| [`UrlMatcher`](#urlmatcher-1) | `function` | Declared here |
-| [`getJson`](#getjson-18) | `function` | Declared here |
-| [`basePath`](#basepath) | `variable` | Declared here |
-| [`pathFragments`](#pathfragments) | `variable` | Declared here |
-| [`getJson`](#getjson) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_example`](#as_example) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`as_regex`](#as_regex) | `function` | Inherited from [`IMatcher`](#imatcher) |
-| [`Ptr`](#ptr) | `typedef` | Inherited from [`IMatcher`](#imatcher) |
-
-### Inherited from [`IMatcher`](#imatcher)
-
-| Kind | Name | Description |
-|------|------|-------------|
-| `function` | [`getJson`](#getjson) `virtual` `const` |  |
-| `function` | [`as_example`](#as_example) `virtual` `const` `inline` |  |
-| `function` | [`as_regex`](#as_regex) `virtual` `const` `inline` |  |
-| `typedef` | [`Ptr`](#ptr)  |  |
-
-### Public Methods
-
-| Return | Name | Description |
-|--------|------|-------------|
-|  | [`UrlMatcher`](#urlmatcher-1) `inline` |  |
-| `std::string` | [`getJson`](#getjson-18) `virtual` `const` |  |
-
----
-
-#### UrlMatcher
-
-`inline`
-
-```cpp
-inline UrlMatcher(const std::string & b, const std::vector< IMatcher::Ptr > & f)
-```
-
-Defined in include/matchers.h:218
-
----
-
-#### getJson
-
-`virtual` `const`
-
-```cpp
-virtual std::string getJson() const
-```
-
-Defined in include/matchers.h:220
-
-##### Reimplements
-
-- [`getJson`](#getjson)
-
-### Private Attributes
-
-| Return | Name | Description |
-|--------|------|-------------|
-| `std::string` | [`basePath`](#basepath)  |  |
-| std::vector< [`IMatcher::Ptr`](#ptr) > | [`pathFragments`](#pathfragments)  |  |
-
----
-
-#### basePath
-
-```cpp
-std::string basePath
-```
-
-Defined in include/matchers.h:223
-
----
-
-#### pathFragments
-
-```cpp
-std::vector< IMatcher::Ptr > pathFragments
-```
-
-Type: std::vector< [`IMatcher::Ptr`](#ptr) >
-
-Defined in include/matchers.h:224
-
-Generated by [Moxygen](https://0state.com/moxygen)

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.18.0" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
   <compound refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher" kind="class"><name>pact_consumer::matchers::ArrayContainsMatcher</name>
     <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1ae1d17dbc9fe99d3a1e5d66aed22f031c" kind="variable"><name>variants</name></member>
     <member refid="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1a51a8af29070b8ea132278d8e871f65f2" kind="function"><name>ArrayContainsMatcher</name></member>
@@ -71,23 +71,19 @@
     <member refid="classpact__consumer_1_1Interaction_1a41c538141355d45d41736d455d5870dc" kind="variable"><name>interaction</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a0e5407e90621a6caf6c2020fd829c5d4" kind="variable"><name>description</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a5a4cb7f15da5f67ec1a5b3e07c173991" kind="variable"><name>pact</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1ac9588cf390ed1cd34f889a138358fbc2" kind="function"><name>Interaction</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1adfdeefe452d43765c863764c8010dacb" kind="function"><name>Interaction</name></member>
     <member refid="classpact__consumer_1_1Interaction_1ab317881a13f364c21ba4d773103f6fa9" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a26c5c59d34af5a49364dcb50fa5b019f" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a4d6a8acadad3b486a3996a5fd4819be2" kind="function"><name>uponReceiving</name></member>
     <member refid="classpact__consumer_1_1Interaction_1ac29f5f3c8c0dfe941e00bee09334b341" kind="function"><name>withRequest</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a8916d0725d58dd06461d06ec30e9df6f" kind="function"><name>withQuery</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a6b246bf8161d61023fcb98ba2257c7a9" kind="function"><name>withHeaders</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a35cdc26f67b6c97167b49e270a68d59c" kind="function"><name>withQuery</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a7cb127ccade3facb0b20655e38d939d1" kind="function"><name>withHeaders</name></member>
     <member refid="classpact__consumer_1_1Interaction_1adb859362ac2bdad9bbd0d2f6039c94cd" kind="function"><name>withBody</name></member>
     <member refid="classpact__consumer_1_1Interaction_1abeb14a7a082e64f78644d9803825e0cb" kind="function"><name>withJsonBody</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1ab57820fd4a2d45c25bbb464f2d28c7b7" kind="function"><name>withMetadata</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1ad4755d590e068304f1a0624f843b0ed7" kind="function"><name>withResponseMetadata</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1aa553018f4fa21591542c71fd937d9faf" kind="function"><name>withPluginContents</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a7fbedfd0296940717aa3d3cac9bc90c2" kind="function"><name>withResponsePluginContents</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a75c38b21021c4f643efb1d8370f59960" kind="function"><name>withBinaryFile</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a85284f4436485cf03b70f1db27df02b8" kind="function"><name>withMultipartFileUpload</name></member>
     <member refid="classpact__consumer_1_1Interaction_1adb4b399b152b384682d17436ac648d45" kind="function"><name>willRespondWith</name></member>
-    <member refid="classpact__consumer_1_1Interaction_1a25ad1b72714af240426629b2d073ea1d" kind="function"><name>withResponseHeaders</name></member>
+    <member refid="classpact__consumer_1_1Interaction_1a193531af24474f18bceda3a4c4d0ddb4" kind="function"><name>withResponseHeaders</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a48ff23f6e9f43f487125088ff0921b9e" kind="function"><name>withResponseBody</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a82bea9bd7fd64a0ae56924c086891863" kind="function"><name>withResponseJsonBody</name></member>
     <member refid="classpact__consumer_1_1Interaction_1a52a3088b74d645bd57704a38d6e7da8e" kind="function"><name>withResponseBinaryFile</name></member>
@@ -130,13 +126,7 @@
     <member refid="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" kind="function"><name>given</name></member>
     <member refid="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" kind="function"><name>uponReceiving</name></member>
-    <member refid="classpact__consumer_1_1Pact_1aedf4b6de6dbe077deb82ea9f25423f31" kind="function"><name>withSpecification</name></member>
-    <member refid="classpact__consumer_1_1Pact_1a4732c3185f90cea77a07a9445b2e364a" kind="function"><name>usingPlugin</name></member>
-    <member refid="classpact__consumer_1_1Pact_1a905420b32ab93e9413e9f44facc288bc" kind="function"><name>cleanupPlugins</name></member>
-    <member refid="classpact__consumer_1_1Pact_1aab4bb1d74728a68ec61e49fe6309b0de" kind="function"><name>newMessage</name></member>
-    <member refid="classpact__consumer_1_1Pact_1aa46cd68b11204b1d13fb2693f2c1f665" kind="function"><name>newSyncMessage</name></member>
     <member refid="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" kind="function"><name>run_test</name></member>
-    <member refid="classpact__consumer_1_1Pact_1a10d88eef16dfc67f2754ef8efbe4cbe2" kind="function"><name>run_message_test</name></member>
   </compound>
   <compound refid="classpact__consumer_1_1PactTestResult" kind="class"><name>pact_consumer::PactTestResult</name>
     <member refid="classpact__consumer_1_1PactTestResult_1a2ae85ba465790a5ff8450fbe0ca2ef9f" kind="variable"><name>status</name></member>
@@ -183,10 +173,6 @@
     <member refid="classpact__consumer_1_1matchers_1_1UuidMatcher_1a9a9a00a6a4d6b3af4ea314901bd34eac" kind="function"><name>getJson</name></member>
   </compound>
   <compound refid="namespacepact__consumer" kind="namespace"><name>pact_consumer</name>
-    <member refid="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9" kind="enum"><name>InteractionType</name></member>
-    <member refid="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a9d4d43de68f0b3555d5a5ef5dc05bb95" kind="enumvalue"><name>Http</name></member>
-    <member refid="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a4c2a8fe7eaf24721cc7a9f0175115bd4" kind="enumvalue"><name>Message</name></member>
-    <member refid="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a4ed9ab641b2d4fce91e0005d10896e76" kind="enumvalue"><name>SyncMessage</name></member>
     <member refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" kind="enum"><name>TestResultState</name></member>
     <member refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be" kind="enumvalue"><name>Mismatches</name></member>
     <member refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68cac32b44b8a1a75d9d00bcfb1e177684fb" kind="enumvalue"><name>UserCodeFailed</name></member>
@@ -255,11 +241,13 @@
   <compound refid="matchers_8h" kind="file"><name>matchers.h</name>
   </compound>
   <compound refid="CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="CMakeLists_8txt_1ac40a84742e18e3c42e295a10da04e229" kind="function"><name>cmake_minimum_required</name></member>
   </compound>
   <compound refid="consumer_8cpp" kind="file"><name>consumer.cpp</name>
     <member refid="consumer_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="matchers_8cpp" kind="file"><name>matchers.cpp</name>
+    <member refid="matchers_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>

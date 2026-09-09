@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1PactTestResult" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::PactTestResult</compoundname>
     <includes refid="consumer_8h" local="no">consumer.h</includes>
-    <sectiondef kind="private-attrib">
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1PactTestResult_1a2ae85ba465790a5ff8450fbe0ca2ef9f" prot="private" static="no" mutable="no">
         <type>unsigned int</type>
         <definition>unsigned int pact_consumer::PactTestResult::status</definition>
         <argsstring></argsstring>
         <name>status</name>
-        <qualifiedname>pact_consumer::PactTestResult::status</qualifiedname>
         <initializer>= 0</initializer>
         <briefdescription>
         </briefdescription>
@@ -17,58 +16,54 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="102" column="20" bodyfile="include/consumer.h" bodystart="102" bodyend="-1"/>
+        <location file="include/consumer.h" line="91" column="20" bodyfile="include/consumer.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1PactTestResult_1a844caccd5128db3a1ea0221ea305440c" prot="private" static="no" mutable="no">
         <type>std::vector&lt; std::string &gt;</type>
         <definition>std::vector&lt;std::string&gt; pact_consumer::PactTestResult::messages</definition>
         <argsstring></argsstring>
         <name>messages</name>
-        <qualifiedname>pact_consumer::PactTestResult::messages</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="103" column="19" bodyfile="include/consumer.h" bodystart="103" bodyend="-1"/>
+        <location file="include/consumer.h" line="92" column="19" bodyfile="include/consumer.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1PactTestResult_1a954272533665437376b199eee901e3d2" prot="private" static="no" mutable="no">
         <type>std::optional&lt; std::string &gt;</type>
         <definition>std::optional&lt;std::string&gt; pact_consumer::PactTestResult::ex</definition>
         <argsstring></argsstring>
         <name>ex</name>
-        <qualifiedname>pact_consumer::PactTestResult::ex</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="104" column="21" bodyfile="include/consumer.h" bodystart="104" bodyend="-1"/>
+        <location file="include/consumer.h" line="93" column="21" bodyfile="include/consumer.h" bodystart="93" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1ad864d8a498509ff5b4bfa25eaf490a6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::PactTestResult::PactTestResult</definition>
         <argsstring>()</argsstring>
         <name>PactTestResult</name>
-        <qualifiedname>pact_consumer::PactTestResult::PactTestResult</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="74" column="7" bodyfile="src/consumer.cpp" bodystart="336" bodyend="338"/>
+        <location file="include/consumer.h" line="63" column="7" bodyfile="src/consumer.cpp" bodystart="251" bodyend="253"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1a17c49c0a25f96a69b1e37dbdcc0b88ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void pact_consumer::PactTestResult::add_state</definition>
         <argsstring>(TestResultState state)</argsstring>
         <name>add_state</name>
-        <qualifiedname>pact_consumer::PactTestResult::add_state</qualifiedname>
         <param>
           <type><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" kindref="member">TestResultState</ref></type>
           <declname>state</declname>
@@ -80,14 +75,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="79" column="12" bodyfile="src/consumer.cpp" bodystart="340" bodyend="342"/>
+        <location file="include/consumer.h" line="68" column="12" bodyfile="src/consumer.cpp" bodystart="255" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1a0e60ee0a59c060314b32bdaea6f3e67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void pact_consumer::PactTestResult::add_state</definition>
         <argsstring>(TestResultState state, std::string message)</argsstring>
         <name>add_state</name>
-        <qualifiedname>pact_consumer::PactTestResult::add_state</qualifiedname>
         <param>
           <type><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" kindref="member">TestResultState</ref></type>
           <declname>state</declname>
@@ -103,14 +97,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="84" column="12" bodyfile="src/consumer.cpp" bodystart="344" bodyend="347"/>
+        <location file="include/consumer.h" line="73" column="12" bodyfile="src/consumer.cpp" bodystart="259" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1a7df2d4fade24fa975ae88e862de5b673" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void pact_consumer::PactTestResult::add_state</definition>
         <argsstring>(TestResultState state, std::string message, std::string ex)</argsstring>
         <name>add_state</name>
-        <qualifiedname>pact_consumer::PactTestResult::add_state</qualifiedname>
         <param>
           <type><ref refid="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" kindref="member">TestResultState</ref></type>
           <declname>state</declname>
@@ -130,14 +123,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="89" column="12" bodyfile="src/consumer.cpp" bodystart="349" bodyend="353"/>
+        <location file="include/consumer.h" line="78" column="12" bodyfile="src/consumer.cpp" bodystart="264" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1af52c0d3521914b0398d0bc0d54cbd1a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool pact_consumer::PactTestResult::is_ok</definition>
         <argsstring>() const</argsstring>
         <name>is_ok</name>
-        <qualifiedname>pact_consumer::PactTestResult::is_ok</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -145,14 +137,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="94" column="12" bodyfile="src/consumer.cpp" bodystart="355" bodyend="357"/>
+        <location file="include/consumer.h" line="83" column="12" bodyfile="src/consumer.cpp" bodystart="270" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1PactTestResult_1ad559f0f824c26a6fd5f6c6b1fa89932a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void pact_consumer::PactTestResult::display_errors</definition>
         <argsstring>()</argsstring>
         <name>display_errors</name>
-        <qualifiedname>pact_consumer::PactTestResult::display_errors</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -160,15 +151,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="99" column="12" bodyfile="src/consumer.cpp" bodystart="359" bodyend="446"/>
+        <location file="include/consumer.h" line="88" column="12" bodyfile="src/consumer.cpp" bodystart="274" bodyend="361"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Result of the <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> test run </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="72" column="3" bodyfile="include/consumer.h" bodystart="72" bodyend="105"/>
+    <location file="include/consumer.h" line="61" column="3" bodyfile="include/consumer.h" bodystart="61" bodyend="94"/>
     <listofallmembers>
       <member refid="classpact__consumer_1_1PactTestResult_1a17c49c0a25f96a69b1e37dbdcc0b88ad" prot="public" virt="non-virtual"><scope>pact_consumer::PactTestResult</scope><name>add_state</name></member>
       <member refid="classpact__consumer_1_1PactTestResult_1a0e60ee0a59c060314b32bdaea6f3e67d" prot="public" virt="non-virtual"><scope>pact_consumer::PactTestResult</scope><name>add_state</name></member>

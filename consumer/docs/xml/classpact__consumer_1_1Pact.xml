@@ -1,29 +1,27 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1Pact" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::Pact</compoundname>
     <includes refid="consumer_8h" local="no">consumer.h</includes>
-    <sectiondef kind="public-attrib">
+      <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1a5e142f1242ac87124aa4d8f880bcd4b3" prot="public" static="no" mutable="no">
         <type>PactHandle</type>
         <definition>PactHandle pact_consumer::Pact::pact</definition>
         <argsstring></argsstring>
         <name>pact</name>
-        <qualifiedname>pact_consumer::Pact::pact</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="172" column="18" bodyfile="include/consumer.h" bodystart="172" bodyend="-1"/>
+        <location file="include/consumer.h" line="127" column="18" bodyfile="include/consumer.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" prot="public" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::Pact::pact_directory</definition>
         <argsstring></argsstring>
         <name>pact_directory</name>
-        <qualifiedname>pact_consumer::Pact::pact_directory</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -31,46 +29,43 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="177" column="19" bodyfile="include/consumer.h" bodystart="177" bodyend="-1"/>
+        <location file="include/consumer.h" line="132" column="19" bodyfile="include/consumer.h" bodystart="132" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="private-attrib">
+      </sectiondef>
+      <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1a1275784f044dcfd19537c66493037be2" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::Pact::consumer</definition>
         <argsstring></argsstring>
         <name>consumer</name>
-        <qualifiedname>pact_consumer::Pact::consumer</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="180" column="19" bodyfile="include/consumer.h" bodystart="180" bodyend="-1"/>
+        <location file="include/consumer.h" line="135" column="19" bodyfile="include/consumer.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::Pact::provider</definition>
         <argsstring></argsstring>
         <name>provider</name>
-        <qualifiedname>pact_consumer::Pact::provider</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="181" column="19" bodyfile="include/consumer.h" bodystart="181" bodyend="-1"/>
+        <location file="include/consumer.h" line="136" column="19" bodyfile="include/consumer.h" bodystart="136" bodyend="-1"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-func">
+      </sectiondef>
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::Pact::Pact</definition>
         <argsstring>(const char *consumer, const char *provider)</argsstring>
         <name>Pact</name>
-        <qualifiedname>pact_consumer::Pact::Pact</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>consumer</declname>
@@ -86,14 +81,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="115" column="7" bodyfile="src/consumer.cpp" bodystart="20" bodyend="24"/>
+        <location file="include/consumer.h" line="104" column="7" bodyfile="src/consumer.cpp" bodystart="20" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
         <definition>Interaction pact_consumer::Pact::given</definition>
         <argsstring>(const char *provider_state) const</argsstring>
         <name>given</name>
-        <qualifiedname>pact_consumer::Pact::given</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>provider_state</declname>
@@ -105,14 +99,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="120" column="19" bodyfile="src/consumer.cpp" bodystart="30" bodyend="32"/>
+        <location file="include/consumer.h" line="109" column="19" bodyfile="src/consumer.cpp" bodystart="30" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
         <definition>Interaction pact_consumer::Pact::given</definition>
         <argsstring>(const char *provider_state, const std::unordered_map&lt; std::string, std::string &gt; &amp;parameters) const</argsstring>
         <name>given</name>
-        <qualifiedname>pact_consumer::Pact::given</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>provider_state</declname>
@@ -128,14 +121,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="125" column="19" bodyfile="src/consumer.cpp" bodystart="34" bodyend="36"/>
+        <location file="include/consumer.h" line="114" column="19" bodyfile="src/consumer.cpp" bodystart="34" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
         <definition>Interaction pact_consumer::Pact::uponReceiving</definition>
         <argsstring>(const char *description) const</argsstring>
         <name>uponReceiving</name>
-        <qualifiedname>pact_consumer::Pact::uponReceiving</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>description</declname>
@@ -147,110 +139,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="130" column="19" bodyfile="src/consumer.cpp" bodystart="26" bodyend="28"/>
-      </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1aedf4b6de6dbe077deb82ea9f25423f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void pact_consumer::Pact::withSpecification</definition>
-        <argsstring>(PactSpecification version) const</argsstring>
-        <name>withSpecification</name>
-        <qualifiedname>pact_consumer::Pact::withSpecification</qualifiedname>
-        <param>
-          <type>PactSpecification</type>
-          <declname>version</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Sets the <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> specification version to generate the pact file for (V1 - V4). Required for V4-only features such as sync/async messages and plugins. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="136" column="12" bodyfile="src/consumer.cpp" bodystart="38" bodyend="40"/>
-      </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a4732c3185f90cea77a07a9445b2e364a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool pact_consumer::Pact::usingPlugin</definition>
-        <argsstring>(const std::string &amp;plugin_name, const std::string &amp;plugin_version=&quot;&quot;) const</argsstring>
-        <name>usingPlugin</name>
-        <qualifiedname>pact_consumer::Pact::usingPlugin</qualifiedname>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>plugin_name</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>plugin_version</declname>
-          <defval>&quot;&quot;</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Adds a plugin (e.g. protobuf/gRPC) to be used by the test. The plugin must be installed for this to succeed. Returns true on success. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="142" column="12" bodyfile="src/consumer.cpp" bodystart="42" bodyend="45"/>
-      </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a905420b32ab93e9413e9f44facc288bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void pact_consumer::Pact::cleanupPlugins</definition>
-        <argsstring>() const</argsstring>
-        <name>cleanupPlugins</name>
-        <qualifiedname>pact_consumer::Pact::cleanupPlugins</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Shuts down any plugins that are no longer required by this <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref>. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="147" column="12" bodyfile="src/consumer.cpp" bodystart="47" bodyend="49"/>
-      </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1aab4bb1d74728a68ec61e49fe6309b0de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
-        <definition>Interaction pact_consumer::Pact::newMessage</definition>
-        <argsstring>(const char *description) const</argsstring>
-        <name>newMessage</name>
-        <qualifiedname>pact_consumer::Pact::newMessage</qualifiedname>
-        <param>
-          <type>const char *</type>
-          <declname>description</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Creates a new V4 asynchronous message interaction with the provided description. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="152" column="19" bodyfile="src/consumer.cpp" bodystart="51" bodyend="53"/>
-      </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1aa46cd68b11204b1d13fb2693f2c1f665" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classpact__consumer_1_1Interaction" kindref="compound">Interaction</ref></type>
-        <definition>Interaction pact_consumer::Pact::newSyncMessage</definition>
-        <argsstring>(const char *description) const</argsstring>
-        <name>newSyncMessage</name>
-        <qualifiedname>pact_consumer::Pact::newSyncMessage</qualifiedname>
-        <param>
-          <type>const char *</type>
-          <declname>description</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Creates a new V4 synchronous (request/response) message interaction with the provided description. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="157" column="19" bodyfile="src/consumer.cpp" bodystart="55" bodyend="57"/>
+        <location file="include/consumer.h" line="119" column="19" bodyfile="src/consumer.cpp" bodystart="26" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classpact__consumer_1_1PactTestResult" kindref="compound">PactTestResult</ref></type>
         <definition>PactTestResult pact_consumer::Pact::run_test</definition>
         <argsstring>(std::function&lt; bool(const MockServerHandle *)&gt; callback) const</argsstring>
         <name>run_test</name>
-        <qualifiedname>pact_consumer::Pact::run_test</qualifiedname>
         <param>
           <type>std::function&lt; bool(const <ref refid="classpact__consumer_1_1MockServerHandle" kindref="compound">MockServerHandle</ref> *)&gt;</type>
           <declname>callback</declname>
@@ -262,50 +157,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="163" column="22" bodyfile="src/consumer.cpp" bodystart="59" bodyend="100"/>
+        <location file="include/consumer.h" line="125" column="22" bodyfile="src/consumer.cpp" bodystart="38" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="classpact__consumer_1_1Pact_1a10d88eef16dfc67f2754ef8efbe4cbe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classpact__consumer_1_1PactTestResult" kindref="compound">PactTestResult</ref></type>
-        <definition>PactTestResult pact_consumer::Pact::run_message_test</definition>
-        <argsstring>(std::function&lt; bool()&gt; callback) const</argsstring>
-        <name>run_message_test</name>
-        <qualifiedname>pact_consumer::Pact::run_message_test</qualifiedname>
-        <param>
-          <type>std::function&lt; bool()&gt;</type>
-          <declname>callback</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Runs a message/plugin test that doesn&apos;t require a mock server (e.g. async/sync messages, or plugin-driven interactions such as gRPC). The callback needs to return a boolean value to indicate if the test was successful, after which the pact file is written. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="170" column="22" bodyfile="src/consumer.cpp" bodystart="102" bodyend="134"/>
-      </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Class that defines a <ref refid="classpact__consumer_1_1Pact" kindref="compound">Pact</ref> between a consumer and provider </para>
     </detaileddescription>
-    <location file="include/consumer.h" line="110" column="3" bodyfile="include/consumer.h" bodystart="110" bodyend="182"/>
+    <location file="include/consumer.h" line="99" column="3" bodyfile="include/consumer.h" bodystart="99" bodyend="137"/>
     <listofallmembers>
-      <member refid="classpact__consumer_1_1Pact_1a905420b32ab93e9413e9f44facc288bc" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>cleanupPlugins</name></member>
       <member refid="classpact__consumer_1_1Pact_1a1275784f044dcfd19537c66493037be2" prot="private" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>consumer</name></member>
       <member refid="classpact__consumer_1_1Pact_1a630248129b4a610fd15d94d08c6fb6f5" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>given</name></member>
       <member refid="classpact__consumer_1_1Pact_1a17fcecc8bc54bf6cc0f4a5eaae31a555" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>given</name></member>
-      <member refid="classpact__consumer_1_1Pact_1aab4bb1d74728a68ec61e49fe6309b0de" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>newMessage</name></member>
-      <member refid="classpact__consumer_1_1Pact_1aa46cd68b11204b1d13fb2693f2c1f665" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>newSyncMessage</name></member>
-      <member refid="classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>Pact</name></member>
       <member refid="classpact__consumer_1_1Pact_1a5e142f1242ac87124aa4d8f880bcd4b3" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>pact</name></member>
+      <member refid="classpact__consumer_1_1Pact_1a907de956f18c074634ceba0980fa8630" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>Pact</name></member>
       <member refid="classpact__consumer_1_1Pact_1a2d71145b2d9394a13b2ec104b031cdd2" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>pact_directory</name></member>
       <member refid="classpact__consumer_1_1Pact_1abd514fa3a02e63d3b5d332674a35ea8c" prot="private" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>provider</name></member>
-      <member refid="classpact__consumer_1_1Pact_1a10d88eef16dfc67f2754ef8efbe4cbe2" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>run_message_test</name></member>
       <member refid="classpact__consumer_1_1Pact_1ab1f98bc36f5865fcc5fb1fbcc20220ea" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>run_test</name></member>
       <member refid="classpact__consumer_1_1Pact_1a05713ce4758ee154989b327c686dc18d" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>uponReceiving</name></member>
-      <member refid="classpact__consumer_1_1Pact_1a4732c3185f90cea77a07a9445b2e364a" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>usingPlugin</name></member>
-      <member refid="classpact__consumer_1_1Pact_1aedf4b6de6dbe077deb82ea9f25423f31" prot="public" virt="non-virtual"><scope>pact_consumer::Pact</scope><name>withSpecification</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

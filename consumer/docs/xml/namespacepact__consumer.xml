@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespacepact__consumer" kind="namespace" language="C++">
     <compoundname>pact_consumer</compoundname>
     <innerclass refid="classpact__consumer_1_1MockServerHandle" prot="public">pact_consumer::MockServerHandle</innerclass>
@@ -7,45 +7,10 @@
     <innerclass refid="classpact__consumer_1_1Pact" prot="public">pact_consumer::Pact</innerclass>
     <innerclass refid="classpact__consumer_1_1Interaction" prot="public">pact_consumer::Interaction</innerclass>
     <innernamespace refid="namespacepact__consumer_1_1matchers">pact_consumer::matchers</innernamespace>
-    <sectiondef kind="enum">
-      <memberdef kind="enum" id="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9" prot="public" static="no" strong="yes">
-        <type></type>
-        <name>InteractionType</name>
-        <qualifiedname>pact_consumer::InteractionType</qualifiedname>
-        <enumvalue id="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a9d4d43de68f0b3555d5a5ef5dc05bb95" prot="public">
-          <name>Http</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a4c2a8fe7eaf24721cc7a9f0175115bd4" prot="public">
-          <name>Message</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="namespacepact__consumer_1a54e8a32c0494c1a9c33ee2afc73416d9a4ed9ab641b2d4fce91e0005d10896e76" prot="public">
-          <name>SyncMessage</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>The kind of interaction to create, controlling which pact_ffi constructor is used. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/consumer.h" line="26" column="3" bodyfile="include/consumer.h" bodystart="26" bodyend="30"/>
-      </memberdef>
+      <sectiondef kind="enum">
       <memberdef kind="enum" id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68c" prot="public" static="no" strong="no">
         <type></type>
         <name>TestResultState</name>
-        <qualifiedname>pact_consumer::TestResultState</qualifiedname>
         <enumvalue id="namespacepact__consumer_1a52ee54250f0c10cc1cb80909bef7b68ca59d67210ddbad0d51681661dd9c240be" prot="public">
           <name>Mismatches</name>
           <initializer>= (1u &lt;&lt; 0)</initializer>
@@ -85,16 +50,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/consumer.h" line="62" column="3" bodyfile="include/consumer.h" bodystart="62" bodyend="67"/>
+        <location file="include/consumer.h" line="51" column="3" bodyfile="include/consumer.h" bodystart="51" bodyend="56"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="func">
+      </sectiondef>
+      <sectiondef kind="func">
       <memberdef kind="function" id="namespacepact__consumer_1aaa6b9d5d2099c6ad833338cb2c1d4b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void pact_consumer::init</definition>
         <argsstring>()</argsstring>
         <name>init</name>
-        <qualifiedname>pact_consumer::init</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -102,9 +66,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/consumer.cpp" line="12" column="8" bodyfile="src/consumer.cpp" bodystart="12" bodyend="14" declfile="include/consumer.h" declline="19" declcolumn="8"/>
+        <location file="src/consumer.cpp" line="12" column="8" bodyfile="src/consumer.cpp" bodystart="12" bodyend="14" declfile="include/consumer.h" declline="17" declcolumn="8"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1NullMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::NullMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-    <sectiondef kind="public-func">
+      <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1NullMatcher_1a744590aa3bb3f70a807013600048a6da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::NullMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
-        <qualifiedname>pact_consumer::matchers::NullMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -18,35 +17,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="213" column="27" bodyfile="src/matchers.cpp" bodystart="501" bodyend="505"/>
+        <location file="include/matchers.h" line="213" column="27" bodyfile="src/matchers.cpp" bodystart="499" bodyend="503"/>
       </memberdef>
-    </sectiondef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::NullMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1NullMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::NullMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1NullMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
     <location file="include/matchers.h" line="211" column="3" bodyfile="include/matchers.h" bodystart="211" bodyend="214"/>
