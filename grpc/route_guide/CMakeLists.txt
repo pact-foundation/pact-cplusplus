@@ -6,8 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(absl CONFIG REQUIRED)
-find_package(Protobuf CONFIG REQUIRED)
+find_package(Protobuf REQUIRED)
 find_package(gRPC CONFIG REQUIRED)
+
+set(route_guide_absl_libraries absl::flags_parse)
+if(TARGET absl::log_initialize)
+  list(APPEND route_guide_absl_libraries absl::log_initialize)
+  set(route_guide_has_absl_log_initialize 1)
+else()
+  set(route_guide_has_absl_log_initialize 0)
+endif()
 
 set(route_guide_proto "${CMAKE_CURRENT_SOURCE_DIR}/route_guide.proto")
 set(route_guide_proto_src "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.cc")
@@ -46,19 +54,23 @@ add_library(route_guide_core
 target_include_directories(route_guide_core PUBLIC
   "${CMAKE_CURRENT_SOURCE_DIR}"
   "${CMAKE_CURRENT_BINARY_DIR}")
-target_link_libraries(route_guide_core PUBLIC route_guide_proto)
+target_link_libraries(route_guide_core PUBLIC
+  route_guide_proto
+  absl::flags)
 
 add_executable(route_guide_client route_guide_client.cc)
+target_compile_definitions(route_guide_client PRIVATE
+  ROUTE_GUIDE_HAS_ABSL_LOG_INITIALIZE=${route_guide_has_absl_log_initialize})
 target_link_libraries(route_guide_client PRIVATE
   route_guide_core
-  absl::flags_parse
-  absl::log_initialize)
+  ${route_guide_absl_libraries})
 
 add_executable(route_guide_server route_guide_server.cc)
+target_compile_definitions(route_guide_server PRIVATE
+  ROUTE_GUIDE_HAS_ABSL_LOG_INITIALIZE=${route_guide_has_absl_log_initialize})
 target_link_libraries(route_guide_server PRIVATE
   route_guide_core
-  absl::flags_parse
-  absl::log_initialize)
+  ${route_guide_absl_libraries})
 
 option(RouteGuideBuildPactTests "Build RouteGuide Pact tests" OFF)
 if(RouteGuideBuildPactTests)

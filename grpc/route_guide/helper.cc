@@ -26,7 +26,6 @@
 #include <vector>
 
 #include "absl/flags/flag.h"
-#include "absl/log/log.h"
 
 #ifdef BAZEL_BUILD
 #include "examples/protos/route_guide.grpc.pb.h"
@@ -47,7 +46,7 @@ std::string GetDbFileContent(int argc, char** argv) {
   std::string db_path = absl::GetFlag(FLAGS_db_path);
   std::ifstream db_file(db_path);
   if (!db_file.is_open()) {
-    LOG(ERROR) << "Failed to open " << db_path;
+    std::cerr << "Failed to open " << db_path << std::endl;
     abort();
   }
   std::stringstream db;
@@ -150,12 +149,13 @@ void ParseDb(const std::string& db, std::vector<Feature>* feature_list) {
   while (!parser.Finished()) {
     feature_list->push_back(Feature());
     if (!parser.TryParseOne(&feature_list->back())) {
-      LOG(ERROR) << "Error parsing the db file";
+      std::cerr << "Error parsing the db file" << std::endl;
       feature_list->clear();
       break;
     }
   }
-  LOG(INFO) << "DB parsed, loaded " << feature_list->size() << " features.";
+  std::clog << "DB parsed, loaded " << feature_list->size() << " features."
+            << std::endl;
 }
 
 }  // namespace routeguide

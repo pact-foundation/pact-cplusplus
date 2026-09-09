@@ -22,11 +22,15 @@
 #include "helper.h"
 #include "route_guide_service.h"
 #include "absl/flags/parse.h"
+#if ROUTE_GUIDE_HAS_ABSL_LOG_INITIALIZE
 #include "absl/log/initialize.h"
+#endif
 
 int main(int argc, char** argv) {
   absl::ParseCommandLine(argc, argv);
+#if ROUTE_GUIDE_HAS_ABSL_LOG_INITIALIZE
   absl::InitializeLog();
+#endif
   std::string db = routeguide::GetDbFileContent(argc, argv);
   RouteGuideServer server(db);
   if (!server.Start("0.0.0.0:50051")) {

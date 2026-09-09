@@ -41,7 +41,8 @@ jobs:
             libprotobuf-dev \
             protobuf-compiler \
             protobuf-compiler-grpc \
-            zlib1g-dev
+            zlib1g-dev \
+            cmake
 
       - name: Download Pact FFI
         run: |
