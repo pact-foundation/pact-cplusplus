@@ -1,0 +1,11 @@
+[requires]
+gtest/1.15.0
+libcurl/8.10.1
+nlohmann_json/3.11.3
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout

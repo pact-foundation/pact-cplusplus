@@ -6,6 +6,11 @@ cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DBoost_ROOT="D:\dev\fusio
 cmake --build build --config Release
 cmake --install build --prefix .\build\install\pact-cpp
 
+md build-verifier -Force
+cmake -S verifier -B build-verifier -DCMAKE_BUILD_TYPE=Release -DPACT_FFI_ROOT="D:\dev\pact_ffi-v0.5.6" -DPactUseConan=OFF -DPactBuildTests=OFF -DBUILD_SHARED_LIBS=OFF
+cmake --build build-verifier --config Release
+cmake --install build-verifier --prefix .\build\install\pact-cpp
+
 # After:
 # cd build/install/pact-cpp
 # D:\dev\fusion\3P\7zip\25.01\win64\bin\7za.exe -mm=lzma -mx9 -r a ../WIN64.zip *

@@ -46,6 +46,11 @@ cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DBoost_ROOT=$_BOOST_ROOT 
 cmake --build build --config Release
 cmake --install build --prefix ./build/install/pact-cpp
 
+mkdir -p build-verifier
+cmake -S verifier -B build-verifier -DCMAKE_BUILD_TYPE=Release -DPACT_FFI_ROOT=$_PACT_FFI_ROOT -DPACT_FFI_VERSION=$_PACT_FFI_VERSION -DPactUseConan=OFF -DPactBuildTests=OFF -DCMAKE_OSX_ARCHITECTURES=$_CMAKE_OSX_ARCHITECTURES
+cmake --build build-verifier --config Release
+cmake --install build-verifier --prefix ./build/install/pact-cpp
+
 # cd build/install/pact-cpp
 # 7za -mm=lzma -mx9 -r a ../[linux or MAC64].zip *
 # cd ../../../

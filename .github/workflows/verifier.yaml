@@ -1,0 +1,158 @@
+name: Verifier Project
+on:
+  push:
+  release:
+    types: [published]
+
+env:
+  PACT_FFI_VERSION: v0.5.6
+  CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
+  CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install linux dependencies
+        if: matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
+      - run: cmake --version
+
+      - name: Install conan
+        run: |
+          pip3 install --upgrade pip
+          pip3 install "conan>=2.0"
+          conan --version
+
+      - name: Download pact_ffi
+        run: |
+          set -euo pipefail
+          root="verifier/libpact_ffi-${PACT_FFI_VERSION}"
+          base="https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}"
+          mkdir -p "$root/include" "$root/lib"
+          curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
+          curl -sSfL -o "$root/include/pact-cpp.h" "$base/pact-cpp.h"
+          case "${{ matrix.ffi_arch }}" in
+            windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll.lib pact_ffi-windows-x86_64.dll" ;;
+            macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
+            linux-*)   files="libpact_ffi-${{ matrix.ffi_arch }}.a libpact_ffi-${{ matrix.ffi_arch }}.so" ;;
+          esac
+          for f in $files; do
+            curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
+            gunzip -f "$root/lib/$f.gz"
+          done
+          echo "PACT_FFI_ROOT=$PWD/$root" >> $GITHUB_ENV
+
+      - name: Create conan profile
+        run: |
+          conan profile detect --force
+          conan profile show
+
+      - name: Cache conan packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.conan2/p
+          key: conan-verifier-${{ matrix.os }}-${{ hashFiles('verifier/conanfile.py') }}
+          restore-keys: |
+            conan-verifier-${{ matrix.os }}-
+
+      - name: Conan install dependencies
+        run: |
+          conan install conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: verifier
+
+      # Drop source/build temporaries so only the built packages are cached
+      - name: Trim conan cache
+        run: conan cache clean "*" --source --build --temp
+
+      - name: Build library and tests
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          cmake --preset $preset \
+            -DPactUseConan=ON \
+            -DPactBuildTests=ON \
+            -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
+            -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+          cmake --build --preset conan-release
+        working-directory: verifier
+
+      - name: Run pact-verifier-tests
+        run: ctest --preset conan-release --output-on-failure --verbose
+        working-directory: verifier
+        env:
+          LOG_LEVEL: DEBUG
+
+      - name: Install library
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
+          cmake --install "$builddir" --config Release --prefix install
+        working-directory: verifier
+
+      - name: Package release artifacts
+        if: github.event_name == 'release'
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          lib=$(find install/pact-cpp-verifier -type f -name "*pact-cpp-verifier.*" | head -1)
+          name=$(basename "$lib")
+          gzip -c "$lib" > "artifacts/${name%.*}-${{ matrix.ffi_arch }}.${name##*.}.gz"
+          cp include/*.h artifacts
+          (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+        working-directory: verifier
+
+      - name: Create conan package
+        if: github.event_name == 'release'
+        run: |
+          conan create conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: verifier
+
+      - name: Upload conan package
+        if: github.event_name == 'release'
+        run: |
+          conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
+          conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
+          conan upload "pact_cpp_verifier/*" -r="$CONAN_REMOTE" --confirm
+        working-directory: verifier
+        env:
+          CONAN_USER: ${{ secrets.JFROG_USER }}
+          CONAN_PASSWORD: ${{ secrets.JFROG_ACCESS_TOKEN }}
+
+      - name: Upload Release Assets
+        if: github.event_name == 'release'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: verifier/artifacts/*
+          file_glob: true
+          tag: ${{ github.ref }}
