@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacepact__verifier_1_1http" kind="namespace" language="C++">
+    <compoundname>pact_verifier::http</compoundname>
+    <innerclass refid="structpact__verifier_1_1http_1_1Request" prot="public">pact_verifier::http::Request</innerclass>
+    <innerclass refid="structpact__verifier_1_1http_1_1Response" prot="public">pact_verifier::http::Response</innerclass>
+    <innerclass refid="classpact__verifier_1_1http_1_1Server" prot="public">pact_verifier::http::Server</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacepact__verifier_1_1http_1a899ef739d2fb55aad87225cf91d1df20" prot="public" static="no">
+        <type>std::function&lt; void(const <ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref> &amp;, <ref refid="structpact__verifier_1_1http_1_1Response" kindref="compound">Response</ref> &amp;)&gt;</type>
+        <definition>using pact_verifier::http::Handler = std::function&lt;void(const Request&amp;, Response&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>Handler</name>
+        <qualifiedname>pact_verifier::http::Handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked for every request the server receives. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="57" column="5" bodyfile="include/http_server.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/http_server.cpp" line="31" column="3"/>
+  </compounddef>
+</doxygen>

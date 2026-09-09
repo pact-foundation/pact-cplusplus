@@ -1,0 +1,333 @@
+\doxysection{verifier.\+h}
+\hypertarget{verifier_8h_source}{}\label{verifier_8h_source}\index{include/verifier.h@{include/verifier.h}}
+\doxymbox{\hyperlink{verifier_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <pact.h>}}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{http__server_8h}{http\_server.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepact__verifier}{pact\_verifier}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespacepact__verifier_ab8a4d93597974ae1a96d8df5dcf9217e}{init}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44}{LogLevel}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44ad15305d7a4e34e02489c74a5ef542f36}{Off}},}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a902b0d55fddef6f8d651fe1035b7d4bd}{Error}},}
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a56525ae64d370c0b448ac0d60710ef17}{Warn}},}
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875}{Info}},}
+\DoxyCodeLine{00033\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44aa603905470e2a5b8c13e96b579ef0dba}{Debug}},}
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44add4ec0ac4e58f7c32a01244ae91150b1}{Trace}}}
+\DoxyCodeLine{00035\ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespacepact__verifier_a54c3bcbc302403e0013ba4bcd50ea87a}{log\_to\_stdout}}(\doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44}{LogLevel}}\ level\ =\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875}{LogLevel::Info}});}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespacepact__verifier_a106c324eb96ae062983f342166d53a00}{log\_to\_stderr}}(\doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44}{LogLevel}}\ level\ =\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875}{LogLevel::Info}});}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespacepact__verifier_afdc9df0cd10cac5c7b73be5e07ce972c}{log\_to\_file}}(\textcolor{keyword}{const}\ std::string\&\ file\_name,\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44}{LogLevel}}\ level\ =\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875}{LogLevel::Info}});}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespacepact__verifier_a806e3ada9d3bab8b97c231f68e494b18}{log\_to\_buffer}}(\doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44}{LogLevel}}\ level\ =\ \doxymbox{\hyperlink{namespacepact__verifier_ad12617a2949c2e4a2d0a33983b4aaf44aa603905470e2a5b8c13e96b579ef0dba}{LogLevel::Debug}});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespacepact__verifier_ad055795679457f1fde74db861fff4a89}{StateAction}}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad055795679457f1fde74db861fff4a89aad2376beebecdcf7846ba973fa1a005b}{Setup}},}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad055795679457f1fde74db861fff4a89a56956774571525bfb86f4f1707a60f00}{Teardown}}}
+\DoxyCodeLine{00056\ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938}{ProviderStateParams}}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938}{ProviderStateParams}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938}{ProviderStateParams}}(\textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a7fd4404d623b9122dc0abfce07a2c33c}{json}});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a29133503b40eee3eda5c9a24c65b02a0}{contains}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ std::optional<std::string>\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a12e32df78f5feda529af8d46445af36b}{get}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a1fbd7ab6bf0015d2a8fded30836069bf}{get\_or}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ default\_value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ std::optional<long\ long>\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a73186dbcf5548f756f6d648e0eac8cef}{get\_int}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ std::optional<double>\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_aa47cdfa9b68cc4f2707ac5dc78e72138}{get\_double}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ std::optional<bool>\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_af42ce7d4894ee20218afa0ac762ba820}{get\_bool}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ std::string>\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a9fdb8b4e0e7b92334e2df1387880fae0}{values}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a7fd4404d623b9122dc0abfce07a2c33c}{json}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ std::string\ params\_json;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ std::unordered\_map<std::string,\ std::string>\ params;}
+\DoxyCodeLine{00098\ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest}{ProviderStateRequest}}\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest_aa32b985c8a37e5b8026b2873e438c4cf}{state}};}
+\DoxyCodeLine{00107\ \ \ \ \ \doxymbox{\hyperlink{namespacepact__verifier_ad055795679457f1fde74db861fff4a89}{StateAction}}\ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest_a5d27525e451ce74fead43f76d0c8035c}{action}}\ =\ \doxymbox{\hyperlink{namespacepact__verifier_ad055795679457f1fde74db861fff4a89aad2376beebecdcf7846ba973fa1a005b}{StateAction::Setup}};}
+\DoxyCodeLine{00109\ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams}{ProviderStateParams}}\ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest_a76c2ed63399e892b490aae2716e0d063}{params}};}
+\DoxyCodeLine{00110\ \ \ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{StateHandler}}\ =\ std::function<void(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest}{ProviderStateRequest}}\&)>;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{StateHandlerWithValues}}\ =\ std::function<std::string(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateRequest}{ProviderStateRequest}}\&)>;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00132\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{ProviderStateServer}}\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{ProviderStateServer}}(std::string\ path\ =\ \textcolor{stringliteral}{"{}/\_\_pact/provider-\/state"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{\string~ProviderStateServer}}();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a3c43a3bc868a7e145a299ac29a5ce8d6}{ProviderStateServer}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{ProviderStateServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{ProviderStateServer}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8a219079fbd8e181214a5ba2bbff55ac}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{ProviderStateServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a0964d815345c3519cfe1d9391d9b6fe4}{add\_state\_handler}}(\textcolor{keyword}{const}\ std::string\&\ state,\ \doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{StateHandler}}\ handler);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_ab412595358a65105a995e0e7f7c95126}{add\_state\_handler\_with\_values}}(\textcolor{keyword}{const}\ std::string\&\ state,\ \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{StateHandlerWithValues}}\ handler);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a5b3a6f094647d08da85de79763a10046}{set\_default\_handler}}(\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{StateHandler}}\ handler);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_aefdeb34e303248f5a1b11eafd9db434c}{set\_default\_handler\_with\_values}}(\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{StateHandlerWithValues}}\ handler);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_ad7560acc882bb20a17b42e9d9cb426d3}{set\_unknown\_state\_is\_error}}(\textcolor{keywordtype}{bool}\ is\_error);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a1b17b042dfb0623c631a2cd9c32c3855}{start}}(uint16\_t\ port\ =\ 0,\ \textcolor{keyword}{const}\ std::string\&\ host\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}});}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a915b76da7d52967aa77513b17ce20eb7}{stop}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a0082e52d3ea80a367123f84c6cb966c7}{is\_running}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a1a307f8f62b1251edf7a9bbd6ee92705}{get\_port}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a9982e0cbd1ad98f759dc3f222534ddbe}{get\_url}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl}{Impl}};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ std::unique\_ptr<Impl>\ impl;}
+\DoxyCodeLine{00182\ \ \ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a3ac9650d8567e3fd632107bb320e47df}{ProviderMessage}}\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a3ac9650d8567e3fd632107bb320e47df}{ProviderMessage}}(std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_abf4de6ceb72027f3559180bae65b6f5b}{body}}\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_ac6c548a8264b77298d36f04042307b02}{content\_type}}\ =\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a3ac9650d8567e3fd632107bb320e47df}{ProviderMessage}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a2d271c8429f1fe64e0c23996497dd822}{with\_metadata}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a3ac9650d8567e3fd632107bb320e47df}{ProviderMessage}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_ad2f366a3a7fdfb083c722e6284df4e35}{with\_json\_metadata}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ json\_value);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_abf4de6ceb72027f3559180bae65b6f5b}{body}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_ac6c548a8264b77298d36f04042307b02}{content\_type}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ std::string>\&\ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_ae7371ff873c4d3bc9496973134c9b722}{metadata}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ std::string\ message\_body;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ std::string\ message\_content\_type;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ std::unordered\_map<std::string,\ std::string>\ message\_metadata;}
+\DoxyCodeLine{00214\ \ \ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00219\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderState}{MessageProviderState}}\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderState_ab66f00d3102d492cc9b1b0dba33668ae}{name}};}
+\DoxyCodeLine{00221\ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams}{ProviderStateParams}}\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderState_aacca46d0db215f59504a8d4866f73f84}{params}};}
+\DoxyCodeLine{00222\ \ \ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest}{MessageRequest}}\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a3d8ae480acb34684220b3e3940cda691}{description}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00232\ \ \ \ \ std::vector<MessageProviderState>\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a0c5e363d01b980a932c166ae307db41e}{provider\_states}};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_ac1ab2dd3080349142c279e1046dfa1ae}{synchronous}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00238\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a9a8fb3eb2840285eca59e6d2c562a018}{request\_json}};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00241\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_abdee41e36de4f5045a5d0a306e7b5f13}{request\_body}};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a355bbde95ae07a257a65d254eae25def}{request\_content\_type}};}
+\DoxyCodeLine{00245\ \ \ \};}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00248\ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{MessageHandler}}\ =\ std::function<\doxymbox{\hyperlink{classpact__verifier_1_1ProviderMessage_a3ac9650d8567e3fd632107bb320e47df}{ProviderMessage}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest}{MessageRequest}}\&)>;}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00259\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{MessageProviderServer}}\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{MessageProviderServer}}(std::string\ path\ =\ \textcolor{stringliteral}{"{}/\_\_pact/message"{}});}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{\string~MessageProviderServer}}();}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a7eb5bdee5930088fa0a3e072da819ad6}{MessageProviderServer}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{MessageProviderServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{MessageProviderServer}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_ab79241165714e5faf293ccc45ca02a8b}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aa780c7c7fc52a44c3ff25c485522744f}{MessageProviderServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a78cf50e57d54af0244bcebe6f3497cd8}{add\_message\_handler}}(\textcolor{keyword}{const}\ std::string\&\ description,\ \doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{MessageHandler}}\ handler);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a1d305765501617423cd5f8275c5ba742}{set\_default\_handler}}(\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{MessageHandler}}\ handler);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_af4e243077f93a8e5f3d0175aa76dfcbb}{start}}(uint16\_t\ port\ =\ 0,\ \textcolor{keyword}{const}\ std::string\&\ host\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}});}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_aeb8e3985e5f37918ccdf4453babe64e1}{stop}}();}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a3796c464a38946495114b5a2072c4856}{is\_running}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a13d1ccb48feca87ace6382a0ae7b35a4}{get\_port}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a7c3362e60230a87333cabab9c5142d29}{get\_path}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1MessageProviderServer_a9490f77628a5488c04ff1918edd41a2d}{get\_url}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderServer_1_1Impl}{Impl}};}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ std::unique\_ptr<Impl>\ impl;}
+\DoxyCodeLine{00300\ \ \ \};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00308\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions}{BrokerSelectorOptions}}\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_af9cb57e6a13ad9d363d4dd5472d5d1ba}{url}};}
+\DoxyCodeLine{00312\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ab0415e0b9643f67f864baf86e4f282ae}{username}};}
+\DoxyCodeLine{00314\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ac7c2ad5686fc233d0fa0519d1bedb4bf}{password}};}
+\DoxyCodeLine{00316\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ac47132198d27b3d307ff374a36a9b5e5}{token}};}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_aec1510d62b42460b5ceb862205853f5f}{enable\_pending}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00320\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a4a79110d72d592aac55730ca6d0bb843}{include\_wip\_pacts\_since}};}
+\DoxyCodeLine{00322\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a92a8ea8b09b5c3ee4de970c0a497b505}{provider\_tags}};}
+\DoxyCodeLine{00324\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a52ef75189beda86f6e579e218fe68c95}{provider\_branch}};}
+\DoxyCodeLine{00326\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_af13347e3fffb7ade9b33c93abb151043}{consumer\_version\_selectors}};}
+\DoxyCodeLine{00328\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ad0490ab5b093c633aded2b246535b4ab}{consumer\_version\_tags}};}
+\DoxyCodeLine{00329\ \ \ \};}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00334\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions}{PublishOptions}}\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions_a9941b3727b0ff503aa4099bd71e9cbf9}{provider\_version}};}
+\DoxyCodeLine{00338\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions_a51542ea7a3a8757f93da171c6f207e43}{build\_url}};}
+\DoxyCodeLine{00340\ \ \ \ \ std::vector<std::string>\ \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions_a1b1503c83c7c58a645e74da8116fb65d}{provider\_tags}};}
+\DoxyCodeLine{00342\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions_a0b334ffd78ba5d199578606690e03867}{provider\_branch}};}
+\DoxyCodeLine{00343\ \ \ \};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00348\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult}{VerificationResult}}\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_a09437be096f788d2cfd6132d364600f3}{is\_ok}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_af9a09bbabbd06a5575b6e1781a2e8ef2}{result\_code}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_a3aa26ee61eb95c6173be9fb8dbaa058f}{output}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_ac2158ce55bf65ea44d77b3db7dc94897}{logs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_ac5f99908e8c5c6bff531a3a1a1b64a73}{json}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_a605634eab14f930ac3720f7fee5cfe19}{display}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_a871285414448937aa5f297649dc8242a}{Verifier}};}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ code\ =\ -\/1;}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ std::string\ verifier\_output;}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ std::string\ verifier\_logs;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ std::string\ verifier\_json;}
+\DoxyCodeLine{00375\ \ \ \};}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00396\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}();}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{\string~Verifier}}();}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae650f7a35b27302ca18557b52f741b48}{Verifier}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad12d77ce14cfa88f42f192b237d5fd98}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}(\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad12d77ce14cfa88f42f192b237d5fd98}{operator=}}(\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \textcolor{comment}{//\ Provider\ under\ test}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ac193e1b54b335df3b6992dd239e066cb}{set\_provider\_info}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ scheme\ =\ \textcolor{stringliteral}{"{}http"{}},}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ host\ =\ \textcolor{stringliteral}{"{}localhost"{}},\ uint16\_t\ port\ =\ 8080,\ \textcolor{keyword}{const}\ std::string\&\ path\ =\ \textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aa4bdd1e5cd25f0eac67d14f358c027ce}{add\_provider\_transport}}(\textcolor{keyword}{const}\ std::string\&\ protocol,\ uint16\_t\ port,}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ path\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ scheme\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a59db6ad4447ad748b6b1def1db57a78c}{add\_custom\_header}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a37d76505b5decb67818041f3c28ee8e5}{set\_follow\_redirects}}(\textcolor{keywordtype}{bool}\ follow);}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a84ccfd4f51c5268d8b4322b3e6a4820a}{set\_verification\_options}}(\textcolor{keywordtype}{bool}\ disable\_ssl\_verification,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ request\_timeout);}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \textcolor{comment}{//\ Provider\ states}}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae9d87e0ac0064f2bbe82c06a5b6bbf0a}{set\_provider\_state\_url}}(\textcolor{keyword}{const}\ std::string\&\ url,\ \textcolor{keywordtype}{bool}\ teardown\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ body\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49}{add\_state\_handler}}(\textcolor{keyword}{const}\ std::string\&\ state,\ \doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{StateHandler}}\ handler);}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a5d45fdd105086c80e0ff3eecb59da657}{add\_state\_handler\_with\_values}}(\textcolor{keyword}{const}\ std::string\&\ state,\ \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{StateHandlerWithValues}}\ handler);}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a3436df29da0fe72fbd821e1d4dbdce29}{set\_default\_state\_handler}}(\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{StateHandler}}\ handler);}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a702cdeaf7837b7034b96baa7d907c897}{set\_default\_state\_handler\_with\_values}}(\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{StateHandlerWithValues}}\ handler);}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a089f944ad87287a782b6fb1fd4f93058}{set\_state\_change\_port}}(uint16\_t\ port);}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a023f142be857d6354e15721d8fb279f3}{set\_state\_change\_teardown}}(\textcolor{keywordtype}{bool}\ teardown);}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a473e6cee4e487ef4f46efc1e0e366472}{set\_state\_change\_body}}(\textcolor{keywordtype}{bool}\ body);}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \textcolor{comment}{//\ Messages}}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a618e2a3a41a3dd4ccfbe74bc36ff53ad}{add\_message\_handler}}(\textcolor{keyword}{const}\ std::string\&\ description,\ \doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{MessageHandler}}\ handler);}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aecca839fabaff980ce40ec14a1349b46}{set\_default\_message\_handler}}(\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{MessageHandler}}\ handler);}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ab54f17561e896ff994d79c2eec40cef6}{set\_message\_transport\_port}}(uint16\_t\ port);}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad928ec9fdd2c72b83e30b3cbf64a9f4d}{set\_message\_endpoint\_path}}(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \textcolor{comment}{//\ Filtering}}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad898be2ed162fe45e24fd93100fd2ff8}{set\_filter\_info}}(\textcolor{keyword}{const}\ std::string\&\ filter\_description\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ filter\_state\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{bool}\ filter\_no\_state\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a0ec6e3d34d0dc0820c601cbf50c2cb3f}{set\_consumer\_filters}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ consumers);}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \textcolor{comment}{//\ Pact\ sources}}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a24084bc8d2d3938e5f9ab69e2d71bc56}{add\_file\_source}}(\textcolor{keyword}{const}\ std::string\&\ file);}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a2b2c683472b449a59c1b9ac9ac24a600}{add\_directory\_source}}(\textcolor{keyword}{const}\ std::string\&\ directory);}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a14a58d7b7ffe42b50fe83e52b3e9be61}{add\_url\_source}}(\textcolor{keyword}{const}\ std::string\&\ url,\ \textcolor{keyword}{const}\ std::string\&\ username\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ password\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ token\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_af57a5ada42a6319b8bb9408ce1ac1a27}{add\_broker\_source}}(\textcolor{keyword}{const}\ std::string\&\ url,\ \textcolor{keyword}{const}\ std::string\&\ username\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ password\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ token\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4a047e0489479c2f48b40118dbce81c4}{add\_broker\_source\_with\_selectors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions}{BrokerSelectorOptions}}\&\ options);}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \textcolor{comment}{//\ Results}}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae049eee364b44d0d5b4d346c37d694a8}{set\_publish\_options}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions}{PublishOptions}}\&\ options);}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a39ce663039792db7197cafc0dd91efbf}{set\_coloured\_output}}(\textcolor{keywordtype}{bool}\ coloured);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aad4343d083feaa5a9c106ddedfed34d4}{set\_no\_pacts\_is\_error}}(\textcolor{keywordtype}{bool}\ is\_error);}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}}\&\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a0f2707959f3ab547437d1e0b488153bf}{set\_strip\_ansi\_from\_output}}(\textcolor{keywordtype}{bool}\ strip);}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult}{VerificationResult}}\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}{execute}}();}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a748f7c1a3412d024e34f993afcdb9a1e}{logs\_for\_provider}}(\textcolor{keyword}{const}\ std::string\&\ provider\_name);}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00580\ \ \ \ \ \ \ VerifierHandle*\ \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ac879f9024c26da8b9908057b3f7fc24d}{get\_handle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structpact__verifier_1_1Verifier_1_1Impl}{Impl}};}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ std::unique\_ptr<Impl>\ impl;}
+\DoxyCodeLine{00585\ \ \ \};}
+\DoxyCodeLine{00586\ \}}
+
+\end{DoxyCode}

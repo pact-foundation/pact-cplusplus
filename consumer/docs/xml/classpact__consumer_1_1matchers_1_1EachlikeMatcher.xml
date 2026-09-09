@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1EachlikeMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::EachlikeMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae31c64a0384d014deb2672d407299c61" prot="private" static="no" mutable="no">
         <type>int</type>
         <definition>int pact_consumer::matchers::EachlikeMatcher::examples</definition>
         <argsstring></argsstring>
         <name>examples</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::examples</qualifiedname>
         <initializer>= 1</initializer>
         <briefdescription>
         </briefdescription>
@@ -24,6 +25,7 @@
         <definition>std::optional&lt;int&gt; pact_consumer::matchers::EachlikeMatcher::min</definition>
         <argsstring></argsstring>
         <name>min</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::min</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -37,6 +39,7 @@
         <definition>std::optional&lt;int&gt; pact_consumer::matchers::EachlikeMatcher::max</definition>
         <argsstring></argsstring>
         <name>max</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::max</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -50,6 +53,7 @@
         <definition>IMatcher::Ptr pact_consumer::matchers::EachlikeMatcher::obj</definition>
         <argsstring></argsstring>
         <name>obj</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::obj</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -58,13 +62,14 @@
         </inbodydescription>
         <location file="include/matchers.h" line="155" column="21" bodyfile="include/matchers.h" bodystart="155" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1EachlikeMatcher_1ae7bf8f7982ca2281d0dba65c762bdb46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
         <argsstring>(IMatcher::Ptr t)</argsstring>
         <name>EachlikeMatcher</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</qualifiedname>
         <param>
           <type><ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref></type>
           <declname>t</declname>
@@ -82,6 +87,7 @@
         <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
         <argsstring>(int e, IMatcher::Ptr t)</argsstring>
         <name>EachlikeMatcher</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</qualifiedname>
         <param>
           <type>int</type>
           <declname>e</declname>
@@ -103,6 +109,7 @@
         <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
         <argsstring>(int e, int m, IMatcher::Ptr t)</argsstring>
         <name>EachlikeMatcher</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</qualifiedname>
         <param>
           <type>int</type>
           <declname>e</declname>
@@ -128,6 +135,7 @@
         <definition>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</definition>
         <argsstring>(int e, int m, int mx, IMatcher::Ptr t)</argsstring>
         <name>EachlikeMatcher</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::EachlikeMatcher</qualifiedname>
         <param>
           <type>int</type>
           <declname>e</declname>
@@ -157,6 +165,7 @@
         <definition>std::string pact_consumer::matchers::EachlikeMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
+        <qualifiedname>pact_consumer::matchers::EachlikeMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -164,35 +173,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="149" column="27" bodyfile="src/matchers.cpp" bodystart="382" bodyend="412"/>
+        <location file="include/matchers.h" line="149" column="27" bodyfile="src/matchers.cpp" bodystart="384" bodyend="414"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::EachlikeMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
-      </node>
       <node id="1">
         <label>pact_consumer::matchers::EachlikeMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1EachlikeMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
     <location file="include/matchers.h" line="142" column="3" bodyfile="include/matchers.h" bodystart="142" bodyend="156"/>

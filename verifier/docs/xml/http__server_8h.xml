@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="http__server_8h" kind="file" language="C++">
+    <compoundname>http_server.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includedby refid="verifier_8h" local="yes">include/verifier.h</includedby>
+    <includedby refid="http__server_8cpp" local="yes">src/http_server.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/http_server.h</label>
+        <link refid="http__server_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/http_server.h</label>
+        <link refid="http__server_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/verifier.h</label>
+        <link refid="verifier_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/http_server.cpp</label>
+        <link refid="http__server_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/verifier.cpp</label>
+        <link refid="verifier_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structpact__verifier_1_1http_1_1Request" prot="public">pact_verifier::http::Request</innerclass>
+    <innerclass refid="structpact__verifier_1_1http_1_1Response" prot="public">pact_verifier::http::Response</innerclass>
+    <innerclass refid="classpact__verifier_1_1http_1_1Server" prot="public">pact_verifier::http::Server</innerclass>
+    <innernamespace refid="namespacepact__verifier">pact_verifier</innernamespace>
+    <innernamespace refid="namespacepact__verifier_1_1http">pact_verifier::http</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepact__verifier" kindref="compound">pact_verifier</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepact__verifier_1_1http" kindref="compound">http</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structpact__verifier_1_1http_1_1Request" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref><sp/>{</highlight></codeline>
+<codeline lineno="27" refid="structpact__verifier_1_1http_1_1Request_1a9b8f8e6e40a32880b9be4a290c8f9e6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1a9b8f8e6e40a32880b9be4a290c8f9e6e" kindref="member">method</ref>;</highlight></codeline>
+<codeline lineno="29" refid="structpact__verifier_1_1http_1_1Request_1a259abdef692f1f9006b0cba01fa524f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1a259abdef692f1f9006b0cba01fa524f9" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="31" refid="structpact__verifier_1_1http_1_1Request_1ae01a526414aa8b842e1e56e253c393e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1ae01a526414aa8b842e1e56e253c393e6" kindref="member">query</ref>;</highlight></codeline>
+<codeline lineno="33" refid="structpact__verifier_1_1http_1_1Request_1a07ad0e71208cde6c23f4de8e4254d574" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1a07ad0e71208cde6c23f4de8e4254d574" kindref="member">body</ref>;</highlight></codeline>
+<codeline lineno="35" refid="structpact__verifier_1_1http_1_1Request_1a3d07900621e4c114c0634cf0f0df83ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>std::string&gt;<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1a3d07900621e4c114c0634cf0f0df83ee" kindref="member">headers</ref>;</highlight></codeline>
+<codeline lineno="37" refid="structpact__verifier_1_1http_1_1Request_1aaf8a4328dc131f9610d56e54ba0e0822" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>std::string&gt;<sp/><ref refid="structpact__verifier_1_1http_1_1Request_1aaf8a4328dc131f9610d56e54ba0e0822" kindref="member">query_params</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structpact__verifier_1_1http_1_1Response" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpact__verifier_1_1http_1_1Response" kindref="compound">Response</ref><sp/>{</highlight></codeline>
+<codeline lineno="45" refid="structpact__verifier_1_1http_1_1Response_1addd6d68a9e0093fcb756d983baec24fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structpact__verifier_1_1http_1_1Response_1addd6d68a9e0093fcb756d983baec24fd" kindref="member">status</ref><sp/>=<sp/>200;</highlight></codeline>
+<codeline lineno="47" refid="structpact__verifier_1_1http_1_1Response_1abb68e05ae0ff711a033c7b3b6fc15145" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Response_1abb68e05ae0ff711a033c7b3b6fc15145" kindref="member">body</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structpact__verifier_1_1http_1_1Response_1ac6a37a745788218c9730e2dab2038c4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpact__verifier_1_1http_1_1Response_1ac6a37a745788218c9730e2dab2038c4c" kindref="member">content_type</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;application/json&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51" refid="structpact__verifier_1_1http_1_1Response_1a63f7797fcdc7212c2c60f6441611c330" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>std::string&gt;<sp/><ref refid="structpact__verifier_1_1http_1_1Response_1a63f7797fcdc7212c2c60f6441611c330" kindref="member">headers</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="namespacepact__verifier_1_1http_1a899ef739d2fb55aad87225cf91d1df20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespacepact__verifier_1_1http_1a899ef739d2fb55aad87225cf91d1df20" kindref="member">Handler</ref><sp/>=<sp/>std::function&lt;void(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref>&amp;,<sp/><ref refid="structpact__verifier_1_1http_1_1Response" kindref="compound">Response</ref>&amp;)&gt;;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classpact__verifier_1_1http_1_1Server" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">~Server</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classpact__verifier_1_1http_1_1Server_1acc89dce38044317d7bbecce548645c11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1acc89dce38044317d7bbecce548645c11" kindref="member">Server</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68" refid="classpact__verifier_1_1http_1_1Server_1a1ede31bc933adc7cbc4aecf4987efd84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref>&amp;<sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a1ede31bc933adc7cbc4aecf4987efd84" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1ab19b7ca80931da7f0e7936320c7b16d9" kindref="member">set_handler</ref>(<ref refid="namespacepact__verifier_1_1http_1a899ef739d2fb55aad87225cf91d1df20" kindref="member">Handler</ref><sp/>handler);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1ada32c7afe66d76e288380ddffb0f627e" kindref="member">start</ref>(uint16_t<sp/>port<sp/>=<sp/>0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;127.0.0.1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1ab03fcd4651b317cef873c8224ae880bd" kindref="member">stop</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a0a6faabb8751ceb20d5afaf7623cc98e" kindref="member">is_running</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classpact__verifier_1_1http_1_1Server_1afd7d6b8bbdf72032f33abfb8f2964d7a" kindref="member">get_port</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classpact__verifier_1_1http_1_1Server_1a89889050bcc2083cc1cc9b446315fbc9" kindref="member">get_url</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpact__verifier_1_1http_1_1Server_1_1Impl" kindref="compound">Impl</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;Impl&gt;<sp/>impl;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/http_server.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,110 @@
+\doxysection{pact\+\_\+verifier::Provider\+State\+Params Class Reference}
+\hypertarget{classpact__verifier_1_1ProviderStateParams}{}\label{classpact__verifier_1_1ProviderStateParams}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+
+
+{\ttfamily \+\#include $<$verifier.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938}{Provider\+State\+Params}} ()
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_aa5a2060dae6e55293f3d419363083fbc}{Provider\+State\+Params}} (const std::\+string \&json\doxymbox{\hyperlink{verifier_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}})
+\item 
+bool \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a29133503b40eee3eda5c9a24c65b02a0}{contains}} (const std::\+string \&name) const
+\item 
+std::\+optional$<$ std::\+string $>$ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a12e32df78f5feda529af8d46445af36b}{get}} (const std::\+string \&name) const
+\item 
+std::\+string \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a1fbd7ab6bf0015d2a8fded30836069bf}{get\+\_\+or}} (const std::\+string \&name, const std::\+string \&default\+\_\+value) const
+\item 
+std::\+optional$<$ long long $>$ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a73186dbcf5548f756f6d648e0eac8cef}{get\+\_\+int}} (const std::\+string \&name) const
+\item 
+std::\+optional$<$ double $>$ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_aa47cdfa9b68cc4f2707ac5dc78e72138}{get\+\_\+double}} (const std::\+string \&name) const
+\item 
+std::\+optional$<$ bool $>$ \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_af42ce7d4894ee20218afa0ac762ba820}{get\+\_\+bool}} (const std::\+string \&name) const
+\item 
+const std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \& \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a9fdb8b4e0e7b92334e2df1387880fae0}{values}} () const
+\item 
+const std::\+string \& \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateParams_a7fd4404d623b9122dc0abfce07a2c33c}{json}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parameters supplied with a provider state, as defined by the consumer with {\ttfamily given(state, params)}.
+
+Values are exposed as strings. JSON strings are unquoted; any other JSON value (numbers, booleans, objects, arrays) is returned as its raw JSON text. Use \doxylink{verifier_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json()} if you need the untouched document. 
+
+\label{classpact__verifier_1_1ProviderStateParams_doc-constructors}
+\Hypertarget{classpact__verifier_1_1ProviderStateParams_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!ProviderStateParams@{ProviderStateParams}}
+\index{ProviderStateParams@{ProviderStateParams}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{ProviderStateParams()}{ProviderStateParams()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_abdb87dd0dcf391ab8c2f8c2345041938} 
+pact\+\_\+verifier::\+\+Provider\+State\+Params::\+\+Provider\+State\+Params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpact__verifier_1_1ProviderStateParams_aa5a2060dae6e55293f3d419363083fbc}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!ProviderStateParams@{ProviderStateParams}}
+\index{ProviderStateParams@{ProviderStateParams}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{ProviderStateParams()}{ProviderStateParams()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_aa5a2060dae6e55293f3d419363083fbc} 
+pact\+\_\+verifier::\+\+Provider\+State\+Params::\+\+Provider\+State\+Params (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{json}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\label{classpact__verifier_1_1ProviderStateParams_doc-func-members}
+\Hypertarget{classpact__verifier_1_1ProviderStateParams_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpact__verifier_1_1ProviderStateParams_a29133503b40eee3eda5c9a24c65b02a0}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!contains@{contains}}
+\index{contains@{contains}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a29133503b40eee3eda5c9a24c65b02a0} 
+bool pact\+\_\+verifier::\+\+Provider\+State\+Params::\+contains (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption}) const}
+
+True if a parameter with this name was supplied \Hypertarget{classpact__verifier_1_1ProviderStateParams_a12e32df78f5feda529af8d46445af36b}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!get@{get}}
+\index{get@{get}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a12e32df78f5feda529af8d46445af36b} 
+std::\+optional$<$ std::\+string $>$ pact\+\_\+verifier::\+\+Provider\+State\+Params::\+get (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption}) const}
+
+The parameter value, or an empty optional if it was not supplied \Hypertarget{classpact__verifier_1_1ProviderStateParams_af42ce7d4894ee20218afa0ac762ba820}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!get\_bool@{get\_bool}}
+\index{get\_bool@{get\_bool}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{get\_bool()}{get\_bool()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_af42ce7d4894ee20218afa0ac762ba820} 
+std::\+optional$<$ bool $>$ pact\+\_\+verifier::\+\+Provider\+State\+Params::\+get\+\_\+bool (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption}) const}
+
+The parameter parsed as a boolean, or an empty optional if missing or not a boolean \Hypertarget{classpact__verifier_1_1ProviderStateParams_aa47cdfa9b68cc4f2707ac5dc78e72138}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!get\_double@{get\_double}}
+\index{get\_double@{get\_double}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{get\_double()}{get\_double()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_aa47cdfa9b68cc4f2707ac5dc78e72138} 
+std::\+optional$<$ double $>$ pact\+\_\+verifier::\+\+Provider\+State\+Params::\+get\+\_\+double (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption}) const}
+
+The parameter parsed as a double, or an empty optional if missing or not numeric \Hypertarget{classpact__verifier_1_1ProviderStateParams_a73186dbcf5548f756f6d648e0eac8cef}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!get\_int@{get\_int}}
+\index{get\_int@{get\_int}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{get\_int()}{get\_int()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a73186dbcf5548f756f6d648e0eac8cef} 
+std::\+optional$<$ long long $>$ pact\+\_\+verifier::\+\+Provider\+State\+Params::\+get\+\_\+int (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption}) const}
+
+The parameter parsed as an integer, or an empty optional if missing or not numeric \Hypertarget{classpact__verifier_1_1ProviderStateParams_a1fbd7ab6bf0015d2a8fded30836069bf}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!get\_or@{get\_or}}
+\index{get\_or@{get\_or}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{get\_or()}{get\_or()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a1fbd7ab6bf0015d2a8fded30836069bf} 
+std::\+string pact\+\_\+verifier::\+\+Provider\+State\+Params::\+get\+\_\+or (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{const std::\+string \&}]{default\+\_\+value}{}\end{DoxyParamCaption}) const}
+
+The parameter value, or the supplied default if it was not supplied \Hypertarget{classpact__verifier_1_1ProviderStateParams_a7fd4404d623b9122dc0abfce07a2c33c}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!json@{json}}
+\index{json@{json}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{json()}{json()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a7fd4404d623b9122dc0abfce07a2c33c} 
+const std::\+string \& pact\+\_\+verifier::\+\+Provider\+State\+Params::\+json (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+The raw JSON document the parameters were parsed from \Hypertarget{classpact__verifier_1_1ProviderStateParams_a9fdb8b4e0e7b92334e2df1387880fae0}\index{pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}!values@{values}}
+\index{values@{values}!pact\_verifier::ProviderStateParams@{pact\_verifier::ProviderStateParams}}
+\doxysubsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateParams_a9fdb8b4e0e7b92334e2df1387880fae0} 
+const std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \& pact\+\_\+verifier::\+\+Provider\+State\+Params::\+values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+All parameters keyed by name 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{verifier_8h}{verifier.\+h}}\item 
+src/\doxymbox{\hyperlink{verifier_8cpp}{verifier.\+cpp}}\end{DoxyCompactItemize}

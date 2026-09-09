@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structpact__verifier_1_1BrokerSelectorOptions" kind="struct" language="C++" prot="public">
+    <compoundname>pact_verifier::BrokerSelectorOptions</compoundname>
+    <includes refid="verifier_8h" local="no">verifier.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1af9cb57e6a13ad9d363d4dd5472d5d1ba" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Base URL of the broker, e.g. &quot;https://my-org.pactflow.io&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="310" column="17" bodyfile="include/verifier.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1ab0415e0b9643f67f864baf86e4f282ae" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basic auth username. Leave empty to omit </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="312" column="17" bodyfile="include/verifier.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1ac7c2ad5686fc233d0fa0519d1bedb4bf" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basic auth password. Leave empty to omit </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="314" column="17" bodyfile="include/verifier.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1ac47132198d27b3d307ff374a36a9b5e5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::token</definition>
+        <argsstring></argsstring>
+        <name>token</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bearer token. Leave empty to omit. Mutually exclusive with username/password </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="316" column="17" bodyfile="include/verifier.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1aec1510d62b42460b5ceb862205853f5f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool pact_verifier::BrokerSelectorOptions::enable_pending</definition>
+        <argsstring></argsstring>
+        <name>enable_pending</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::enable_pending</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Include pacts that are in pending state, so failures do not break the build </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="318" column="10" bodyfile="include/verifier.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1a4a79110d72d592aac55730ca6d0bb843" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::include_wip_pacts_since</definition>
+        <argsstring></argsstring>
+        <name>include_wip_pacts_since</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::include_wip_pacts_since</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ISO date (YYYY-MM-DD). Include work in progress pacts created since this date </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="320" column="17" bodyfile="include/verifier.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1a92a8ea8b09b5c3ee4de970c0a497b505" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; pact_verifier::BrokerSelectorOptions::provider_tags</definition>
+        <argsstring></argsstring>
+        <name>provider_tags</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::provider_tags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tags to apply to the provider version </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="322" column="17" bodyfile="include/verifier.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1a52ef75189beda86f6e579e218fe68c95" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::BrokerSelectorOptions::provider_branch</definition>
+        <argsstring></argsstring>
+        <name>provider_branch</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::provider_branch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Branch the provider is being verified from </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="324" column="17" bodyfile="include/verifier.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1af13347e3fffb7ade9b33c93abb151043" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; pact_verifier::BrokerSelectorOptions::consumer_version_selectors</definition>
+        <argsstring></argsstring>
+        <name>consumer_version_selectors</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::consumer_version_selectors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Consumer version selectors, each as a JSON object string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="326" column="17" bodyfile="include/verifier.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1BrokerSelectorOptions_1ad0490ab5b093c633aded2b246535b4ab" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; pact_verifier::BrokerSelectorOptions::consumer_version_tags</definition>
+        <argsstring></argsstring>
+        <name>consumer_version_tags</name>
+        <qualifiedname>pact_verifier::BrokerSelectorOptions::consumer_version_tags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Legacy consumer version tags. Prefer consumer_version_selectors </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="328" column="17" bodyfile="include/verifier.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Options for fetching pacts from a Pact Broker or PactFlow using consumer version selectors.</para>
+<para><simplesect kind="see"><para><ulink url="https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors">https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors</ulink> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/verifier.h" line="308" column="3" bodyfile="include/verifier.h" bodystart="308" bodyend="329"/>
+    <listofallmembers>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1af13347e3fffb7ade9b33c93abb151043" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>consumer_version_selectors</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1ad0490ab5b093c633aded2b246535b4ab" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>consumer_version_tags</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1aec1510d62b42460b5ceb862205853f5f" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>enable_pending</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1a4a79110d72d592aac55730ca6d0bb843" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>include_wip_pacts_since</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1ac7c2ad5686fc233d0fa0519d1bedb4bf" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>password</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1a52ef75189beda86f6e579e218fe68c95" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>provider_branch</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1a92a8ea8b09b5c3ee4de970c0a497b505" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>provider_tags</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1ac47132198d27b3d307ff374a36a9b5e5" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>token</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1af9cb57e6a13ad9d363d4dd5472d5d1ba" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>url</name></member>
+      <member refid="structpact__verifier_1_1BrokerSelectorOptions_1ab0415e0b9643f67f864baf86e4f282ae" prot="public" virt="non-virtual"><scope>pact_verifier::BrokerSelectorOptions</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

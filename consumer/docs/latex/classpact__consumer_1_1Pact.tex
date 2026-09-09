@@ -1,86 +1,140 @@
-\hypertarget{classpact__consumer_1_1Pact}{}\doxysection{pact\+\_\+consumer\+::Pact Class Reference}
-\label{classpact__consumer_1_1Pact}\index{pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysection{pact\+\_\+consumer::Pact Class Reference}
+\hypertarget{classpact__consumer_1_1Pact}{}\label{classpact__consumer_1_1Pact}\index{pact\_consumer::Pact@{pact\_consumer::Pact}}
 
 
-{\ttfamily \#include $<$consumer.\+h$>$}
+{\ttfamily \+\#include $<$consumer.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630}{Pact}} (const char $\ast$consumer, const char $\ast$provider)
+\doxymbox{\hyperlink{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630}{Pact}} (const char \texorpdfstring{$\ast$}{*}consumer, const char \texorpdfstring{$\ast$}{*}provider)
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}{given}} (const char $\ast$provider\+\_\+state) const
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}{given}} (const char \texorpdfstring{$\ast$}{*}provider\+\_\+state) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555}{given}} (const char $\ast$provider\+\_\+state, const std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&parameters) const
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555}{given}} (const char \texorpdfstring{$\ast$}{*}provider\+\_\+state, const std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \&parameters) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \mbox{\hyperlink{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}{upon\+Receiving}} (const char $\ast$description) const
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}{upon\+Receiving}} (const char \texorpdfstring{$\ast$}{*}description) const
 \item 
-\mbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} \mbox{\hyperlink{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea}{run\+\_\+test}} (std\+::function$<$ bool(const \mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} $\ast$)$>$ callback) const
+void \doxymbox{\hyperlink{classpact__consumer_1_1Pact_aedf4b6de6dbe077deb82ea9f25423f31}{with\+Specification}} (Pact\+Specification version) const
+\item 
+bool \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a4732c3185f90cea77a07a9445b2e364a}{using\+Plugin}} (const std::\+string \&plugin\+\_\+name, const std::\+string \&plugin\+\_\+version="{}"{}) const
+\item 
+void \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a905420b32ab93e9413e9f44facc288bc}{cleanup\+Plugins}} () const
+\item 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_aab4bb1d74728a68ec61e49fe6309b0de}{new\+Message}} (const char \texorpdfstring{$\ast$}{*}description) const
+\item 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_aa46cd68b11204b1d13fb2693f2c1f665}{new\+Sync\+Message}} (const char \texorpdfstring{$\ast$}{*}description) const
+\item 
+\doxymbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea}{run\+\_\+test}} (std::\+function$<$ bool(const \doxymbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} \texorpdfstring{$\ast$}{*})$>$ callback) const
+\item 
+\doxymbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a10d88eef16dfc67f2754ef8efbe4cbe2}{run\+\_\+message\+\_\+test}} (std::\+function$<$ bool()$>$ callback) const
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Pact\+Handle \mbox{\hyperlink{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3}{pact}}
+Pact\+Handle \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3}{pact}}
 \item 
-std\+::string \mbox{\hyperlink{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}{pact\+\_\+directory}}
+std::\+string \doxymbox{\hyperlink{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}{pact\+\_\+directory}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class that defines a \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} between a consumer and provider 
+Class that defines a \doxylink{classpact__consumer_1_1Pact}{Pact} between a consumer and provider 
 
+\label{classpact__consumer_1_1Pact_doc-constructors}
+\Hypertarget{classpact__consumer_1_1Pact_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630}\label{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!Pact@{Pact}}
+\Hypertarget{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!Pact@{Pact}}
 \index{Pact@{Pact}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{Pact()}{Pact()}}
-{\footnotesize\ttfamily pact\+\_\+consumer\+::\+Pact\+::\+Pact (\begin{DoxyParamCaption}\item[{const char $\ast$}]{consumer,  }\item[{const char $\ast$}]{provider }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a907de956f18c074634ceba0980fa8630} 
+pact\+\_\+consumer::\+\+Pact::\+\+Pact (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{consumer}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{provider}{}\end{DoxyParamCaption})}
 
-Constructs the \mbox{\hyperlink{classpact__consumer_1_1Pact}{Pact}} given the consumer and provider names 
+Constructs the \doxylink{classpact__consumer_1_1Pact}{Pact} given the consumer and provider names 
 
+\label{classpact__consumer_1_1Pact_doc-func-members}
+\Hypertarget{classpact__consumer_1_1Pact_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}\label{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!given@{given}}
+\Hypertarget{classpact__consumer_1_1Pact_a905420b32ab93e9413e9f44facc288bc}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!cleanupPlugins@{cleanupPlugins}}
+\index{cleanupPlugins@{cleanupPlugins}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{cleanupPlugins()}{cleanupPlugins()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a905420b32ab93e9413e9f44facc288bc} 
+void pact\+\_\+consumer::\+\+Pact::\+cleanup\+Plugins (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Shuts down any plugins that are no longer required by this \doxylink{classpact__consumer_1_1Pact}{Pact}. \Hypertarget{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!given@{given}}
 \index{given@{given}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{given()}{given()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Pact\+::given (\begin{DoxyParamCaption}\item[{const char $\ast$}]{provider\+\_\+state }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a630248129b4a610fd15d94d08c6fb6f5} 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer::\+\+Pact::\+given (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{provider\+\_\+state}{}\end{DoxyParamCaption}) const}
 
-Creates a new iteraction with a defined provider state \mbox{\Hypertarget{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555}\label{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!given@{given}}
+Creates a new iteraction with a defined provider state \Hypertarget{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!given@{given}}
 \index{given@{given}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{given()}{given()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Pact\+::given (\begin{DoxyParamCaption}\item[{const char $\ast$}]{provider\+\_\+state,  }\item[{const std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&}]{parameters }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a17fcecc8bc54bf6cc0f4a5eaae31a555} 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer::\+\+Pact::\+given (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{provider\+\_\+state}{, }\item[{const std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \&}]{parameters}{}\end{DoxyParamCaption}) const}
 
-Creates a new iteraction with a defined provider state and parameters \mbox{\Hypertarget{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea}\label{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!run\_test@{run\_test}}
+Creates a new iteraction with a defined provider state and parameters \Hypertarget{classpact__consumer_1_1Pact_aab4bb1d74728a68ec61e49fe6309b0de}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!newMessage@{newMessage}}
+\index{newMessage@{newMessage}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{newMessage()}{newMessage()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_aab4bb1d74728a68ec61e49fe6309b0de} 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer::\+\+Pact::\+new\+Message (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{description}{}\end{DoxyParamCaption}) const}
+
+Creates a new V4 asynchronous message interaction with the provided description. \Hypertarget{classpact__consumer_1_1Pact_aa46cd68b11204b1d13fb2693f2c1f665}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!newSyncMessage@{newSyncMessage}}
+\index{newSyncMessage@{newSyncMessage}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{newSyncMessage()}{newSyncMessage()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_aa46cd68b11204b1d13fb2693f2c1f665} 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer::\+\+Pact::\+new\+Sync\+Message (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{description}{}\end{DoxyParamCaption}) const}
+
+Creates a new V4 synchronous (request/\+response) message interaction with the provided description. \Hypertarget{classpact__consumer_1_1Pact_a10d88eef16dfc67f2754ef8efbe4cbe2}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!run\_message\_test@{run\_message\_test}}
+\index{run\_message\_test@{run\_message\_test}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{run\_message\_test()}{run\_message\_test()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a10d88eef16dfc67f2754ef8efbe4cbe2} 
+\doxymbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} pact\+\_\+consumer::\+\+Pact::\+run\+\_\+message\+\_\+test (\begin{DoxyParamCaption}\item[{std::\+function$<$ bool()$>$}]{callback}{}\end{DoxyParamCaption}) const}
+
+Runs a message/\+plugin test that doesn\textquotesingle{}t require a mock server (e.\+g. async/\+sync messages, or plugin-\/driven interactions such as g\+RPC). The callback needs to return a boolean value to indicate if the test was successful, after which the pact file is written. \Hypertarget{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!run\_test@{run\_test}}
 \index{run\_test@{run\_test}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{run\_test()}{run\_test()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} pact\+\_\+consumer\+::\+Pact\+::run\+\_\+test (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool(const \mbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} $\ast$)$>$}]{callback }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_ab1f98bc36f5865fcc5fb1fbcc20220ea} 
+\doxymbox{\hyperlink{classpact__consumer_1_1PactTestResult}{Pact\+Test\+Result}} pact\+\_\+consumer::\+\+Pact::\+run\+\_\+test (\begin{DoxyParamCaption}\item[{std::\+function$<$ bool(const \doxymbox{\hyperlink{classpact__consumer_1_1MockServerHandle}{Mock\+Server\+Handle}} \texorpdfstring{$\ast$}{*})$>$}]{callback}{}\end{DoxyParamCaption}) const}
 
-Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful. \mbox{\Hypertarget{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}\label{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!uponReceiving@{uponReceiving}}
+Starts a mock server for this pact, and then passes it to the callback. The callback needs to return a boolean value to indicate of the test was successful. \Hypertarget{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!uponReceiving@{uponReceiving}}
 \index{uponReceiving@{uponReceiving}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{uponReceiving()}{uponReceiving()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer\+::\+Pact\+::upon\+Receiving (\begin{DoxyParamCaption}\item[{const char $\ast$}]{description }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a05713ce4758ee154989b327c686dc18d} 
+\doxymbox{\hyperlink{classpact__consumer_1_1Interaction}{Interaction}} pact\+\_\+consumer::\+\+Pact::\+upon\+Receiving (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{description}{}\end{DoxyParamCaption}) const}
 
-Creates a new interaction with the provided description. 
+Creates a new interaction with the provided description. \Hypertarget{classpact__consumer_1_1Pact_a4732c3185f90cea77a07a9445b2e364a}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!usingPlugin@{usingPlugin}}
+\index{usingPlugin@{usingPlugin}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{usingPlugin()}{usingPlugin()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a4732c3185f90cea77a07a9445b2e364a} 
+bool pact\+\_\+consumer::\+\+Pact::\+using\+Plugin (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{plugin\+\_\+name}{, }\item[{const std::\+string \&}]{plugin\+\_\+version}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption}) const}
 
+Adds a plugin (e.\+g. protobuf/\+g\+RPC) to be used by the test. The plugin must be installed for this to succeed. Returns true on success. \Hypertarget{classpact__consumer_1_1Pact_aedf4b6de6dbe077deb82ea9f25423f31}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!withSpecification@{withSpecification}}
+\index{withSpecification@{withSpecification}!pact\_consumer::Pact@{pact\_consumer::Pact}}
+\doxysubsubsection{\texorpdfstring{withSpecification()}{withSpecification()}}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_aedf4b6de6dbe077deb82ea9f25423f31} 
+void pact\+\_\+consumer::\+\+Pact::\+with\+Specification (\begin{DoxyParamCaption}\item[{Pact\+Specification}]{version}{}\end{DoxyParamCaption}) const}
+
+Sets the \doxylink{classpact__consumer_1_1Pact}{Pact} specification version to generate the pact file for (V1 -\/ V4). Required for V4-\/only features such as sync/\+async messages and plugins. 
+
+\label{classpact__consumer_1_1Pact_doc-variable-members}
+\Hypertarget{classpact__consumer_1_1Pact_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3}\label{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!pact@{pact}}
+\Hypertarget{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!pact@{pact}}
 \index{pact@{pact}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{pact}{pact}}
-{\footnotesize\ttfamily Pact\+Handle pact\+\_\+consumer\+::\+Pact\+::pact}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a5e142f1242ac87124aa4d8f880bcd4b3} 
+Pact\+Handle pact\+\_\+consumer::\+\+Pact::\+pact}
 
-\mbox{\Hypertarget{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}\label{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}} 
-\index{pact\_consumer::Pact@{pact\_consumer::Pact}!pact\_directory@{pact\_directory}}
+\Hypertarget{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2}\index{pact\_consumer::Pact@{pact\_consumer::Pact}!pact\_directory@{pact\_directory}}
 \index{pact\_directory@{pact\_directory}!pact\_consumer::Pact@{pact\_consumer::Pact}}
 \doxysubsubsection{\texorpdfstring{pact\_directory}{pact\_directory}}
-{\footnotesize\ttfamily std\+::string pact\+\_\+consumer\+::\+Pact\+::pact\+\_\+directory}
+{\footnotesize\ttfamily \label{classpact__consumer_1_1Pact_a2d71145b2d9394a13b2ec104b031cdd2} 
+std::\+string pact\+\_\+consumer::\+\+Pact::\+pact\+\_\+directory}
 
 Directory to write pact files to 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{consumer_8h}{consumer.\+h}}\item 
-src/\mbox{\hyperlink{consumer_8cpp}{consumer.\+cpp}}\end{DoxyCompactItemize}
+include/\doxymbox{\hyperlink{consumer_8h}{consumer.\+h}}\item 
+src/\doxymbox{\hyperlink{consumer_8cpp}{consumer.\+cpp}}\end{DoxyCompactItemize}

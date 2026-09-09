@@ -1,0 +1,96 @@
+\doxysection{pact\+\_\+verifier::Provider\+State\+Server::Impl Struct Reference}
+\hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl}{}\label{structpact__verifier_1_1ProviderStateServer_1_1Impl}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+
+
+Collaboration diagram for pact\+\_\+verifier::Provider\+State\+Server::Impl:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_a7d606cd5f24c9b5b3272b22d29013838}{Impl}} (std::\+string endpoint\+\_\+path)
+\item 
+void \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_a6bc2ca3d7261407226f9d5ff67437ed8}{handle}} (const \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request}{http::\+\+Request}} \&request, \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Response}{http::\+\+Response}} \&response)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_a56cab6d3e68b84af632c7cc6249725cb}{path}}
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1http_1_1Server}{http::\+\+Server}} \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_aea803295f5d5fd8d36a76975d1c69655}{server}}
+\item 
+std::\+unordered\+\_\+map$<$ std::\+string, \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} $>$ \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_aefd8e16a0243b7b76a565b9cf0a97be5}{handlers}}
+\item 
+\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_a50b1cbccae3c5f3fe94e6d41ef00fa6f}{default\+\_\+handler}}
+\item 
+bool \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_a42d1bbc21947c91cad4935f94b77dd51}{unknown\+\_\+state\+\_\+is\+\_\+error}} = true
+\item 
+std::\+mutex \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl_ab84178d173efbbf494ec74e61a379f4b}{lock}}
+\end{DoxyCompactItemize}
+
+
+\label{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-constructors}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_a7d606cd5f24c9b5b3272b22d29013838}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!Impl@{Impl}}
+\index{Impl@{Impl}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{Impl()}{Impl()}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_a7d606cd5f24c9b5b3272b22d29013838} 
+pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+\+Impl (\begin{DoxyParamCaption}\item[{std::\+string}]{endpoint\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\label{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-func-members}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_a6bc2ca3d7261407226f9d5ff67437ed8}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!handle@{handle}}
+\index{handle@{handle}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_a6bc2ca3d7261407226f9d5ff67437ed8} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+handle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request}{http::\+\+Request}} \&}]{request}{, }\item[{\doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Response}{http::\+\+Response}} \&}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-variable-members}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_a50b1cbccae3c5f3fe94e6d41ef00fa6f}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!default\_handler@{default\_handler}}
+\index{default\_handler@{default\_handler}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{default\_handler}{default\_handler}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_a50b1cbccae3c5f3fe94e6d41ef00fa6f} 
+\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+default\+\_\+handler}
+
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_aefd8e16a0243b7b76a565b9cf0a97be5}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!handlers@{handlers}}
+\index{handlers@{handlers}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{handlers}{handlers}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_aefd8e16a0243b7b76a565b9cf0a97be5} 
+std::\+unordered\+\_\+map$<$std::\+string, \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}}$>$ pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+handlers}
+
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_ab84178d173efbbf494ec74e61a379f4b}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!lock@{lock}}
+\index{lock@{lock}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_ab84178d173efbbf494ec74e61a379f4b} 
+std::\+mutex pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+lock}
+
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_a56cab6d3e68b84af632c7cc6249725cb}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!path@{path}}
+\index{path@{path}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_a56cab6d3e68b84af632c7cc6249725cb} 
+std::\+string pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+path}
+
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_aea803295f5d5fd8d36a76975d1c69655}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!server@{server}}
+\index{server@{server}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_aea803295f5d5fd8d36a76975d1c69655} 
+\doxymbox{\hyperlink{classpact__verifier_1_1http_1_1Server}{http::\+\+Server}} pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+server}
+
+\Hypertarget{structpact__verifier_1_1ProviderStateServer_1_1Impl_a42d1bbc21947c91cad4935f94b77dd51}\index{pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}!unknown\_state\_is\_error@{unknown\_state\_is\_error}}
+\index{unknown\_state\_is\_error@{unknown\_state\_is\_error}!pact\_verifier::ProviderStateServer::Impl@{pact\_verifier::ProviderStateServer::Impl}}
+\doxysubsubsection{\texorpdfstring{unknown\_state\_is\_error}{unknown\_state\_is\_error}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1ProviderStateServer_1_1Impl_a42d1bbc21947c91cad4935f94b77dd51} 
+bool pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Impl::\+unknown\+\_\+state\+\_\+is\+\_\+error = true}
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\doxymbox{\hyperlink{verifier_8cpp}{verifier.\+cpp}}\end{DoxyCompactItemize}

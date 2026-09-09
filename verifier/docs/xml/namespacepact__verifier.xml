@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacepact__verifier" kind="namespace" language="C++">
+    <compoundname>pact_verifier</compoundname>
+    <innerclass refid="classpact__verifier_1_1ProviderStateParams" prot="public">pact_verifier::ProviderStateParams</innerclass>
+    <innerclass refid="structpact__verifier_1_1ProviderStateRequest" prot="public">pact_verifier::ProviderStateRequest</innerclass>
+    <innerclass refid="classpact__verifier_1_1ProviderStateServer" prot="public">pact_verifier::ProviderStateServer</innerclass>
+    <innerclass refid="classpact__verifier_1_1ProviderMessage" prot="public">pact_verifier::ProviderMessage</innerclass>
+    <innerclass refid="structpact__verifier_1_1MessageProviderState" prot="public">pact_verifier::MessageProviderState</innerclass>
+    <innerclass refid="structpact__verifier_1_1MessageRequest" prot="public">pact_verifier::MessageRequest</innerclass>
+    <innerclass refid="classpact__verifier_1_1MessageProviderServer" prot="public">pact_verifier::MessageProviderServer</innerclass>
+    <innerclass refid="structpact__verifier_1_1BrokerSelectorOptions" prot="public">pact_verifier::BrokerSelectorOptions</innerclass>
+    <innerclass refid="structpact__verifier_1_1PublishOptions" prot="public">pact_verifier::PublishOptions</innerclass>
+    <innerclass refid="classpact__verifier_1_1VerificationResult" prot="public">pact_verifier::VerificationResult</innerclass>
+    <innerclass refid="classpact__verifier_1_1Verifier" prot="public">pact_verifier::Verifier</innerclass>
+    <innernamespace refid="namespacepact__verifier_1_1http">pact_verifier::http</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LogLevel</name>
+        <qualifiedname>pact_verifier::LogLevel</qualifiedname>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44ad15305d7a4e34e02489c74a5ef542f36" prot="public">
+          <name>Off</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a56525ae64d370c0b448ac0d60710ef17" prot="public">
+          <name>Warn</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875" prot="public">
+          <name>Info</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44aa603905470e2a5b8c13e96b579ef0dba" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44add4ec0ac4e58f7c32a01244ae91150b1" prot="public">
+          <name>Trace</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Log levels supported by the Pact core. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="28" column="3" bodyfile="include/verifier.h" bodystart="28" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacepact__verifier_1ad055795679457f1fde74db861fff4a89" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StateAction</name>
+        <qualifiedname>pact_verifier::StateAction</qualifiedname>
+        <enumvalue id="namespacepact__verifier_1ad055795679457f1fde74db861fff4a89aad2376beebecdcf7846ba973fa1a005b" prot="public">
+          <name>Setup</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacepact__verifier_1ad055795679457f1fde74db861fff4a89a56956774571525bfb86f4f1707a60f00" prot="public">
+          <name>Teardown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the verifier is asking for a provider state to be set up before an interaction, or torn down afterwards. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="53" column="3" bodyfile="include/verifier.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacepact__verifier_1a5f8c6ba01cc5a0630eededce707e280a" prot="public" static="no">
+        <type>std::function&lt; void(const <ref refid="structpact__verifier_1_1ProviderStateRequest" kindref="compound">ProviderStateRequest</ref> &amp;)&gt;</type>
+        <definition>using pact_verifier::StateHandler = std::function&lt;void(const ProviderStateRequest&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>StateHandler</name>
+        <qualifiedname>pact_verifier::StateHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback that puts the provider into the required state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="113" column="3" bodyfile="include/verifier.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacepact__verifier_1a262b4e20a566f534ac4d1cb1d088794b" prot="public" static="no">
+        <type>std::function&lt; std::string(const <ref refid="structpact__verifier_1_1ProviderStateRequest" kindref="compound">ProviderStateRequest</ref> &amp;)&gt;</type>
+        <definition>using pact_verifier::StateHandlerWithValues = std::function&lt;std::string(const ProviderStateRequest&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>StateHandlerWithValues</name>
+        <qualifiedname>pact_verifier::StateHandlerWithValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback that puts the provider into the required state and returns a JSON object of values. Those values are made available to the verifier for use by generators (<computeroutput>fromProviderState</computeroutput>). Return an empty string for no values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="120" column="3" bodyfile="include/verifier.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacepact__verifier_1a4a4fddab89403e5136e4bca206adc8a5" prot="public" static="no">
+        <type>std::function&lt; <ref refid="classpact__verifier_1_1ProviderMessage" kindref="compound">ProviderMessage</ref>(const <ref refid="structpact__verifier_1_1MessageRequest" kindref="compound">MessageRequest</ref> &amp;)&gt;</type>
+        <definition>using pact_verifier::MessageHandler = std::function&lt;ProviderMessage(const MessageRequest&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>MessageHandler</name>
+        <qualifiedname>pact_verifier::MessageHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback that produces the message the provider would send. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="248" column="3" bodyfile="include/verifier.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepact__verifier_1ab8a4d93597974ae1a96d8df5dcf9217e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pact_verifier::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>pact_verifier::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialise the Pact library. Reads the log level from the <computeroutput>LOG_LEVEL</computeroutput> environment variable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/verifier.cpp" line="98" column="8" bodyfile="src/verifier.cpp" bodystart="98" bodyend="100" declfile="include/verifier.h" declline="23" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__verifier_1a54c3bcbc302403e0013ba4bcd50ea87a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::log_to_stdout</definition>
+        <argsstring>(LogLevel level)</argsstring>
+        <name>log_to_stdout</name>
+        <qualifiedname>pact_verifier::log_to_stdout</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+          <defval><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875" kindref="member">LogLevel::Info</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends Pact core logs to standard output. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/verifier.cpp" line="102" column="8" bodyfile="src/verifier.cpp" bodystart="102" bodyend="104" declfile="include/verifier.h" declline="38" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__verifier_1a106c324eb96ae062983f342166d53a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::log_to_stderr</definition>
+        <argsstring>(LogLevel level)</argsstring>
+        <name>log_to_stderr</name>
+        <qualifiedname>pact_verifier::log_to_stderr</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+          <defval><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875" kindref="member">LogLevel::Info</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends Pact core logs to standard error. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/verifier.cpp" line="106" column="8" bodyfile="src/verifier.cpp" bodystart="106" bodyend="108" declfile="include/verifier.h" declline="40" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__verifier_1afdc9df0cd10cac5c7b73be5e07ce972c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::log_to_file</definition>
+        <argsstring>(const std::string &amp;file_name, LogLevel level)</argsstring>
+        <name>log_to_file</name>
+        <qualifiedname>pact_verifier::log_to_file</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>file_name</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+          <defval><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44a4059b0251f66a18cb56f544728796875" kindref="member">LogLevel::Info</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends Pact core logs to a file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/verifier.cpp" line="110" column="8" bodyfile="src/verifier.cpp" bodystart="110" bodyend="112" declfile="include/verifier.h" declline="42" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepact__verifier_1a806e3ada9d3bab8b97c231f68e494b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::log_to_buffer</definition>
+        <argsstring>(LogLevel level)</argsstring>
+        <name>log_to_buffer</name>
+        <qualifiedname>pact_verifier::log_to_buffer</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+          <defval><ref refid="namespacepact__verifier_1ad12617a2949c2e4a2d0a33983b4aaf44aa603905470e2a5b8c13e96b579ef0dba" kindref="member">LogLevel::Debug</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffers Pact core logs in memory. Required if you want to read <ref refid="classpact__verifier_1_1VerificationResult_1ac2158ce55bf65ea44d77b3db7dc94897" kindref="member">VerificationResult::logs</ref> after a verification run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/verifier.cpp" line="114" column="8" bodyfile="src/verifier.cpp" bodystart="114" bodyend="116" declfile="include/verifier.h" declline="47" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Minimal, dependency-free HTTP/1.1 server used to host the provider state change endpoint required by Pact verification.</para>
+<para>It is deliberately small (single connection at a time, <computeroutput>Connection: close</computeroutput>) because the Pact verifier drives the provider sequentially. It is also useful for standing up a stub provider in your own tests, but it is not intended to be a general purpose production web server. </para>
+    </detaileddescription>
+    <location file="src/http_server.cpp" line="30" column="1"/>
+  </compounddef>
+</doxygen>

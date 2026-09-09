@@ -1,0 +1,70 @@
+\doxysection{pact\+\_\+verifier::Message\+Request Struct Reference}
+\hypertarget{structpact__verifier_1_1MessageRequest}{}\label{structpact__verifier_1_1MessageRequest}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+
+
+{\ttfamily \+\#include $<$verifier.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a3d8ae480acb34684220b3e3940cda691}{description}}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderState}{Message\+Provider\+State}} $>$ \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a0c5e363d01b980a932c166ae307db41e}{provider\+\_\+states}}
+\item 
+bool \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_ac1ab2dd3080349142c279e1046dfa1ae}{synchronous}} = false
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a9a8fb3eb2840285eca59e6d2c562a018}{request\+\_\+json}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_abdee41e36de4f5045a5d0a306e7b5f13}{request\+\_\+body}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1MessageRequest_a355bbde95ae07a257a65d254eae25def}{request\+\_\+content\+\_\+type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The verifier asking the provider to produce a message. 
+
+\label{structpact__verifier_1_1MessageRequest_doc-variable-members}
+\Hypertarget{structpact__verifier_1_1MessageRequest_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structpact__verifier_1_1MessageRequest_a3d8ae480acb34684220b3e3940cda691}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!description@{description}}
+\index{description@{description}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_a3d8ae480acb34684220b3e3940cda691} 
+std::\+string pact\+\_\+verifier::\+\+Message\+Request::\+description}
+
+The interaction description from the pact file \Hypertarget{structpact__verifier_1_1MessageRequest_a0c5e363d01b980a932c166ae307db41e}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!provider\_states@{provider\_states}}
+\index{provider\_states@{provider\_states}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{provider\_states}{provider\_states}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_a0c5e363d01b980a932c166ae307db41e} 
+std::\+vector$<$\doxymbox{\hyperlink{structpact__verifier_1_1MessageProviderState}{Message\+Provider\+State}}$>$ pact\+\_\+verifier::\+\+Message\+Request::\+provider\+\_\+states}
+
+Provider states attached to the interaction \Hypertarget{structpact__verifier_1_1MessageRequest_abdee41e36de4f5045a5d0a306e7b5f13}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!request\_body@{request\_body}}
+\index{request\_body@{request\_body}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{request\_body}{request\_body}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_abdee41e36de4f5045a5d0a306e7b5f13} 
+std::\+string pact\+\_\+verifier::\+\+Message\+Request::\+request\+\_\+body}
+
+For synchronous messages, the decoded body of the request message \Hypertarget{structpact__verifier_1_1MessageRequest_a355bbde95ae07a257a65d254eae25def}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!request\_content\_type@{request\_content\_type}}
+\index{request\_content\_type@{request\_content\_type}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{request\_content\_type}{request\_content\_type}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_a355bbde95ae07a257a65d254eae25def} 
+std::\+string pact\+\_\+verifier::\+\+Message\+Request::\+request\+\_\+content\+\_\+type}
+
+For synchronous messages, the content type of the request message \Hypertarget{structpact__verifier_1_1MessageRequest_a9a8fb3eb2840285eca59e6d2c562a018}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!request\_json@{request\_json}}
+\index{request\_json@{request\_json}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{request\_json}{request\_json}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_a9a8fb3eb2840285eca59e6d2c562a018} 
+std::\+string pact\+\_\+verifier::\+\+Message\+Request::\+request\+\_\+json}
+
+For synchronous messages, the request message the consumer sends, as raw JSON \Hypertarget{structpact__verifier_1_1MessageRequest_ac1ab2dd3080349142c279e1046dfa1ae}\index{pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}!synchronous@{synchronous}}
+\index{synchronous@{synchronous}!pact\_verifier::MessageRequest@{pact\_verifier::MessageRequest}}
+\doxysubsubsection{\texorpdfstring{synchronous}{synchronous}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1MessageRequest_ac1ab2dd3080349142c279e1046dfa1ae} 
+bool pact\+\_\+verifier::\+\+Message\+Request::\+synchronous = false}
+
+True for a synchronous (request/\+response) message, false for an asynchronous one 
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{verifier_8h}{verifier.\+h}}\end{DoxyCompactItemize}

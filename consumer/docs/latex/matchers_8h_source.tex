@@ -1,0 +1,335 @@
+\doxysection{matchers.\+h}
+\hypertarget{matchers_8h_source}{}\label{matchers_8h_source}\index{include/matchers.h@{include/matchers.h}}
+\doxymbox{\hyperlink{matchers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <boost/throw\_exception.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepact__consumer_1_1matchers}{pact\_consumer::matchers}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{Ptr}}\ =\ std::shared\_ptr<IMatcher>;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a39e26483e294d88851ae826ec0ac131a}{getJson}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a83c8f74ac502ccd4085d857548683b32}{as\_example}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};\ \};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_aeae8817a251ac312f7d68b6a4b62f01b}{as\_regex}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a83c8f74ac502ccd4085d857548683b32}{as\_example}}();\ \};}
+\DoxyCodeLine{00019\ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ObjectMatcher_a1bdcc25961def476ac53857744bbb985}{ObjectMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ObjectMatcher_a1bdcc25961def476ac53857744bbb985}{ObjectMatcher}}(\textcolor{keyword}{const}\ std::unordered\_map<std::string,\ IMatcher::Ptr>\&\ i\_fields)\ :\ fields\ \{\ i\_fields\ \}\ \{\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ObjectMatcher_ac7b875e4be7c487c3bec741ccdc7a34b}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ std::unordered\_map<std::string,\ IMatcher::Ptr>\ fields;}
+\DoxyCodeLine{00029\ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IntegerMatcher_a0991d669ed3b7d53466713a2e38d0281}{IntegerMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IntegerMatcher_a0991d669ed3b7d53466713a2e38d0281}{IntegerMatcher}}()\ \{\};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IntegerMatcher_a46f4b7c8cbbb1f6f19fc61c77cca9066}{IntegerMatcher}}(\textcolor{keywordtype}{long}\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IntegerMatcher_a1fe7460a246233d51bb1e2275ba15229}{IntegerMatcher}}(\textcolor{keywordtype}{int}\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IntegerMatcher_a60a44f613d7600a69d5773c737cb9494}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ std::optional<long>\ value;}
+\DoxyCodeLine{00041\ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DecimalMatcher_a8cc13a35a6c01a7ad2034db6499d8148}{DecimalMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DecimalMatcher_a8cc13a35a6c01a7ad2034db6499d8148}{DecimalMatcher}}()\ \{\};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DecimalMatcher_a718f029d1aee790d29882e21c2d30bb6}{DecimalMatcher}}(\textcolor{keywordtype}{float}\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DecimalMatcher_aee590f8b4474b327b4ead0c65ede152f}{DecimalMatcher}}(\textcolor{keywordtype}{double}\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DecimalMatcher_a9622d5c88013538472db3e438561dd85}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ std::optional<double>\ value;}
+\DoxyCodeLine{00053\ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TypeMatcher_a11577167bb784d1c1662a45ec8f78197}{TypeMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TypeMatcher_a11577167bb784d1c1662a45ec8f78197}{TypeMatcher}}(T\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TypeMatcher_addaffee04e0ecf86d71dc41faa79fe67}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ T\ value;}
+\DoxyCodeLine{00064\ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NumberMatcher_a27c9dd090644dcc2df22fb437af8afcc}{NumberMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NumberMatcher_a27c9dd090644dcc2df22fb437af8afcc}{NumberMatcher}}()\ \{\};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NumberMatcher_a8e9d378a6383ee84e356de3fa630d1c5}{NumberMatcher}}(T\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NumberMatcher_ac142138112f55e8b9aad2f4f46a59138}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ std::optional<T>\ value;}
+\DoxyCodeLine{00076\ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EqualsMatcher_afe9e104f7dc744804e6956cc009304b9}{EqualsMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EqualsMatcher_afe9e104f7dc744804e6956cc009304b9}{EqualsMatcher}}(T\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EqualsMatcher_a6db6f2fda0dc721ebb1bc353200e4ce0}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EqualsMatcher_a7034b7f61042ccce7228f6a3e7d36d32}{as\_example}}()\textcolor{keyword}{\ const\ }\{\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::ostringstream\ stringStream;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ stringStream\ <<\ value;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stringStream.str();\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ T\ value;}
+\DoxyCodeLine{00093\ \ \ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateTimeMatcher_ae846d329ef76200275951d2fb3ca8aa1}{DateTimeMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateTimeMatcher_ae846d329ef76200275951d2fb3ca8aa1}{DateTimeMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f)\ :\ format\ \{\ f\ \}\ \{\};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateTimeMatcher_ad7d24327286933a068d99c2398d6af49}{DateTimeMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f,\ \textcolor{keyword}{const}\ std::string\&\ e)\ :\ format\ \{\ f\ \},\ example\ \{\ e\ \}\ \{\};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateTimeMatcher_a5a4d5ee26da003046e49cf2e6ede47c2}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ std::string\ format,\ example;}
+\DoxyCodeLine{00104\ \ \ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateMatcher_a98e00fac884fdc6f6b43606cbd3cd1e6}{DateMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateMatcher_a98e00fac884fdc6f6b43606cbd3cd1e6}{DateMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f)\ :\ format\ \{\ f\ \}\ \{\};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateMatcher_a5d5051df92746fc56771f70fc2d81db9}{DateMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f,\ \textcolor{keyword}{const}\ std::string\&\ e)\ :\ format\ \{\ f\ \},\ example\ \{\ e\ \}\ \{\};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1DateMatcher_a62acbf5a85f2eb2cd915ecc1e01a19a7}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ std::string\ format,\ example;}
+\DoxyCodeLine{00115\ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TimeMatcher_a6fbb3f8931ef93cb9c129fd3157b315b}{TimeMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TimeMatcher_a6fbb3f8931ef93cb9c129fd3157b315b}{TimeMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f)\ :\ format\ \{\ f\ \}\ \{\};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TimeMatcher_af28caf2945fd4b16ac9bf06239c18376}{TimeMatcher}}(\textcolor{keyword}{const}\ std::string\&\ f,\ \textcolor{keyword}{const}\ std::string\&\ e)\ :\ format\ \{\ f\ \},\ example\ \{\ e\ \}\ \{\};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1TimeMatcher_aed92aaeea30c962016a2313ce6a5502a}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ std::string\ format,\ example;}
+\DoxyCodeLine{00126\ \ \ \};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_acbe8de8435c2fb052a847e4ca2a762bb}{RegexMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_acbe8de8435c2fb052a847e4ca2a762bb}{RegexMatcher}}(\textcolor{keyword}{const}\ std::string\&\ r)\ :\ regex\ \{\ r\ \}\ \{\};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_a8c4d91701b428fce2cf1011b9fd8a8ae}{RegexMatcher}}(\textcolor{keyword}{const}\ std::string\&\ r,\ \textcolor{keyword}{const}\ std::string\&\ e)\ :\ regex\ \{\ r\ \},\ example\ \{\ e\ \}\ \{\};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_afcd085e0487904c4c5dc2eafb3673bbc}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_af29f5e7788b898dc778838eeb20cb71e}{as\_example}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ example;\ \};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1RegexMatcher_a92604e824c8ef352caa1fa4a14894f48}{as\_regex}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ regex;\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ std::string\ regex,\ example;}
+\DoxyCodeLine{00140\ \ \ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_ae7bf8f7982ca2281d0dba65c762bdb46}{EachlikeMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_ae7bf8f7982ca2281d0dba65c762bdb46}{EachlikeMatcher}}(\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ t)\ :\ obj\ \{\ t\ \}\ \{\};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_a048dc280cac528a7ad7447fc7a7dce8b}{EachlikeMatcher}}(\textcolor{keywordtype}{int}\ e,\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ t)\ :\ obj\ \{\ t\ \},\ examples\ \{\ e\ \}\ \{\};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_ac37dc7ce91825ae207e2040cb2e6c01e}{EachlikeMatcher}}(\textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ m,\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ t)\ :\ obj\ \{\ t\ \},\ examples\ \{\ e\ \},\ min\ \{\ m\ \}\ \{\};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_ace9a9d9048656816f662e5cd141da3a0}{EachlikeMatcher}}(\textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ mx,\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ t)\ :\ obj\ \{\ t\ \},\ examples\ \{\ e\ \},\ min\ \{\ m\ \},\ max\ \{\ mx\ \}\ \{\};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1EachlikeMatcher_a5b10e36b3dfcf5d139ef164bf12b3f68}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ examples\ =\ 1;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ std::optional<int>\ min;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ std::optional<int>\ max;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj;}
+\DoxyCodeLine{00156\ \ \ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_a51a8af29070b8ea132278d8e871f65f2}{ArrayContainsMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_a51a8af29070b8ea132278d8e871f65f2}{ArrayContainsMatcher}}(\textcolor{keyword}{const}\ std::vector<IMatcher::Ptr>\&\ i\_variants)\ :\ variants\ \{\ i\_variants\ \}\ \{\};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_acc65451435ebb7cac8be1ae7a7e33e88}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ std::vector<IMatcher::Ptr>\ variants;}
+\DoxyCodeLine{00166\ \ \ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1HexadecimalMatcher_a88d4e7f050653386a9bce507d1ebfb7c}{HexadecimalMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1HexadecimalMatcher_a88d4e7f050653386a9bce507d1ebfb7c}{HexadecimalMatcher}}()\ \{\};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1HexadecimalMatcher_a3ac2112235cce297740438121fc06287}{HexadecimalMatcher}}(\textcolor{keyword}{const}\ std::string\&\ hex)\ :\ example\ \{\ hex\ \}\ \{\};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1HexadecimalMatcher_ad395d31365650b7c412d1951178f23fa}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ std::string\ example;}
+\DoxyCodeLine{00177\ \ \ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IPAddressMatcher_acfbc504a485c42a3561973f7e877afb5}{IPAddressMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IPAddressMatcher_acfbc504a485c42a3561973f7e877afb5}{IPAddressMatcher}}()\ \{\};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IPAddressMatcher_a307eb182c33860b4c5454f659d85047f}{IPAddressMatcher}}(\textcolor{keyword}{const}\ std::string\&\ address)\ :\ example\ \{\ address\ \}\ \{\};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IPAddressMatcher_a33d15487bd5839fcf322b66cc7d4c47f}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ std::string\ example;}
+\DoxyCodeLine{00188\ \ \ \};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UuidMatcher_a1fd7cca306b66645c8d9c3714c76d14d}{UuidMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UuidMatcher_a1fd7cca306b66645c8d9c3714c76d14d}{UuidMatcher}}()\ \{\};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UuidMatcher_a6c24bba35ac07da7ec606bf659570147}{UuidMatcher}}(\textcolor{keyword}{const}\ std::string\&\ uuid)\ :\ example\ \{\ uuid\ \}\ \{\};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UuidMatcher_a9a9a00a6a4d6b3af4ea314901bd34eac}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ std::string\ example;}
+\DoxyCodeLine{00199\ \ \ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IncludesMatcher_a3e05b127313310dfd7a61b28433dfaf6}{IncludesMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IncludesMatcher_a3e05b127313310dfd7a61b28433dfaf6}{IncludesMatcher}}(\textcolor{keyword}{const}\ std::string\&\ v)\ :\ value\ \{\ v\ \}\ \{\};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IncludesMatcher_a9772243d99cf7f3bbe041b25905496c1}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ std::string\ value;}
+\DoxyCodeLine{00209\ \ \ \};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NullMatcher}{NullMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1NullMatcher_a744590aa3bb3f70a807013600048a6da}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00214\ \ \ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UrlMatcher_a40e576cfa7eab926302704a03a81fae2}{UrlMatcher}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher}{IMatcher}}\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UrlMatcher_a40e576cfa7eab926302704a03a81fae2}{UrlMatcher}}(\textcolor{keyword}{const}\ std::string\&\ b,\ \textcolor{keyword}{const}\ std::vector<IMatcher::Ptr>\&\ f)\ :\ basePath\ \{\ b\ \},\ pathFragments\ \{\ f\ \}\ \{\};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1UrlMatcher_a156eba21716287d08f38118fb10a9693}{getJson}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ std::string\ basePath;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ std::vector<IMatcher::Ptr>\ pathFragments;}
+\DoxyCodeLine{00225\ \ \ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00230\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a75bcf07c65576f27643f4d21a1f45881}{Object}}(\textcolor{keyword}{const}\ std::unordered\_map<std::string,\ IMatcher::Ptr>\&\ fields);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa97242d2caf82ab8b512686962c9945e}{Integer}}(\textcolor{keywordtype}{long}\ value);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00240\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa97242d2caf82ab8b512686962c9945e}{Integer}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00245\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa97242d2caf82ab8b512686962c9945e}{Integer}}();}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00250\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keywordtype}{long}\ value);}
+\DoxyCodeLine{00254\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00258\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00262\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00266\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00270\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a3d266fa3fc12cec88e0a23a50ba4219d}{Like}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00277\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a85517d3c436fab9ebfcf64f83b2228e1}{DateTime}}(\textcolor{keyword}{const}\ std::string\&\ format,\ \textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00283\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a85517d3c436fab9ebfcf64f83b2228e1}{DateTime}}(\textcolor{keyword}{const}\ std::string\&\ format);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00290\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a1dc23cb6b8e020bcc3e85499841994ab}{Date}}(\textcolor{keyword}{const}\ std::string\&\ format,\ \textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00296\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a1dc23cb6b8e020bcc3e85499841994ab}{Date}}(\textcolor{keyword}{const}\ std::string\&\ format);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00303\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a4ee7077e9e16c8efdadf0876d9020041}{Time}}(\textcolor{keyword}{const}\ std::string\&\ format,\ \textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00309\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a4ee7077e9e16c8efdadf0876d9020041}{Time}}(\textcolor{keyword}{const}\ std::string\&\ format);}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00314\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_ab7dd9cd96c833d67693ed621d7951442}{Matching}}(\textcolor{keyword}{const}\ std::string\&\ regex,\ \textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00319\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_ab7dd9cd96c833d67693ed621d7951442}{Matching}}(\textcolor{keyword}{const}\ std::string\&\ regex);}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00324\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a373d5b4e09f56d4245ecafe400044bcd}{EachLike}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00330\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a373d5b4e09f56d4245ecafe400044bcd}{EachLike}}(\textcolor{keywordtype}{int}\ examples,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00335\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a25f4cc8d8a3afadfd5b4c5245746ebc1}{AtLeastOneLike}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00341\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a25f4cc8d8a3afadfd5b4c5245746ebc1}{AtLeastOneLike}}(\textcolor{keywordtype}{int}\ examples,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00347\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a627f4d81bff337fe7b7fb87b7ae35414}{HexValue}}(\textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00352\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a627f4d81bff337fe7b7fb87b7ae35414}{HexValue}}();}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00358\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a2a07a602dd54b0ce820af22484987bf2}{IPAddress}}(\textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00363\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a2a07a602dd54b0ce820af22484987bf2}{IPAddress}}();}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00369\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_af805123c41e4789af759efa739772286}{Numeric}}(\textcolor{keywordtype}{int}\ example);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00375\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_af805123c41e4789af759efa739772286}{Numeric}}(\textcolor{keywordtype}{long}\ example);}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00381\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_af805123c41e4789af759efa739772286}{Numeric}}(\textcolor{keywordtype}{float}\ example);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00387\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_af805123c41e4789af759efa739772286}{Numeric}}(\textcolor{keywordtype}{double}\ example);}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00392\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_af805123c41e4789af759efa739772286}{Numeric}}();}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00398\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a9b2546fe1ad56f3434e7028a3499bfd4}{Decimal}}(\textcolor{keywordtype}{float}\ example);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00404\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a9b2546fe1ad56f3434e7028a3499bfd4}{Decimal}}(\textcolor{keywordtype}{double}\ example);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00410\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a9b2546fe1ad56f3434e7028a3499bfd4}{Decimal}}();}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00416\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aab0a2b88f2fd1bb46fe26e5642d61c1e}{Uuid}}(\textcolor{keyword}{const}\ std::string\&\ example);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00421\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aab0a2b88f2fd1bb46fe26e5642d61c1e}{Uuid}}();}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00427\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a8ad798ea440fcad6ee7f0d6877880cd8}{AtMostLike}}(\textcolor{keywordtype}{int}\ max,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00434\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a8ad798ea440fcad6ee7f0d6877880cd8}{AtMostLike}}(\textcolor{keywordtype}{int}\ max,\ \textcolor{keywordtype}{int}\ examples,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00440\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a0d610018da0d7cd5476f36abe0082fff}{MinArrayLike}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00447\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a0d610018da0d7cd5476f36abe0082fff}{MinArrayLike}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ examples,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00454\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa56a8e2c0bf49cfb794738471b8a5be4}{ConstrainedArrayLike}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00462\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa56a8e2c0bf49cfb794738471b8a5be4}{ConstrainedArrayLike}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max,\ \textcolor{keywordtype}{int}\ examples,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ obj);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00468\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00474\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keywordtype}{long}\ value);}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00480\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00486\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00492\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00498\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00504\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_afe9e52d692ad1abe7727f08f0dc9a4f2}{EqualTo}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00510\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a4b543ff4c6f35f548d64f82c2f5543b3}{IncludesStr}}(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00515\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a0713635f17e43e8f4a4973cdb50a7008}{NullValue}}();}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00522\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a2c4278f99e116245c369c5bb8788ca43}{Url}}(\textcolor{keyword}{const}\ std::string\&\ basePath,\ \textcolor{keyword}{const}\ std::vector<IMatcher::Ptr>\&\ pathFragments);}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00528\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_a2c4278f99e116245c369c5bb8788ca43}{Url}}(\textcolor{keyword}{const}\ std::vector<IMatcher::Ptr>\&\ pathFragments);}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00537\ \ \ \doxymbox{\hyperlink{classpact__consumer_1_1matchers_1_1IMatcher_a36aa47dbb9f50f5d8432977bc7ae9a5b}{IMatcher::Ptr}}\ \doxymbox{\hyperlink{namespacepact__consumer_1_1matchers_aa072894ea5f3446527b3b4e1642339cf}{ArrayContaining}}(\textcolor{keyword}{const}\ std::vector<IMatcher::Ptr>\&\ variants);}
+\DoxyCodeLine{00538\ \}}
+
+\end{DoxyCode}

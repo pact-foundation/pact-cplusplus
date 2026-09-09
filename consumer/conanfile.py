@@ -8,7 +8,7 @@ from conan.tools.files import copy, rename
 
 class PactcppconsumerConan(ConanFile):
     name = "pact_cpp_consumer"
-    version = "0.1.1"
+    version = "0.2.0"
     license = "MIT"
     homepage = "https://github.com/pact-foundation/pact-cplusplus"
     description = "Pact C++ Consumer DSL"

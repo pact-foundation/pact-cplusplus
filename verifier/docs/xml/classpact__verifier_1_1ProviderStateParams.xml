@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="classpact__verifier_1_1ProviderStateParams" kind="class" language="C++" prot="public">
+    <compoundname>pact_verifier::ProviderStateParams</compoundname>
+    <includes refid="verifier_8h" local="no">verifier.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__verifier_1_1ProviderStateParams_1a0b72f741707813115900cb99febc0385" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::ProviderStateParams::params_json</definition>
+        <argsstring></argsstring>
+        <name>params_json</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::params_json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="96" column="19" bodyfile="include/verifier.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpact__verifier_1_1ProviderStateParams_1a7b8cbfca5872de2056ef80370aa518aa" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::string&gt; pact_verifier::ProviderStateParams::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="97" column="26" bodyfile="include/verifier.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1abdb87dd0dcf391ab8c2f8c2345041938" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::ProviderStateParams::ProviderStateParams</definition>
+        <argsstring>()</argsstring>
+        <name>ProviderStateParams</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::ProviderStateParams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="68" column="7" bodyfile="src/verifier.cpp" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1aa5a2060dae6e55293f3d419363083fbc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::ProviderStateParams::ProviderStateParams</definition>
+        <argsstring>(const std::string &amp;json)</argsstring>
+        <name>ProviderStateParams</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::ProviderStateParams</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="69" column="16" bodyfile="src/verifier.cpp" bodystart="124" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a29133503b40eee3eda5c9a24c65b02a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::ProviderStateParams::contains</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>contains</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::contains</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True if a parameter with this name was supplied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="72" column="12" bodyfile="src/verifier.cpp" bodystart="139" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a12e32df78f5feda529af8d46445af36b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; pact_verifier::ProviderStateParams::get</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::get</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter value, or an empty optional if it was not supplied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="75" column="21" bodyfile="src/verifier.cpp" bodystart="143" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a1fbd7ab6bf0015d2a8fded30836069bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::ProviderStateParams::get_or</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;default_value) const</argsstring>
+        <name>get_or</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::get_or</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>default_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter value, or the supplied default if it was not supplied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="78" column="19" bodyfile="src/verifier.cpp" bodystart="151" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a73186dbcf5548f756f6d648e0eac8cef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; long long &gt;</type>
+        <definition>std::optional&lt; long long &gt; pact_verifier::ProviderStateParams::get_int</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_int</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::get_int</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter parsed as an integer, or an empty optional if missing or not numeric </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="81" column="21" bodyfile="src/verifier.cpp" bodystart="155" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1aa47cdfa9b68cc4f2707ac5dc78e72138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; pact_verifier::ProviderStateParams::get_double</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_double</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::get_double</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter parsed as a double, or an empty optional if missing or not numeric </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="84" column="21" bodyfile="src/verifier.cpp" bodystart="172" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1af42ce7d4894ee20218afa0ac762ba820" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt; bool &gt; pact_verifier::ProviderStateParams::get_bool</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_bool</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::get_bool</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter parsed as a boolean, or an empty optional if missing or not a boolean </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="87" column="21" bodyfile="src/verifier.cpp" bodystart="189" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a9fdb8b4e0e7b92334e2df1387880fae0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::unordered_map&lt; std::string, std::string &gt; &amp;</type>
+        <definition>const std::unordered_map&lt; std::string, std::string &gt; &amp; pact_verifier::ProviderStateParams::values</definition>
+        <argsstring>() const</argsstring>
+        <name>values</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>All parameters keyed by name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="90" column="32" bodyfile="src/verifier.cpp" bodystart="203" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1ProviderStateParams_1a7fd4404d623b9122dc0abfce07a2c33c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; pact_verifier::ProviderStateParams::json</definition>
+        <argsstring>() const</argsstring>
+        <name>json</name>
+        <qualifiedname>pact_verifier::ProviderStateParams::json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The raw JSON document the parameters were parsed from </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="93" column="25" bodyfile="src/verifier.cpp" bodystart="207" bodyend="209"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Parameters supplied with a provider state, as defined by the consumer with <computeroutput>given(state, params)</computeroutput>.</para>
+<para>Values are exposed as strings. JSON strings are unquoted; any other JSON value (numbers, booleans, objects, arrays) is returned as its raw JSON text. Use <ref refid="verifier_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kindref="member">json()</ref> if you need the untouched document. </para>
+    </detaileddescription>
+    <location file="include/verifier.h" line="66" column="3" bodyfile="include/verifier.h" bodystart="66" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a29133503b40eee3eda5c9a24c65b02a0" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>contains</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a12e32df78f5feda529af8d46445af36b" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>get</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1af42ce7d4894ee20218afa0ac762ba820" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>get_bool</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1aa47cdfa9b68cc4f2707ac5dc78e72138" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>get_double</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a73186dbcf5548f756f6d648e0eac8cef" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>get_int</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a1fbd7ab6bf0015d2a8fded30836069bf" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>get_or</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a7fd4404d623b9122dc0abfce07a2c33c" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>json</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a7b8cbfca5872de2056ef80370aa518aa" prot="private" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>params</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a0b72f741707813115900cb99febc0385" prot="private" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>params_json</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1abdb87dd0dcf391ab8c2f8c2345041938" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>ProviderStateParams</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1aa5a2060dae6e55293f3d419363083fbc" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>ProviderStateParams</name></member>
+      <member refid="classpact__verifier_1_1ProviderStateParams_1a9fdb8b4e0e7b92334e2df1387880fae0" prot="public" virt="non-virtual"><scope>pact_verifier::ProviderStateParams</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

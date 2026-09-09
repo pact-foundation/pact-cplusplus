@@ -1,0 +1,107 @@
+\doxysection{pact\+\_\+verifier::Broker\+Selector\+Options Struct Reference}
+\hypertarget{structpact__verifier_1_1BrokerSelectorOptions}{}\label{structpact__verifier_1_1BrokerSelectorOptions}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+
+
+{\ttfamily \+\#include $<$verifier.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_af9cb57e6a13ad9d363d4dd5472d5d1ba}{url}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ab0415e0b9643f67f864baf86e4f282ae}{username}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ac7c2ad5686fc233d0fa0519d1bedb4bf}{password}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ac47132198d27b3d307ff374a36a9b5e5}{token}}
+\item 
+bool \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_aec1510d62b42460b5ceb862205853f5f}{enable\+\_\+pending}} = false
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a4a79110d72d592aac55730ca6d0bb843}{include\+\_\+wip\+\_\+pacts\+\_\+since}}
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a92a8ea8b09b5c3ee4de970c0a497b505}{provider\+\_\+tags}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_a52ef75189beda86f6e579e218fe68c95}{provider\+\_\+branch}}
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_af13347e3fffb7ade9b33c93abb151043}{consumer\+\_\+version\+\_\+selectors}}
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions_ad0490ab5b093c633aded2b246535b4ab}{consumer\+\_\+version\+\_\+tags}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Options for fetching pacts from a Pact Broker or Pact\+Flow using consumer version selectors.
+
+\begin{DoxySeeAlso}{See also}
+\href{https://docs.pact.io/pact_broker/advanced_topics/consumer_version_selectors}{\texttt{https:\+/\+/\+docs.\+pact.\+io/\+pact\+\_\+broker/\+advanced\+\_\+topics/\+consumer\+\_\+version\+\_\+selectors}} 
+\end{DoxySeeAlso}
+
+
+\label{structpact__verifier_1_1BrokerSelectorOptions_doc-variable-members}
+\Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_af13347e3fffb7ade9b33c93abb151043}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!consumer\_version\_selectors@{consumer\_version\_selectors}}
+\index{consumer\_version\_selectors@{consumer\_version\_selectors}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{consumer\_version\_selectors}{consumer\_version\_selectors}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_af13347e3fffb7ade9b33c93abb151043} 
+std::\+vector$<$std::\+string$>$ pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+consumer\+\_\+version\+\_\+selectors}
+
+Consumer version selectors, each as a JSON object string \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_ad0490ab5b093c633aded2b246535b4ab}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!consumer\_version\_tags@{consumer\_version\_tags}}
+\index{consumer\_version\_tags@{consumer\_version\_tags}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{consumer\_version\_tags}{consumer\_version\_tags}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_ad0490ab5b093c633aded2b246535b4ab} 
+std::\+vector$<$std::\+string$>$ pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+consumer\+\_\+version\+\_\+tags}
+
+Legacy consumer version tags. Prefer consumer\+\_\+version\+\_\+selectors \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_aec1510d62b42460b5ceb862205853f5f}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!enable\_pending@{enable\_pending}}
+\index{enable\_pending@{enable\_pending}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{enable\_pending}{enable\_pending}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_aec1510d62b42460b5ceb862205853f5f} 
+bool pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+enable\+\_\+pending = false}
+
+Include pacts that are in pending state, so failures do not break the build \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_a4a79110d72d592aac55730ca6d0bb843}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!include\_wip\_pacts\_since@{include\_wip\_pacts\_since}}
+\index{include\_wip\_pacts\_since@{include\_wip\_pacts\_since}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{include\_wip\_pacts\_since}{include\_wip\_pacts\_since}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_a4a79110d72d592aac55730ca6d0bb843} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+include\+\_\+wip\+\_\+pacts\+\_\+since}
+
+ISO date (YYYY-\/\+MM-\/\+DD). Include work in progress pacts created since this date \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_ac7c2ad5686fc233d0fa0519d1bedb4bf}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!password@{password}}
+\index{password@{password}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_ac7c2ad5686fc233d0fa0519d1bedb4bf} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+password}
+
+Basic auth password. Leave empty to omit \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_a52ef75189beda86f6e579e218fe68c95}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!provider\_branch@{provider\_branch}}
+\index{provider\_branch@{provider\_branch}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{provider\_branch}{provider\_branch}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_a52ef75189beda86f6e579e218fe68c95} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+provider\+\_\+branch}
+
+Branch the provider is being verified from \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_a92a8ea8b09b5c3ee4de970c0a497b505}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!provider\_tags@{provider\_tags}}
+\index{provider\_tags@{provider\_tags}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{provider\_tags}{provider\_tags}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_a92a8ea8b09b5c3ee4de970c0a497b505} 
+std::\+vector$<$std::\+string$>$ pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+provider\+\_\+tags}
+
+Tags to apply to the provider version \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_ac47132198d27b3d307ff374a36a9b5e5}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!token@{token}}
+\index{token@{token}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{token}{token}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_ac47132198d27b3d307ff374a36a9b5e5} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+token}
+
+Bearer token. Leave empty to omit. Mutually exclusive with username/\+password \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_af9cb57e6a13ad9d363d4dd5472d5d1ba}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!url@{url}}
+\index{url@{url}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_af9cb57e6a13ad9d363d4dd5472d5d1ba} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+url}
+
+Base URL of the broker, e.\+g. "{}https:\+/\+/\+my-\/org.\+pactflow.\+io"{} \Hypertarget{structpact__verifier_1_1BrokerSelectorOptions_ab0415e0b9643f67f864baf86e4f282ae}\index{pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}!username@{username}}
+\index{username@{username}!pact\_verifier::BrokerSelectorOptions@{pact\_verifier::BrokerSelectorOptions}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1BrokerSelectorOptions_ab0415e0b9643f67f864baf86e4f282ae} 
+std::\+string pact\+\_\+verifier::\+\+Broker\+Selector\+Options::\+username}
+
+Basic auth username. Leave empty to omit 
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{verifier_8h}{verifier.\+h}}\end{DoxyCompactItemize}

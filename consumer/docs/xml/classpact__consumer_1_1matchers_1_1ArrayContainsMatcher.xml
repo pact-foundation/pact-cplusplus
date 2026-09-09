@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::ArrayContainsMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1ae1d17dbc9fe99d3a1e5d66aed22f031c" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt;</type>
         <definition>std::vector&lt;IMatcher::Ptr&gt; pact_consumer::matchers::ArrayContainsMatcher::variants</definition>
         <argsstring></argsstring>
         <name>variants</name>
+        <qualifiedname>pact_consumer::matchers::ArrayContainsMatcher::variants</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -18,13 +19,14 @@
         </inbodydescription>
         <location file="include/matchers.h" line="165" column="19" bodyfile="include/matchers.h" bodystart="165" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1ArrayContainsMatcher_1a51a8af29070b8ea132278d8e871f65f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::ArrayContainsMatcher::ArrayContainsMatcher</definition>
         <argsstring>(const std::vector&lt; IMatcher::Ptr &gt; &amp;i_variants)</argsstring>
         <name>ArrayContainsMatcher</name>
+        <qualifiedname>pact_consumer::matchers::ArrayContainsMatcher::ArrayContainsMatcher</qualifiedname>
         <param>
           <type>const std::vector&lt; <ref refid="classpact__consumer_1_1matchers_1_1IMatcher_1a36aa47dbb9f50f5d8432977bc7ae9a5b" kindref="member">IMatcher::Ptr</ref> &gt; &amp;</type>
           <declname>i_variants</declname>
@@ -42,6 +44,7 @@
         <definition>std::string pact_consumer::matchers::ArrayContainsMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
+        <qualifiedname>pact_consumer::matchers::ArrayContainsMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -49,9 +52,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="162" column="27" bodyfile="src/matchers.cpp" bodystart="537" bodyend="548"/>
+        <location file="include/matchers.h" line="162" column="27" bodyfile="src/matchers.cpp" bodystart="539" bodyend="550"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

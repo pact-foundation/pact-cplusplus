@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1UrlMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::UrlMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1ae7342765b05453b78bca2198d8956661" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::UrlMatcher::basePath</definition>
         <argsstring></argsstring>
         <name>basePath</name>
+        <qualifiedname>pact_consumer::matchers::UrlMatcher::basePath</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -23,6 +24,7 @@
         <definition>std::vector&lt;IMatcher::Ptr&gt; pact_consumer::matchers::UrlMatcher::pathFragments</definition>
         <argsstring></argsstring>
         <name>pathFragments</name>
+        <qualifiedname>pact_consumer::matchers::UrlMatcher::pathFragments</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -31,13 +33,14 @@
         </inbodydescription>
         <location file="include/matchers.h" line="224" column="19" bodyfile="include/matchers.h" bodystart="224" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1UrlMatcher_1a40e576cfa7eab926302704a03a81fae2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::UrlMatcher::UrlMatcher</definition>
         <argsstring>(const std::string &amp;b, const std::vector&lt; IMatcher::Ptr &gt; &amp;f)</argsstring>
         <name>UrlMatcher</name>
+        <qualifiedname>pact_consumer::matchers::UrlMatcher::UrlMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>b</declname>
@@ -59,6 +62,7 @@
         <definition>std::string pact_consumer::matchers::UrlMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
+        <qualifiedname>pact_consumer::matchers::UrlMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -66,35 +70,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="220" column="27" bodyfile="src/matchers.cpp" bodystart="505" bodyend="535"/>
+        <location file="include/matchers.h" line="220" column="27" bodyfile="src/matchers.cpp" bodystart="507" bodyend="537"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
       <node id="1">
         <label>pact_consumer::matchers::UrlMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1UrlMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
-      </node>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
       <node id="1">
         <label>pact_consumer::matchers::UrlMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1UrlMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
-      </node>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
     <location file="include/matchers.h" line="216" column="3" bodyfile="include/matchers.h" bodystart="216" bodyend="225"/>

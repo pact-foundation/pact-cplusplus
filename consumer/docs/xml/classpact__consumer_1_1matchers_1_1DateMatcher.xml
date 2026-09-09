@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1DateMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::DateMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a03408e7aff0b6b62757410495b60db41" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::DateMatcher::format</definition>
         <argsstring></argsstring>
         <name>format</name>
+        <qualifiedname>pact_consumer::matchers::DateMatcher::format</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -23,6 +24,7 @@
         <definition>std::string pact_consumer::matchers::DateMatcher::example</definition>
         <argsstring></argsstring>
         <name>example</name>
+        <qualifiedname>pact_consumer::matchers::DateMatcher::example</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -31,13 +33,14 @@
         </inbodydescription>
         <location file="include/matchers.h" line="114" column="26" bodyfile="include/matchers.h" bodystart="114" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1DateMatcher_1a98e00fac884fdc6f6b43606cbd3cd1e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::DateMatcher::DateMatcher</definition>
         <argsstring>(const std::string &amp;f)</argsstring>
         <name>DateMatcher</name>
+        <qualifiedname>pact_consumer::matchers::DateMatcher::DateMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>f</declname>
@@ -55,6 +58,7 @@
         <definition>pact_consumer::matchers::DateMatcher::DateMatcher</definition>
         <argsstring>(const std::string &amp;f, const std::string &amp;e)</argsstring>
         <name>DateMatcher</name>
+        <qualifiedname>pact_consumer::matchers::DateMatcher::DateMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>f</declname>
@@ -76,6 +80,7 @@
         <definition>std::string pact_consumer::matchers::DateMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
+        <qualifiedname>pact_consumer::matchers::DateMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -83,9 +88,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="111" column="27" bodyfile="src/matchers.cpp" bodystart="312" bodyend="331"/>
+        <location file="include/matchers.h" line="111" column="27" bodyfile="src/matchers.cpp" bodystart="314" bodyend="333"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

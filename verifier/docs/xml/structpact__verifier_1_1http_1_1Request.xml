@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structpact__verifier_1_1http_1_1Request" kind="struct" language="C++" prot="public">
+    <compoundname>pact_verifier::http::Request</compoundname>
+    <includes refid="http__server_8h" local="no">http_server.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1a9b8f8e6e40a32880b9be4a290c8f9e6e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Request::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <qualifiedname>pact_verifier::http::Request::method</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>HTTP method, upper case (GET, POST, ...) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="27" column="19" bodyfile="include/http_server.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1a259abdef692f1f9006b0cba01fa524f9" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Request::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>pact_verifier::http::Request::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref> path, with any query string removed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="29" column="19" bodyfile="include/http_server.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1ae01a526414aa8b842e1e56e253c393e6" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Request::query</definition>
+        <argsstring></argsstring>
+        <name>query</name>
+        <qualifiedname>pact_verifier::http::Request::query</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raw query string (without the leading &apos;?&apos;) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="31" column="19" bodyfile="include/http_server.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1a07ad0e71208cde6c23f4de8e4254d574" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Request::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <qualifiedname>pact_verifier::http::Request::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref> body. Empty if the request had no body </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="33" column="19" bodyfile="include/http_server.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1a3d07900621e4c114c0634cf0f0df83ee" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::string&gt; pact_verifier::http::Request::headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <qualifiedname>pact_verifier::http::Request::headers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structpact__verifier_1_1http_1_1Request" kindref="compound">Request</ref> headers. Header names are lower cased </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="35" column="26" bodyfile="include/http_server.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Request_1aaf8a4328dc131f9610d56e54ba0e0822" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::string&gt; pact_verifier::http::Request::query_params</definition>
+        <argsstring></argsstring>
+        <name>query_params</name>
+        <qualifiedname>pact_verifier::http::Request::query_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>URL decoded query parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="37" column="26" bodyfile="include/http_server.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An incoming HTTP request. </para>
+    </detaileddescription>
+    <location file="include/http_server.h" line="25" column="5" bodyfile="include/http_server.h" bodystart="25" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structpact__verifier_1_1http_1_1Request_1a07ad0e71208cde6c23f4de8e4254d574" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>body</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Request_1a3d07900621e4c114c0634cf0f0df83ee" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>headers</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Request_1a9b8f8e6e40a32880b9be4a290c8f9e6e" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>method</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Request_1a259abdef692f1f9006b0cba01fa524f9" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>path</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Request_1ae01a526414aa8b842e1e56e253c393e6" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>query</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Request_1aaf8a4328dc131f9610d56e54ba0e0822" prot="public" virt="non-virtual"><scope>pact_verifier::http::Request</scope><name>query_params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

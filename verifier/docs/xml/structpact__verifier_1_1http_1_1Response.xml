@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structpact__verifier_1_1http_1_1Response" kind="struct" language="C++" prot="public">
+    <compoundname>pact_verifier::http::Response</compoundname>
+    <includes refid="http__server_8h" local="no">http_server.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Response_1addd6d68a9e0093fcb756d983baec24fd" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int pact_verifier::http::Response::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>pact_verifier::http::Response::status</qualifiedname>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>HTTP status code </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="45" column="20" bodyfile="include/http_server.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Response_1abb68e05ae0ff711a033c7b3b6fc15145" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Response::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <qualifiedname>pact_verifier::http::Response::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structpact__verifier_1_1http_1_1Response" kindref="compound">Response</ref> body </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="47" column="19" bodyfile="include/http_server.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Response_1ac6a37a745788218c9730e2dab2038c4c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Response::content_type</definition>
+        <argsstring></argsstring>
+        <name>content_type</name>
+        <qualifiedname>pact_verifier::http::Response::content_type</qualifiedname>
+        <initializer>= &quot;application/json&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Value for the Content-Type header. Omitted if empty </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="49" column="19" bodyfile="include/http_server.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1http_1_1Response_1a63f7797fcdc7212c2c60f6441611c330" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::string&gt; pact_verifier::http::Response::headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <qualifiedname>pact_verifier::http::Response::headers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Any additional response headers </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="51" column="26" bodyfile="include/http_server.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The response to send back. Handlers mutate this in place. </para>
+    </detaileddescription>
+    <location file="include/http_server.h" line="43" column="5" bodyfile="include/http_server.h" bodystart="43" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structpact__verifier_1_1http_1_1Response_1abb68e05ae0ff711a033c7b3b6fc15145" prot="public" virt="non-virtual"><scope>pact_verifier::http::Response</scope><name>body</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Response_1ac6a37a745788218c9730e2dab2038c4c" prot="public" virt="non-virtual"><scope>pact_verifier::http::Response</scope><name>content_type</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Response_1a63f7797fcdc7212c2c60f6441611c330" prot="public" virt="non-virtual"><scope>pact_verifier::http::Response</scope><name>headers</name></member>
+      <member refid="structpact__verifier_1_1http_1_1Response_1addd6d68a9e0093fcb756d983baec24fd" prot="public" virt="non-virtual"><scope>pact_verifier::http::Response</scope><name>status</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

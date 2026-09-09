@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="classpact__consumer_1_1matchers_1_1IncludesMatcher" kind="class" language="C++" prot="public">
     <compoundname>pact_consumer::matchers::IncludesMatcher</compoundname>
     <basecompoundref refid="classpact__consumer_1_1matchers_1_1IMatcher" prot="public" virt="non-virtual">pact_consumer::matchers::IMatcher</basecompoundref>
     <includes refid="matchers_8h" local="no">matchers.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classpact__consumer_1_1matchers_1_1IncludesMatcher_1aed12ac43a9b86341cbe909daabc653b3" prot="private" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string pact_consumer::matchers::IncludesMatcher::value</definition>
         <argsstring></argsstring>
         <name>value</name>
+        <qualifiedname>pact_consumer::matchers::IncludesMatcher::value</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -18,13 +19,14 @@
         </inbodydescription>
         <location file="include/matchers.h" line="208" column="19" bodyfile="include/matchers.h" bodystart="208" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classpact__consumer_1_1matchers_1_1IncludesMatcher_1a3e05b127313310dfd7a61b28433dfaf6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>pact_consumer::matchers::IncludesMatcher::IncludesMatcher</definition>
         <argsstring>(const std::string &amp;v)</argsstring>
         <name>IncludesMatcher</name>
+        <qualifiedname>pact_consumer::matchers::IncludesMatcher::IncludesMatcher</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>v</declname>
@@ -42,6 +44,7 @@
         <definition>std::string pact_consumer::matchers::IncludesMatcher::getJson</definition>
         <argsstring>() const</argsstring>
         <name>getJson</name>
+        <qualifiedname>pact_consumer::matchers::IncludesMatcher::getJson</qualifiedname>
         <reimplements refid="classpact__consumer_1_1matchers_1_1IMatcher_1a39e26483e294d88851ae826ec0ac131a">getJson</reimplements>
         <briefdescription>
         </briefdescription>
@@ -49,35 +52,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/matchers.h" line="205" column="27" bodyfile="src/matchers.cpp" bodystart="492" bodyend="497"/>
+        <location file="include/matchers.h" line="205" column="27" bodyfile="src/matchers.cpp" bodystart="494" bodyend="499"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
       <node id="1">
         <label>pact_consumer::matchers::IncludesMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1IncludesMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
-      </node>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="2">
+        <label>pact_consumer::matchers::IMatcher</label>
+        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
+      </node>
       <node id="1">
         <label>pact_consumer::matchers::IncludesMatcher</label>
         <link refid="classpact__consumer_1_1matchers_1_1IncludesMatcher"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
-      </node>
-      <node id="2">
-        <label>pact_consumer::matchers::IMatcher</label>
-        <link refid="classpact__consumer_1_1matchers_1_1IMatcher"/>
       </node>
     </collaborationgraph>
     <location file="include/matchers.h" line="201" column="3" bodyfile="include/matchers.h" bodystart="201" bodyend="209"/>

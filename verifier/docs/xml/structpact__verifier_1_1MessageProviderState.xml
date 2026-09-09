@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structpact__verifier_1_1MessageProviderState" kind="struct" language="C++" prot="public">
+    <compoundname>pact_verifier::MessageProviderState</compoundname>
+    <includes refid="verifier_8h" local="no">verifier.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpact__verifier_1_1MessageProviderState_1ab66f00d3102d492cc9b1b0dba33668ae" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::MessageProviderState::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>pact_verifier::MessageProviderState::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="220" column="17" bodyfile="include/verifier.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpact__verifier_1_1MessageProviderState_1aacca46d0db215f59504a8d4866f73f84" prot="public" static="no" mutable="no">
+        <type><ref refid="classpact__verifier_1_1ProviderStateParams" kindref="compound">ProviderStateParams</ref></type>
+        <definition>ProviderStateParams pact_verifier::MessageProviderState::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <qualifiedname>pact_verifier::MessageProviderState::params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="221" column="25" bodyfile="include/verifier.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A provider state attached to a message interaction. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>pact_verifier::MessageProviderState</label>
+        <link refid="structpact__verifier_1_1MessageProviderState"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pact_verifier::ProviderStateParams</label>
+        <link refid="classpact__verifier_1_1ProviderStateParams"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/verifier.h" line="219" column="3" bodyfile="include/verifier.h" bodystart="219" bodyend="222"/>
+    <listofallmembers>
+      <member refid="structpact__verifier_1_1MessageProviderState_1ab66f00d3102d492cc9b1b0dba33668ae" prot="public" virt="non-virtual"><scope>pact_verifier::MessageProviderState</scope><name>name</name></member>
+      <member refid="structpact__verifier_1_1MessageProviderState_1aacca46d0db215f59504a8d4866f73f84" prot="public" virt="non-virtual"><scope>pact_verifier::MessageProviderState</scope><name>params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

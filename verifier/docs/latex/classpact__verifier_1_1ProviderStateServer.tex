@@ -1,0 +1,152 @@
+\doxysection{pact\+\_\+verifier::Provider\+State\+Server Class Reference}
+\hypertarget{classpact__verifier_1_1ProviderStateServer}{}\label{classpact__verifier_1_1ProviderStateServer}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+
+
+{\ttfamily \+\#include $<$verifier.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structpact__verifier_1_1ProviderStateServer_1_1Impl}{Impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{Provider\+State\+Server}} (std::\+string path="{}/\+\_\+\+\_\+pact/provider-\/state"{})
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_abb45ee8b4a3cb6583cbacb0ab7508d61}{\texorpdfstring{$\sim$}{\string~}\+Provider\+State\+Server}} ()
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a3c43a3bc868a7e145a299ac29a5ce8d6}{Provider\+State\+Server}} (const Provider\+State\+Server \&)=delete
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{Provider\+State\+Server}} \& \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8a219079fbd8e181214a5ba2bbff55ac}{operator=}} (const \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{Provider\+State\+Server}} \&)=delete
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a0964d815345c3519cfe1d9391d9b6fe4}{add\+\_\+state\+\_\+handler}} (const std::\+string \&state, \doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}} handler)
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_ab412595358a65105a995e0e7f7c95126}{add\+\_\+state\+\_\+handler\+\_\+with\+\_\+values}} (const std::\+string \&state, \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} handler)
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a5b3a6f094647d08da85de79763a10046}{set\+\_\+default\+\_\+handler}} (\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}} handler)
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_aefdeb34e303248f5a1b11eafd9db434c}{set\+\_\+default\+\_\+handler\+\_\+with\+\_\+values}} (\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} handler)
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_ad7560acc882bb20a17b42e9d9cb426d3}{set\+\_\+unknown\+\_\+state\+\_\+is\+\_\+error}} (bool is\+\_\+error)
+\item 
+bool \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a1b17b042dfb0623c631a2cd9c32c3855}{start}} (uint16\+\_\+t port=0, const std::\+string \&host="{}127.\+0.\+0.\+1"{})
+\item 
+void \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a915b76da7d52967aa77513b17ce20eb7}{stop}} ()
+\item 
+bool \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a0082e52d3ea80a367123f84c6cb966c7}{is\+\_\+running}} () const
+\item 
+uint16\+\_\+t \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a1a307f8f62b1251edf7a9bbd6ee92705}{get\+\_\+port}} () const
+\item 
+std::\+string \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a9982e0cbd1ad98f759dc3f222534ddbe}{get\+\_\+url}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hosts the HTTP endpoint the Pact verifier calls to set up and tear down provider states.
+
+The verifier does not call your state handlers directly, it makes an HTTP request for each provider state, so a server has to be running for the duration of the verification. \doxylink{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49}{Verifier::\+add\+\_\+state\+\_\+handler} starts and stops one of these for you; use this class directly only if you want to host the endpoint yourself (for example inside your real application under test). 
+
+\label{classpact__verifier_1_1ProviderStateServer_doc-constructors}
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!ProviderStateServer@{ProviderStateServer}}
+\index{ProviderStateServer@{ProviderStateServer}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{ProviderStateServer()}{ProviderStateServer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0} 
+pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Provider\+State\+Server (\begin{DoxyParamCaption}\item[{std::\+string}]{path}{ = {\ttfamily "{}/\_\_pact/provider-\/state"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path the state change endpoint is served on \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_abb45ee8b4a3cb6583cbacb0ab7508d61}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!````~ProviderStateServer@{\texorpdfstring{$\sim$}{\string~}ProviderStateServer}}
+\index{````~ProviderStateServer@{\texorpdfstring{$\sim$}{\string~}ProviderStateServer}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ProviderStateServer()}{\string~ProviderStateServer()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_abb45ee8b4a3cb6583cbacb0ab7508d61} 
+pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\texorpdfstring{$\sim$}{\string~}\+Provider\+State\+Server (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_a3c43a3bc868a7e145a299ac29a5ce8d6}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!ProviderStateServer@{ProviderStateServer}}
+\index{ProviderStateServer@{ProviderStateServer}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{ProviderStateServer()}{ProviderStateServer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a3c43a3bc868a7e145a299ac29a5ce8d6} 
+pact\+\_\+verifier::\+\+Provider\+State\+Server::\+\+Provider\+State\+Server (\begin{DoxyParamCaption}\item[{const Provider\+State\+Server \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{classpact__verifier_1_1ProviderStateServer_doc-func-members}
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_a0964d815345c3519cfe1d9391d9b6fe4}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!add\_state\_handler@{add\_state\_handler}}
+\index{add\_state\_handler@{add\_state\_handler}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{add\_state\_handler()}{add\_state\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a0964d815345c3519cfe1d9391d9b6fe4} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+add\+\_\+state\+\_\+handler (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{state}{, }\item[{\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler for a single provider state \Hypertarget{classpact__verifier_1_1ProviderStateServer_ab412595358a65105a995e0e7f7c95126}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!add\_state\_handler\_with\_values@{add\_state\_handler\_with\_values}}
+\index{add\_state\_handler\_with\_values@{add\_state\_handler\_with\_values}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{add\_state\_handler\_with\_values()}{add\_state\_handler\_with\_values()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_ab412595358a65105a995e0e7f7c95126} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+add\+\_\+state\+\_\+handler\+\_\+with\+\_\+values (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{state}{, }\item[{\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler for a single provider state that returns generator values \Hypertarget{classpact__verifier_1_1ProviderStateServer_a1a307f8f62b1251edf7a9bbd6ee92705}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a1a307f8f62b1251edf7a9bbd6ee92705} 
+uint16\+\_\+t pact\+\_\+verifier::\+\+Provider\+State\+Server::\+get\+\_\+port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+The port the server is bound to \Hypertarget{classpact__verifier_1_1ProviderStateServer_a9982e0cbd1ad98f759dc3f222534ddbe}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!get\_url@{get\_url}}
+\index{get\_url@{get\_url}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{get\_url()}{get\_url()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a9982e0cbd1ad98f759dc3f222534ddbe} 
+std::\+string pact\+\_\+verifier::\+\+Provider\+State\+Server::\+get\+\_\+url (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+The full URL of the state change endpoint, to hand to the verifier \Hypertarget{classpact__verifier_1_1ProviderStateServer_a0082e52d3ea80a367123f84c6cb966c7}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!is\_running@{is\_running}}
+\index{is\_running@{is\_running}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{is\_running()}{is\_running()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a0082e52d3ea80a367123f84c6cb966c7} 
+bool pact\+\_\+verifier::\+\+Provider\+State\+Server::\+is\+\_\+running (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+True while the server is running \Hypertarget{classpact__verifier_1_1ProviderStateServer_a8a219079fbd8e181214a5ba2bbff55ac}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!operator=@{operator=}}
+\index{operator=@{operator=}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a8a219079fbd8e181214a5ba2bbff55ac} 
+\doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{Provider\+State\+Server}} \& pact\+\_\+verifier::\+\+Provider\+State\+Server::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classpact__verifier_1_1ProviderStateServer_a8d64a2b4e2d42678818084b9d5b92fe0}{Provider\+State\+Server}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classpact__verifier_1_1ProviderStateServer_a5b3a6f094647d08da85de79763a10046}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!set\_default\_handler@{set\_default\_handler}}
+\index{set\_default\_handler@{set\_default\_handler}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{set\_default\_handler()}{set\_default\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a5b3a6f094647d08da85de79763a10046} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+set\+\_\+default\+\_\+handler (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler invoked for any state without a specific handler \Hypertarget{classpact__verifier_1_1ProviderStateServer_aefdeb34e303248f5a1b11eafd9db434c}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!set\_default\_handler\_with\_values@{set\_default\_handler\_with\_values}}
+\index{set\_default\_handler\_with\_values@{set\_default\_handler\_with\_values}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{set\_default\_handler\_with\_values()}{set\_default\_handler\_with\_values()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_aefdeb34e303248f5a1b11eafd9db434c} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+set\+\_\+default\+\_\+handler\+\_\+with\+\_\+values (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a value returning handler invoked for any state without a specific handler \Hypertarget{classpact__verifier_1_1ProviderStateServer_ad7560acc882bb20a17b42e9d9cb426d3}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!set\_unknown\_state\_is\_error@{set\_unknown\_state\_is\_error}}
+\index{set\_unknown\_state\_is\_error@{set\_unknown\_state\_is\_error}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{set\_unknown\_state\_is\_error()}{set\_unknown\_state\_is\_error()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_ad7560acc882bb20a17b42e9d9cb426d3} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+set\+\_\+unknown\+\_\+state\+\_\+is\+\_\+error (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+error}{}\end{DoxyParamCaption})}
+
+If true (the default), a state change request for a state with no registered handler and no default handler fails with a 500. Set to false to ignore them. \Hypertarget{classpact__verifier_1_1ProviderStateServer_a1b17b042dfb0623c631a2cd9c32c3855}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!start@{start}}
+\index{start@{start}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a1b17b042dfb0623c631a2cd9c32c3855} 
+bool pact\+\_\+verifier::\+\+Provider\+State\+Server::\+start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port}{ = {\ttfamily 0}, }\item[{const std::\+string \&}]{host}{ = {\ttfamily "{}127.0.0.1"{}}}\end{DoxyParamCaption})}
+
+Starts the server. Pass 0 to let the OS pick a free port. Returns false if the port could not be bound. \Hypertarget{classpact__verifier_1_1ProviderStateServer_a915b76da7d52967aa77513b17ce20eb7}\index{pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}!stop@{stop}}
+\index{stop@{stop}!pact\_verifier::ProviderStateServer@{pact\_verifier::ProviderStateServer}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1ProviderStateServer_a915b76da7d52967aa77513b17ce20eb7} 
+void pact\+\_\+verifier::\+\+Provider\+State\+Server::\+stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Stops the server. Safe to call more than once 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{verifier_8h}{verifier.\+h}}\item 
+src/\doxymbox{\hyperlink{verifier_8cpp}{verifier.\+cpp}}\end{DoxyCompactItemize}

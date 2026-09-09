@@ -1,0 +1,70 @@
+\doxysection{pact\+\_\+verifier::http::Request Struct Reference}
+\hypertarget{structpact__verifier_1_1http_1_1Request}{}\label{structpact__verifier_1_1http_1_1Request}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+
+
+{\ttfamily \+\#include $<$http\+\_\+server.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_a9b8f8e6e40a32880b9be4a290c8f9e6e}{method}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_a259abdef692f1f9006b0cba01fa524f9}{path}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_ae01a526414aa8b842e1e56e253c393e6}{query}}
+\item 
+std::\+string \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_a07ad0e71208cde6c23f4de8e4254d574}{body}}
+\item 
+std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_a3d07900621e4c114c0634cf0f0df83ee}{headers}}
+\item 
+std::\+unordered\+\_\+map$<$ std::\+string, std::\+string $>$ \doxymbox{\hyperlink{structpact__verifier_1_1http_1_1Request_aaf8a4328dc131f9610d56e54ba0e0822}{query\+\_\+params}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An incoming HTTP request. 
+
+\label{structpact__verifier_1_1http_1_1Request_doc-variable-members}
+\Hypertarget{structpact__verifier_1_1http_1_1Request_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structpact__verifier_1_1http_1_1Request_a07ad0e71208cde6c23f4de8e4254d574}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!body@{body}}
+\index{body@{body}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_a07ad0e71208cde6c23f4de8e4254d574} 
+std::\+string pact\+\_\+verifier::\+http::\+\+Request::\+body}
+
+\doxylink{structpact__verifier_1_1http_1_1Request}{Request} body. Empty if the request had no body \Hypertarget{structpact__verifier_1_1http_1_1Request_a3d07900621e4c114c0634cf0f0df83ee}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!headers@{headers}}
+\index{headers@{headers}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{headers}{headers}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_a3d07900621e4c114c0634cf0f0df83ee} 
+std::\+unordered\+\_\+map$<$std::\+string, std::\+string$>$ pact\+\_\+verifier::\+http::\+\+Request::\+headers}
+
+\doxylink{structpact__verifier_1_1http_1_1Request}{Request} headers. Header names are lower cased \Hypertarget{structpact__verifier_1_1http_1_1Request_a9b8f8e6e40a32880b9be4a290c8f9e6e}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!method@{method}}
+\index{method@{method}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_a9b8f8e6e40a32880b9be4a290c8f9e6e} 
+std::\+string pact\+\_\+verifier::\+http::\+\+Request::\+method}
+
+HTTP method, upper case (GET, POST, ...) \Hypertarget{structpact__verifier_1_1http_1_1Request_a259abdef692f1f9006b0cba01fa524f9}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!path@{path}}
+\index{path@{path}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_a259abdef692f1f9006b0cba01fa524f9} 
+std::\+string pact\+\_\+verifier::\+http::\+\+Request::\+path}
+
+\doxylink{structpact__verifier_1_1http_1_1Request}{Request} path, with any query string removed \Hypertarget{structpact__verifier_1_1http_1_1Request_ae01a526414aa8b842e1e56e253c393e6}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!query@{query}}
+\index{query@{query}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{query}{query}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_ae01a526414aa8b842e1e56e253c393e6} 
+std::\+string pact\+\_\+verifier::\+http::\+\+Request::\+query}
+
+Raw query string (without the leading \textquotesingle{}?\textquotesingle{}) \Hypertarget{structpact__verifier_1_1http_1_1Request_aaf8a4328dc131f9610d56e54ba0e0822}\index{pact\_verifier::http::Request@{pact\_verifier::http::Request}!query\_params@{query\_params}}
+\index{query\_params@{query\_params}!pact\_verifier::http::Request@{pact\_verifier::http::Request}}
+\doxysubsubsection{\texorpdfstring{query\_params}{query\_params}}
+{\footnotesize\ttfamily \label{structpact__verifier_1_1http_1_1Request_aaf8a4328dc131f9610d56e54ba0e0822} 
+std::\+unordered\+\_\+map$<$std::\+string, std::\+string$>$ pact\+\_\+verifier::\+http::\+\+Request::\+query\+\_\+params}
+
+URL decoded query parameters 
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{http__server_8h}{http\+\_\+server.\+h}}\end{DoxyCompactItemize}

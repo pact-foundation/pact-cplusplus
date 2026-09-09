@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="classpact__verifier_1_1http_1_1Server" kind="class" language="C++" prot="public">
+    <compoundname>pact_verifier::http::Server</compoundname>
+    <includes refid="http__server_8h" local="no">http_server.h</includes>
+    <innerclass refid="structpact__verifier_1_1http_1_1Server_1_1Impl" prot="public">pact_verifier::http::Server::Impl</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__verifier_1_1http_1_1Server_1ade317fe832c4ecf60708ab1045768964" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structpact__verifier_1_1http_1_1Server_1_1Impl" kindref="compound">Impl</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; pact_verifier::http::Server::impl</definition>
+        <argsstring></argsstring>
+        <name>impl</name>
+        <qualifiedname>pact_verifier::http::Server::impl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="106" column="25" bodyfile="include/http_server.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::http::Server::Server</definition>
+        <argsstring>()</argsstring>
+        <name>Server</name>
+        <qualifiedname>pact_verifier::http::Server::Server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="64" column="9" bodyfile="src/http_server.cpp" bodystart="328" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1a8c676818026922b87f55ffc579c4a9e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::http::Server::~Server</definition>
+        <argsstring>()</argsstring>
+        <name>~Server</name>
+        <qualifiedname>pact_verifier::http::Server::~Server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="65" column="9" bodyfile="src/http_server.cpp" bodystart="330" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1acc89dce38044317d7bbecce548645c11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::http::Server::Server</definition>
+        <argsstring>(const Server &amp;)=delete</argsstring>
+        <name>Server</name>
+        <qualifiedname>pact_verifier::http::Server::Server</qualifiedname>
+        <param>
+          <type>const Server &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1a1ede31bc933adc7cbc4aecf4987efd84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref> &amp;</type>
+        <definition>Server &amp; pact_verifier::http::Server::operator=</definition>
+        <argsstring>(const Server &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>pact_verifier::http::Server::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" kindref="member">Server</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="68" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1ab19b7ca80931da7f0e7936320c7b16d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pact_verifier::http::Server::set_handler</definition>
+        <argsstring>(Handler handler)</argsstring>
+        <name>set_handler</name>
+        <qualifiedname>pact_verifier::http::Server::set_handler</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1_1http_1a899ef739d2fb55aad87225cf91d1df20" kindref="member">Handler</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the handler invoked for each request. Must be called before <ref refid="classpact__verifier_1_1http_1_1Server_1ada32c7afe66d76e288380ddffb0f627e" kindref="member">start()</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="73" column="14" bodyfile="src/http_server.cpp" bodystart="334" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1ada32c7afe66d76e288380ddffb0f627e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::http::Server::start</definition>
+        <argsstring>(uint16_t port=0, const std::string &amp;host=&quot;127.0.0.1&quot;)</argsstring>
+        <name>start</name>
+        <qualifiedname>pact_verifier::http::Server::start</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>host</declname>
+          <defval>&quot;127.0.0.1&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Binds and starts listening on the given host and port, then serves requests on a background thread. Passing port 0 will allocate a free port, which can be read back with <ref refid="classpact__verifier_1_1http_1_1Server_1afd7d6b8bbdf72032f33abfb8f2964d7a" kindref="member">get_port()</ref>.</para>
+<para>Returns false if the socket could not be bound. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="82" column="14" bodyfile="src/http_server.cpp" bodystart="338" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1ab03fcd4651b317cef873c8224ae880bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pact_verifier::http::Server::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>pact_verifier::http::Server::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops the server and joins the background thread. Safe to call more than once. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="87" column="14" bodyfile="src/http_server.cpp" bodystart="390" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1a0a6faabb8751ceb20d5afaf7623cc98e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::http::Server::is_running</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running</name>
+        <qualifiedname>pact_verifier::http::Server::is_running</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True while the server is accepting requests. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="92" column="14" bodyfile="src/http_server.cpp" bodystart="404" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1afd7d6b8bbdf72032f33abfb8f2964d7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t pact_verifier::http::Server::get_port</definition>
+        <argsstring>() const</argsstring>
+        <name>get_port</name>
+        <qualifiedname>pact_verifier::http::Server::get_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The port the server is bound to, or 0 if it is not running. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="97" column="18" bodyfile="src/http_server.cpp" bodystart="408" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1http_1_1Server_1a89889050bcc2083cc1cc9b446315fbc9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::http::Server::get_url</definition>
+        <argsstring>() const</argsstring>
+        <name>get_url</name>
+        <qualifiedname>pact_verifier::http::Server::get_url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The base URL of the server, for example &quot;http://127.0.0.1:52344&quot;. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/http_server.h" line="102" column="21" bodyfile="src/http_server.cpp" bodystart="412" bodyend="414"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A small HTTP server that runs on a background thread. </para>
+    </detaileddescription>
+    <location file="include/http_server.h" line="62" column="5" bodyfile="include/http_server.h" bodystart="62" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classpact__verifier_1_1http_1_1Server_1afd7d6b8bbdf72032f33abfb8f2964d7a" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>get_port</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1a89889050bcc2083cc1cc9b446315fbc9" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>get_url</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1ade317fe832c4ecf60708ab1045768964" prot="private" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>impl</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1a0a6faabb8751ceb20d5afaf7623cc98e" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>is_running</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1a1ede31bc933adc7cbc4aecf4987efd84" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>operator=</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1a9bb77eac5d1b3c5b4a2582be4c29d044" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>Server</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1acc89dce38044317d7bbecce548645c11" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>Server</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1ab19b7ca80931da7f0e7936320c7b16d9" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>set_handler</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1ada32c7afe66d76e288380ddffb0f627e" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>start</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1ab03fcd4651b317cef873c8224ae880bd" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>stop</name></member>
+      <member refid="classpact__verifier_1_1http_1_1Server_1a8c676818026922b87f55ffc579c4a9e4" prot="public" virt="non-virtual"><scope>pact_verifier::http::Server</scope><name>~Server</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

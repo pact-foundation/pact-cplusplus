@@ -1,0 +1,381 @@
+\doxysection{pact\+\_\+verifier::Verifier Class Reference}
+\hypertarget{classpact__verifier_1_1Verifier}{}\label{classpact__verifier_1_1Verifier}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+
+
+{\ttfamily \+\#include $<$verifier.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structpact__verifier_1_1Verifier_1_1Impl}{Impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} ()
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a7337c8af2f7e3c4d04b1e78e648bc836}{\texorpdfstring{$\sim$}{\string~}\+Verifier}} ()
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae650f7a35b27302ca18557b52f741b48}{Verifier}} (const Verifier \&)=delete
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad12d77ce14cfa88f42f192b237d5fd98}{operator=}} (const \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \&)=delete
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4503c38ab9d47971bdb04ffe3fdbeee7}{Verifier}} (Verifier \&\&other) noexcept
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a3f6fc91b42ce48aca6f0739aa4f5cefa}{operator=}} (\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \&\&other) noexcept
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ac193e1b54b335df3b6992dd239e066cb}{set\+\_\+provider\+\_\+info}} (const std::\+string \&name, const std::\+string \&scheme="{}http"{}, const std::\+string \&host="{}localhost"{}, uint16\+\_\+t port=8080, const std::\+string \&path="{}/\+"{})
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aa4bdd1e5cd25f0eac67d14f358c027ce}{add\+\_\+provider\+\_\+transport}} (const std::\+string \&protocol, uint16\+\_\+t port, const std::\+string \&path="{}"{}, const std::\+string \&scheme="{}"{})
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a59db6ad4447ad748b6b1def1db57a78c}{add\+\_\+custom\+\_\+header}} (const std::\+string \&name, const std::\+string \&value)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a37d76505b5decb67818041f3c28ee8e5}{set\+\_\+follow\+\_\+redirects}} (bool follow)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a84ccfd4f51c5268d8b4322b3e6a4820a}{set\+\_\+verification\+\_\+options}} (bool disable\+\_\+ssl\+\_\+verification, unsigned long request\+\_\+timeout)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae9d87e0ac0064f2bbe82c06a5b6bbf0a}{set\+\_\+provider\+\_\+state\+\_\+url}} (const std::\+string \&url, bool teardown=true, bool body=true)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49}{add\+\_\+state\+\_\+handler}} (const std::\+string \&state, \doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a5d45fdd105086c80e0ff3eecb59da657}{add\+\_\+state\+\_\+handler\+\_\+with\+\_\+values}} (const std::\+string \&state, \doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a3436df29da0fe72fbd821e1d4dbdce29}{set\+\_\+default\+\_\+state\+\_\+handler}} (\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a702cdeaf7837b7034b96baa7d907c897}{set\+\_\+default\+\_\+state\+\_\+handler\+\_\+with\+\_\+values}} (\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a089f944ad87287a782b6fb1fd4f93058}{set\+\_\+state\+\_\+change\+\_\+port}} (uint16\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a023f142be857d6354e15721d8fb279f3}{set\+\_\+state\+\_\+change\+\_\+teardown}} (bool teardown)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a473e6cee4e487ef4f46efc1e0e366472}{set\+\_\+state\+\_\+change\+\_\+body}} (bool body)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a618e2a3a41a3dd4ccfbe74bc36ff53ad}{add\+\_\+message\+\_\+handler}} (const std::\+string \&description, \doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{Message\+Handler}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aecca839fabaff980ce40ec14a1349b46}{set\+\_\+default\+\_\+message\+\_\+handler}} (\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{Message\+Handler}} handler)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ab54f17561e896ff994d79c2eec40cef6}{set\+\_\+message\+\_\+transport\+\_\+port}} (uint16\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad928ec9fdd2c72b83e30b3cbf64a9f4d}{set\+\_\+message\+\_\+endpoint\+\_\+path}} (const std::\+string \&path)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ad898be2ed162fe45e24fd93100fd2ff8}{set\+\_\+filter\+\_\+info}} (const std::\+string \&filter\+\_\+description="{}"{}, const std::\+string \&filter\+\_\+state="{}"{}, bool filter\+\_\+no\+\_\+state=false)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a0ec6e3d34d0dc0820c601cbf50c2cb3f}{set\+\_\+consumer\+\_\+filters}} (const std::\+vector$<$ std::\+string $>$ \&consumers)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a24084bc8d2d3938e5f9ab69e2d71bc56}{add\+\_\+file\+\_\+source}} (const std::\+string \&file)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a2b2c683472b449a59c1b9ac9ac24a600}{add\+\_\+directory\+\_\+source}} (const std::\+string \&directory)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a14a58d7b7ffe42b50fe83e52b3e9be61}{add\+\_\+url\+\_\+source}} (const std::\+string \&url, const std::\+string \&username="{}"{}, const std::\+string \&password="{}"{}, const std::\+string \&token="{}"{})
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_af57a5ada42a6319b8bb9408ce1ac1a27}{add\+\_\+broker\+\_\+source}} (const std::\+string \&url, const std::\+string \&username="{}"{}, const std::\+string \&password="{}"{}, const std::\+string \&token="{}"{})
+\item 
+bool \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4a047e0489479c2f48b40118dbce81c4}{add\+\_\+broker\+\_\+source\+\_\+with\+\_\+selectors}} (const \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions}{Broker\+Selector\+Options}} \&options)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ae049eee364b44d0d5b4d346c37d694a8}{set\+\_\+publish\+\_\+options}} (const \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions}{Publish\+Options}} \&options)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a39ce663039792db7197cafc0dd91efbf}{set\+\_\+coloured\+\_\+output}} (bool coloured)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_aad4343d083feaa5a9c106ddedfed34d4}{set\+\_\+no\+\_\+pacts\+\_\+is\+\_\+error}} (bool is\+\_\+error)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a0f2707959f3ab547437d1e0b488153bf}{set\+\_\+strip\+\_\+ansi\+\_\+from\+\_\+output}} (bool strip)
+\item 
+\doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult}{Verification\+Result}} \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}{execute}} ()
+\item 
+Verifier\+Handle \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ac879f9024c26da8b9908057b3f7fc24d}{get\+\_\+handle}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+string \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a748f7c1a3412d024e34f993afcdb9a1e}{logs\+\_\+for\+\_\+provider}} (const std::\+string \&provider\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Verifies that a provider honours the contracts published by its consumers.
+
+Every option exposed by the Pact FFI verifier is available here. Setters return a reference to the verifier so calls can be chained.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pact\_verifier::Verifier\ verifier;}
+\DoxyCodeLine{verifier}
+\DoxyCodeLine{\ \ .\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ac193e1b54b335df3b6992dd239e066cb}{set\_provider\_info}}(\textcolor{stringliteral}{"{}my-\/provider"{}},\ \textcolor{stringliteral}{"{}http"{}},\ \textcolor{stringliteral}{"{}localhost"{}},\ 8080,\ \textcolor{stringliteral}{"{}/"{}})}
+\DoxyCodeLine{\ \ .\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a24084bc8d2d3938e5f9ab69e2d71bc56}{add\_file\_source}}(\textcolor{stringliteral}{"{}./pacts/my-\/consumer-\/my-\/provider.json"{}})}
+\DoxyCodeLine{\ \ .\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49}{add\_state\_handler}}(\textcolor{stringliteral}{"{}the\ user\ exists"{}},\ [](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ request)\ \{}
+\DoxyCodeLine{\ \ \ \ seed\_user(request.params.get\_int(\textcolor{stringliteral}{"{}id"{}}).value\_or(0));}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ result\ =\ verifier.\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}{execute}}();}
+\DoxyCodeLine{result.\doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult_a605634eab14f930ac3720f7fee5cfe19}{display}}();}
+
+\end{DoxyCode}
+ 
+
+\label{classpact__verifier_1_1Verifier_doc-constructors}
+\Hypertarget{classpact__verifier_1_1Verifier_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!Verifier@{Verifier}}
+\index{Verifier@{Verifier}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{Verifier()}{Verifier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18} 
+pact\+\_\+verifier::\+\+Verifier::\+\+Verifier (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Creates a verifier. The calling application is reported to the Pact Broker as "{}pact-\/cpp"{} at this library\textquotesingle{}s version, which the broker records against the verification results. \Hypertarget{classpact__verifier_1_1Verifier_a7337c8af2f7e3c4d04b1e78e648bc836}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!````~Verifier@{\texorpdfstring{$\sim$}{\string~}Verifier}}
+\index{````~Verifier@{\texorpdfstring{$\sim$}{\string~}Verifier}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Verifier()}{\string~Verifier()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a7337c8af2f7e3c4d04b1e78e648bc836} 
+pact\+\_\+verifier::\+\+Verifier::\+\texorpdfstring{$\sim$}{\string~}\+Verifier (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpact__verifier_1_1Verifier_ae650f7a35b27302ca18557b52f741b48}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!Verifier@{Verifier}}
+\index{Verifier@{Verifier}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{Verifier()}{Verifier()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ae650f7a35b27302ca18557b52f741b48} 
+pact\+\_\+verifier::\+\+Verifier::\+\+Verifier (\begin{DoxyParamCaption}\item[{const Verifier \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classpact__verifier_1_1Verifier_a4503c38ab9d47971bdb04ffe3fdbeee7}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!Verifier@{Verifier}}
+\index{Verifier@{Verifier}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{Verifier()}{Verifier()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a4503c38ab9d47971bdb04ffe3fdbeee7} 
+pact\+\_\+verifier::\+\+Verifier::\+\+Verifier (\begin{DoxyParamCaption}\item[{Verifier \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\label{classpact__verifier_1_1Verifier_doc-func-members}
+\Hypertarget{classpact__verifier_1_1Verifier_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpact__verifier_1_1Verifier_af57a5ada42a6319b8bb9408ce1ac1a27}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_broker\_source@{add\_broker\_source}}
+\index{add\_broker\_source@{add\_broker\_source}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_broker\_source()}{add\_broker\_source()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_af57a5ada42a6319b8bb9408ce1ac1a27} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+broker\+\_\+source (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{url}{, }\item[{const std::\+string \&}]{username}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{password}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{token}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+Fetches all the latest pacts for the provider from a broker \Hypertarget{classpact__verifier_1_1Verifier_a4a047e0489479c2f48b40118dbce81c4}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_broker\_source\_with\_selectors@{add\_broker\_source\_with\_selectors}}
+\index{add\_broker\_source\_with\_selectors@{add\_broker\_source\_with\_selectors}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_broker\_source\_with\_selectors()}{add\_broker\_source\_with\_selectors()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a4a047e0489479c2f48b40118dbce81c4} 
+bool pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+broker\+\_\+source\+\_\+with\+\_\+selectors (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structpact__verifier_1_1BrokerSelectorOptions}{Broker\+Selector\+Options}} \&}]{options}{}\end{DoxyParamCaption})}
+
+Fetches pacts from a broker using consumer version selectors, pending pacts and work in progress pacts.
+
+Returns false if any of the consumer version selectors were not valid JSON. \Hypertarget{classpact__verifier_1_1Verifier_a59db6ad4447ad748b6b1def1db57a78c}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_custom\_header@{add\_custom\_header}}
+\index{add\_custom\_header@{add\_custom\_header}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_custom\_header()}{add\_custom\_header()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a59db6ad4447ad748b6b1def1db57a78c} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{const std::\+string \&}]{value}{}\end{DoxyParamCaption})}
+
+Adds a header to every request the verifier makes to the provider \Hypertarget{classpact__verifier_1_1Verifier_a2b2c683472b449a59c1b9ac9ac24a600}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_directory\_source@{add\_directory\_source}}
+\index{add\_directory\_source@{add\_directory\_source}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_directory\_source()}{add\_directory\_source()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a2b2c683472b449a59c1b9ac9ac24a600} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+directory\+\_\+source (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{directory}{}\end{DoxyParamCaption})}
+
+Verifies every pact in a directory that matches the provider name \Hypertarget{classpact__verifier_1_1Verifier_a24084bc8d2d3938e5f9ab69e2d71bc56}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_file\_source@{add\_file\_source}}
+\index{add\_file\_source@{add\_file\_source}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_file\_source()}{add\_file\_source()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a24084bc8d2d3938e5f9ab69e2d71bc56} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+file\+\_\+source (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{file}{}\end{DoxyParamCaption})}
+
+Verifies a single pact file \Hypertarget{classpact__verifier_1_1Verifier_a618e2a3a41a3dd4ccfbe74bc36ff53ad}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_message\_handler@{add\_message\_handler}}
+\index{add\_message\_handler@{add\_message\_handler}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_message\_handler()}{add\_message\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a618e2a3a41a3dd4ccfbe74bc36ff53ad} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+message\+\_\+handler (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{description}{, }\item[{\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{Message\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler that produces the message with this description. Works for both asynchronous and synchronous (request/\+response) messages.
+
+The verifier hosts a "{}message"{} transport endpoint on your behalf for the duration of \doxylink{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}{execute()}, so you do not need to call add\+\_\+provider\+\_\+transport. \Hypertarget{classpact__verifier_1_1Verifier_aa4bdd1e5cd25f0eac67d14f358c027ce}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_provider\_transport@{add\_provider\_transport}}
+\index{add\_provider\_transport@{add\_provider\_transport}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_provider\_transport()}{add\_provider\_transport()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_aa4bdd1e5cd25f0eac67d14f358c027ce} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+provider\+\_\+transport (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{protocol}{, }\item[{uint16\+\_\+t}]{port}{, }\item[{const std::\+string \&}]{path}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{scheme}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+Adds an additional transport for the provider, for message pacts or plugin based protocols. Use protocol "{}message"{} for non-\/plugin async messages. \Hypertarget{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_state\_handler@{add\_state\_handler}}
+\index{add\_state\_handler@{add\_state\_handler}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_state\_handler()}{add\_state\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ab20fec19f79e09cc7c65c43cf6608b49} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+state\+\_\+handler (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{state}{, }\item[{\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler for a provider state. The verifier hosts a state change endpoint on your behalf for the duration of \doxylink{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}{execute()}. \Hypertarget{classpact__verifier_1_1Verifier_a5d45fdd105086c80e0ff3eecb59da657}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_state\_handler\_with\_values@{add\_state\_handler\_with\_values}}
+\index{add\_state\_handler\_with\_values@{add\_state\_handler\_with\_values}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_state\_handler\_with\_values()}{add\_state\_handler\_with\_values()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a5d45fdd105086c80e0ff3eecb59da657} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+state\+\_\+handler\+\_\+with\+\_\+values (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{state}{, }\item[{\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler for a provider state that returns a JSON object of values for the verifier to feed into {\ttfamily from\+Provider\+State} generators. \Hypertarget{classpact__verifier_1_1Verifier_a14a58d7b7ffe42b50fe83e52b3e9be61}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!add\_url\_source@{add\_url\_source}}
+\index{add\_url\_source@{add\_url\_source}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{add\_url\_source()}{add\_url\_source()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a14a58d7b7ffe42b50fe83e52b3e9be61} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+add\+\_\+url\+\_\+source (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{url}{, }\item[{const std::\+string \&}]{username}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{password}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{token}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+Fetches a single pact from a URL \Hypertarget{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!execute@{execute}}
+\index{execute@{execute}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_abba9ad2f2bcff8b6953a3f26f87507ce} 
+\doxymbox{\hyperlink{classpact__verifier_1_1VerificationResult}{Verification\+Result}} pact\+\_\+verifier::\+\+Verifier::\+execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Runs the verification. If any state handlers were registered, the state change endpoint is started before and stopped after the run. \Hypertarget{classpact__verifier_1_1Verifier_ac879f9024c26da8b9908057b3f7fc24d}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!get\_handle@{get\_handle}}
+\index{get\_handle@{get\_handle}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{get\_handle()}{get\_handle()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ac879f9024c26da8b9908057b3f7fc24d} 
+Verifier\+Handle \texorpdfstring{$\ast$}{*} pact\+\_\+verifier::\+\+Verifier::\+get\+\_\+handle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+The underlying FFI handle, for options not yet wrapped by this class \Hypertarget{classpact__verifier_1_1Verifier_a748f7c1a3412d024e34f993afcdb9a1e}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!logs\_for\_provider@{logs\_for\_provider}}
+\index{logs\_for\_provider@{logs\_for\_provider}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{logs\_for\_provider()}{logs\_for\_provider()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a748f7c1a3412d024e34f993afcdb9a1e} 
+std::\+string pact\+\_\+verifier::\+\+Verifier::\+logs\+\_\+for\+\_\+provider (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{provider\+\_\+name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Fetches buffered logs for a provider by name, outside of a verification run \Hypertarget{classpact__verifier_1_1Verifier_ad12d77ce14cfa88f42f192b237d5fd98}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!operator=@{operator=}}
+\index{operator=@{operator=}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ad12d77ce14cfa88f42f192b237d5fd98} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classpact__verifier_1_1Verifier_a3f6fc91b42ce48aca6f0739aa4f5cefa}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!operator=@{operator=}}
+\index{operator=@{operator=}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a3f6fc91b42ce48aca6f0739aa4f5cefa} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\Hypertarget{classpact__verifier_1_1Verifier_a39ce663039792db7197cafc0dd91efbf}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_coloured\_output@{set\_coloured\_output}}
+\index{set\_coloured\_output@{set\_coloured\_output}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_coloured\_output()}{set\_coloured\_output()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a39ce663039792db7197cafc0dd91efbf} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+coloured\+\_\+output (\begin{DoxyParamCaption}\item[{bool}]{coloured}{}\end{DoxyParamCaption})}
+
+Enables or disables ANSI colour codes in the verifier output. Default true \Hypertarget{classpact__verifier_1_1Verifier_a0ec6e3d34d0dc0820c601cbf50c2cb3f}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_consumer\_filters@{set\_consumer\_filters}}
+\index{set\_consumer\_filters@{set\_consumer\_filters}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_consumer\_filters()}{set\_consumer\_filters()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a0ec6e3d34d0dc0820c601cbf50c2cb3f} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+consumer\+\_\+filters (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ std::\+string $>$ \&}]{consumers}{}\end{DoxyParamCaption})}
+
+Only verify pacts from these consumers \Hypertarget{classpact__verifier_1_1Verifier_aecca839fabaff980ce40ec14a1349b46}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_default\_message\_handler@{set\_default\_message\_handler}}
+\index{set\_default\_message\_handler@{set\_default\_message\_handler}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_default\_message\_handler()}{set\_default\_message\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_aecca839fabaff980ce40ec14a1349b46} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+default\+\_\+message\+\_\+handler (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacepact__verifier_a4a4fddab89403e5136e4bca206adc8a5}{Message\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler used for any message without a specific handler \Hypertarget{classpact__verifier_1_1Verifier_a3436df29da0fe72fbd821e1d4dbdce29}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_default\_state\_handler@{set\_default\_state\_handler}}
+\index{set\_default\_state\_handler@{set\_default\_state\_handler}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_default\_state\_handler()}{set\_default\_state\_handler()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a3436df29da0fe72fbd821e1d4dbdce29} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+default\+\_\+state\+\_\+handler (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacepact__verifier_a5f8c6ba01cc5a0630eededce707e280a}{State\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a handler used for any state without a specific handler \Hypertarget{classpact__verifier_1_1Verifier_a702cdeaf7837b7034b96baa7d907c897}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_default\_state\_handler\_with\_values@{set\_default\_state\_handler\_with\_values}}
+\index{set\_default\_state\_handler\_with\_values@{set\_default\_state\_handler\_with\_values}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_default\_state\_handler\_with\_values()}{set\_default\_state\_handler\_with\_values()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a702cdeaf7837b7034b96baa7d907c897} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+default\+\_\+state\+\_\+handler\+\_\+with\+\_\+values (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespacepact__verifier_a262b4e20a566f534ac4d1cb1d088794b}{State\+Handler\+With\+Values}}}]{handler}{}\end{DoxyParamCaption})}
+
+Registers a value returning handler used for any state without a specific handler \Hypertarget{classpact__verifier_1_1Verifier_ad898be2ed162fe45e24fd93100fd2ff8}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_filter\_info@{set\_filter\_info}}
+\index{set\_filter\_info@{set\_filter\_info}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_filter\_info()}{set\_filter\_info()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ad898be2ed162fe45e24fd93100fd2ff8} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+filter\+\_\+info (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filter\+\_\+description}{ = {\ttfamily "{}"{}}, }\item[{const std::\+string \&}]{filter\+\_\+state}{ = {\ttfamily "{}"{}}, }\item[{bool}]{filter\+\_\+no\+\_\+state}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Restricts which interactions are verified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter\+\_\+description} & Regular expression matched against the interaction description \\
+\hline
+{\em filter\+\_\+state} & Regular expression matched against the provider state \\
+\hline
+{\em filter\+\_\+no\+\_\+state} & Only verify interactions that have no provider state \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpact__verifier_1_1Verifier_a37d76505b5decb67818041f3c28ee8e5}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_follow\_redirects@{set\_follow\_redirects}}
+\index{set\_follow\_redirects@{set\_follow\_redirects}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_follow\_redirects()}{set\_follow\_redirects()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a37d76505b5decb67818041f3c28ee8e5} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+follow\+\_\+redirects (\begin{DoxyParamCaption}\item[{bool}]{follow}{}\end{DoxyParamCaption})}
+
+Whether the verifier should follow redirects returned by the provider. Default true \Hypertarget{classpact__verifier_1_1Verifier_ad928ec9fdd2c72b83e30b3cbf64a9f4d}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_message\_endpoint\_path@{set\_message\_endpoint\_path}}
+\index{set\_message\_endpoint\_path@{set\_message\_endpoint\_path}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_message\_endpoint\_path()}{set\_message\_endpoint\_path()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ad928ec9fdd2c72b83e30b3cbf64a9f4d} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+message\+\_\+endpoint\+\_\+path (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{path}{}\end{DoxyParamCaption})}
+
+Path the hosted message endpoint is served on. Defaults to "{}/\+\+\_\+\+\_\+pact/\+message"{} \Hypertarget{classpact__verifier_1_1Verifier_ab54f17561e896ff994d79c2eec40cef6}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_message\_transport\_port@{set\_message\_transport\_port}}
+\index{set\_message\_transport\_port@{set\_message\_transport\_port}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_message\_transport\_port()}{set\_message\_transport\_port()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ab54f17561e896ff994d79c2eec40cef6} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+message\+\_\+transport\+\_\+port (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Port for the hosted message endpoint. Defaults to 0, meaning the OS picks a free port. \Hypertarget{classpact__verifier_1_1Verifier_aad4343d083feaa5a9c106ddedfed34d4}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_no\_pacts\_is\_error@{set\_no\_pacts\_is\_error}}
+\index{set\_no\_pacts\_is\_error@{set\_no\_pacts\_is\_error}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_no\_pacts\_is\_error()}{set\_no\_pacts\_is\_error()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_aad4343d083feaa5a9c106ddedfed34d4} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+no\+\_\+pacts\+\_\+is\+\_\+error (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+error}{}\end{DoxyParamCaption})}
+
+Whether finding no pacts to verify is a failure. Default true \Hypertarget{classpact__verifier_1_1Verifier_ac193e1b54b335df3b6992dd239e066cb}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_provider\_info@{set\_provider\_info}}
+\index{set\_provider\_info@{set\_provider\_info}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_provider\_info()}{set\_provider\_info()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ac193e1b54b335df3b6992dd239e066cb} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+provider\+\_\+info (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{const std::\+string \&}]{scheme}{ = {\ttfamily "{}http"{}}, }\item[{const std::\+string \&}]{host}{ = {\ttfamily "{}localhost"{}}, }\item[{uint16\+\_\+t}]{port}{ = {\ttfamily 8080}, }\item[{const std::\+string \&}]{path}{ = {\ttfamily "{}/"{}}}\end{DoxyParamCaption})}
+
+Details of the running provider the interactions are replayed against. Empty strings and a zero port fall back to the Pact defaults (\href{http://localhost:8080/}{\texttt{http:\+/\+/\+localhost:\+8080/}}). \Hypertarget{classpact__verifier_1_1Verifier_ae9d87e0ac0064f2bbe82c06a5b6bbf0a}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_provider\_state\_url@{set\_provider\_state\_url}}
+\index{set\_provider\_state\_url@{set\_provider\_state\_url}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_provider\_state\_url()}{set\_provider\_state\_url()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ae9d87e0ac0064f2bbe82c06a5b6bbf0a} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+provider\+\_\+state\+\_\+url (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{url}{, }\item[{bool}]{teardown}{ = {\ttfamily true}, }\item[{bool}]{body}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+Tells the verifier to POST (or GET) state change requests to this URL. Use this when your application hosts the state change endpoint itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em teardown} & Also send a teardown request after each interaction \\
+\hline
+{\em body} & Send the state data as a JSON body rather than query parameters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpact__verifier_1_1Verifier_ae049eee364b44d0d5b4d346c37d694a8}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_publish\_options@{set\_publish\_options}}
+\index{set\_publish\_options@{set\_publish\_options}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_publish\_options()}{set\_publish\_options()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_ae049eee364b44d0d5b4d346c37d694a8} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+publish\+\_\+options (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structpact__verifier_1_1PublishOptions}{Publish\+Options}} \&}]{options}{}\end{DoxyParamCaption})}
+
+Publishes verification results back to the broker \Hypertarget{classpact__verifier_1_1Verifier_a473e6cee4e487ef4f46efc1e0e366472}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_state\_change\_body@{set\_state\_change\_body}}
+\index{set\_state\_change\_body@{set\_state\_change\_body}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_state\_change\_body()}{set\_state\_change\_body()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a473e6cee4e487ef4f46efc1e0e366472} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+state\+\_\+change\+\_\+body (\begin{DoxyParamCaption}\item[{bool}]{body}{}\end{DoxyParamCaption})}
+
+Whether state change data is sent as a body rather than query params. Default true \Hypertarget{classpact__verifier_1_1Verifier_a089f944ad87287a782b6fb1fd4f93058}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_state\_change\_port@{set\_state\_change\_port}}
+\index{set\_state\_change\_port@{set\_state\_change\_port}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_state\_change\_port()}{set\_state\_change\_port()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a089f944ad87287a782b6fb1fd4f93058} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+state\+\_\+change\+\_\+port (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Port for the hosted state change endpoint. Defaults to 0, meaning the OS picks a free port. \Hypertarget{classpact__verifier_1_1Verifier_a023f142be857d6354e15721d8fb279f3}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_state\_change\_teardown@{set\_state\_change\_teardown}}
+\index{set\_state\_change\_teardown@{set\_state\_change\_teardown}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_state\_change\_teardown()}{set\_state\_change\_teardown()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a023f142be857d6354e15721d8fb279f3} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+state\+\_\+change\+\_\+teardown (\begin{DoxyParamCaption}\item[{bool}]{teardown}{}\end{DoxyParamCaption})}
+
+Whether the hosted endpoint should also receive teardown calls. Default true \Hypertarget{classpact__verifier_1_1Verifier_a0f2707959f3ab547437d1e0b488153bf}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_strip\_ansi\_from\_output@{set\_strip\_ansi\_from\_output}}
+\index{set\_strip\_ansi\_from\_output@{set\_strip\_ansi\_from\_output}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_strip\_ansi\_from\_output()}{set\_strip\_ansi\_from\_output()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a0f2707959f3ab547437d1e0b488153bf} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+strip\+\_\+ansi\+\_\+from\+\_\+output (\begin{DoxyParamCaption}\item[{bool}]{strip}{}\end{DoxyParamCaption})}
+
+Strips ANSI escape codes from \doxylink{classpact__verifier_1_1VerificationResult_a3aa26ee61eb95c6173be9fb8dbaa058f}{Verification\+Result::\+output}. Default false \Hypertarget{classpact__verifier_1_1Verifier_a84ccfd4f51c5268d8b4322b3e6a4820a}\index{pact\_verifier::Verifier@{pact\_verifier::Verifier}!set\_verification\_options@{set\_verification\_options}}
+\index{set\_verification\_options@{set\_verification\_options}!pact\_verifier::Verifier@{pact\_verifier::Verifier}}
+\doxysubsubsection{\texorpdfstring{set\_verification\_options()}{set\_verification\_options()}}
+{\footnotesize\ttfamily \label{classpact__verifier_1_1Verifier_a84ccfd4f51c5268d8b4322b3e6a4820a} 
+\doxymbox{\hyperlink{classpact__verifier_1_1Verifier_a4d8541f99ea9d66f8abb92d12d84ef18}{Verifier}} \& pact\+\_\+verifier::\+\+Verifier::\+set\+\_\+verification\+\_\+options (\begin{DoxyParamCaption}\item[{bool}]{disable\+\_\+ssl\+\_\+verification}{, }\item[{unsigned long}]{request\+\_\+timeout}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em disable\+\_\+ssl\+\_\+verification} & Skip TLS certificate checks, for self signed certs \\
+\hline
+{\em request\+\_\+timeout} & Timeout in milliseconds for requests to the provider \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{verifier_8h}{verifier.\+h}}\item 
+src/\doxymbox{\hyperlink{verifier_8cpp}{verifier.\+cpp}}\end{DoxyCompactItemize}

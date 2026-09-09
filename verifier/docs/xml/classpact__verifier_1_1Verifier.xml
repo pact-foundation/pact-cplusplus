@@ -1,0 +1,934 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="classpact__verifier_1_1Verifier" kind="class" language="C++" prot="public">
+    <compoundname>pact_verifier::Verifier</compoundname>
+    <includes refid="verifier_8h" local="no">verifier.h</includes>
+    <innerclass refid="structpact__verifier_1_1Verifier_1_1Impl" prot="public">pact_verifier::Verifier::Impl</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpact__verifier_1_1Verifier_1afc62355bfc35d171041d412df17778e0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structpact__verifier_1_1Verifier_1_1Impl" kindref="compound">Impl</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; pact_verifier::Verifier::impl</definition>
+        <argsstring></argsstring>
+        <name>impl</name>
+        <qualifiedname>pact_verifier::Verifier::impl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="584" column="23" bodyfile="include/verifier.h" bodystart="584" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::Verifier::Verifier</definition>
+        <argsstring>()</argsstring>
+        <name>Verifier</name>
+        <qualifiedname>pact_verifier::Verifier::Verifier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a verifier. The calling application is reported to the Pact Broker as &quot;pact-cpp&quot; at this library&apos;s version, which the broker records against the verification results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="403" column="7" bodyfile="src/verifier.cpp" bodystart="662" bodyend="668"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a7337c8af2f7e3c4d04b1e78e648bc836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::Verifier::~Verifier</definition>
+        <argsstring>()</argsstring>
+        <name>~Verifier</name>
+        <qualifiedname>pact_verifier::Verifier::~Verifier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="405" column="7" bodyfile="src/verifier.cpp" bodystart="670" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ae650f7a35b27302ca18557b52f741b48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::Verifier::Verifier</definition>
+        <argsstring>(const Verifier &amp;)=delete</argsstring>
+        <name>Verifier</name>
+        <qualifiedname>pact_verifier::Verifier::Verifier</qualifiedname>
+        <param>
+          <type>const Verifier &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="407" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ad12d77ce14cfa88f42f192b237d5fd98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::operator=</definition>
+        <argsstring>(const Verifier &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>pact_verifier::Verifier::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="408" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a4503c38ab9d47971bdb04ffe3fdbeee7" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>pact_verifier::Verifier::Verifier</definition>
+        <argsstring>(Verifier &amp;&amp;other) noexcept</argsstring>
+        <name>Verifier</name>
+        <qualifiedname>pact_verifier::Verifier::Verifier</qualifiedname>
+        <param>
+          <type>Verifier &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="409" column="7" bodyfile="src/verifier.cpp" bodystart="685" bodyend="685"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a3f6fc91b42ce48aca6f0739aa4f5cefa" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::operator=</definition>
+        <argsstring>(Verifier &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>pact_verifier::Verifier::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="410" column="16" bodyfile="src/verifier.cpp" bodystart="687" bodyend="695"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ac193e1b54b335df3b6992dd239e066cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_provider_info</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;scheme=&quot;http&quot;, const std::string &amp;host=&quot;localhost&quot;, uint16_t port=8080, const std::string &amp;path=&quot;/&quot;)</argsstring>
+        <name>set_provider_info</name>
+        <qualifiedname>pact_verifier::Verifier::set_provider_info</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>scheme</declname>
+          <defval>&quot;http&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>host</declname>
+          <defval>&quot;localhost&quot;</defval>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+          <defval>8080</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+          <defval>&quot;/&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Details of the running provider the interactions are replayed against. Empty strings and a zero port fall back to the Pact defaults (<ulink url="http://localhost:8080/">http://localhost:8080/</ulink>). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="421" column="16" bodyfile="src/verifier.cpp" bodystart="697" bodyend="705"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1aa4bdd1e5cd25f0eac67d14f358c027ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_provider_transport</definition>
+        <argsstring>(const std::string &amp;protocol, uint16_t port, const std::string &amp;path=&quot;&quot;, const std::string &amp;scheme=&quot;&quot;)</argsstring>
+        <name>add_provider_transport</name>
+        <qualifiedname>pact_verifier::Verifier::add_provider_transport</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>protocol</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>scheme</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an additional transport for the provider, for message pacts or plugin based protocols. Use protocol &quot;message&quot; for non-plugin async messages. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="428" column="16" bodyfile="src/verifier.cpp" bodystart="707" bodyend="712"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a59db6ad4447ad748b6b1def1db57a78c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_custom_header</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;value)</argsstring>
+        <name>add_custom_header</name>
+        <qualifiedname>pact_verifier::Verifier::add_custom_header</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a header to every request the verifier makes to the provider </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="432" column="16" bodyfile="src/verifier.cpp" bodystart="714" bodyend="717"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a37d76505b5decb67818041f3c28ee8e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_follow_redirects</definition>
+        <argsstring>(bool follow)</argsstring>
+        <name>set_follow_redirects</name>
+        <qualifiedname>pact_verifier::Verifier::set_follow_redirects</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>follow</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the verifier should follow redirects returned by the provider. Default true </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="435" column="16" bodyfile="src/verifier.cpp" bodystart="719" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a84ccfd4f51c5268d8b4322b3e6a4820a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_verification_options</definition>
+        <argsstring>(bool disable_ssl_verification, unsigned long request_timeout)</argsstring>
+        <name>set_verification_options</name>
+        <qualifiedname>pact_verifier::Verifier::set_verification_options</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>disable_ssl_verification</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>request_timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disable_ssl_verification</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Skip TLS certificate checks, for self signed certs </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request_timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout in milliseconds for requests to the provider </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="441" column="16" bodyfile="src/verifier.cpp" bodystart="724" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ae9d87e0ac0064f2bbe82c06a5b6bbf0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_provider_state_url</definition>
+        <argsstring>(const std::string &amp;url, bool teardown=true, bool body=true)</argsstring>
+        <name>set_provider_state_url</name>
+        <qualifiedname>pact_verifier::Verifier::set_provider_state_url</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>teardown</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>body</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tells the verifier to POST (or GET) state change requests to this URL. Use this when your application hosts the state change endpoint itself.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>teardown</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Also send a teardown request after each interaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Send the state data as a JSON body rather than query parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="454" column="16" bodyfile="src/verifier.cpp" bodystart="729" bodyend="732"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ab20fec19f79e09cc7c65c43cf6608b49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_state_handler</definition>
+        <argsstring>(const std::string &amp;state, StateHandler handler)</argsstring>
+        <name>add_state_handler</name>
+        <qualifiedname>pact_verifier::Verifier::add_state_handler</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a5f8c6ba01cc5a0630eededce707e280a" kindref="member">StateHandler</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a handler for a provider state. The verifier hosts a state change endpoint on your behalf for the duration of <ref refid="classpact__verifier_1_1Verifier_1abba9ad2f2bcff8b6953a3f26f87507ce" kindref="member">execute()</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="460" column="16" bodyfile="src/verifier.cpp" bodystart="734" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a5d45fdd105086c80e0ff3eecb59da657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_state_handler_with_values</definition>
+        <argsstring>(const std::string &amp;state, StateHandlerWithValues handler)</argsstring>
+        <name>add_state_handler_with_values</name>
+        <qualifiedname>pact_verifier::Verifier::add_state_handler_with_values</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a262b4e20a566f534ac4d1cb1d088794b" kindref="member">StateHandlerWithValues</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a handler for a provider state that returns a JSON object of values for the verifier to feed into <computeroutput>fromProviderState</computeroutput> generators. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="466" column="16" bodyfile="src/verifier.cpp" bodystart="739" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a3436df29da0fe72fbd821e1d4dbdce29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_default_state_handler</definition>
+        <argsstring>(StateHandler handler)</argsstring>
+        <name>set_default_state_handler</name>
+        <qualifiedname>pact_verifier::Verifier::set_default_state_handler</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a5f8c6ba01cc5a0630eededce707e280a" kindref="member">StateHandler</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a handler used for any state without a specific handler </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="469" column="16" bodyfile="src/verifier.cpp" bodystart="744" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a702cdeaf7837b7034b96baa7d907c897" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_default_state_handler_with_values</definition>
+        <argsstring>(StateHandlerWithValues handler)</argsstring>
+        <name>set_default_state_handler_with_values</name>
+        <qualifiedname>pact_verifier::Verifier::set_default_state_handler_with_values</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a262b4e20a566f534ac4d1cb1d088794b" kindref="member">StateHandlerWithValues</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a value returning handler used for any state without a specific handler </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="472" column="16" bodyfile="src/verifier.cpp" bodystart="749" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a089f944ad87287a782b6fb1fd4f93058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_state_change_port</definition>
+        <argsstring>(uint16_t port)</argsstring>
+        <name>set_state_change_port</name>
+        <qualifiedname>pact_verifier::Verifier::set_state_change_port</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Port for the hosted state change endpoint. Defaults to 0, meaning the OS picks a free port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="478" column="16" bodyfile="src/verifier.cpp" bodystart="754" bodyend="757"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a023f142be857d6354e15721d8fb279f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_state_change_teardown</definition>
+        <argsstring>(bool teardown)</argsstring>
+        <name>set_state_change_teardown</name>
+        <qualifiedname>pact_verifier::Verifier::set_state_change_teardown</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>teardown</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the hosted endpoint should also receive teardown calls. Default true </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="481" column="16" bodyfile="src/verifier.cpp" bodystart="759" bodyend="762"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a473e6cee4e487ef4f46efc1e0e366472" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_state_change_body</definition>
+        <argsstring>(bool body)</argsstring>
+        <name>set_state_change_body</name>
+        <qualifiedname>pact_verifier::Verifier::set_state_change_body</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether state change data is sent as a body rather than query params. Default true </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="484" column="16" bodyfile="src/verifier.cpp" bodystart="764" bodyend="767"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a618e2a3a41a3dd4ccfbe74bc36ff53ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_message_handler</definition>
+        <argsstring>(const std::string &amp;description, MessageHandler handler)</argsstring>
+        <name>add_message_handler</name>
+        <qualifiedname>pact_verifier::Verifier::add_message_handler</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a4a4fddab89403e5136e4bca206adc8a5" kindref="member">MessageHandler</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a handler that produces the message with this description. Works for both asynchronous and synchronous (request/response) messages.</para>
+<para>The verifier hosts a &quot;message&quot; transport endpoint on your behalf for the duration of <ref refid="classpact__verifier_1_1Verifier_1abba9ad2f2bcff8b6953a3f26f87507ce" kindref="member">execute()</ref>, so you do not need to call add_provider_transport. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="497" column="16" bodyfile="src/verifier.cpp" bodystart="769" bodyend="772"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1aecca839fabaff980ce40ec14a1349b46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_default_message_handler</definition>
+        <argsstring>(MessageHandler handler)</argsstring>
+        <name>set_default_message_handler</name>
+        <qualifiedname>pact_verifier::Verifier::set_default_message_handler</qualifiedname>
+        <param>
+          <type><ref refid="namespacepact__verifier_1a4a4fddab89403e5136e4bca206adc8a5" kindref="member">MessageHandler</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a handler used for any message without a specific handler </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="500" column="16" bodyfile="src/verifier.cpp" bodystart="774" bodyend="777"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ab54f17561e896ff994d79c2eec40cef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_message_transport_port</definition>
+        <argsstring>(uint16_t port)</argsstring>
+        <name>set_message_transport_port</name>
+        <qualifiedname>pact_verifier::Verifier::set_message_transport_port</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Port for the hosted message endpoint. Defaults to 0, meaning the OS picks a free port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="506" column="16" bodyfile="src/verifier.cpp" bodystart="779" bodyend="782"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ad928ec9fdd2c72b83e30b3cbf64a9f4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_message_endpoint_path</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>set_message_endpoint_path</name>
+        <qualifiedname>pact_verifier::Verifier::set_message_endpoint_path</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Path the hosted message endpoint is served on. Defaults to &quot;/__pact/message&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="509" column="16" bodyfile="src/verifier.cpp" bodystart="784" bodyend="790"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ad898be2ed162fe45e24fd93100fd2ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_filter_info</definition>
+        <argsstring>(const std::string &amp;filter_description=&quot;&quot;, const std::string &amp;filter_state=&quot;&quot;, bool filter_no_state=false)</argsstring>
+        <name>set_filter_info</name>
+        <qualifiedname>pact_verifier::Verifier::set_filter_info</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filter_description</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filter_state</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>filter_no_state</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restricts which interactions are verified.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filter_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Regular expression matched against the interaction description </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filter_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Regular expression matched against the provider state </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filter_no_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Only verify interactions that have no provider state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="522" column="16" bodyfile="src/verifier.cpp" bodystart="792" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a0ec6e3d34d0dc0820c601cbf50c2cb3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_consumer_filters</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;consumers)</argsstring>
+        <name>set_consumer_filters</name>
+        <qualifiedname>pact_verifier::Verifier::set_consumer_filters</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>consumers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Only verify pacts from these consumers </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="526" column="16" bodyfile="src/verifier.cpp" bodystart="799" bodyend="804"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a24084bc8d2d3938e5f9ab69e2d71bc56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_file_source</definition>
+        <argsstring>(const std::string &amp;file)</argsstring>
+        <name>add_file_source</name>
+        <qualifiedname>pact_verifier::Verifier::add_file_source</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Verifies a single pact file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="533" column="16" bodyfile="src/verifier.cpp" bodystart="806" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a2b2c683472b449a59c1b9ac9ac24a600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_directory_source</definition>
+        <argsstring>(const std::string &amp;directory)</argsstring>
+        <name>add_directory_source</name>
+        <qualifiedname>pact_verifier::Verifier::add_directory_source</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Verifies every pact in a directory that matches the provider name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="536" column="16" bodyfile="src/verifier.cpp" bodystart="811" bodyend="814"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a14a58d7b7ffe42b50fe83e52b3e9be61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_url_source</definition>
+        <argsstring>(const std::string &amp;url, const std::string &amp;username=&quot;&quot;, const std::string &amp;password=&quot;&quot;, const std::string &amp;token=&quot;&quot;)</argsstring>
+        <name>add_url_source</name>
+        <qualifiedname>pact_verifier::Verifier::add_url_source</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>username</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>password</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>token</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches a single pact from a URL </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="539" column="16" bodyfile="src/verifier.cpp" bodystart="816" bodyend="821"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1af57a5ada42a6319b8bb9408ce1ac1a27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::add_broker_source</definition>
+        <argsstring>(const std::string &amp;url, const std::string &amp;username=&quot;&quot;, const std::string &amp;password=&quot;&quot;, const std::string &amp;token=&quot;&quot;)</argsstring>
+        <name>add_broker_source</name>
+        <qualifiedname>pact_verifier::Verifier::add_broker_source</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>username</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>password</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>token</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches all the latest pacts for the provider from a broker </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="543" column="16" bodyfile="src/verifier.cpp" bodystart="823" bodyend="828"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a4a047e0489479c2f48b40118dbce81c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pact_verifier::Verifier::add_broker_source_with_selectors</definition>
+        <argsstring>(const BrokerSelectorOptions &amp;options)</argsstring>
+        <name>add_broker_source_with_selectors</name>
+        <qualifiedname>pact_verifier::Verifier::add_broker_source_with_selectors</qualifiedname>
+        <param>
+          <type>const <ref refid="structpact__verifier_1_1BrokerSelectorOptions" kindref="compound">BrokerSelectorOptions</ref> &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches pacts from a broker using consumer version selectors, pending pacts and work in progress pacts.</para>
+<para>Returns false if any of the consumer version selectors were not valid JSON. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="552" column="12" bodyfile="src/verifier.cpp" bodystart="830" bodyend="850"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ae049eee364b44d0d5b4d346c37d694a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_publish_options</definition>
+        <argsstring>(const PublishOptions &amp;options)</argsstring>
+        <name>set_publish_options</name>
+        <qualifiedname>pact_verifier::Verifier::set_publish_options</qualifiedname>
+        <param>
+          <type>const <ref refid="structpact__verifier_1_1PublishOptions" kindref="compound">PublishOptions</ref> &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Publishes verification results back to the broker </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="559" column="16" bodyfile="src/verifier.cpp" bodystart="852" bodyend="862"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a39ce663039792db7197cafc0dd91efbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_coloured_output</definition>
+        <argsstring>(bool coloured)</argsstring>
+        <name>set_coloured_output</name>
+        <qualifiedname>pact_verifier::Verifier::set_coloured_output</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>coloured</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enables or disables ANSI colour codes in the verifier output. Default true </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="562" column="16" bodyfile="src/verifier.cpp" bodystart="864" bodyend="867"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1aad4343d083feaa5a9c106ddedfed34d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_no_pacts_is_error</definition>
+        <argsstring>(bool is_error)</argsstring>
+        <name>set_no_pacts_is_error</name>
+        <qualifiedname>pact_verifier::Verifier::set_no_pacts_is_error</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>is_error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether finding no pacts to verify is a failure. Default true </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="565" column="16" bodyfile="src/verifier.cpp" bodystart="869" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a0f2707959f3ab547437d1e0b488153bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" kindref="member">Verifier</ref> &amp;</type>
+        <definition>Verifier &amp; pact_verifier::Verifier::set_strip_ansi_from_output</definition>
+        <argsstring>(bool strip)</argsstring>
+        <name>set_strip_ansi_from_output</name>
+        <qualifiedname>pact_verifier::Verifier::set_strip_ansi_from_output</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>strip</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Strips ANSI escape codes from <ref refid="classpact__verifier_1_1VerificationResult_1a3aa26ee61eb95c6173be9fb8dbaa058f" kindref="member">VerificationResult::output</ref>. Default false </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="568" column="16" bodyfile="src/verifier.cpp" bodystart="874" bodyend="877"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1abba9ad2f2bcff8b6953a3f26f87507ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpact__verifier_1_1VerificationResult" kindref="compound">VerificationResult</ref></type>
+        <definition>VerificationResult pact_verifier::Verifier::execute</definition>
+        <argsstring>()</argsstring>
+        <name>execute</name>
+        <qualifiedname>pact_verifier::Verifier::execute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the verification. If any state handlers were registered, the state change endpoint is started before and stopped after the run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="574" column="26" bodyfile="src/verifier.cpp" bodystart="879" bodyend="914"/>
+      </memberdef>
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1ac879f9024c26da8b9908057b3f7fc24d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>VerifierHandle *</type>
+        <definition>VerifierHandle * pact_verifier::Verifier::get_handle</definition>
+        <argsstring>() const</argsstring>
+        <name>get_handle</name>
+        <qualifiedname>pact_verifier::Verifier::get_handle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The underlying FFI handle, for options not yet wrapped by this class </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="580" column="22" bodyfile="src/verifier.cpp" bodystart="920" bodyend="922"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classpact__verifier_1_1Verifier_1a748f7c1a3412d024e34f993afcdb9a1e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pact_verifier::Verifier::logs_for_provider</definition>
+        <argsstring>(const std::string &amp;provider_name)</argsstring>
+        <name>logs_for_provider</name>
+        <qualifiedname>pact_verifier::Verifier::logs_for_provider</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>provider_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches buffered logs for a provider by name, outside of a verification run </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verifier.h" line="577" column="26" bodyfile="src/verifier.cpp" bodystart="916" bodyend="918"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Verifies that a provider honours the contracts published by its consumers.</para>
+<para>Every option exposed by the Pact FFI verifier is available here. Setters return a reference to the verifier so calls can be chained.</para>
+<para><programlisting><codeline><highlight class="normal">pact_verifier::Verifier<sp/>verifier;</highlight></codeline>
+<codeline><highlight class="normal">verifier</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<ref refid="classpact__verifier_1_1Verifier_1ac193e1b54b335df3b6992dd239e066cb" kindref="member">set_provider_info</ref>(</highlight><highlight class="stringliteral">&quot;my-provider&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;http&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;localhost&quot;</highlight><highlight class="normal">,<sp/>8080,<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<ref refid="classpact__verifier_1_1Verifier_1a24084bc8d2d3938e5f9ab69e2d71bc56" kindref="member">add_file_source</ref>(</highlight><highlight class="stringliteral">&quot;./pacts/my-consumer-my-provider.json&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<ref refid="classpact__verifier_1_1Verifier_1ab20fec19f79e09cc7c65c43cf6608b49" kindref="member">add_state_handler</ref>(</highlight><highlight class="stringliteral">&quot;the<sp/>user<sp/>exists&quot;</highlight><highlight class="normal">,<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>request)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>seed_user(request.params.get_int(</highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">).value_or(0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>verifier.<ref refid="classpact__verifier_1_1Verifier_1abba9ad2f2bcff8b6953a3f26f87507ce" kindref="member">execute</ref>();</highlight></codeline>
+<codeline><highlight class="normal">result.<ref refid="classpact__verifier_1_1VerificationResult_1a605634eab14f930ac3720f7fee5cfe19" kindref="member">display</ref>();</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="include/verifier.h" line="396" column="3" bodyfile="include/verifier.h" bodystart="396" bodyend="585"/>
+    <listofallmembers>
+      <member refid="classpact__verifier_1_1Verifier_1af57a5ada42a6319b8bb9408ce1ac1a27" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_broker_source</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a4a047e0489479c2f48b40118dbce81c4" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_broker_source_with_selectors</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a59db6ad4447ad748b6b1def1db57a78c" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_custom_header</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a2b2c683472b449a59c1b9ac9ac24a600" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_directory_source</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a24084bc8d2d3938e5f9ab69e2d71bc56" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_file_source</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a618e2a3a41a3dd4ccfbe74bc36ff53ad" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_message_handler</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1aa4bdd1e5cd25f0eac67d14f358c027ce" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_provider_transport</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ab20fec19f79e09cc7c65c43cf6608b49" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_state_handler</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a5d45fdd105086c80e0ff3eecb59da657" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_state_handler_with_values</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a14a58d7b7ffe42b50fe83e52b3e9be61" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>add_url_source</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1abba9ad2f2bcff8b6953a3f26f87507ce" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>execute</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ac879f9024c26da8b9908057b3f7fc24d" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>get_handle</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1afc62355bfc35d171041d412df17778e0" prot="private" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>impl</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a748f7c1a3412d024e34f993afcdb9a1e" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>logs_for_provider</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ad12d77ce14cfa88f42f192b237d5fd98" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>operator=</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a3f6fc91b42ce48aca6f0739aa4f5cefa" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>operator=</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a39ce663039792db7197cafc0dd91efbf" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_coloured_output</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a0ec6e3d34d0dc0820c601cbf50c2cb3f" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_consumer_filters</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1aecca839fabaff980ce40ec14a1349b46" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_default_message_handler</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a3436df29da0fe72fbd821e1d4dbdce29" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_default_state_handler</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a702cdeaf7837b7034b96baa7d907c897" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_default_state_handler_with_values</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ad898be2ed162fe45e24fd93100fd2ff8" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_filter_info</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a37d76505b5decb67818041f3c28ee8e5" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_follow_redirects</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ad928ec9fdd2c72b83e30b3cbf64a9f4d" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_message_endpoint_path</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ab54f17561e896ff994d79c2eec40cef6" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_message_transport_port</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1aad4343d083feaa5a9c106ddedfed34d4" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_no_pacts_is_error</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ac193e1b54b335df3b6992dd239e066cb" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_provider_info</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ae9d87e0ac0064f2bbe82c06a5b6bbf0a" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_provider_state_url</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ae049eee364b44d0d5b4d346c37d694a8" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_publish_options</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a473e6cee4e487ef4f46efc1e0e366472" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_state_change_body</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a089f944ad87287a782b6fb1fd4f93058" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_state_change_port</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a023f142be857d6354e15721d8fb279f3" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_state_change_teardown</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a0f2707959f3ab547437d1e0b488153bf" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_strip_ansi_from_output</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a84ccfd4f51c5268d8b4322b3e6a4820a" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>set_verification_options</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a4d8541f99ea9d66f8abb92d12d84ef18" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>Verifier</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1ae650f7a35b27302ca18557b52f741b48" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>Verifier</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a4503c38ab9d47971bdb04ffe3fdbeee7" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>Verifier</name></member>
+      <member refid="classpact__verifier_1_1Verifier_1a7337c8af2f7e3c4d04b1e78e648bc836" prot="public" virt="non-virtual"><scope>pact_verifier::Verifier</scope><name>~Verifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
