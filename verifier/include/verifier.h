@@ -182,6 +182,124 @@ namespace pact_verifier {
   };
 
   /**
+   * A message produced by the provider, returned from a message handler.
+   *
+   * For an asynchronous message this is the message the provider publishes. For a
+   * synchronous message it is the response the provider sends back.
+   */
+  class ProviderMessage {
+    public:
+      /**
+       * @param body The message payload
+       * @param content_type Content type of the payload
+       */
+      explicit ProviderMessage(std::string body = "", std::string content_type = "application/json");
+
+      /** Adds a string metadata value, e.g. the queue or topic name */
+      ProviderMessage& with_metadata(const std::string& key, const std::string& value);
+
+      /** Adds a metadata value that is already a JSON document (number, object, array, ...) */
+      ProviderMessage& with_json_metadata(const std::string& key, const std::string& json_value);
+
+      const std::string& body() const;
+      const std::string& content_type() const;
+
+      /** Metadata values, each held as JSON text */
+      const std::unordered_map<std::string, std::string>& metadata() const;
+
+    private:
+      std::string message_body;
+      std::string message_content_type;
+      std::unordered_map<std::string, std::string> message_metadata;
+  };
+
+  /**
+   * A provider state attached to a message interaction.
+   */
+  struct MessageProviderState {
+    std::string name;
+    ProviderStateParams params;
+  };
+
+  /**
+   * The verifier asking the provider to produce a message.
+   */
+  struct MessageRequest {
+    /** The interaction description from the pact file */
+    std::string description;
+
+    /** Provider states attached to the interaction */
+    std::vector<MessageProviderState> provider_states;
+
+    /** True for a synchronous (request/response) message, false for an asynchronous one */
+    bool synchronous = false;
+
+    /** For synchronous messages, the request message the consumer sends, as raw JSON */
+    std::string request_json;
+
+    /** For synchronous messages, the decoded body of the request message */
+    std::string request_body;
+
+    /** For synchronous messages, the content type of the request message */
+    std::string request_content_type;
+  };
+
+  /** Callback that produces the message the provider would send. */
+  using MessageHandler = std::function<ProviderMessage(const MessageRequest&)>;
+
+  /**
+   * Hosts the HTTP endpoint the Pact verifier calls to fetch messages from the
+   * provider.
+   *
+   * Message pacts have no HTTP request to replay, so the verifier asks the
+   * provider to produce each message over a "message" transport, which is an HTTP
+   * endpoint the provider exposes purely for verification.
+   * Verifier::add_message_handler starts and stops one of these for you.
+   */
+  class MessageProviderServer {
+    public:
+      /**
+       * @param path Path the message endpoint is served on
+       */
+      explicit MessageProviderServer(std::string path = "/__pact/message");
+      ~MessageProviderServer();
+
+      MessageProviderServer(const MessageProviderServer&) = delete;
+      MessageProviderServer& operator=(const MessageProviderServer&) = delete;
+
+      /** Registers a handler for a single message, keyed on the interaction description */
+      void add_message_handler(const std::string& description, MessageHandler handler);
+
+      /** Registers a handler invoked for any message without a specific handler */
+      void set_default_handler(MessageHandler handler);
+
+      /**
+       * Starts the server. Pass 0 to let the OS pick a free port.
+       * Returns false if the port could not be bound.
+       */
+      bool start(uint16_t port = 0, const std::string& host = "127.0.0.1");
+
+      /** Stops the server. Safe to call more than once */
+      void stop();
+
+      /** True while the server is running */
+      bool is_running() const;
+
+      /** The port the server is bound to */
+      uint16_t get_port() const;
+
+      /** The path the message endpoint is served on */
+      const std::string& get_path() const;
+
+      /** The full URL of the message endpoint */
+      std::string get_url() const;
+
+    private:
+      struct Impl;
+      std::unique_ptr<Impl> impl;
+  };
+
+  /**
    * Options for fetching pacts from a Pact Broker or PactFlow using consumer
    * version selectors.
    *
@@ -364,6 +482,31 @@ namespace pact_verifier {
 
       /** Whether state change data is sent as a body rather than query params. Default true */
       Verifier& set_state_change_body(bool body);
+
+      //
+      // Messages
+      //
+
+      /**
+       * Registers a handler that produces the message with this description. Works for
+       * both asynchronous and synchronous (request/response) messages.
+       *
+       * The verifier hosts a "message" transport endpoint on your behalf for the
+       * duration of execute(), so you do not need to call add_provider_transport.
+       */
+      Verifier& add_message_handler(const std::string& description, MessageHandler handler);
+
+      /** Registers a handler used for any message without a specific handler */
+      Verifier& set_default_message_handler(MessageHandler handler);
+
+      /**
+       * Port for the hosted message endpoint. Defaults to 0, meaning the OS picks a
+       * free port.
+       */
+      Verifier& set_message_transport_port(uint16_t port);
+
+      /** Path the hosted message endpoint is served on. Defaults to "/__pact/message" */
+      Verifier& set_message_endpoint_path(const std::string& path);
 
       //
       // Filtering

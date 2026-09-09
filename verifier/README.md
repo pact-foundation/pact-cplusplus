@@ -103,6 +103,49 @@ use `set_provider_state_url("http://localhost:8080/__pact/provider-state")`.
 You can also drive `ProviderStateServer` yourself if you want to control its
 lifetime, for example to run it inside your application under test.
 
+## Verifying messages
+
+Message pacts have no HTTP request to replay, so the verifier asks the provider to
+produce each message over a "message" transport. Register a handler per interaction
+description and the library hosts that endpoint for you.
+
+```cpp
+verifier
+  .set_provider_info("my-message-provider")
+  .add_file_source("./pacts/my-consumer-my-message-provider.json")
+  .add_message_handler("a user created event", [](const MessageRequest& request) {
+    return ProviderMessage(build_user_created_event())
+      .with_metadata("topic", "users");
+  });
+```
+
+The same registration works for V4 synchronous (request/response) messages. There
+`request.synchronous` is true and the consumer's request message is available:
+
+```cpp
+verifier.add_message_handler("a request for user 1", [](const MessageRequest& request) {
+  auto id = nlohmann::json::parse(request.request_body)["id"].get<int>();
+  return ProviderMessage(load_user(id));
+});
+```
+
+`ProviderMessage` carries the payload, its content type and any metadata. Metadata
+is sent back to the verifier as a base64 encoded `Pact-Message-Metadata` header;
+`with_json_metadata` takes a value that is already JSON (a number, object, array).
+
+Other options:
+
+- `set_default_message_handler(handler)` — handles any message without a specific handler
+- `set_message_transport_port(port)` — pin the endpoint port (defaults to a free port)
+- `set_message_endpoint_path(path)` — defaults to `/__pact/message`
+
+Provider state handlers are called for message interactions in exactly the same way
+as for HTTP ones, and the states are also passed to the handler in
+`MessageRequest::provider_states`.
+
+If your application hosts its own message endpoint, skip the handlers and register
+the transport directly with `add_provider_transport("message", port, path, "http")`.
+
 ## Fetching pacts from a broker
 
 ```cpp
@@ -178,4 +221,6 @@ log_to_file("verification.log", LogLevel::Trace);
 
 See [test/src/verifier_test.cpp](test/src/verifier_test.cpp) for a complete
 example that stands up a stub provider, seeds it from provider state handlers and
-verifies a pact file against it.
+verifies a pact file against it, and
+[test/src/message_test.cpp](test/src/message_test.cpp) for asynchronous and
+synchronous message verification.

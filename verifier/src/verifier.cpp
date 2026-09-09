@@ -1,6 +1,7 @@
 #include "verifier.h"
 
 #include <cstring>
+#include <cctype>
 #include <iostream>
 #include <mutex>
 #include <stdexcept>
@@ -50,6 +51,47 @@ namespace pact_verifier {
       std::string result(value);
       pactffi_free_string(const_cast<char*>(value));
       return result;
+    }
+
+    const char BASE64_ALPHABET[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+    std::string base64_encode(const std::string& input) {
+      std::string output;
+      output.reserve(((input.size() + 2) / 3) * 4);
+      for (size_t i = 0; i < input.size(); i += 3) {
+        unsigned int block = static_cast<unsigned char>(input[i]) << 16;
+        size_t remaining = input.size() - i;
+        if (remaining > 1) {
+          block |= static_cast<unsigned char>(input[i + 1]) << 8;
+        }
+        if (remaining > 2) {
+          block |= static_cast<unsigned char>(input[i + 2]);
+        }
+        output.push_back(BASE64_ALPHABET[(block >> 18) & 0x3F]);
+        output.push_back(BASE64_ALPHABET[(block >> 12) & 0x3F]);
+        output.push_back(remaining > 1 ? BASE64_ALPHABET[(block >> 6) & 0x3F] : '=');
+        output.push_back(remaining > 2 ? BASE64_ALPHABET[block & 0x3F] : '=');
+      }
+      return output;
+    }
+
+    std::string base64_decode(const std::string& input) {
+      std::string output;
+      unsigned int buffer = 0;
+      int bits = 0;
+      for (char c : input) {
+        const char* found = std::strchr(BASE64_ALPHABET, c);
+        if (c == '=' || found == nullptr || c == '\0') {
+          continue;
+        }
+        buffer = (buffer << 6) | static_cast<unsigned int>(found - BASE64_ALPHABET);
+        bits += 6;
+        if (bits >= 8) {
+          bits -= 8;
+          output.push_back(static_cast<char>((buffer >> bits) & 0xFF));
+        }
+      }
+      return output;
     }
   }
 
@@ -337,6 +379,208 @@ namespace pact_verifier {
   }
 
   ////////////////////////////////////
+  // ProviderMessage
+  ////////////////////////////////////
+
+  ProviderMessage::ProviderMessage(std::string body, std::string content_type)
+    : message_body(std::move(body)), message_content_type(std::move(content_type)) {}
+
+  ProviderMessage& ProviderMessage::with_metadata(const std::string& key, const std::string& value) {
+    message_metadata[key] = json(value).dump();
+    return *this;
+  }
+
+  ProviderMessage& ProviderMessage::with_json_metadata(const std::string& key, const std::string& json_value) {
+    message_metadata[key] = json_value;
+    return *this;
+  }
+
+  const std::string& ProviderMessage::body() const {
+    return message_body;
+  }
+
+  const std::string& ProviderMessage::content_type() const {
+    return message_content_type;
+  }
+
+  const std::unordered_map<std::string, std::string>& ProviderMessage::metadata() const {
+    return message_metadata;
+  }
+
+  ////////////////////////////////////
+  // MessageProviderServer
+  ////////////////////////////////////
+
+  namespace {
+    /**
+     * Pulls the body out of a V4 message contents document, which looks like
+     * {"content": ..., "contentType": "...", "encoded": false|"base64"}.
+     */
+    void read_message_contents(const json& contents, std::string& body, std::string& content_type) {
+      if (!contents.is_object()) {
+        return;
+      }
+      if (contents.contains("contentType") && contents["contentType"].is_string()) {
+        content_type = contents["contentType"].get<std::string>();
+      }
+      if (!contents.contains("content")) {
+        return;
+      }
+
+      const json& content = contents["content"];
+      body = content.is_string() ? content.get<std::string>() : content.dump();
+
+      bool encoded = contents.contains("encoded") &&
+        (contents["encoded"].is_string() || contents["encoded"].get<bool>());
+      if (encoded && content.is_string()) {
+        body = base64_decode(body);
+      }
+    }
+  }
+
+  struct MessageProviderServer::Impl {
+    std::string path;
+    http::Server server;
+    std::unordered_map<std::string, MessageHandler> handlers;
+    MessageHandler default_handler;
+    std::mutex lock;
+
+    explicit Impl(std::string endpoint_path) : path(std::move(endpoint_path)) {
+      if (path.empty() || path.front() != '/') {
+        path = "/" + path;
+      }
+    }
+
+    void handle(const http::Request& request, http::Response& response) {
+      if (request.path != path) {
+        response.status = 404;
+        response.body = R"({"error":"Not found"})";
+        return;
+      }
+
+      json body = json::parse(request.body, nullptr, false);
+      if (body.is_discarded() || !body.is_object()) {
+        response.status = 400;
+        response.body = R"({"error":"Request body was not a JSON object"})";
+        return;
+      }
+
+      MessageRequest message_request;
+      if (body.contains("description") && body["description"].is_string()) {
+        message_request.description = body["description"].get<std::string>();
+      }
+      if (body.contains("providerStates") && body["providerStates"].is_array()) {
+        for (const auto& state : body["providerStates"]) {
+          if (!state.is_object()) {
+            continue;
+          }
+          MessageProviderState provider_state;
+          if (state.contains("name") && state["name"].is_string()) {
+            provider_state.name = state["name"].get<std::string>();
+          }
+          if (state.contains("params") && state["params"].is_object()) {
+            provider_state.params = ProviderStateParams(state["params"].dump());
+          }
+          message_request.provider_states.push_back(std::move(provider_state));
+        }
+      }
+      // Only synchronous messages carry the consumer's request message
+      if (body.contains("request")) {
+        message_request.synchronous = true;
+        message_request.request_json = body["request"].dump();
+        if (body["request"].is_object() && body["request"].contains("contents")) {
+          read_message_contents(body["request"]["contents"], message_request.request_body,
+            message_request.request_content_type);
+        }
+      }
+
+      MessageHandler handler;
+      {
+        std::lock_guard<std::mutex> guard(lock);
+        auto found = handlers.find(message_request.description);
+        handler = found != handlers.end() ? found->second : default_handler;
+      }
+
+      if (!handler) {
+        response.status = 500;
+        response.body = json({{"error",
+          "No handler registered for message '" + message_request.description + "'"}}).dump();
+        return;
+      }
+
+      try {
+        ProviderMessage contents = handler(message_request);
+        response.status = 200;
+        response.body = contents.body();
+        response.content_type = contents.content_type();
+
+        if (!contents.metadata().empty()) {
+          json metadata = json::object();
+          for (const auto& entry : contents.metadata()) {
+            json value = json::parse(entry.second, nullptr, false);
+            metadata[entry.first] = value.is_discarded() ? json(entry.second) : value;
+          }
+          // The verifier expects the metadata as base64 encoded JSON in this header
+          response.headers["Pact-Message-Metadata"] = base64_encode(metadata.dump());
+        }
+      } catch (const std::exception& e) {
+        response.status = 500;
+        response.content_type = "application/json";
+        response.body = json({{"error", std::string("Message handler failed: ") + e.what()}}).dump();
+      } catch (...) {
+        response.status = 500;
+        response.content_type = "application/json";
+        response.body = json({{"error", "Message handler failed with an unknown exception"}}).dump();
+      }
+    }
+  };
+
+  MessageProviderServer::MessageProviderServer(std::string path)
+    : impl(std::make_unique<Impl>(std::move(path))) {
+    impl->server.set_handler([this](const http::Request& request, http::Response& response) {
+      impl->handle(request, response);
+    });
+  }
+
+  MessageProviderServer::~MessageProviderServer() {
+    stop();
+  }
+
+  void MessageProviderServer::add_message_handler(const std::string& description, MessageHandler handler) {
+    std::lock_guard<std::mutex> guard(impl->lock);
+    impl->handlers[description] = std::move(handler);
+  }
+
+  void MessageProviderServer::set_default_handler(MessageHandler handler) {
+    std::lock_guard<std::mutex> guard(impl->lock);
+    impl->default_handler = std::move(handler);
+  }
+
+  bool MessageProviderServer::start(uint16_t port, const std::string& host) {
+    return impl->server.start(port, host);
+  }
+
+  void MessageProviderServer::stop() {
+    impl->server.stop();
+  }
+
+  bool MessageProviderServer::is_running() const {
+    return impl->server.is_running();
+  }
+
+  uint16_t MessageProviderServer::get_port() const {
+    return impl->server.get_port();
+  }
+
+  const std::string& MessageProviderServer::get_path() const {
+    return impl->path;
+  }
+
+  std::string MessageProviderServer::get_url() const {
+    return impl->server.get_url() + impl->path;
+  }
+
+  ////////////////////////////////////
   // VerificationResult
   ////////////////////////////////////
 
@@ -375,7 +619,28 @@ namespace pact_verifier {
     bool state_change_teardown = true;
     bool state_change_body = true;
     uint16_t state_change_port = 0;
+    std::unique_ptr<MessageProviderServer> message_server;
+    bool has_message_handlers = false;
+    uint16_t message_transport_port = 0;
+    std::string message_endpoint_path = "/__pact/message";
+    std::string provider_host = "127.0.0.1";
     bool strip_ansi = false;
+
+    /**
+     * The hosted state change and message endpoints have to be reachable at the
+     * provider host, but only an IPv4 literal can be bound directly.
+     */
+    std::string bind_host() const {
+      int parts = 1;
+      for (char c : provider_host) {
+        if (c == '.') {
+          parts++;
+        } else if (!std::isdigit(static_cast<unsigned char>(c))) {
+          return "127.0.0.1";
+        }
+      }
+      return parts == 4 ? provider_host : "127.0.0.1";
+    }
 
     ProviderStateServer& states() {
       if (!state_server) {
@@ -383,6 +648,14 @@ namespace pact_verifier {
       }
       has_state_handlers = true;
       return *state_server;
+    }
+
+    MessageProviderServer& messages() {
+      if (!message_server) {
+        message_server = std::make_unique<MessageProviderServer>(message_endpoint_path);
+      }
+      has_message_handlers = true;
+      return *message_server;
     }
   };
 
@@ -398,6 +671,9 @@ namespace pact_verifier {
     if (impl) {
       if (impl->state_server) {
         impl->state_server->stop();
+      }
+      if (impl->message_server) {
+        impl->message_server->stop();
       }
       if (impl->handle != nullptr) {
         pactffi_verifier_shutdown(impl->handle);
@@ -420,6 +696,9 @@ namespace pact_verifier {
 
   Verifier& Verifier::set_provider_info(const std::string& name, const std::string& scheme,
     const std::string& host, uint16_t port, const std::string& path) {
+    if (!host.empty()) {
+      impl->provider_host = host;
+    }
     pactffi_verifier_set_provider_info(impl->handle, or_null(name), or_null(scheme),
       or_null(host), port, or_null(path));
     return *this;
@@ -484,6 +763,29 @@ namespace pact_verifier {
 
   Verifier& Verifier::set_state_change_body(bool body) {
     impl->state_change_body = body;
+    return *this;
+  }
+
+  Verifier& Verifier::add_message_handler(const std::string& description, MessageHandler handler) {
+    impl->messages().add_message_handler(description, std::move(handler));
+    return *this;
+  }
+
+  Verifier& Verifier::set_default_message_handler(MessageHandler handler) {
+    impl->messages().set_default_handler(std::move(handler));
+    return *this;
+  }
+
+  Verifier& Verifier::set_message_transport_port(uint16_t port) {
+    impl->message_transport_port = port;
+    return *this;
+  }
+
+  Verifier& Verifier::set_message_endpoint_path(const std::string& path) {
+    if (impl->message_server) {
+      throw std::logic_error("The message endpoint path must be set before adding message handlers");
+    }
+    impl->message_endpoint_path = path;
     return *this;
   }
 
@@ -577,12 +879,22 @@ namespace pact_verifier {
   VerificationResult Verifier::execute() {
     bool started_state_server = false;
     if (impl->has_state_handlers && !impl->state_server->is_running()) {
-      if (!impl->state_server->start(impl->state_change_port)) {
+      if (!impl->state_server->start(impl->state_change_port, impl->bind_host())) {
         throw std::runtime_error("Failed to start the provider state change server");
       }
       started_state_server = true;
       pactffi_verifier_set_provider_state(impl->handle, impl->state_server->get_url().c_str(),
         impl->state_change_teardown ? 1 : 0, impl->state_change_body ? 1 : 0);
+    }
+
+    bool started_message_server = false;
+    if (impl->has_message_handlers && !impl->message_server->is_running()) {
+      if (!impl->message_server->start(impl->message_transport_port, impl->bind_host())) {
+        throw std::runtime_error("Failed to start the message provider server");
+      }
+      started_message_server = true;
+      pactffi_verifier_add_provider_transport(impl->handle, "message",
+        impl->message_server->get_port(), impl->message_server->get_path().c_str(), "http");
     }
 
     VerificationResult result;
@@ -593,6 +905,9 @@ namespace pact_verifier {
 
     if (started_state_server) {
       impl->state_server->stop();
+    }
+    if (started_message_server) {
+      impl->message_server->stop();
     }
 
     return result;

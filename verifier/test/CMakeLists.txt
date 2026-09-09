@@ -6,7 +6,7 @@ project(pact-verifier-tests)
 find_package(GTest REQUIRED)
 find_package(CURL REQUIRED)
 
-add_executable(${PROJECT_NAME} src/verifier_test.cpp src/state_server_test.cpp)
+add_executable(${PROJECT_NAME} src/verifier_test.cpp src/state_server_test.cpp src/message_test.cpp)
 target_include_directories(pact-verifier-tests PRIVATE ../include "${PACT_FFI_INCLUDE}")
 
 target_link_libraries(pact-verifier-tests PRIVATE
