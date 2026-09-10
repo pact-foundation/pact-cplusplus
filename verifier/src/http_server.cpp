@@ -131,14 +131,28 @@ namespace pact_verifier {
         }
       }
 
+      // Thin wrappers over send/recv so the platform-specific signed types and
+      // cast-to-int (Winsock) vs size_t (POSIX) length arguments only live in one place.
+      long pact_send(pact_socket_t socket, const char* data, size_t length) {
+#ifdef _WIN32
+        return ::send(socket, data, static_cast<int>(length), 0);
+#else
+        return ::send(socket, data, length, 0);
+#endif
+      }
+
+      long pact_recv(pact_socket_t socket, char* buffer, size_t length) {
+#ifdef _WIN32
+        return ::recv(socket, buffer, static_cast<int>(length), 0);
+#else
+        return ::recv(socket, buffer, length, 0);
+#endif
+      }
+
       bool send_all(pact_socket_t socket, const char* data, size_t length) {
         size_t sent = 0;
         while (sent < length) {
-#ifdef _WIN32
-          int written = ::send(socket, data + sent, static_cast<int>(length - sent), 0);
-#else
-          ssize_t written = ::send(socket, data + sent, length - sent, 0);
-#endif
+          long written = pact_send(socket, data + sent, length - sent);
           if (written <= 0) {
             return false;
           }
@@ -174,11 +188,7 @@ namespace pact_verifier {
         size_t header_end = std::string::npos;
 
         while (true) {
-#ifdef _WIN32
-          int received = ::recv(socket, chunk, static_cast<int>(sizeof(chunk)), 0);
-#else
-          ssize_t received = ::recv(socket, chunk, sizeof(chunk), 0);
-#endif
+          long received = pact_recv(socket, chunk, sizeof(chunk));
           if (received <= 0) {
             return false;
           }
@@ -243,11 +253,7 @@ namespace pact_verifier {
 
         request.body = buffer.substr(header_end + 4);
         while (request.body.size() < content_length) {
-#ifdef _WIN32
-          int received = ::recv(socket, chunk, static_cast<int>(sizeof(chunk)), 0);
-#else
-          ssize_t received = ::recv(socket, chunk, sizeof(chunk), 0);
-#endif
+          long received = pact_recv(socket, chunk, sizeof(chunk));
           if (received <= 0) {
             return false;
           }
