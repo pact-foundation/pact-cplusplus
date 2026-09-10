@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(pact-cpp-consumer VERSION 0.2.0)
+project(pact-cpp-verifier VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Conan integration (optional, default OFF)
-#    cmake -S consumer -B build -DPactUseConan=ON/OFF
+#    cmake -S verifier -B build -DPactUseConan=ON/OFF
 # Conan 2 supplies dependencies through CMakeDeps/CMakeToolchain, so nothing is
 # needed here beyond skipping the vendored FetchContent fallbacks below.
 option(PactUseConan "Use Conan build integration if available" OFF)
@@ -154,9 +154,9 @@ else()
 endif()
 
 # Add test
-#    cmake -S consumer -B build -DPactBuildTests=ON/OFF
+#    cmake -S verifier -B build -DPactBuildTests=ON/OFF
 # Default OFF: do not build tests unless explicitly requested
-option(PactBuildTests "Build consumer tests" OFF)
+option(PactBuildTests "Build verifier tests" OFF)
 
 # Optional macOS universal build via lipo for pact_ffi
 # Provide -DPactBuildUniversal=ON; expects both arm64 and x86_64 libs in the same PACT_FFI_ROOT/lib
@@ -195,7 +195,7 @@ if(APPLE AND PactBuildUniversal)
     COMMENT "Creating universal shared pact_ffi via lipo"
     VERBATIM
   )
-  
+
   # Build universal outputs as part of the default 'all' target
   add_custom_target(pact_ffi_universal ALL
     DEPENDS "${_ffi_univ_lib}" "${_ffi_univ_dyl}"
@@ -205,17 +205,6 @@ if(APPLE AND PactBuildUniversal)
   set(PACT_FFI_LIB "${_ffi_univ_lib}")
   set(PACT_FFI_SHARED_UNIV "${_ffi_univ_dyl}")
   set(PACT_FFI_LINK_LIB "${_ffi_univ_dyl}")
-endif()
-
-# Boost config
-if(PactUseConan)
-  find_package(Boost REQUIRED CONFIG)
-else()
-  set(Boost_ROOT "${Boost_ROOT}" CACHE PATH "Root directory of Boost")
-  if(NOT Boost_ROOT OR Boost_ROOT STREQUAL "")
-    message(FATAL_ERROR "Boost_ROOT is required. Example: -DBoost_ROOT=\"D:/dev/fusion/3P/BOOST/1.1850.1/win64_0002\"")
-  endif()
-  include_directories("${Boost_ROOT}")
 endif()
 
 if(PactUseConan)
@@ -234,15 +223,16 @@ endif()
 # Sources
 add_subdirectory(src)
 
-if(TARGET pact-cpp-consumer)
-  set_target_properties(pact-cpp-consumer PROPERTIES
-    OUTPUT_NAME "pact-cpp-consumer"
+if(TARGET pact-cpp-verifier)
+  set_target_properties(pact-cpp-verifier PROPERTIES
+    OUTPUT_NAME "pact-cpp-verifier"
   )
-  target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
+  target_include_directories(pact-cpp-verifier PRIVATE "${PACT_FFI_INCLUDE}")
+  target_link_libraries(pact-cpp-verifier PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 
   # System dependencies of the Rust crates bundled inside the static pact_ffi archive
   if(APPLE)
-    target_link_libraries(pact-cpp-consumer PUBLIC
+    target_link_libraries(pact-cpp-verifier PUBLIC
       "-framework CoreFoundation"
       "-framework Security"
       "-framework SystemConfiguration"
@@ -250,7 +240,7 @@ if(TARGET pact-cpp-consumer)
       bz2 lzma iconv)
   elseif(UNIX)
     find_package(Threads REQUIRED)
-    target_link_libraries(pact-cpp-consumer PUBLIC
+    target_link_libraries(pact-cpp-verifier PUBLIC
       Threads::Threads ${CMAKE_DL_LIBS} m bz2 lzma)
   endif()
 endif()
@@ -265,10 +255,10 @@ function(pact_normalize_install_path output path)
   set(${output} "${normalized_path}" PARENT_SCOPE)
 endfunction()
 
-pact_normalize_install_path(PACT_CONSUMER_INSTALL_LIB_DIR
-  "pact-cpp-consumer/${PROJECT_VERSION}/lib")
-pact_normalize_install_path(PACT_CONSUMER_INSTALL_INCLUDE_DIR
-  "pact-cpp-consumer/${PROJECT_VERSION}/include")
+pact_normalize_install_path(PACT_VERIFIER_INSTALL_LIB_DIR
+  "pact-cpp-verifier/${PROJECT_VERSION}/lib")
+pact_normalize_install_path(PACT_VERIFIER_INSTALL_INCLUDE_DIR
+  "pact-cpp-verifier/${PROJECT_VERSION}/include")
 pact_normalize_install_path(PACT_FFI_INSTALL_INCLUDE_DIR
   "pact_ffi/${PACT_FFI_VERSION}/include")
 pact_normalize_install_path(PACT_FFI_INSTALL_LIB_DIR
@@ -276,11 +266,11 @@ pact_normalize_install_path(PACT_FFI_INSTALL_LIB_DIR
 pact_normalize_install_path(PACT_FFI_INSTALL_BIN_DIR
   "pact_ffi/${PACT_FFI_VERSION}/bin")
 
-install(TARGETS pact-cpp-consumer
-  ARCHIVE DESTINATION "${PACT_CONSUMER_INSTALL_LIB_DIR}"
+install(TARGETS pact-cpp-verifier
+  ARCHIVE DESTINATION "${PACT_VERIFIER_INSTALL_LIB_DIR}"
 )
-install(FILES include/consumer.h include/matchers.h
-  DESTINATION "${PACT_CONSUMER_INSTALL_INCLUDE_DIR}"
+install(FILES include/verifier.h include/http_server.h
+  DESTINATION "${PACT_VERIFIER_INSTALL_INCLUDE_DIR}"
 )
 
 # Install pact_ffi headers
@@ -302,17 +292,14 @@ if(WIN32)
           DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME pact_ffi.dll.lib)
   endif()
-  if(DEFINED _PACT_FFI_DLL_FILENAME)
-    set(PACT_FFI_DLL "${PACT_FFI_LIB_DIR}/${_PACT_FFI_DLL_FILENAME}")
-    if(EXISTS "${PACT_FFI_DLL}")
-      install(FILES "${PACT_FFI_DLL}"
-              DESTINATION "${PACT_FFI_INSTALL_BIN_DIR}"
-              RENAME pact_ffi.dll)
-    endif()
+  if(DEFINED PACT_FFI_DLL AND EXISTS "${PACT_FFI_DLL}")
+    install(FILES "${PACT_FFI_DLL}"
+          DESTINATION "${PACT_FFI_INSTALL_BIN_DIR}"
+            RENAME pact_ffi.dll)
   endif()
 else()
   if(APPLE AND PactBuildUniversal)
-    # Universal install: no existence guards, because pact-cpp-consumer depends on pact_ffi_universal
+    # Universal install: no existence guards, because pact-cpp-verifier depends on pact_ffi_universal
     install(FILES "${_ffi_univ_lib}"
           DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
             RENAME libpact_ffi.a)
@@ -321,27 +308,27 @@ else()
             RENAME libpact_ffi.dylib)
   else()
     # Per-arch fallback
-  if(EXISTS "${PACT_FFI_LIB}")
-    install(FILES "${PACT_FFI_LIB}"
-          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
-            RENAME libpact_ffi.a)
-  endif()
+    if(EXISTS "${PACT_FFI_LIB}")
+      install(FILES "${PACT_FFI_LIB}"
+              DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
+              RENAME libpact_ffi.a)
+    endif()
     if(DEFINED PACT_FFI_SHARED AND EXISTS "${PACT_FFI_SHARED}")
-    if(APPLE)
-      install(FILES "${PACT_FFI_SHARED}"
-              DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
-              RENAME libpact_ffi.dylib)
-    else()
-      install(FILES "${PACT_FFI_SHARED}"
-              DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
-              RENAME libpact_ffi.so)
+      if(APPLE)
+        install(FILES "${PACT_FFI_SHARED}"
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
+                RENAME libpact_ffi.dylib)
+      else()
+        install(FILES "${PACT_FFI_SHARED}"
+          DESTINATION "${PACT_FFI_INSTALL_LIB_DIR}"
+                RENAME libpact_ffi.so)
       endif()
     endif()
   endif()
 endif()
 
 # Add test
-#    cmake -S consumer -B build -DPactBuildTests=ON/OFF
+#    cmake -S verifier -B build -DPactBuildTests=ON/OFF
 if(PactBuildTests)
     enable_testing()
     add_subdirectory(test)

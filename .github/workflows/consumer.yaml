@@ -1,116 +1,242 @@
 name: Consumer Project
-on: [push]
+on:
+  push:
+  release:
+    types: [published]
 
 env:
-  CONAN_REVISIONS_ENABLED: 1
+  PACT_FFI_VERSION: v0.5.6
+  CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
+  CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
 
 jobs:
-  build-ubuntu:
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64-musl
+            container: alpine:3.23
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64-musl
+            container: alpine:3.23
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install act dependencies
+        if: env.ACT == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev libicu-dev libboost-all-dev cmake
+      - name: Install linux dependencies
+        if: env.ACT != 'true' && !matrix.container && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' )
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
       - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
+        if: ${{ !matrix.container }}
+
       - name: Install conan
+        if: ${{ !matrix.container }}
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
+          pip3 install --upgrade pip
+          pip3 install "conan>=2.0"
           conan --version
-      - name: conan install dependencies
+
+      - name: Download pact_ffi
         run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.libcxx=libstdc++11 default
-          conan install .. --build missing
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9    
-      - name: Build library
+          set -euo pipefail
+          root="consumer/libpact_ffi-${PACT_FFI_VERSION}"
+          base="https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}"
+          mkdir -p "$root/include" "$root/lib"
+          curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
+          curl -sSfL -o "$root/include/pact-cpp.h" "$base/pact-cpp.h"
+          case "${{ matrix.ffi_arch }}" in
+            windows-*) files="pact_ffi-windows-x86_64.lib pact_ffi-windows-x86_64.dll.lib pact_ffi-windows-x86_64.dll" ;;
+            macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
+            linux-*)    files="libpact_ffi-${{ matrix.ffi_arch }}.a libpact_ffi-${{ matrix.ffi_arch }}.so" ;;
+          esac
+          for f in $files; do
+            curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
+            gunzip -f "$root/lib/$f.gz"
+          done
+          echo "PACT_FFI_ROOT=$PWD/$root" >> $GITHUB_ENV
+
+      - name: Create conan profile
+        if: ${{ !matrix.container }}
         run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
+          conan profile detect --force
+          conan profile show
+
+      - name: Cache conan packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.conan2/p
+          key: conan-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-${{ hashFiles('consumer/conanfile.py') }}
+          restore-keys: |
+            conan-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-
+
+      - name: Conan install dependencies
+        if: ${{ !matrix.container }}
+        run: |
+          # m4 fails to build from source on aarch64/musl, so only force it on x86_64
+          extra_build=""
+          case "${{ matrix.ffi_arch }}" in
+            linux-*) extra_build="--build=m4/*" ;;
+          esac
+          conan install conanfile.py \
+            --build=missing $extra_build \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
+
+      # Drop source/build temporaries so only the built packages are cached
+      - name: Trim conan cache
+        if: ${{ !matrix.container }}
+        run: conan cache clean "*" --source --build --temp
+
+      - name: Build library and tests
+        if: ${{ !matrix.container }}
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          cmake --preset $preset \
+            -DPactUseConan=ON \
+            -DPactBuildTests=ON \
+            -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
+            -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+          cmake --build --preset conan-release
+        working-directory: consumer
+
       - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
+        if: ${{ !matrix.container }}
+        run: |
+          ctest --preset conan-release --output-on-failure --verbose
+        working-directory: consumer
         env:
           LOG_LEVEL: DEBUG
 
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir consumer\build
-      - run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-        shell: bash
-      - name: Install conan
+      # musl (Alpine) builds run via `docker run`, bind-mounting the workspace, conan cache
+      # and apk cache dirs, so no Node.js/actions compatibility shim is needed in the container.
+      # Release packaging/upload runs in the same invocation so it shares the container's toolchain.
+      - name: Build, test and release (musl container)
+        if: ${{ matrix.container }}
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: conan install dependencies Windows
-        run: |
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library Windows
-        run: |
-          cmake ..
-          cmake --build . --config Release
-          cp ../test/example.jpg .
-        shell: bash
-        working-directory: consumer/build
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
-        env:
-          LOG_LEVEL: DEBUG
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            -v "$HOME/.conan2:/root/.conan2" \
+            -w /workspace/consumer \
+            -e PACT_FFI_VERSION \
+            -e PACT_FFI_ROOT=/workspace/consumer/libpact_ffi-$PACT_FFI_VERSION \
+            -e PACT_FFI_LIBC=musl \
+            -e LOG_LEVEL=DEBUG \
+            -e FFI_ARCH="${{ matrix.ffi_arch }}" \
+            -e GITHUB_EVENT_NAME="${{ github.event_name }}" \
+            -e CONAN_REMOTE="$CONAN_REMOTE" \
+            -e CONAN_REMOTE_URL="$CONAN_REMOTE_URL" \
+            -e CONAN_USER="${{ secrets.JFROG_USER }}" \
+            -e CONAN_PASSWORD="${{ secrets.JFROG_ACCESS_TOKEN }}" \
+            ${{ matrix.container }} sh -c '
+              set -euo pipefail
+              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash automake autoconf libtool m4
+              pip3 install --upgrade pip --break-system-packages
+              pip3 install "conan>=2.0" --break-system-packages
+              conan profile detect --force
+              # Register os.distro (conan-io/conan#16179) so every package in the graph gets a
+              # musl-specific package_id, instead of silently reusing glibc binaries on Alpine
+              printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
+              echo "os.distro=alpine" >> ~/.conan2/profiles/default
+              extra_build=""
+              case "$FFI_ARCH" in
+                linux-x86_64*) extra_build="--build=m4/*" ;;
+              esac
+              conan install conanfile.py --build=missing $extra_build -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              conan cache clean "*" --source --build --temp
+              cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON -DPACT_FFI_VERSION="$PACT_FFI_VERSION" -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+              cmake --build --preset conan-release
+              ctest --preset conan-release --output-on-failure --verbose
 
-  build-osx:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
-      - name: Install conan
+              if [ "$GITHUB_EVENT_NAME" = "release" ]; then
+                cmake --install build/Release --config Release --prefix install
+              fi
+
+              if [ "$GITHUB_EVENT_NAME" = "release" ]; then
+                mkdir -p artifacts
+                lib=$(find install/pact-cpp-consumer -type f -name "*pact-cpp-consumer.*" | head -1)
+                name=$(basename "$lib")
+                gzip -c "$lib" > "artifacts/${name%.*}-${FFI_ARCH}.${name##*.}.gz"
+                cp include/*.h artifacts
+                (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+
+                conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+                conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
+                conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
+                conan upload "pact_cpp_consumer/*" -r="$CONAN_REMOTE" --confirm
+              fi
+            '
+
+      # Release-only steps below reuse the conan cache and build tree from the steps above
+      - name: Install library
+        if: ${{ !matrix.container && (github.event_name == 'release' || github.event_name == 'workflow_dispatch') }}
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
+          if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
+          cmake --install "$builddir" --config Release --prefix install
+        working-directory: consumer
+
+      - name: Package release artifacts
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan --version
-      - name: conan install dependencies
+          set -euo pipefail
+          mkdir -p artifacts
+          lib=$(find install/pact-cpp-consumer -type f -name "*pact-cpp-consumer.*" | head -1)
+          name=$(basename "$lib")
+          gzip -c "$lib" > "artifacts/${name%.*}-${{ matrix.ffi_arch }}.${name##*.}.gz"
+          cp include/*.h artifacts
+          (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+        working-directory: consumer
+
+      - name: Create conan package
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library
+          conan create conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
+
+      - name: Upload conan package
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
+          conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
+          conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
+          conan upload "pact_cpp_consumer/*" -r="$CONAN_REMOTE" --confirm
+        working-directory: consumer
         env:
-          LOG_LEVEL: DEBUG
+          CONAN_USER: ${{ secrets.JFROG_USER }}
+          CONAN_PASSWORD: ${{ secrets.JFROG_ACCESS_TOKEN }}
+
+      - name: Upload Release Assets
+        if: github.event_name == 'release'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: consumer/artifacts/*
+          file_glob: true
+          tag: ${{ github.ref }}

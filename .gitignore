@@ -39,6 +39,7 @@ CMakeFiles
 CMakeScripts
 Testing
 Makefile
+!grpc/route_guide/Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
@@ -58,3 +59,12 @@ test/build
 .vscode
 .vs/
 consumer/CMakeSettings.json
+
+.DS_Store
+
+## FFI Libs
+
+libpact_ffi-*/
+artifacts/
+install/
+CMakeUserPresets.json

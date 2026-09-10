@@ -1,19 +1,26 @@
 import os
 
-from conans import ConanFile, CMake, tools
+from conan import ConanFile
+from conan.tools.build import can_run
+from conan.tools.cmake import CMake, cmake_layout
+
 
 class PactcppconsumerTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = "cmake"
+    generators = "CMakeDeps", "CMakeToolchain", "VirtualRunEnv"
+    test_type = "explicit"
+
+    def requirements(self):
+        self.requires(self.tested_reference_str)
+
+    def layout(self):
+        cmake_layout(self)
 
     def build(self):
         cmake = CMake(self)
-        # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
-        # in "test_package"
         cmake.configure()
         cmake.build()
 
     def test(self):
-        if not tools.cross_building(self.settings):
-            os.chdir("bin")
-            self.run(".%sexample" % os.sep)
+        if can_run(self):
+            self.run(os.path.join(self.cpp.build.bindir, "example"), env="conanrun")

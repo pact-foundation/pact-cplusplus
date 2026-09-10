@@ -1,5 +1,7 @@
 #include "matchers.h"
+extern "C" {
 #include <pact.h>
+}
 #include <iostream>
 #include <nlohmann/json.hpp>
 

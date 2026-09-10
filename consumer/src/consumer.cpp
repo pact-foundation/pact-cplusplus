@@ -23,6 +23,10 @@ namespace pact_consumer {
     this->provider = provider_name;
   }
 
+  Pact::~Pact() {
+    cleanupPlugins();
+  }
+
   Interaction Pact::uponReceiving(const char* description) const {
     return Interaction(this, description);
   }
@@ -35,8 +39,34 @@ namespace pact_consumer {
     return Interaction(this, "__new_interaction__").given(provider_state, parameters);
   }
 
+  void Pact::withSpecification(PactSpecification version) const {
+    pactffi_with_specification(this->pact, version);
+  }
+
+  bool Pact::usingPlugin(const std::string& plugin_name, const std::string& plugin_version) const {
+    const char* version = plugin_version.empty() ? nullptr : plugin_version.data();
+    return pactffi_using_plugin(this->pact, plugin_name.data(), version) == 0;
+  }
+
+  void Pact::cleanupPlugins() const {
+    pactffi_cleanup_plugins(this->pact);
+  }
+
+  Interaction Pact::newMessage(const char* description) const {
+    return Interaction(this, description, InteractionType::Message);
+  }
+
+  Interaction Pact::newSyncMessage(const char* description) const {
+    return Interaction(this, description, InteractionType::SyncMessage);
+  }
+
   PactTestResult Pact::run_test(std::function<bool(const MockServerHandle*)> callback) const {
-    MockServerHandle mockServer(this->pact);
+    return run_test("", std::move(callback));
+  }
+
+  PactTestResult Pact::run_test(const std::string& transport,
+      std::function<bool(const MockServerHandle*)> callback) const {
+    MockServerHandle mockServer(this->pact, transport);
     PactTestResult result;
 
     if (mockServer.started_ok()) {
@@ -56,6 +86,8 @@ namespace pact_consumer {
               result.add_state(TestResultState::PactFileError, "A mock server with the provided port was not found");
               break;
           }
+        } else if (!callback_result) {
+          result.add_state(TestResultState::UserCodeFailed);
         }
       } catch(const std::exception& e) {
         result.add_state(TestResultState::UserCodeFailed, e.what(), boost::current_exception_diagnostic_information());
@@ -78,16 +110,60 @@ namespace pact_consumer {
     return result;
   }
 
+  PactTestResult Pact::run_message_test(std::function<bool()> callback) const {
+    PactTestResult result;
+
+    try {
+      bool callback_result = callback();
+      if (callback_result) {
+        auto write_result = pactffi_pact_handle_write_file(this->pact, this->pact_directory.data(), false);
+        switch (write_result) {
+          case 1:
+            result.add_state(TestResultState::PactFileError, "A general panic was caught");
+            break;
+          case 2:
+            result.add_state(TestResultState::PactFileError, "The pact file was not able to be written");
+            break;
+          case 3:
+            result.add_state(TestResultState::PactFileError, "The pact for the given handle was not found");
+            break;
+        }
+      } else {
+        result.add_state(TestResultState::UserCodeFailed);
+      }
+    } catch(const std::exception& e) {
+      result.add_state(TestResultState::UserCodeFailed, e.what(), boost::current_exception_diagnostic_information());
+    } catch (...) {
+      result.add_state(TestResultState::UserCodeFailed);
+    }
+
+    if (!result.is_ok()) {
+      result.display_errors();
+    }
+
+    return result;
+  }
+
   ////////////////////////////////////
   // Interaction Class
   ////////////////////////////////////
 
-  Interaction::Interaction(const Pact* parent, const char* description) {
+  Interaction::Interaction(const Pact* parent, const char* description, InteractionType type) {
     this->pact =  parent;
     this->description = description;
-    this->interaction = pactffi_new_interaction(parent->pact, description);
-    if (this->interaction.interaction == 0) {
-      throw std::string("Could not create a new interaction with description ") + description;
+    switch (type) {
+      case InteractionType::Message:
+        this->interaction = pactffi_new_message_interaction(parent->pact, description);
+        break;
+      case InteractionType::SyncMessage:
+        this->interaction = pactffi_new_sync_message_interaction(parent->pact, description);
+        break;
+      default:
+        this->interaction = pactffi_new_interaction(parent->pact, description);
+        break;
+    }
+    if (this->interaction == 0) {
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not create a new interaction with description ") + description));
     }
   }
 
@@ -142,8 +218,31 @@ namespace pact_consumer {
     return *this;
   }
 
+  Interaction Interaction::withMetadata(const std::string& key, const std::string& value) const {
+    pactffi_with_metadata(this->interaction, key.data(), value.data(), InteractionPart_Request);
+    return *this;
+  }
+
+  Interaction Interaction::withResponseMetadata(const std::string& key, const std::string& value) const {
+    pactffi_with_metadata(this->interaction, key.data(), value.data(), InteractionPart_Response);
+    return *this;
+  }
+
+  Interaction Interaction::withPluginContents(const std::string& content_type, const std::string& contents) const {
+    pactffi_interaction_contents(this->interaction, InteractionPart_Request, content_type.data(), contents.data());
+    return *this;
+  }
+
+  Interaction Interaction::withResponsePluginContents(const std::string& content_type, const std::string& contents) const {
+    pactffi_interaction_contents(this->interaction, InteractionPart_Response, content_type.data(), contents.data());
+    return *this;
+  }
+
   Interaction Interaction::withBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    if (!file.is_open()) {
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not open file: ") + example_file.string()));
+    }
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
@@ -152,7 +251,7 @@ namespace pact_consumer {
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not read file contents: ") + example_file.string()));
     }
   }
 
@@ -195,6 +294,9 @@ namespace pact_consumer {
 
   Interaction Interaction::withResponseBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    if (!file.is_open()) {
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not open file: ") + example_file.string()));
+    }
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
@@ -203,7 +305,7 @@ namespace pact_consumer {
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not read file contents: ") + example_file.string()));
     }
   }
 
@@ -222,8 +324,10 @@ namespace pact_consumer {
   // Mock Server Class
   ////////////////////////////////////
 
-  MockServerHandle::MockServerHandle(PactHandle pact) {
-    this->port = pactffi_create_mock_server_for_pact(pact, "127.0.0.1:0", false);
+  MockServerHandle::MockServerHandle(PactHandle pact, const std::string& transport) {
+    const char* transport_name = transport.empty() ? nullptr : transport.c_str();
+    this->port = pactffi_create_mock_server_for_transport(
+      pact, "127.0.0.1", 0, transport_name, nullptr);
   }
 
   MockServerHandle::~MockServerHandle() {

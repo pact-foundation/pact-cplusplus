@@ -31,10 +31,17 @@ Read [Getting started with Pact](https://docs.pact.io/5-minute-getting-started-g
 * [Main Pact documentation](https://docs.pact.io)
 * Consumer DSL docs [consumer/](consumer/)
 * Consumer DSL HTML docs [consumer/docs/html/](https://docs.pact.io/cpp_docs/consumer/annotated.html)
+* Provider verifier docs [verifier/](verifier/)
 
 ## Consumer Tests
 
 The support for consumer tests is documented in [consumer](consumer).
 
 For an example for the consumer test DSL, have a look at [consumer_test.cpp](https://github.com/pact-foundation/pact-cplusplus/blob/master/consumer/test/src/consumer_test.cpp).
+
+## Provider Verification
+
+The support for verifying providers is documented in [verifier](verifier).
+
+For an example of verifying a provider, including hosting provider states, have a look at [verifier_test.cpp](https://github.com/pact-foundation/pact-cplusplus/blob/master/verifier/test/src/verifier_test.cpp).
 

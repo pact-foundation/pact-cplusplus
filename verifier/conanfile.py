@@ -6,18 +6,17 @@ from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.files import copy, rename
 
 
-class PactcppconsumerConan(ConanFile):
-    name = "pact_cpp_consumer"
-    version = "0.2.0"
+class PactcppverifierConan(ConanFile):
+    name = "pact_cpp_verifier"
+    version = "0.1.0"
     license = "MIT"
     homepage = "https://github.com/pact-foundation/pact-cplusplus"
-    description = "Pact C++ Consumer DSL"
+    description = "Pact C++ Provider Verifier"
     topics = ("contract-testing", "pact")
     package_type = "static-library"
     settings = "os", "compiler", "build_type", "arch"
     options = {"fPIC": [True, False]}
-    # Only boost/throw_exception.hpp is used, so no compiled Boost libraries are needed
-    default_options = {"fPIC": True, "boost/*:header_only": True}
+    default_options = {"fPIC": True}
     exports_sources = "CMakeLists.txt", "src/*", "include/*", "test/*"
 
     def config_options(self):
@@ -26,7 +25,6 @@ class PactcppconsumerConan(ConanFile):
 
     def requirements(self):
         self.requires("nlohmann_json/3.11.3")
-        self.requires("boost/1.86.0", transitive_headers=True)
 
     def build_requirements(self):
         self.test_requires("gtest/1.15.0")
@@ -74,7 +72,7 @@ class PactcppconsumerConan(ConanFile):
         copy(self, "*.dll", src=self.build_folder,
              dst=os.path.join(self.package_folder, "bin"), keep_path=False)
 
-        # consumer.h includes <pact.h>, so the FFI headers and archive ship with the package
+        # verifier.h includes <pact.h>, so the FFI headers and archive ship with the package
         ffi_root = os.environ["PACT_FFI_ROOT"]
         copy(self, "*.h",
              src=os.path.join(ffi_root, "include"),
@@ -86,7 +84,7 @@ class PactcppconsumerConan(ConanFile):
                    os.path.join(self.package_folder, "lib", target))
 
     def package_info(self):
-        self.cpp_info.libs = ["pact-cpp-consumer", "pact_ffi"]
+        self.cpp_info.libs = ["pact-cpp-verifier", "pact_ffi"]
         if self.settings.os == "Windows":
             self.cpp_info.system_libs = ["ws2_32", "userenv", "crypt32",
                                          "secur32", "dnsapi", "ncrypt", "ntdll"]
