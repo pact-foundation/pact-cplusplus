@@ -1,7 +1,7 @@
 #pragma once
 
 #include <curl/curl.h>
-
+#include <mutex>
 #include <string>
 
 namespace test_support {

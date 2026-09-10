@@ -659,6 +659,7 @@ namespace pact_verifier {
 
   Verifier::Verifier() : impl(std::make_unique<Impl>()) {
     // Reported to the broker as the application that ran the verification
+    init();
     impl->handle = pactffi_verifier_new_for_application("pact-cpp", PACT_CPP_VERIFIER_VERSION);
     if (impl->handle == nullptr) {
       throw std::runtime_error("Failed to create the Pact verifier");

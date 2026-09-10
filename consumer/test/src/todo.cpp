@@ -1,5 +1,6 @@
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
+#include <cstdio>
 #include <cstring>
 #include <mutex>
 #include <sstream>
@@ -110,7 +111,7 @@ vector<Project> TodoClient::getProjects(string format) {
   }
 
   Response response = request.perform(serverUrl + "/projects?from=today");
-  printf("Received response status code:%ld\n", response.status_code);
+  std::printf("Received response status code:%ld\n", response.status_code);
 
   if (format == "xml") {
     return projects;
