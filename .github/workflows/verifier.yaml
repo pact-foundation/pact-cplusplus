@@ -99,11 +99,14 @@ jobs:
             -DPactBuildTests=ON \
             -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
             -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
-          cmake --build --preset conan-release
+          cmake --build --preset $preset
         working-directory: verifier
 
       - name: Run pact-verifier-tests
-        run: ctest --preset conan-release --output-on-failure --verbose
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          ctest --preset $preset --output-on-failure --verbose
         working-directory: verifier
         env:
           LOG_LEVEL: DEBUG
