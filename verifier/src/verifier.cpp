@@ -34,6 +34,18 @@ namespace pact_verifier {
       return value.empty() ? nullptr : value.c_str();
     }
 
+    /**
+     * Looks up a handler by key under the given mutex, falling back to the default handler.
+     * Shared by ProviderStateServer::Impl and MessageProviderServer::Impl.
+     */
+    template <typename Handler>
+    Handler lookup_handler(std::mutex& lock, const std::unordered_map<std::string, Handler>& handlers,
+        const Handler& default_handler, const std::string& key) {
+      std::lock_guard<std::mutex> guard(lock);
+      auto found = handlers.find(key);
+      return found != handlers.end() ? found->second : default_handler;
+    }
+
     std::vector<const char*> as_c_array(const std::vector<std::string>& values) {
       std::vector<const char*> result;
       result.reserve(values.size());
@@ -283,16 +295,7 @@ namespace pact_verifier {
       state_request.action = action == "teardown" ? StateAction::Teardown : StateAction::Setup;
       state_request.params = ProviderStateParams(params_json);
 
-      StateHandlerWithValues handler;
-      {
-        std::lock_guard<std::mutex> guard(lock);
-        auto found = handlers.find(state);
-        if (found != handlers.end()) {
-          handler = found->second;
-        } else {
-          handler = default_handler;
-        }
-      }
+      StateHandlerWithValues handler = lookup_handler(lock, handlers, default_handler, state);
 
       if (!handler) {
         if (unknown_state_is_error) {
@@ -431,7 +434,7 @@ namespace pact_verifier {
       body = content.is_string() ? content.get<std::string>() : content.dump();
 
       bool encoded = contents.contains("encoded") &&
-        (contents["encoded"].is_string() || contents["encoded"].get<bool>());
+        contents["encoded"].is_string() && contents["encoded"].get<std::string>() == "base64";
       if (encoded && content.is_string()) {
         body = base64_decode(body);
       }
@@ -494,12 +497,7 @@ namespace pact_verifier {
         }
       }
 
-      MessageHandler handler;
-      {
-        std::lock_guard<std::mutex> guard(lock);
-        auto found = handlers.find(message_request.description);
-        handler = found != handlers.end() ? found->second : default_handler;
-      }
+      MessageHandler handler = lookup_handler(lock, handlers, default_handler, message_request.description);
 
       if (!handler) {
         response.status = 500;
