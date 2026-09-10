@@ -239,7 +239,6 @@ if(TARGET pact-cpp-consumer)
     OUTPUT_NAME "pact-cpp-consumer"
   )
   target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
-  target_link_libraries(pact-cpp-consumer PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 
   # System dependencies of the Rust crates bundled inside the static pact_ffi archive
   if(APPLE)
