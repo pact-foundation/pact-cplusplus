@@ -142,7 +142,7 @@ cmake --preset $preset \
 cmake --build --preset $preset
 
 if [ "$ARG_TEST" == "true" ]; then
-  ctest --preset conan-release --output-on-failure --verbose
+  ctest --preset $preset --output-on-failure --verbose
 fi
 
 if [ "$ARG_RELEASE" == "true" ]; then
