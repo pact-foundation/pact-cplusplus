@@ -1,59 +1,113 @@
 #!/bin/bash
+set -eio pipefail
 
-# Pre-requisite: Download pact ffi dependencies
-# cd [pact-cplusplus sibling dir]
-# mkdir libpact_ffi-v0.5.6
-# cd libpact_ffi-v0.5.6
-# mkdir include
-# cd include
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/pact.h
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/pact-cpp.h
-# cd ..
-# mkdir lib
-# cd lib
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-x86_64.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-x86_64.so.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-aarch64.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-aarch64.so.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-x86_64-musl.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-x86_64-musl.so.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-aarch64-musl.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-linux-aarch64-musl.so.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-macos-aarch64.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-macos-aarch64.dylib.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-macos-x86_64.a.gz
-# wget https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-v0.5.6/libpact_ffi-macos-x86_64.dylib.gz
-# gunzip *.gz
+echo $@
+for arg in "$@"; do
+  case $arg in
+    --os=*)
+      ARG_OS="${arg#*=}"
+      shift
+      ;;
+    --project=*)
+      ARG_PROJECT="${arg#*=}"
+      shift
+      ;;
+    --test)
+      ARG_TEST="true"
+      shift
+      ;;
+    --release)
+      ARG_RELEASE="true"
+      shift
+      ;;
+    --package)
+      ARG_PACKAGE="true"
+      shift
+      ;;
+    *)
+      ;;
+  esac
+done
 
-ARG_OS=${1:-}
+export PACT_FFI_VERSION="v0.5.6"
+export PACT_FFI_ROOT=$(pwd)/libpact_ffi-$PACT_FFI_VERSION
 
-export _PACT_FFI_VERSION="v0.5.6"
-export _CMAKE_OSX_ARCHITECTURES=""
+case "$(uname -m)" in
+  x86_64) ARCH="x86_64" ;;
+  aarch64|arm64) ARCH="aarch64" ;;
+  *) ARCH="unknown" ;;
+esac
+case "$ARG_OS" in
+  mac) FFI_ARCH="macos-$ARCH" ;;
+  linux) FFI_ARCH="linux-$ARCH" ;;
+esac
 
-if [ "$ARG_OS" == "mac" ]; then
-  export _CMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-  export _BOOST_ROOT=$(brew --prefix boost)/include
-  export _PACT_FFI_ROOT=$(pwd)/consumer/libpact_ffi-$_PACT_FFI_VERSION
-  echo "Building for macOS"
+
+if [ -d "$PACT_FFI_ROOT" ]; then
+  echo "Found PACT_FFI_ROOT at $PACT_FFI_ROOT"
 else
-  export _BOOST_ROOT=/usr/include
-  export _PACT_FFI_ROOT=$(pwd)/consumer/libpact_ffi-$_PACT_FFI_VERSION
-  echo "Building for linux"
+  echo "PACT_FFI_ROOT not found, downloading..."
+  root="libpact_ffi-${PACT_FFI_VERSION}"                                                             
+  base="https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}"
+  mkdir -p "$root/include" "$root/lib"
+  curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
+  curl -sSfL -o "$root/include/pact-cpp.h" "$base/pact-cpp.h"
+  case "$FFI_ARCH" in
+    macos-*)   files="libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib" ;;
+    linux-*)    files="libpact_ffi-$FFI_ARCH.a libpact_ffi-$FFI_ARCH.so" ;;
+  esac  
+  for f in $files; do
+  curl -sSfL -o "$root/lib/$f.gz" "$base/$f.gz"
+  gunzip -f "$root/lib/$f.gz"
+  done
 fi
 
-mkdir -p build
-cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DBoost_ROOT=$_BOOST_ROOT -DPACT_FFI_ROOT=$_PACT_FFI_ROOT -DPACT_FFI_VERSION=$_PACT_FFI_VERSION -DPactUseConan=OFF -DPactBuildTests=OFF -DCMAKE_OSX_ARCHITECTURES=$_CMAKE_OSX_ARCHITECTURES
-cmake --build build --config Release
-cmake --install build --prefix ./build/install/pact-cpp
+conan profile detect --force
+conan profile show
 
-mkdir -p build-verifier
-cmake -S verifier -B build-verifier -DCMAKE_BUILD_TYPE=Release -DPACT_FFI_ROOT=$_PACT_FFI_ROOT -DPACT_FFI_VERSION=$_PACT_FFI_VERSION -DPactUseConan=OFF -DPactBuildTests=OFF -DCMAKE_OSX_ARCHITECTURES=$_CMAKE_OSX_ARCHITECTURES
-cmake --build build-verifier --config Release
-cmake --install build-verifier --prefix ./build/install/pact-cpp
 
-# cd build/install/pact-cpp
-# 7za -mm=lzma -mx9 -r a ../[linux or MAC64].zip *
-# cd ../../../
+case "$ARG_OS" in
+  linux) extra_build="--build=m4/*" ;;
+esac
+if [ "$ARG_TEST" == "true" ]; then
+  export PactBuildTests=ON
+else
+  export PactBuildTests=OFF
+fi
+if [ -d "$ARG_PROJECT" ]; then
+  cd "$ARG_PROJECT"
+else
+  echo "Project directory $ARG_PROJECT not found"
+  exit 1
+fi
+conan install conanfile.py \
+            --build=missing $extra_build \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+preset=conan-release
+cmake --preset $preset \
+            -DPactUseConan=ON \
+            -DPactBuildTests=$PactBuildTests \
+            -DPACT_FFI_VERSION=$PACT_FFI_VERSION \
+            -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+cmake --build --preset $preset
 
-# To copy from docker container to host (windows example)
-# docker cp MyFusionDev:/home/buser/pact-cplusplus/build/install/linux.zip D:\temp
+if [ "$ARG_TEST" == "true" ]; then
+  ctest --preset conan-release --output-on-failure --verbose
+fi
+
+if [ "$ARG_RELEASE" == "true" ]; then
+  cmake --install build/Release --config Release --prefix install
+fi
+
+if [ "$ARG_PACKAGE" == "true" ]; then
+  mkdir -p artifacts
+  lib=$(find install/pact-cpp-consumer -type f -name "*pact-cpp-consumer.*" | head -1)
+  name=$(basename "$lib")
+
+  gzip -c "$lib" > "artifacts/${name%.*}-${FFI_ARCH}.${name##*.}.gz"
+  cp include/*.h artifacts
+  (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+  echo "Artifacts have been created in the $ARG_PROJECT/artifacts directory"
+fi
