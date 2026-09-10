@@ -23,6 +23,10 @@ namespace pact_consumer {
     this->provider = provider_name;
   }
 
+  Pact::~Pact() {
+    cleanupPlugins();
+  }
+
   Interaction Pact::uponReceiving(const char* description) const {
     return Interaction(this, description);
   }

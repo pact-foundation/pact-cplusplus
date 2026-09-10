@@ -115,6 +115,11 @@ namespace pact_consumer {
       Pact(const char* consumer, const char* provider);
 
       /**
+       * Shuts down any plugins used by this Pact (see cleanupPlugins()).
+       */
+      ~Pact();
+
+      /**
        * Creates a new iteraction with a defined provider state
        */
       Interaction given(const char* provider_state) const;
