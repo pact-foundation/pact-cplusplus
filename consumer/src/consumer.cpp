@@ -163,7 +163,7 @@ namespace pact_consumer {
         break;
     }
     if (this->interaction == 0) {
-      throw std::string("Could not create a new interaction with description ") + description;
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not create a new interaction with description ") + description));
     }
   }
 
@@ -240,6 +240,9 @@ namespace pact_consumer {
 
   Interaction Interaction::withBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    if (!file.is_open()) {
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not open file: ") + example_file.string()));
+    }
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
@@ -248,7 +251,7 @@ namespace pact_consumer {
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not read file contents: ") + example_file.string()));
     }
   }
 
@@ -291,6 +294,9 @@ namespace pact_consumer {
 
   Interaction Interaction::withResponseBinaryFile(const std::string& content_type, const std::filesystem::path& example_file) const {
     std::ifstream file (example_file, std::ios::binary | std::ios::ate);
+    if (!file.is_open()) {
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not open file: ") + example_file.string()));
+    }
     std::streamsize size = file.tellg();
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(size);
@@ -299,7 +305,7 @@ namespace pact_consumer {
         (const uint8_t*)buffer.data(), size);
       return *this;
     } else {
-      throw std::string("Could not read file contents: ") + example_file.string();
+      BOOST_THROW_EXCEPTION(std::runtime_error(std::string("Could not read file contents: ") + example_file.string()));
     }
   }
 
