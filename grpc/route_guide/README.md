@@ -9,26 +9,28 @@ a detailed tutorial for using gRPC in C++.
 
 The RouteGuide proto definition is available [here](route_guide.proto).
 The server takes the following command-line argument -
-* db_path - Path to json file containing database. Defaults to `examples/cpp/route_guide/route_guide_db.json` on bazel builds, and `route_guide_db.json` for non-bazel builds.
+* db_path - Path to json file containing database. Defaults to `route_guide_db.json` in the current directory.
 
 ## Running the example
 
-
-Install protobuf & grpc
+Install protobuf and gRPC (on macOS, `brew install abseil grpc protobuf`), then
+build the standalone client and server with CMake from the repository root:
 
 ```
-$ make
+$ cmake -S grpc/route_guide -B build/route-guide
+$ cmake --build build/route-guide
 ```
+
 To run the server -
 
 ```
-$ ./route_guide_server
+$ build/route-guide/route_guide_server --db_path=grpc/route_guide/route_guide_db.json
 ```
 
 To run the client -
 
 ```
-$ ./route_guide_client
+$ build/route-guide/route_guide_client
 ```
 
 ## Pact contract tests
