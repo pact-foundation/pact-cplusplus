@@ -248,6 +248,9 @@ namespace pact_consumer {
 
     /**
      * Sets metadata on the response part of a synchronous message.
+     *
+     * Call this after withResponseBody/withResponseJsonBody: the response part is
+     * created by the body call, and metadata set before it is dropped.
      */
     Interaction withResponseMetadata(const std::string& key, const std::string& value) const;
 

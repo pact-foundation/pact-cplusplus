@@ -337,15 +337,17 @@ provider
 ### Synchronous messages
 
 Use `newSyncMessage` for request/response style messaging. The request is configured with `withBody`/`withJsonBody`
-and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions:
+and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions. Set the response body
+before any `withResponseMetadata` call: the response part only exists once a body has been added, and metadata set
+earlier is dropped.
 
 ```cpp
 provider
   .newSyncMessage("a request for a project by id")
   .given("i have a list of projects")
   .withBody("{\"id\": 1001}", "application/json")
-  .withResponseMetadata("contentType", "application/json")
-  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json")
+  .withResponseMetadata("contentType", "application/json");
 ```
 
 ### Running message tests

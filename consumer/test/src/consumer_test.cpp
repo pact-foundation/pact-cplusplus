@@ -116,8 +116,8 @@ TEST(PactConsumerTest, SyncMessage) {
     .newSyncMessage("a request for a project by id")
     .given("i have a list of projects")
     .withBody("{\"id\": 1001}", "application/json")
-    .withResponseMetadata("contentType", "application/json")
-    .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+    .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json")
+    .withResponseMetadata("contentType", "application/json");
 
   auto result = provider.run_message_test([] { return true; });
   EXPECT_TRUE(result.is_ok()) << "Test failed";
