@@ -258,11 +258,15 @@ namespace pact_consumer {
      * Configures the request part of the interaction using a plugin (e.g. protobuf/gRPC). The
      * contents is a JSON string passed on to the plugin to configure the interaction; refer to
      * the plugin documentation for the expected format.
+     *
+     * Throws std::runtime_error if the plugin rejects the contents (invalid JSON, unknown
+     * content type, plugin error, or a mock server already running for this pact).
      */
     Interaction withPluginContents(const std::string& content_type, const std::string& contents) const;
 
     /**
      * Configures the response part of the interaction using a plugin (e.g. protobuf/gRPC).
+     * Throws std::runtime_error under the same conditions as withPluginContents.
      */
     Interaction withResponsePluginContents(const std::string& content_type, const std::string& contents) const;
 

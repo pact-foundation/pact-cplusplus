@@ -228,13 +228,37 @@ namespace pact_consumer {
     return *this;
   }
 
+  namespace {
+    // pactffi_interaction_contents reports failure as a non-zero code and leaves
+    // the detail in the FFI's LAST_ERROR slot.
+    void throwIfPluginContentsFailed(unsigned int code, const std::string& content_type) {
+      if (code == 0) {
+        return;
+      }
+      char buffer[4096] = {0};
+      std::string detail;
+      if (pactffi_get_error_message(buffer, sizeof(buffer)) > 0) {
+        detail = buffer;
+      }
+      std::ostringstream message;
+      message << "Plugin failed to configure interaction contents for " << content_type
+              << " (code " << code << ")";
+      if (!detail.empty()) {
+        message << ": " << detail;
+      }
+      BOOST_THROW_EXCEPTION(std::runtime_error(message.str()));
+    }
+  }
+
   Interaction Interaction::withPluginContents(const std::string& content_type, const std::string& contents) const {
-    pactffi_interaction_contents(this->interaction, InteractionPart_Request, content_type.data(), contents.data());
+    auto code = pactffi_interaction_contents(this->interaction, InteractionPart_Request, content_type.data(), contents.data());
+    throwIfPluginContentsFailed(code, content_type);
     return *this;
   }
 
   Interaction Interaction::withResponsePluginContents(const std::string& content_type, const std::string& contents) const {
-    pactffi_interaction_contents(this->interaction, InteractionPart_Response, content_type.data(), contents.data());
+    auto code = pactffi_interaction_contents(this->interaction, InteractionPart_Response, content_type.data(), contents.data());
+    throwIfPluginContentsFailed(code, content_type);
     return *this;
   }
 
