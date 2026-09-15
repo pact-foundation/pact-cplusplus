@@ -128,8 +128,9 @@ jobs:
           (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
         working-directory: verifier
 
+      # Runs on every push so the recipe is exercised before a release
+      # depends on it; only the upload is release-only
       - name: Create conan package
-        if: github.event_name == 'release'
         run: |
           conan create conanfile.py \
             --build=missing \
