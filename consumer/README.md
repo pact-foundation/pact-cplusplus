@@ -1,6 +1,6 @@
 # C++ Consumer DSL
 
-This is a shared library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
+This is a static library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
 
 ## Using the DSL
 
