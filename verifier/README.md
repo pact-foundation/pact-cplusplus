@@ -137,7 +137,7 @@ Other options:
 
 - `set_default_message_handler(handler)` — handles any message without a specific handler
 - `set_message_transport_port(port)` — pin the endpoint port (defaults to a free port)
-- `set_message_endpoint_path(path)` — defaults to `/__pact/message`
+- `set_message_endpoint_path(path)` — defaults to `/__pact/message`; call it before adding any message handler, it throws `std::logic_error` afterwards
 
 Provider state handlers are called for message interactions in exactly the same way
 as for HTTP ones, and the states are also passed to the handler in
