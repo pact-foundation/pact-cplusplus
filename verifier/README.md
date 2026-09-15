@@ -146,6 +146,25 @@ as for HTTP ones, and the states are also passed to the handler in
 If your application hosts its own message endpoint, skip the handlers and register
 the transport directly with `add_provider_transport("message", port, path, "http")`.
 
+## Verifying plugin pacts (e.g. gRPC)
+
+Pacts whose interactions were recorded through a plugin name that plugin in their
+`plugins` section, and the verifier loads it from the local plugin directory (see the
+[plugin driver docs](https://github.com/pact-foundation/pact-plugins/blob/main/docs/plugin-driver.md)).
+Nothing plugin-specific is needed on the verifier side beyond telling it where the
+provider's transport is listening:
+
+```cpp
+verifier
+    .set_provider_info("route-guide-provider")
+    .add_provider_transport("grpc", server.port())
+    .add_file_source("pacts/route-guide-consumer-route-guide-provider.json")
+    .add_state_handler("the Patriots Path feature exists", [](const auto&) {});
+```
+
+The protocol name passed to `add_provider_transport` must match the transport
+recorded in the pact. Provider state handlers work the same way as for HTTP.
+
 ## Fetching pacts from a broker
 
 ```cpp
@@ -223,4 +242,7 @@ See [test/src/verifier_test.cpp](test/src/verifier_test.cpp) for a complete
 example that stands up a stub provider, seeds it from provider state handlers and
 verifies a pact file against it, and
 [test/src/message_test.cpp](test/src/message_test.cpp) for asynchronous and
-synchronous message verification.
+synchronous message verification. The gRPC route guide example under
+[grpc/route_guide](../grpc/route_guide) verifies a plugin-based pact against a
+running gRPC server in
+[route_guide_provider_test.cc](../grpc/route_guide/route_guide_provider_test.cc).
