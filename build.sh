@@ -89,21 +89,11 @@ else
 fi
 
 
-# Register os.distro (conan-io/conan#16179) so every package in the graph gets a
-# musl-specific package_id, instead of silently reusing glibc binaries on Alpine
 if [ "$IS_ALPINE" == "true" ]; then
   apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash automake autoconf libtool m4
   pip3 install --upgrade pip --break-system-packages
   pip3 install "conan>=2.0" --break-system-packages
   which conan || export PATH="$PATH:~/.local/bin"
-  if [ ! -f ~/.conan2/profiles/default ]; then
-    echo "os.distro=alpine" >> ~/.conan2/profiles/default
-  fi
-  if [ ! -f ~/.conan2/settings_user.yml ]; then
-    echo "os:" >> ~/.conan2/settings_user.yml
-    echo "  Linux:" >> ~/.conan2/settings_user.yml
-    echo "    distro: [null, alpine]" >> ~/.conan2/settings_user.yml
-  fi
 elif [ "$ARG_OS" == "linux" ]; then
     sudo apt-get install -y libbz2-dev zlib1g-dev liblzma-dev libicu-dev libboost-all-dev cmake python3-pip
     pip3 install --upgrade pip --break-system-packages
@@ -112,6 +102,13 @@ elif [ "$ARG_OS" == "linux" ]; then
 fi
 
 conan profile detect --force
+if [ "$IS_ALPINE" == "true" ]; then
+  # Register os.distro (conan-io/conan#16179) so every package in the graph gets a
+  # musl-specific package_id, instead of silently reusing glibc binaries on Alpine.
+  # This has to follow `conan profile detect --force`, which rewrites the profile.
+  printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
+  echo "os.distro=alpine" >> ~/.conan2/profiles/default
+fi
 conan profile show
 
 case "$ARG_OS" in
