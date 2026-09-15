@@ -372,7 +372,7 @@ plugin process:
 
 ```cpp
 provider.withSpecification(PactSpecification_V4);
-provider.usingPlugin("protobuf", "0.8.0");
+ASSERT_TRUE(provider.usingPlugin("protobuf", "0.8.0")) << "protobuf plugin failed to load";
 
 provider
   .newSyncMessage("a gRPC request")
