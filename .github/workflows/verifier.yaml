@@ -6,7 +6,7 @@ on:
 
 env:
   PACT_FFI_VERSION: v0.5.6
-  CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
+  CONAN_REMOTE: pact-foundation
   CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
 
 jobs:
@@ -110,7 +110,7 @@ jobs:
           LOG_LEVEL: DEBUG
 
       - name: Install library
-        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'release'
         run: |
           if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
           cmake --install "$builddir" --config Release --prefix install
