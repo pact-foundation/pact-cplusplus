@@ -67,6 +67,10 @@ case "$ARG_OS" in
      FFI_ARCH="linux-$ARCH"
    fi
   ;;
+  *)
+    echo "Unsupported --os=$ARG_OS (expected mac or linux)"
+    exit 1
+    ;;
 esac
 
 if [ -f "$PACT_FFI_ROOT/lib/libpact_ffi-$FFI_ARCH.dylib" ] || [ -f "$PACT_FFI_ROOT/lib/libpact_ffi-$FFI_ARCH.so" ]; then
