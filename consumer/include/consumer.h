@@ -119,6 +119,11 @@ namespace pact_consumer {
        */
       ~Pact();
 
+      // The destructor tears down plugin state shared through the handle, so a
+      // copy dying first would pull the plugins out from under the original.
+      Pact(const Pact&) = delete;
+      Pact& operator=(const Pact&) = delete;
+
       /**
        * Creates a new iteraction with a defined provider state
        */
