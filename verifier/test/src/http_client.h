@@ -17,6 +17,10 @@ namespace test_support {
   }
 
   inline HttpResult request(const std::string& method, const std::string& url, const std::string& body = "") {
+    // curl_easy_init only initialises libcurl lazily and without any locking
+    static std::once_flag global_init;
+    std::call_once(global_init, [] { curl_global_init(CURL_GLOBAL_DEFAULT); });
+
     HttpResult result;
     CURL* curl = curl_easy_init();
     if (curl == nullptr) {
