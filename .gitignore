@@ -58,3 +58,12 @@ test/build
 .vscode
 .vs/
 consumer/CMakeSettings.json
+
+.DS_Store
+
+## FFI Libs
+
+libpact_ffi-*/
+artifacts/
+install/
+CMakeUserPresets.json

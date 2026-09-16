@@ -1,0 +1,65 @@
+{
+  "consumer": {
+    "name": "cpp-message-consumer"
+  },
+  "provider": {
+    "name": "cpp-message-provider"
+  },
+  "interactions": [
+    {
+      "type": "Asynchronous/Messages",
+      "description": "a user created event",
+      "providerStates": [
+        {
+          "name": "a user exists",
+          "params": {
+            "id": 1,
+            "name": "Alice"
+          }
+        }
+      ],
+      "contents": {
+        "content": {
+          "id": 1,
+          "name": "Alice"
+        },
+        "contentType": "application/json",
+        "encoded": false
+      },
+      "metadata": {
+        "contentType": "application/json",
+        "topic": "users"
+      }
+    },
+    {
+      "type": "Synchronous/Messages",
+      "description": "a request for user 1",
+      "request": {
+        "contents": {
+          "content": {
+            "id": 1
+          },
+          "contentType": "application/json",
+          "encoded": false
+        }
+      },
+      "response": [
+        {
+          "contents": {
+            "content": {
+              "id": 1,
+              "name": "Alice"
+            },
+            "contentType": "application/json",
+            "encoded": false
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  }
+}
