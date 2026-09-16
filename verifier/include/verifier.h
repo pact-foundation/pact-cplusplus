@@ -505,7 +505,12 @@ namespace pact_verifier {
        */
       Verifier& set_message_transport_port(uint16_t port);
 
-      /** Path the hosted message endpoint is served on. Defaults to "/__pact/message" */
+      /**
+       * Path the hosted message endpoint is served on. Defaults to "/__pact/message".
+       *
+       * Must be called before add_message_handler/set_default_message_handler, which
+       * create the endpoint; throws std::logic_error once a handler exists.
+       */
       Verifier& set_message_endpoint_path(const std::string& path);
 
       //

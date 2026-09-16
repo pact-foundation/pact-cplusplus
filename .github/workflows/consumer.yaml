@@ -6,7 +6,7 @@ on:
 
 env:
   PACT_FFI_VERSION: v0.5.6
-  CONAN_REMOTE: ${{ github.event.inputs.conan_remote || 'pact-foundation' }}
+  CONAN_REMOTE: pact-foundation
   CONAN_REMOTE_URL: https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
 
 jobs:
@@ -183,8 +183,12 @@ jobs:
                 gzip -c "$lib" > "artifacts/${name%.*}-${FFI_ARCH}.${name##*.}.gz"
                 cp include/*.h artifacts
                 (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
+              fi
 
-                conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              # Build the package (and its test_package) on every run; only a release uploads it
+              conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+
+              if [ "$GITHUB_EVENT_NAME" = "release" ]; then
                 conan remote add "$CONAN_REMOTE" "$CONAN_REMOTE_URL" --force
                 conan remote login "$CONAN_REMOTE" "$CONAN_USER" -p "$CONAN_PASSWORD"
                 conan upload "pact_cpp_consumer/*" -r="$CONAN_REMOTE" --confirm
@@ -193,7 +197,7 @@ jobs:
 
       # Release-only steps below reuse the conan cache and build tree from the steps above
       - name: Install library
-        if: ${{ !matrix.container && (github.event_name == 'release' || github.event_name == 'workflow_dispatch') }}
+        if: ${{ !matrix.container && github.event_name == 'release' }}
         run: |
           if [ "${{ runner.os }}" = "Windows" ]; then builddir=build; else builddir=build/Release; fi
           cmake --install "$builddir" --config Release --prefix install
@@ -211,8 +215,10 @@ jobs:
           (cd artifacts && for f in *.gz; do openssl dgst -sha256 -r "$f" > "$f.sha256"; done)
         working-directory: consumer
 
+      # Runs on every push so the recipe and its test_package are exercised
+      # before a release depends on them; only the upload is release-only
       - name: Create conan package
-        if: ${{ !matrix.container && github.event_name == 'release' }}
+        if: ${{ !matrix.container }}
         run: |
           conan create conanfile.py \
             --build=missing \

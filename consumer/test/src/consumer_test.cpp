@@ -1,12 +1,35 @@
 #include <iostream>
+#include <fstream>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <nlohmann/json.hpp>
 #include <consumer.h>
 #include "todo.h"
 
 using namespace testing;
 using namespace pact_consumer;
 using namespace pact_consumer::matchers;
+using json = nlohmann::json;
+
+namespace {
+  // Reads the interaction with the given description back from the pact file the
+  // test wrote, so assertions cover what was recorded rather than what was called.
+  json readInteraction(const std::string& description) {
+    std::ifstream file("pacts/TodoAppCpp-TodoServiceCpp.json");
+    if (!file.is_open()) {
+      ADD_FAILURE() << "pact file was not written";
+      return json();
+    }
+    json pact = json::parse(file);
+    for (const auto& interaction : pact["interactions"]) {
+      if (interaction["description"] == description) {
+        return interaction;
+      }
+    }
+    ADD_FAILURE() << "no interaction with description '" << description << "' in pact file";
+    return json();
+  }
+}
 
 TEST(PactConsumerTest, GetJsonProjects) {
   auto provider = pact_consumer::Pact("TodoAppCpp", "TodoServiceCpp");
@@ -104,7 +127,16 @@ TEST(PactConsumerTest, AsyncMessage) {
     }));
 
   auto result = provider.run_message_test([] { return true; });
-  EXPECT_TRUE(result.is_ok()) << "Test failed";
+  ASSERT_TRUE(result.is_ok()) << "Test failed";
+
+  auto interaction = readInteraction("a project created event");
+  EXPECT_EQ(interaction["type"], "Asynchronous/Messages");
+  EXPECT_EQ(interaction["providerStates"][0]["name"], "i have a list of projects");
+  EXPECT_EQ(interaction["metadata"]["contentType"], "application/json");
+  EXPECT_EQ(interaction["contents"]["content"]["id"], 1001);
+  EXPECT_EQ(interaction["contents"]["content"]["name"], "Home Chores");
+  EXPECT_EQ(interaction["matchingRules"]["body"]["$.id"]["matchers"][0]["match"], "integer");
+  EXPECT_EQ(interaction["matchingRules"]["body"]["$.name"]["matchers"][0]["match"], "type");
 }
 
 TEST(PactConsumerTest, SyncMessage) {
@@ -115,12 +147,23 @@ TEST(PactConsumerTest, SyncMessage) {
   provider
     .newSyncMessage("a request for a project by id")
     .given("i have a list of projects")
+    .withMetadata("topic", "projects")
     .withBody("{\"id\": 1001}", "application/json")
-    .withResponseMetadata("contentType", "application/json")
-    .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+    .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json")
+    .withResponseMetadata("topic", "projects.replies");
 
   auto result = provider.run_message_test([] { return true; });
-  EXPECT_TRUE(result.is_ok()) << "Test failed";
+  ASSERT_TRUE(result.is_ok()) << "Test failed";
+
+  auto interaction = readInteraction("a request for a project by id");
+  EXPECT_EQ(interaction["type"], "Synchronous/Messages");
+  EXPECT_EQ(interaction["request"]["contents"]["content"]["id"], 1001);
+  EXPECT_EQ(interaction["request"]["metadata"]["contentType"], "application/json");
+  EXPECT_EQ(interaction["request"]["metadata"]["topic"], "projects");
+  ASSERT_EQ(interaction["response"].size(), 1);
+  EXPECT_EQ(interaction["response"][0]["contents"]["content"]["name"], "Home Chores");
+  EXPECT_EQ(interaction["response"][0]["metadata"]["contentType"], "application/json");
+  EXPECT_EQ(interaction["response"][0]["metadata"]["topic"], "projects.replies");
 }
 
 int main(int argc, char **argv) {

@@ -1,6 +1,6 @@
 # C++ Consumer DSL
 
-This is a shared library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
+This is a static library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
 
 ## Using the DSL
 
@@ -337,15 +337,17 @@ provider
 ### Synchronous messages
 
 Use `newSyncMessage` for request/response style messaging. The request is configured with `withBody`/`withJsonBody`
-and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions:
+and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions. Set the response body
+before any `withResponseMetadata` call: the response part only exists once a body has been added, and metadata set
+earlier is dropped.
 
 ```cpp
 provider
   .newSyncMessage("a request for a project by id")
   .given("i have a list of projects")
   .withBody("{\"id\": 1001}", "application/json")
-  .withResponseMetadata("contentType", "application/json")
-  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json");
+  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json")
+  .withResponseMetadata("contentType", "application/json");
 ```
 
 ### Running message tests
@@ -370,7 +372,7 @@ plugin process:
 
 ```cpp
 provider.withSpecification(PactSpecification_V4);
-provider.usingPlugin("protobuf", "0.8.0");
+ASSERT_TRUE(provider.usingPlugin("protobuf", "0.8.0")) << "protobuf plugin failed to load";
 
 provider
   .newSyncMessage("a gRPC request")
@@ -390,87 +392,84 @@ plugin interactions that do not start a transport.
 
 ## Using the Conan package
 
-The library has been released to a JFrog Artifactory repository as a Conan package. To use it in your project, you need to add https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan as a remote.
-
-For example:
+Releases are published to the Pact Foundation Artifactory as a Conan 2 package.
+Add the remote, then depend on `pact_cpp_consumer/0.2.0`:
 
 ```console
 $ conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-$ conan search pact_cpp_consumer -r=pact-foundation
-Existing package recipes:
-
-pact_cpp_consumer/0.1.0@pact/beta
+$ conan search "pact_cpp_consumer/*" -r=pact-foundation
 ```
 
-You can then use the library by adding `pact_cpp_consumer/0.1.0@pact/beta` to the dependencies to your project conan file.
+The package bundles the `pact_ffi` headers and library for its platform, so a
+consumer project needs only `requires = "pact_cpp_consumer/0.2.0"` and
+`find_package(pact_cpp_consumer CONFIG REQUIRED)`; see
+[test_package](test_package) for a minimal project.
 
 ## Using the released artifacts
 
-The compiled library and header files for pact_cpp_consumer is attched to the GitHub release. To use them, the lib needs to be
-linked to your test binary along with the dependant libraries: boost, cpprestsdk, pact_ffi and nlohmann_json.
+The compiled static library and header files are attached to each GitHub
+release. Link the library into your test binary together with `pact_ffi`
+(downloaded from the
+[pact-reference releases](https://github.com/pact-foundation/pact-reference/releases))
+and make the Boost and nlohmann_json headers available; only
+`boost/throw_exception.hpp` is used, so no compiled Boost libraries are needed.
 
 ## Building the library
 
-To build the library, you need to do the following:
+Requires CMake 3.16+, a C++17 compiler and the `pact_ffi` binaries for your
+platform. `PACT_FFI_ROOT` must point at a directory holding `include/pact.h` and
+the `lib/libpact_ffi-<os>-<arch>.*` files; the build fails at configure time
+without it.
 
-1. Install Python
-2. Install CMake
-3. Install a C++ compiler
-4. Use python/pip to install conan
+Without Conan, point `Boost_ROOT` at an include directory that contains
+`boost/` (only headers are used); nlohmann_json is fetched by CMake:
 
-```
-pip install wheel setuptools
-pip install conan
-```
-
-5. Create a build directory and cd into it
-6. use conan to install all the dependencies
-
-```
-conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-conan install .. --build missing
+```console
+cmake -S consumer -B build \
+  -DPACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6 \
+  -DPACT_FFI_VERSION=v0.5.6 \
+  -DBoost_ROOT=/opt/homebrew/opt/boost/include
+cmake --build build --config Release
+cmake --install build --prefix ./install
 ```
 
-7. use cmake to build the library
+With the dependencies supplied by Conan 2:
 
-```
- cmake ..
- cmake --build . --config Release
-```
-
-On Windows, you may need to set 64 bit architecture.
-
-```
-cmake .. -A x64
-cmake --build . --config Release
+```console
+cd consumer
+export PACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6
+conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17
+cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON \
+  -DPACT_FFI_VERSION=v0.5.6 -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+cmake --build --preset conan-release
+ctest --preset conan-release --output-on-failure
 ```
 
-8. Generate the installation
-
-```
-cmake --install . --prefix install
-```
+`build.sh --project=consumer --os=<linux|mac> --test` at the repository root
+runs the Conan flow end to end, downloading `pact_ffi` first if it is missing.
 
 ## Dependencies
 
-### Linux
-
-#### Ubuntu
+### Ubuntu
 
 ```
-sudo apt install build-essential python3 libbz2-dev libz-dev libicu-dev libboost-all-dev cmake git
+sudo apt install build-essential python3 python3-pip libbz2-dev libz-dev liblzma-dev libicu-dev libboost-all-dev cmake git
 ```
 
 ### Alpine
 
 ```
-apk add build-base cmake boost-dev git bash
+apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash automake autoconf libtool m4
 ```
 
-### MacOS
+### macOS
 
 ```
 brew install cmake boost conan
 ```
 
 ### Windows
+
+Install CMake, Visual Studio with the C++ workload, and either Conan or a Boost
+distribution to point `Boost_ROOT` at. See [build.ps1](../build.ps1) for the
+invocation the release build uses.

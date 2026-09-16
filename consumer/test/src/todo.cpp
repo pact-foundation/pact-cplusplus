@@ -153,7 +153,7 @@ bool TodoClient::postImage(unsigned int id, std::string file_path) {
   request.set_post_body(body);
 
   Response response = request.perform(url.str());
-  printf("Received response status code:%ld\n", response.status_code);
+  std::printf("Received response status code:%ld\n", response.status_code);
 
   return response.status_code == 201;
 }

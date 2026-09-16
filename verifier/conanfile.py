@@ -13,7 +13,10 @@ class PactcppverifierConan(ConanFile):
     homepage = "https://github.com/pact-foundation/pact-cplusplus"
     description = "Pact C++ Provider Verifier"
     topics = ("contract-testing", "pact")
-    package_type = "static-library"
+    # The DSL itself is a static archive, but it links the shared pact_ffi bundled
+    # into this package; "shared-library" makes Conan put lib/ (bin/ on Windows)
+    # on the run environment's loader path so consumers can find it.
+    package_type = "shared-library"
     settings = "os", "compiler", "build_type", "arch"
     options = {"fPIC": [True, False]}
     default_options = {"fPIC": True}
@@ -52,15 +55,23 @@ class PactcppverifierConan(ConanFile):
         cmake.build()
 
     def _ffi_files(self):
+        # Maps release artifact name -> (package subdir, name inside the package).
+        # The shared artifact is what gets shipped: the static archive is missing the
+        # Lua symbols pulled in by pact-plugin-driver's build script (see the note in
+        # CMakeLists.txt), so linking it fails with undefined lua_* references.
         arch = "aarch64" if str(self.settings.arch) in ("armv8", "arm64") else "x86_64"
         if self.settings.os == "Macos":
-            return {f"libpact_ffi-macos-{arch}.a": "libpact_ffi.a"}
+            return {f"libpact_ffi-macos-{arch}.dylib": ("lib", "libpact_ffi.dylib")}
         if self.settings.os == "Windows":
-            return {f"pact_ffi-windows-{arch}.lib": "pact_ffi.lib"}
+            # The import library is renamed to pact_ffi.lib so cpp_info.libs resolves it
+            return {
+                f"pact_ffi-windows-{arch}.dll.lib": ("lib", "pact_ffi.lib"),
+                f"pact_ffi-windows-{arch}.dll": ("bin", "pact_ffi.dll"),
+            }
         # os.distro=alpine is a settings_user.yml sub-setting (see conan-io/conan#16179);
         # it's what actually differentiates musl package_ids across the whole dependency graph
         libc = "-musl" if self.settings.get_safe("os.distro") == "alpine" else ""
-        return {f"libpact_ffi-linux-{arch}{libc}.a": "libpact_ffi.a"}
+        return {f"libpact_ffi-linux-{arch}{libc}.so": ("lib", "libpact_ffi.so")}
 
     def package(self):
         copy(self, "*.h",
@@ -72,16 +83,16 @@ class PactcppverifierConan(ConanFile):
         copy(self, "*.dll", src=self.build_folder,
              dst=os.path.join(self.package_folder, "bin"), keep_path=False)
 
-        # verifier.h includes <pact.h>, so the FFI headers and archive ship with the package
+        # verifier.h includes <pact.h>, so the FFI headers and library ship with the package
         ffi_root = os.environ["PACT_FFI_ROOT"]
         copy(self, "*.h",
              src=os.path.join(ffi_root, "include"),
              dst=os.path.join(self.package_folder, "include"))
-        for source, target in self._ffi_files().items():
+        for source, (subdir, target) in self._ffi_files().items():
             copy(self, source, src=os.path.join(ffi_root, "lib"),
-                 dst=os.path.join(self.package_folder, "lib"), keep_path=False)
-            rename(self, os.path.join(self.package_folder, "lib", source),
-                   os.path.join(self.package_folder, "lib", target))
+                 dst=os.path.join(self.package_folder, subdir), keep_path=False)
+            rename(self, os.path.join(self.package_folder, subdir, source),
+                   os.path.join(self.package_folder, subdir, target))
 
     def package_info(self):
         self.cpp_info.libs = ["pact-cpp-verifier", "pact_ffi"]

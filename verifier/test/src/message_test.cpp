@@ -5,6 +5,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include "http_client.h"
 #include "verifier.h"
 
 using json = nlohmann::json;
@@ -103,6 +104,19 @@ TEST(MessageProviderServerTest, ReturnsTheMessageBodyAndMetadata) {
 
   ASSERT_TRUE(messages.start());
   EXPECT_EQ("/__pact/message", messages.get_path());
+
+  auto result = test_support::request("POST", messages.get_url(),
+    json({{"description", "a user created event"}}).dump());
+
+  EXPECT_EQ(200, result.status);
+  EXPECT_EQ(json({{"echo", "a user created event"}}), json::parse(result.body));
+  // base64 of {"partition":3,"topic":"users"}: with_json_metadata keeps the
+  // number a number, with_metadata keeps the string a string
+  EXPECT_EQ("eyJwYXJ0aXRpb24iOjMsInRvcGljIjoidXNlcnMifQ==", result.headers["Pact-Message-Metadata"]);
+
+  auto unknown = test_support::request("POST", messages.get_url(),
+    json({{"description", "unknown"}}).dump());
+  EXPECT_EQ(200, unknown.status) << "the default handler serves any description";
 
   messages.stop();
 }

@@ -85,6 +85,13 @@ else()
   set(_PACT_FFI_LIBC_SUFFIX "")
 endif()
 
+if(NOT PACT_FFI_ARCH MATCHES "^(x86_64|aarch64)$")
+  message(FATAL_ERROR "PactFFI: unsupported PACT_FFI_ARCH '${PACT_FFI_ARCH}' (expected x86_64 or aarch64)")
+endif()
+if(UNIX AND NOT APPLE AND NOT PACT_FFI_LIBC MATCHES "^(gnu|musl)$")
+  message(FATAL_ERROR "PactFFI: unsupported PACT_FFI_LIBC '${PACT_FFI_LIBC}' (expected gnu or musl)")
+endif()
+
 message(STATUS "PactFFI: resolved arch '${PACT_FFI_ARCH}'")
 if(UNIX AND NOT APPLE)
   message(STATUS "PactFFI: resolved libc '${PACT_FFI_LIBC}'")

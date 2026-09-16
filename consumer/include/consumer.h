@@ -119,6 +119,11 @@ namespace pact_consumer {
        */
       ~Pact();
 
+      // The destructor tears down plugin state shared through the handle, so a
+      // copy dying first would pull the plugins out from under the original.
+      Pact(const Pact&) = delete;
+      Pact& operator=(const Pact&) = delete;
+
       /**
        * Creates a new iteraction with a defined provider state
        */
@@ -248,6 +253,9 @@ namespace pact_consumer {
 
     /**
      * Sets metadata on the response part of a synchronous message.
+     *
+     * Call this after withResponseBody/withResponseJsonBody: the response part is
+     * created by the body call, and metadata set before it is dropped.
      */
     Interaction withResponseMetadata(const std::string& key, const std::string& value) const;
 
@@ -255,11 +263,15 @@ namespace pact_consumer {
      * Configures the request part of the interaction using a plugin (e.g. protobuf/gRPC). The
      * contents is a JSON string passed on to the plugin to configure the interaction; refer to
      * the plugin documentation for the expected format.
+     *
+     * Throws std::runtime_error if the plugin rejects the contents (invalid JSON, unknown
+     * content type, plugin error, or a mock server already running for this pact).
      */
     Interaction withPluginContents(const std::string& content_type, const std::string& contents) const;
 
     /**
      * Configures the response part of the interaction using a plugin (e.g. protobuf/gRPC).
+     * Throws std::runtime_error under the same conditions as withPluginContents.
      */
     Interaction withResponsePluginContents(const std::string& content_type, const std::string& contents) const;
 
