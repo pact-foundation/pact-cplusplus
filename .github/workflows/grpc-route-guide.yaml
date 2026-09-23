@@ -1,0 +1,87 @@
+name: gRPC RouteGuide
+
+on:
+  push:
+    paths:
+      - ".github/workflows/grpc-route-guide.yaml"
+      - "consumer/**"
+      - "grpc/route_guide/**"
+      - "verifier/**"
+  pull_request:
+    paths:
+      - ".github/workflows/grpc-route-guide.yaml"
+      - "consumer/**"
+      - "grpc/route_guide/**"
+      - "verifier/**"
+  workflow_dispatch:
+
+env:
+  PACT_FFI_VERSION: v0.5.6
+  PACT_PROTOBUF_PLUGIN_VERSION: 0.8.0
+
+jobs:
+  linux-x86_64:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libabsl-dev \
+            libboost-dev \
+            libbz2-dev \
+            libgrpc++-dev \
+            liblzma-dev \
+            libprotobuf-dev \
+            protobuf-compiler \
+            protobuf-compiler-grpc \
+            zlib1g-dev \
+            cmake
+
+      - name: Download Pact FFI
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/pact-ffi-${PACT_FFI_VERSION}"
+          base="https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}"
+          mkdir -p "$root/include" "$root/lib"
+          curl -sSfL -o "$root/include/pact.h" "$base/pact.h"
+          for file in libpact_ffi-linux-x86_64.a libpact_ffi-linux-x86_64.so; do
+            curl -sSfL "$base/$file.gz" | gzip -dc > "$root/lib/$file"
+          done
+          echo "PACT_FFI_ROOT=$root" >> "$GITHUB_ENV"
+
+      - name: Install protobuf plugin
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/pact-plugins"
+          plugin="$root/protobuf-${PACT_PROTOBUF_PLUGIN_VERSION}"
+          base="https://github.com/pact-foundation/pact-protobuf-plugin/releases/download/v-${PACT_PROTOBUF_PLUGIN_VERSION}"
+          mkdir -p "$plugin"
+          curl -sSfL -o "$plugin/pact-plugin.json" "$base/pact-plugin.json"
+          curl -sSfL "$base/pact-protobuf-plugin-linux-x86_64.gz" \
+            | gzip -dc > "$plugin/pact-protobuf-plugin"
+          chmod +x "$plugin/pact-protobuf-plugin"
+          echo "PACT_PLUGIN_DIR=$root" >> "$GITHUB_ENV"
+
+      - name: Configure
+        run: |
+          cmake -S grpc/route_guide -B build/route-guide \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DRouteGuideBuildPactTests=ON \
+            -DPACT_FFI_ROOT="$PACT_FFI_ROOT" \
+            -DPACT_FFI_VERSION="$PACT_FFI_VERSION" \
+            -DBoost_ROOT=/usr/include
+
+      - name: Build
+        run: cmake --build build/route-guide --parallel 2
+
+      - name: Test
+        run: ctest --test-dir build/route-guide --output-on-failure --verbose
+        env:
+          LOG_LEVEL: INFO

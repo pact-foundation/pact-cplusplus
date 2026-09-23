@@ -1,0 +1,59 @@
+{
+  "consumer": {
+    "name": "cpp-consumer"
+  },
+  "provider": {
+    "name": "cpp-provider"
+  },
+  "interactions": [
+    {
+      "description": "a request for user 1",
+      "providerStates": [
+        {
+          "name": "the user exists",
+          "params": {
+            "id": 1,
+            "name": "Alice"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "name": "Alice"
+        }
+      }
+    },
+    {
+      "description": "a request for an unknown user",
+      "providerStates": [
+        {
+          "name": "the user does not exist",
+          "params": {
+            "id": 42
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users/42"
+      },
+      "response": {
+        "status": 404
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}

@@ -1,3 +1,13 @@
+## 0.2.0 - Pact V4, messages, plugins and Conan 2
+
+* Pact V4 interactions via `withSpecification(PactSpecification_V4)`
+* Asynchronous (`newMessage`) and synchronous (`newSyncMessage`) message interactions, run with `run_message_test`
+* Plugin support: `usingPlugin`, `withPluginContents`, `withResponsePluginContents`, `run_test(transport, ...)`; plugins are shut down when the `Pact` is destroyed
+* Errors from the DSL are raised as `std::runtime_error` instead of bare `std::string`
+* Updated to pact_ffi v0.5.6, linked against the shared artifact; `PACT_FFI_ROOT` is required to build
+* Conan 2 recipe published as `pact_cpp_consumer/0.2.0` (no user/channel); cpprestsdk replaced by libcurl in the test client
+* Release artifacts for Linux x86_64/aarch64 (glibc and musl), macOS and Windows x64
+
 
 
 ## 0.1.0 - Update to new pact_ffi lib and JFrog conan repositry
