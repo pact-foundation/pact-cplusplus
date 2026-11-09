@@ -4,9 +4,9 @@
 * Asynchronous (`newMessage`) and synchronous (`newSyncMessage`) message interactions, run with `run_message_test`
 * Plugin support: `usingPlugin`, `withPluginContents`, `withResponsePluginContents`, `run_test(transport, ...)`; plugins are shut down when the `Pact` is destroyed
 * Errors from the DSL are raised as `std::runtime_error` instead of bare `std::string`
-* Updated to pact_ffi v0.5.6, linked against the shared artifact; `PACT_FFI_ROOT` is required to build
-* Conan 2 recipe published as `pact_cpp_consumer/0.2.0` (no user/channel); cpprestsdk replaced by libcurl in the test client
-* Release artifacts for Linux x86_64/aarch64 (glibc and musl), macOS and Windows x64
+* Updated to pact_ffi v0.5.12, linked against the shared artifact. CMake downloads and checksum-verifies it at configure time (the Rust-target archives from 0.5.12, the legacy `.gz` assets for older pins); set `PACT_FFI_ROOT` to use a local copy. Linux glibc builds need glibc 2.28+
+* Conan 2 recipe for `pact_cpp_consumer/0.2.0` (no user/channel), built from a clone with `conan create`; cpprestsdk replaced by libcurl in the test client
+* Released as a source-only tag (`pact-cpp-consumer-v0.2.0`), with no prebuilt binaries; CI covers Linux x86_64/aarch64 (glibc and musl), macOS and Windows x64
 
 
 

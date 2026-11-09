@@ -74,20 +74,49 @@ builds and runs it.
 | `PACT_FFI_VERSION` | the version pinned by the release | pact_ffi release to download |
 | `PACT_FFI_ROOT` | empty (download) | Use an existing pact_ffi tree instead of downloading |
 | `PactDownloadFFI` | `ON` | Set `OFF` to fail rather than download when `PACT_FFI_ROOT` is unset |
+| `PACT_FFI_ASSET_LAYOUT` | `auto` | Release asset naming to download: `archive`, `legacy`, or `auto` (picked from the version) |
+
+#### Platform requirements
+
+| Platform | pact_ffi build used | Requirement |
+| --- | --- | --- |
+| Linux (glibc) | `*-unknown-linux-gnu` | glibc 2.28 or newer (e.g. Debian 10, Ubuntu 18.10, RHEL/Rocky 8, Amazon Linux 2023). Older distros such as CentOS 7 and Amazon Linux 2 are not supported. |
+| Linux (musl, e.g. Alpine) | `*-unknown-linux-musl` | Detected automatically; force with `-DPACT_FFI_LIBC=musl` |
+| macOS | `*-apple-darwin` | arm64 and x86_64 |
+| Windows | `*-pc-windows-msvc` | MSVC; x86_64, and arm64 from pact_ffi 0.5.12 |
+
+#### pact_ffi release naming
+
+pact_ffi 0.5.12 changed how its release assets are published:
+
+- **0.5.12 and later**: the `pact_ffi-v<version>` release has one archive per
+  Rust target, e.g. `pact_ffi-x86_64-unknown-linux-gnu.tar.xz` or
+  `pact_ffi-x86_64-pc-windows-msvc.zip`.
+- **Before 0.5.12**: the `libpact_ffi-v<version>` release has one gzipped file
+  per library, e.g. `libpact_ffi-linux-x86_64.so.gz`. pact-reference keeps
+  publishing this layout alongside the new one until 2027-06-30.
+
+The build picks the layout from `PACT_FFI_VERSION`, so older pins keep
+working. Either way, the libraries are saved under the names in the next
+section, so a `PACT_FFI_ROOT` tree looks the same whichever release it came
+from.
 
 ### Plain CMake with your own pact_ffi
 
 For offline or air-gapped builds, download the pact_ffi release assets
 yourself, then point `PACT_FFI_ROOT` at a directory laid out as
 `include/pact.h` and `lib/libpact_ffi-<os>-<arch>.{so,dylib}` (on Windows,
-`lib/pact_ffi-windows-<arch>.{dll,dll.lib}`). On macOS, a top-level build is
+`lib/pact_ffi-windows-<arch>.{dll,dll.lib}`). `<os>-<arch>` is e.g.
+`linux-x86_64`, `linux-aarch64-musl`, `macos-aarch64` or `windows-x86_64`.
+From a 0.5.12+ archive, rename `libpact_ffi.so`/`.dylib` (or `pact_ffi.dll`
+and `pact_ffi.dll.lib`) to these names. On macOS, a top-level build is
 universal (arm64 + x86_64) by default and needs the `.a` and `.dylib` for both
 architectures, unless you pass `-DPactBuildUniversal=OFF`:
 
 ```console
 git clone --branch pact-cpp-consumer-v0.2.0 https://github.com/pact-foundation/pact-cplusplus.git
 cmake -S pact-cplusplus/consumer -B build -DCMAKE_BUILD_TYPE=Release \
-  -DPACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6
+  -DPACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.12
 cmake --build build
 cmake --install build --prefix ./install
 ```

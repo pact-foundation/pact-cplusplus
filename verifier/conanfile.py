@@ -51,7 +51,7 @@ class PactcppverifierConan(ConanFile):
 
     @property
     def _ffi_version(self):
-        return os.environ.get("PACT_FFI_VERSION", "v0.5.6")
+        return os.environ.get("PACT_FFI_VERSION", "v0.5.12")
 
     def _ffi_root(self):
         return os.environ.get("PACT_FFI_ROOT") or os.path.join(

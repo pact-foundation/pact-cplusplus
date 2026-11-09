@@ -33,6 +33,12 @@ jobs:
           cmake_version=$(sed -n "s/^project(pact-cpp-${comp} VERSION \([^ )]*\)).*/\1/p" "$comp/CMakeLists.txt")
           ffi_version=$(sed -n 's/^set(PACT_FFI_VERSION "\([^"]*\)".*/\1/p' "$comp/CMakeLists.txt")
           echo "tag=$version conanfile=$conan_version cmake=$cmake_version pact_ffi=$ffi_version"
+          # pact_ffi 0.5.12 moved its releases from libpact_ffi-v* to pact_ffi-v* tags
+          if printf '0.5.12\n%s\n' "${ffi_version#v}" | sort -V -C; then
+            ffi_tag="pact_ffi-$ffi_version"
+          else
+            ffi_tag="libpact_ffi-$ffi_version"
+          fi
           if [ "$version" != "$conan_version" ] || [ "$version" != "$cmake_version" ]; then
             echo "::error::tag version $version does not match conanfile.py ($conan_version) or CMakeLists.txt ($cmake_version)"
             exit 1
@@ -41,6 +47,7 @@ jobs:
             echo "comp=$comp"
             echo "version=$version"
             echo "ffi_version=$ffi_version"
+            echo "ffi_tag=$ffi_tag"
           } >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub release
@@ -49,10 +56,11 @@ jobs:
           COMP: ${{ steps.meta.outputs.comp }}
           VERSION: ${{ steps.meta.outputs.version }}
           FFI_VERSION: ${{ steps.meta.outputs.ffi_version }}
+          FFI_TAG: ${{ steps.meta.outputs.ffi_tag }}
         run: |
           cat > notes.md <<NOTES
           Source release of \`pact-cpp-${COMP}\` ${VERSION}, built against
-          [pact_ffi ${FFI_VERSION}](https://github.com/pact-foundation/pact-reference/releases/tag/libpact_ffi-${FFI_VERSION}).
+          [pact_ffi ${FFI_VERSION}](https://github.com/pact-foundation/pact-reference/releases/tag/${FFI_TAG}).
           No prebuilt binaries are attached: CMake downloads and checksum-verifies
           pact_ffi for your platform at configure time.
 
