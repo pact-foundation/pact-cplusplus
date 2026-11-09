@@ -1,0 +1,169 @@
+name: Verifier Project
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# Builds, tests and packages verifier on every supported platform. Nothing is
+# uploaded: releases are source-only tags (see .github/workflows/release.yaml),
+# and `conan create` runs here only to prove the recipe and its test_package work.
+# pact_ffi is downloaded and checksum-verified by CMake at configure time.
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64-musl
+            container: alpine:3.23
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64-musl
+            container: alpine:3.23
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install linux dependencies
+        if: ${{ !matrix.container && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' ) }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
+      - run: cmake --version
+        if: ${{ !matrix.container }}
+
+      - name: Install conan
+        if: ${{ !matrix.container }}
+        run: |
+          pip3 install --upgrade pip
+          pip3 install "conan>=2.0"
+          conan --version
+
+      - name: Create conan profile
+        if: ${{ !matrix.container }}
+        run: |
+          conan profile detect --force
+          conan profile show
+
+      - name: Cache conan packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.conan2/p
+          key: conan-verifier-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-${{ hashFiles('verifier/conanfile.py') }}
+          restore-keys: |
+            conan-verifier-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-
+
+      - name: Conan install dependencies
+        if: ${{ !matrix.container }}
+        run: |
+          conan install conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: verifier
+
+      # Drop source/build temporaries so only the built packages are cached
+      - name: Trim conan cache
+        if: ${{ !matrix.container }}
+        run: conan cache clean "*" --source --build --temp
+
+      - name: Build library and tests
+        if: ${{ !matrix.container }}
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          cmake --preset $preset -DPactUseConan=ON -DPactBuildTests=ON
+          cmake --build --preset conan-release
+        working-directory: verifier
+
+      - name: Run pact-verifier-tests
+        if: ${{ !matrix.container }}
+        run: |
+          ctest --preset conan-release --output-on-failure --verbose
+        working-directory: verifier
+        env:
+          LOG_LEVEL: DEBUG
+
+      # Builds the recipe and runs its test_package; nothing is uploaded
+      - name: Conan create
+        if: ${{ !matrix.container }}
+        run: |
+          conan create conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: verifier
+
+      # musl (Alpine) builds run via `docker run`, bind-mounting the workspace and
+      # conan cache, so no Node.js/actions compatibility shim is needed in the container
+      - name: Build, test and conan create (musl container)
+        if: ${{ matrix.container }}
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            -v "$HOME/.conan2:/root/.conan2" \
+            -w /workspace/verifier \
+            -e PACT_FFI_LIBC=musl \
+            -e LOG_LEVEL=DEBUG \
+            -e FFI_ARCH="${{ matrix.ffi_arch }}" \
+            ${{ matrix.container }} sh -c '
+              set -euo pipefail
+              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev gzip linux-headers perl bash automake autoconf libtool m4
+              pip3 install --upgrade pip --break-system-packages
+              pip3 install "conan>=2.0" --break-system-packages
+              conan profile detect --force
+              # Register os.distro (conan-io/conan#16179) so every package in the graph gets a
+              # musl-specific package_id, instead of silently reusing glibc binaries on Alpine
+              printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
+              echo "os.distro=alpine" >> ~/.conan2/profiles/default
+              conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              conan cache clean "*" --source --build --temp
+              cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON
+              cmake --build --preset conan-release
+              ctest --preset conan-release --output-on-failure --verbose
+              conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+            '
+
+  # The documented FetchContent route: a downstream project pulls this
+  # directory in with FetchContent and links pact-cpp-verifier
+  fetchcontent:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install dependencies
+        run: |
+          if [ "${{ runner.os }}" = "macOS" ]; then
+            brew install boost
+          else
+            sudo apt-get update
+            sudo apt-get install -y libboost-dev
+          fi
+      - name: Build example
+        run: |
+          cmake -S examples/fetchcontent -B build-example \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DFETCHCONTENT_SOURCE_DIR_PACT_CPP_CONSUMER="$PWD" \
+            -DFETCHCONTENT_SOURCE_DIR_PACT_CPP_VERIFIER="$PWD"
+          cmake --build build-example
+      - name: Run example
+        run: ./build-example/pact_cpp_example

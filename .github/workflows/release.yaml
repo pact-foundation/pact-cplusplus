@@ -1,167 +1,90 @@
-name: Release Consumer Project
-
+name: Release
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "pact-cpp-consumer-v*"
+      - "pact-cpp-verifier-v*"
 
-env:
-  CONAN_REVISIONS_ENABLED: 1
+# Releases are source-only: the GitHub release carries the tagged source and
+# notes naming the pact_ffi version it pins. No binaries are built or uploaded;
+# users build with CMake (FetchContent) or `conan create` from the tag.
+
+permissions:
+  contents: write
 
 jobs:
-  build-ubuntu:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
-      - name: Install conan
-        run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan --version
-      - run: mkdir -p consumer/build
-      - name: conan install dependencies
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.libcxx=libstdc++11 default
-          conan install .. --build missing
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build .
-          cmake --install . --prefix install
-          mkdir -p artifacts
-          gzip -c install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-linux.a.gz
-          openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-linux.a.gz > artifacts/libpact-cpp-consumer-linux.a.gz.sha256
-          cp ../include/* artifacts
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
-      - name: Build conan package
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan user -p $APIKEY -r pact-foundation ronald.holshausen@gmail.com
-          conan create . pact/beta
-          VERSION=$(conan inspect . --raw version)
-          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
-        working-directory: consumer
-        env:
-          APIKEY: ${{ secrets.JFROG_ACCESS_TOKEN }}
-          CC: gcc-9
-          CXX: g++-9
-      - name: Upload Release Assets
-        id: upload-release-asset
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: consumer/build/artifacts/*
-          file_glob: true
-          tag: ${{ github.ref }}
+      - uses: actions/checkout@v7
 
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - name: Install conan
+      - name: Check tag matches the component version
+        id: meta
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - run: mkdir consumer\build
-      - name: conan install dependencies Windows
-        run: |
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build . --config Release
-          cmake --install . --prefix install
-          mkdir -p artifacts
-          gzip -c install/lib/pact-cpp-consumer.lib > artifacts/pact-cpp-consumer-windows.lib.gz
-          openssl dgst -sha256 -r artifacts/pact-cpp-consumer-windows.lib.gz > artifacts/pact-cpp-consumer-windows.lib.gz.sha256
-        working-directory: consumer/build
-      - name: Build conan package
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan user -p $APIKEY -r pact-foundation ronald.holshausen@gmail.com
-          conan create . pact/beta
-          VERSION=$(conan inspect . --raw version)
-          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
-        working-directory: consumer
-        shell: bash
-        env:
-          APIKEY: ${{ secrets.JFROG_ACCESS_TOKEN }}
-      - name: Upload Release Assets
-        id: upload-release-asset
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: consumer/build/artifacts/*
-          file_glob: true
-          tag: ${{ github.ref }}
+          tag="${GITHUB_REF_NAME}"
+          case "$tag" in
+            pact-cpp-consumer-v*) comp=consumer ;;
+            pact-cpp-verifier-v*) comp=verifier ;;
+            *) echo "::error::unexpected tag $tag"; exit 1 ;;
+          esac
+          version="${tag#pact-cpp-${comp}-v}"
 
-  build-osx:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - name: Install conan
-        run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan --version
-      - run: mkdir -p consumer/build
-      - name: conan install dependencies
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build .
-          cmake --install . --prefix install
-          mkdir -p artifacts
-          gzip -c install/lib/libpact-cpp-consumer.a > artifacts/libpact-cpp-consumer-osx.a.gz
-          openssl dgst -sha256 -r artifacts/libpact-cpp-consumer-osx.a.gz > artifacts/libpact-cpp-consumer-osx.a.gz.sha256
-        working-directory: consumer/build
-      - name: Build conan package
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan user -p $APIKEY -r pact-foundation ronald.holshausen@gmail.com
-          conan create . pact/beta
-          VERSION=$(conan inspect . --raw version)
-          conan upload pact_cpp_consumer/$VERSION@pact/beta --all -r=pact-foundation
-        working-directory: consumer
+          conan_version=$(sed -n 's/^ *version = "\(.*\)"/\1/p' "$comp/conanfile.py")
+          cmake_version=$(sed -n "s/^project(pact-cpp-${comp} VERSION \([^ )]*\)).*/\1/p" "$comp/CMakeLists.txt")
+          ffi_version=$(sed -n 's/^set(PACT_FFI_VERSION "\([^"]*\)".*/\1/p' "$comp/CMakeLists.txt")
+          echo "tag=$version conanfile=$conan_version cmake=$cmake_version pact_ffi=$ffi_version"
+          # pact_ffi 0.5.12 moved its releases from libpact_ffi-v* to pact_ffi-v* tags
+          if printf '0.5.12\n%s\n' "${ffi_version#v}" | sort -V -C; then
+            ffi_tag="pact_ffi-$ffi_version"
+          else
+            ffi_tag="libpact_ffi-$ffi_version"
+          fi
+          if [ "$version" != "$conan_version" ] || [ "$version" != "$cmake_version" ]; then
+            echo "::error::tag version $version does not match conanfile.py ($conan_version) or CMakeLists.txt ($cmake_version)"
+            exit 1
+          fi
+          {
+            echo "comp=$comp"
+            echo "version=$version"
+            echo "ffi_version=$ffi_version"
+            echo "ffi_tag=$ffi_tag"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
         env:
-          APIKEY: ${{ secrets.JFROG_ACCESS_TOKEN }}
-      - name: Upload Release Assets
-        id: upload-release-asset
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: consumer/build/artifacts/*
-          file_glob: true
-          tag: ${{ github.ref }}
+          GH_TOKEN: ${{ github.token }}
+          COMP: ${{ steps.meta.outputs.comp }}
+          VERSION: ${{ steps.meta.outputs.version }}
+          FFI_VERSION: ${{ steps.meta.outputs.ffi_version }}
+          FFI_TAG: ${{ steps.meta.outputs.ffi_tag }}
+        run: |
+          cat > notes.md <<NOTES
+          Source release of \`pact-cpp-${COMP}\` ${VERSION}, built against
+          [pact_ffi ${FFI_VERSION}](https://github.com/pact-foundation/pact-reference/releases/tag/${FFI_TAG}).
+          No prebuilt binaries are attached: CMake downloads and checksum-verifies
+          pact_ffi for your platform at configure time.
+
+          **CMake FetchContent**
+
+          \`\`\`cmake
+          FetchContent_Declare(pact_cpp_${COMP}
+            GIT_REPOSITORY https://github.com/pact-foundation/pact-cplusplus.git
+            GIT_TAG        ${GITHUB_REF_NAME}
+            SOURCE_SUBDIR  ${COMP})
+          FetchContent_MakeAvailable(pact_cpp_${COMP})
+          target_link_libraries(my_tests PRIVATE pact-cpp-${COMP})
+          \`\`\`
+
+          **Conan**
+
+          \`\`\`console
+          git clone --branch ${GITHUB_REF_NAME} https://github.com/pact-foundation/pact-cplusplus.git
+          conan create pact-cplusplus/${COMP} -s compiler.cppstd=17 --build=missing
+          \`\`\`
+
+          See the [installation guide](https://github.com/pact-foundation/pact-cplusplus#installation) for details.
+          NOTES
+          prev=$(git tag --list "pact-cpp-${COMP}-v*" --sort=-v:refname | grep -vx "$GITHUB_REF_NAME" | head -1 || true)
+          args=(--title "pact-cpp-${COMP} ${VERSION}" --notes-file notes.md --generate-notes --verify-tag)
+          if [ -n "$prev" ]; then args+=(--notes-start-tag "$prev"); fi
+          gh release create "$GITHUB_REF_NAME" "${args[@]}"

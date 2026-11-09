@@ -1,6 +1,6 @@
 # C++ Consumer DSL
 
-This is a shared library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
+This is a static library (pact-cpp-consumer) that you can link into your test binaries and it provides a DSL for setting up and running a consumer test. It wraps the Pact-Rust [pact_ffi](https://github.com/pact-foundation/pact-reference/tree/master/rust/pact_ffi) library, which will need to be linked as well.
 
 ## Using the DSL
 
@@ -309,65 +309,141 @@ auto result = provider.run_test([] (auto mock_server) {
 
 The `run_test` method will return a `PactTestResult`. Your test should check that this value is ok.
 
-## Using the Conan package
+## Pact specification V4: messages and plugins
 
-The library has been released to a JFrog Artifactory repository as a Conan package. To use it in your project, you need to add https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan as a remote.
+By default, pacts are written using whichever specification version `pact_ffi` defaults to. To use V4-only
+features such as async/sync messages or plugins, opt in with `withSpecification`:
 
-For example:
+```cpp
+auto provider = Pact("TodoAppCpp", "TodoServiceCpp");
+provider.withSpecification(PactSpecification_V4);
+```
+
+### Asynchronous messages
+
+Use `newMessage` to describe a message a consumer expects to receive (e.g. from a message queue):
+
+```cpp
+provider
+  .newMessage("a project created event")
+  .given("i have a list of projects")
+  .withMetadata("contentType", "application/json")
+  .withJsonBody(Object({
+    { "id", Integer(1001) },
+    { "name", Like("Home Chores") }
+  }));
+```
+
+### Synchronous messages
+
+Use `newSyncMessage` for request/response style messaging. The request is configured with `withBody`/`withJsonBody`
+and the response with `withResponseBody`/`withResponseJsonBody`, same as HTTP interactions. Set the response body
+before any `withResponseMetadata` call: the response part only exists once a body has been added, and metadata set
+earlier is dropped.
+
+```cpp
+provider
+  .newSyncMessage("a request for a project by id")
+  .given("i have a list of projects")
+  .withBody("{\"id\": 1001}", "application/json")
+  .withResponseBody("{\"id\": 1001, \"name\": \"Home Chores\"}", "application/json")
+  .withResponseMetadata("contentType", "application/json");
+```
+
+### Running message tests
+
+Message and plugin interactions don't need an HTTP mock server, so use `run_message_test` instead of `run_test`.
+It invokes your callback and, if it returns `true`, writes the pact file:
+
+```cpp
+auto result = provider.run_message_test([] {
+  // invoke your message handler/consumer code here
+  return true;
+});
+EXPECT_TRUE(result.is_ok()) << "Test failed";
+```
+
+### Plugins (e.g. gRPC via the protobuf plugin)
+
+Load a plugin on the `Pact` with `usingPlugin`, then configure the interaction's request/response using
+`withPluginContents`/`withResponsePluginContents`, passing the plugin-specific JSON configuration (refer to the
+plugin's own documentation for the expected format). Call `cleanupPlugins` once you're done to shut down the
+plugin process:
+
+```cpp
+provider.withSpecification(PactSpecification_V4);
+ASSERT_TRUE(provider.usingPlugin("protobuf", "0.8.0")) << "protobuf plugin failed to load";
+
+provider
+  .newSyncMessage("a gRPC request")
+  .withPluginContents("application/protobuf", protobufInteractionJson);
+
+auto result = provider.run_test("grpc", [](const auto* mock_server) {
+  // Point the gRPC client at 127.0.0.1:mock_server->get_port().
+  return true;
+});
+provider.cleanupPlugins();
+```
+
+For a gRPC service call, include both the `request` and `response` objects in
+the JSON passed to `withPluginContents`. The protobuf plugin owns the gRPC mock
+transport, so use `run_test("grpc", ...)`; reserve `run_message_test` for
+plugin interactions that do not start a transport.
+
+## Installing
+
+See [Installation](../README.md#installation) in the top-level README for
+CMake FetchContent, a plain CMake build with your own pact_ffi, and Conan.
+Releases are source-only tags named `pact-cpp-consumer-vX.Y.Z`.
+
+## Building and testing the library
+
+pact_ffi is downloaded and checksum-verified at configure time (override with
+`-DPACT_FFI_ROOT=<dir>`). Without Conan, Boost headers come from
+`find_package(Boost)` or `-DBoost_ROOT=<dir>`, and nlohmann_json is fetched:
 
 ```console
-$ conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-$ conan search pact_cpp_consumer -r=pact-foundation
-Existing package recipes:
-
-pact_cpp_consumer/0.1.0@pact/beta
+cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DPactBuildTests=ON
+cmake --build build
+ctest --test-dir build --output-on-failure
 ```
 
-You can then use the library by adding `pact_cpp_consumer/0.1.0@pact/beta` to the dependencies to your project conan file.
+With the dependencies supplied by Conan 2, as CI does:
 
-## Using the released artifacts
-
-The compiled library and header files for pact_cpp_consumer is attched to the GitHub release. To use them, the lib needs to be
-linked to your test binary along with the dependant libraries: boost, cpprestsdk, pact_ffi and nlohmann_json.
-
-## Building the library
-
-To build the library, you need to do the following:
-
-1. Install Python
-2. Install CMake
-3. Install a C++ compiler
-4. Use python/pip to install conan
-
-```
-pip install wheel setuptools
-pip install conan
+```console
+cd consumer
+conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17
+cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON
+cmake --build --preset conan-release
+ctest --preset conan-release --output-on-failure
+conan create conanfile.py --build=missing -s compiler.cppstd=17   # recipe + test_package
 ```
 
-5. Create a build directory and cd into it
-6. use conan to install all the dependencies
+`build.sh --project=consumer --os=<linux|mac> --test` at the repository root
+runs the Conan flow end to end.
+
+## Dependencies
+
+### Ubuntu
 
 ```
-conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-conan install .. --build missing
+sudo apt install build-essential python3 python3-pip libbz2-dev libz-dev liblzma-dev libicu-dev libboost-all-dev cmake git
 ```
 
-7. use cmake to build the library
+### Alpine
 
 ```
- cmake ..
- cmake --build . --config Release
+apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev openssl gzip linux-headers perl bash automake autoconf libtool m4
 ```
 
-On Windows, you may need to set 64 bit architecture.
+### macOS
 
 ```
-cmake .. -A x64
-cmake --build . --config Release
+brew install cmake boost conan
 ```
 
-8. Generate the installation
+### Windows
 
-```
-cmake --install . --prefix install
-```
+Install CMake, Visual Studio with the C++ workload, and either Conan or a Boost
+distribution to point `Boost_ROOT` at. See [build.ps1](../build.ps1) for an
+example invocation.

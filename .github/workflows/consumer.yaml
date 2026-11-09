@@ -1,116 +1,178 @@
 name: Consumer Project
-on: [push]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
-env:
-  CONAN_REVISIONS_ENABLED: 1
+# Builds, tests and packages consumer on every supported platform. Nothing is
+# uploaded: releases are source-only tags (see .github/workflows/release.yaml),
+# and `conan create` runs here only to prove the recipe and its test_package work.
+# pact_ffi is downloaded and checksum-verified by CMake at configure time.
 
 jobs:
-  build-ubuntu:
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64
+          - os: macos-latest
+            ffi_arch: macos-aarch64
+          - os: windows-latest
+            ffi_arch: windows-x86_64
+          - os: ubuntu-latest
+            ffi_arch: linux-x86_64-musl
+            container: alpine:3.23
+          - os: ubuntu-22.04-arm
+            ffi_arch: linux-aarch64-musl
+            container: alpine:3.23
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install linux dependencies
+        if: ${{ !matrix.container && ( matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-22.04-arm' ) }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbz2-dev libz-dev liblzma-dev
       - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
+        if: ${{ !matrix.container }}
+
       - name: Install conan
+        if: ${{ !matrix.container }}
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
-        run: |
-          export PATH=$PATH:/home/runner/.local/bin
+          pip3 install --upgrade pip
+          pip3 install "conan>=2.0"
           conan --version
-      - name: conan install dependencies
+
+      - name: Create conan profile
+        if: ${{ !matrix.container }}
         run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.libcxx=libstdc++11 default
-          conan install .. --build missing
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9    
-      - name: Build library
+          conan profile detect --force
+          conan profile show
+
+      - name: Cache conan packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.conan2/p
+          key: conan-consumer-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-${{ hashFiles('consumer/conanfile.py') }}
+          restore-keys: |
+            conan-consumer-${{ matrix.os }}${{ matrix.container && '-musl' || '' }}-
+
+      - name: Conan install dependencies
+        if: ${{ !matrix.container }}
         run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
-        env:
-          CC: gcc-9
-          CXX: g++-9
+          # m4 fails to build from source on aarch64/musl, so only force it on linux hosts
+          extra_build=""
+          case "${{ matrix.ffi_arch }}" in
+            linux-*) extra_build="--build=m4/*" ;;
+          esac
+          conan install conanfile.py \
+            --build=missing $extra_build \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
+
+      # Drop source/build temporaries so only the built packages are cached
+      - name: Trim conan cache
+        if: ${{ !matrix.container }}
+        run: conan cache clean "*" --source --build --temp
+
+      - name: Build library and tests
+        if: ${{ !matrix.container }}
+        run: |
+          # Multi-config generators (MSVC) expose 'conan-default' instead of 'conan-release'
+          if [ "${{ runner.os }}" = "Windows" ]; then preset=conan-default; else preset=conan-release; fi
+          cmake --preset $preset -DPactUseConan=ON -DPactBuildTests=ON
+          cmake --build --preset conan-release
+        working-directory: consumer
+
       - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
+        if: ${{ !matrix.container }}
+        run: |
+          ctest --preset conan-release --output-on-failure --verbose
+        working-directory: consumer
         env:
           LOG_LEVEL: DEBUG
 
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir consumer\build
-      - run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-        shell: bash
-      - name: Install conan
+      # Builds the recipe and runs its test_package; nothing is uploaded
+      - name: Conan create
+        if: ${{ !matrix.container }}
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: conan install dependencies Windows
-        run: |
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library Windows
-        run: |
-          cmake ..
-          cmake --build . --config Release
-          cp ../test/example.jpg .
-        shell: bash
-        working-directory: consumer/build
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
-        env:
-          LOG_LEVEL: DEBUG
+          conan create conanfile.py \
+            --build=missing \
+            -s build_type=Release \
+            -s compiler.cppstd=17 \
+            -c tools.build:jobs=2
+        working-directory: consumer
 
-  build-osx:
-    runs-on: macos-latest
+      # musl (Alpine) builds run via `docker run`, bind-mounting the workspace and
+      # conan cache, so no Node.js/actions compatibility shim is needed in the container
+      - name: Build, test and conan create (musl container)
+        if: ${{ matrix.container }}
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            -v "$HOME/.conan2:/root/.conan2" \
+            -w /workspace/consumer \
+            -e PACT_FFI_LIBC=musl \
+            -e LOG_LEVEL=DEBUG \
+            -e FFI_ARCH="${{ matrix.ffi_arch }}" \
+            ${{ matrix.container }} sh -c '
+              set -euo pipefail
+              apk add build-base cmake curl python3 py3-pip bzip2-dev zlib-dev xz-dev gzip linux-headers perl bash automake autoconf libtool m4
+              pip3 install --upgrade pip --break-system-packages
+              pip3 install "conan>=2.0" --break-system-packages
+              conan profile detect --force
+              # Register os.distro (conan-io/conan#16179) so every package in the graph gets a
+              # musl-specific package_id, instead of silently reusing glibc binaries on Alpine
+              printf "os:\n  Linux:\n    distro: [null, alpine]\n" > ~/.conan2/settings_user.yml
+              echo "os.distro=alpine" >> ~/.conan2/profiles/default
+              extra_build=""
+              case "$FFI_ARCH" in
+                linux-x86_64*) extra_build="--build=m4/*" ;;
+              esac
+              conan install conanfile.py --build=missing $extra_build -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+              conan cache clean "*" --source --build --temp
+              cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON
+              cmake --build --preset conan-release
+              ctest --preset conan-release --output-on-failure --verbose
+              conan create conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17 -c tools.build:jobs=2
+            '
+
+  # The documented FetchContent route: a downstream project pulls this
+  # directory in with FetchContent and links pact-cpp-consumer
+  fetchcontent:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - run: cmake --version
-      - run: python --version
-      - run: mkdir -p consumer/build
-      - name: Install conan
+      - uses: actions/checkout@v7
+      - name: Install dependencies
         run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-      - name: Check conan version
+          if [ "${{ runner.os }}" = "macOS" ]; then
+            brew install boost
+          else
+            sudo apt-get update
+            sudo apt-get install -y libboost-dev
+          fi
+      - name: Build example
         run: |
-          export PATH=$PATH:/home/runner/.local/bin
-          conan --version
-      - name: conan install dependencies
-        run: |
-          rm -rf $HOME/.conan/data/pact_ffi
-          export PATH=$PATH:/home/runner/.local/bin
-          conan profile new default --detect
-          conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-          conan profile update settings.compiler.cppstd=17 default
-          conan install .. --build missing
-        working-directory: consumer/build
-      - name: Build library
-        run: |
-          cmake ..
-          cmake --build .
-          cp ../test/example.jpg .
-        working-directory: consumer/build
-      - name: Run pact-consumer-tests
-        run: test/bin/pact-consumer-tests
-        working-directory: consumer/build
-        env:
-          LOG_LEVEL: DEBUG
+          cmake -S examples/fetchcontent -B build-example \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DFETCHCONTENT_SOURCE_DIR_PACT_CPP_CONSUMER="$PWD" \
+            -DFETCHCONTENT_SOURCE_DIR_PACT_CPP_VERIFIER="$PWD"
+          cmake --build build-example
+      - name: Run example
+        run: ./build-example/pact_cpp_example

@@ -5,15 +5,10 @@ project(PackageTest CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+find_package(pact_cpp_consumer CONFIG REQUIRED)
 
 add_executable(example example.cpp)
-if(WIN32)
-    TARGET_LINK_LIBRARIES(example ${CONAN_LIBS} ws2_32 userenv crypt32 secur32 dnsapi ncrypt ntdll)
-elseif(UNIX) # LINUX or APPLE
-    TARGET_LINK_LIBRARIES(example ${CONAN_LIBS})
-endif()
+target_link_libraries(example PRIVATE pact_cpp_consumer::pact_cpp_consumer)
 
 # CTest is a testing tool that can be used to test your project.
 # enable_testing()

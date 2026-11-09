@@ -1,9 +1,0 @@
-[requires]
-gtest/1.10.0
-boost/1.72.0
-cpprestsdk/2.10.15
-pact_ffi/0.0.0@pact/beta
-nlohmann_json/3.7.3
-
-[generators]
-cmake
