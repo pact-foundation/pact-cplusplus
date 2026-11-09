@@ -390,63 +390,37 @@ the JSON passed to `withPluginContents`. The protobuf plugin owns the gRPC mock
 transport, so use `run_test("grpc", ...)`; reserve `run_message_test` for
 plugin interactions that do not start a transport.
 
-## Using the Conan package
+## Installing
 
-Releases are published to the Pact Foundation Artifactory as a Conan 2 package.
-Add the remote, then depend on `pact_cpp_consumer/0.2.0`:
+See [Installation](../README.md#installation) in the top-level README for
+CMake FetchContent, a plain CMake build with your own pact_ffi, and Conan.
+Releases are source-only tags named `pact-cpp-consumer-vX.Y.Z`.
 
-```console
-$ conan remote add pact-foundation https://pactfoundation.jfrog.io/artifactory/api/conan/pactfoundation-conan
-$ conan search "pact_cpp_consumer/*" -r=pact-foundation
-```
+## Building and testing the library
 
-The package bundles the `pact_ffi` headers and library for its platform, so a
-consumer project needs only `requires = "pact_cpp_consumer/0.2.0"` and
-`find_package(pact_cpp_consumer CONFIG REQUIRED)`; see
-[test_package](test_package) for a minimal project.
-
-## Using the released artifacts
-
-The compiled static library and header files are attached to each GitHub
-release. Link the library into your test binary together with `pact_ffi`
-(downloaded from the
-[pact-reference releases](https://github.com/pact-foundation/pact-reference/releases))
-and make the Boost and nlohmann_json headers available; only
-`boost/throw_exception.hpp` is used, so no compiled Boost libraries are needed.
-
-## Building the library
-
-Requires CMake 3.16+, a C++17 compiler and the `pact_ffi` binaries for your
-platform. `PACT_FFI_ROOT` must point at a directory holding `include/pact.h` and
-the `lib/libpact_ffi-<os>-<arch>.*` files; the build fails at configure time
-without it.
-
-Without Conan, point `Boost_ROOT` at an include directory that contains
-`boost/` (only headers are used); nlohmann_json is fetched by CMake:
+pact_ffi is downloaded and checksum-verified at configure time (override with
+`-DPACT_FFI_ROOT=<dir>`). Without Conan, Boost headers come from
+`find_package(Boost)` or `-DBoost_ROOT=<dir>`, and nlohmann_json is fetched:
 
 ```console
-cmake -S consumer -B build \
-  -DPACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6 \
-  -DPACT_FFI_VERSION=v0.5.6 \
-  -DBoost_ROOT=/opt/homebrew/opt/boost/include
-cmake --build build --config Release
-cmake --install build --prefix ./install
+cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DPactBuildTests=ON
+cmake --build build
+ctest --test-dir build --output-on-failure
 ```
 
-With the dependencies supplied by Conan 2:
+With the dependencies supplied by Conan 2, as CI does:
 
 ```console
 cd consumer
-export PACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6
 conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17
-cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON \
-  -DPACT_FFI_VERSION=v0.5.6 -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON
 cmake --build --preset conan-release
 ctest --preset conan-release --output-on-failure
+conan create conanfile.py --build=missing -s compiler.cppstd=17   # recipe + test_package
 ```
 
 `build.sh --project=consumer --os=<linux|mac> --test` at the repository root
-runs the Conan flow end to end, downloading `pact_ffi` first if it is missing.
+runs the Conan flow end to end.
 
 ## Dependencies
 
@@ -471,5 +445,5 @@ brew install cmake boost conan
 ### Windows
 
 Install CMake, Visual Studio with the C++ workload, and either Conan or a Boost
-distribution to point `Boost_ROOT` at. See [build.ps1](../build.ps1) for the
-invocation the release build uses.
+distribution to point `Boost_ROOT` at. See [build.ps1](../build.ps1) for an
+example invocation.

@@ -97,11 +97,35 @@ if(UNIX AND NOT APPLE)
   message(STATUS "PactFFI: resolved libc '${PACT_FFI_LIBC}'")
 endif()
 
+######### Build options #########
+# Add test
+#    cmake -S verifier -B build -DPactBuildTests=ON/OFF
+# Default OFF: do not build tests unless explicitly requested
+option(PactBuildTests "Build verifier tests" OFF)
+
+# Optional macOS universal build via lipo for pact_ffi
+# Provide -DPactBuildUniversal=ON; expects both arm64 and x86_64 libs in the same PACT_FFI_ROOT/lib
+# Conan/test dependencies are built for a single arch, so universal is off in that case
+# It is also off when this project is pulled into another one (FetchContent /
+# add_subdirectory), since it forces CMAKE_OSX_ARCHITECTURES for the whole build
+if(PactUseConan OR PactBuildTests OR NOT CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+  set(_pact_universal_default OFF)
+else()
+  set(_pact_universal_default ON)
+endif()
+option(PactBuildUniversal "Build macOS universal binaries (arm64 + x86_64)" ${_pact_universal_default})
+
 ######### Link to pact_ffi #########
-set(PACT_FFI_VERSION "${PACT_FFI_VERSION}" CACHE STRING "Version of pact_ffi to use")
-set(PACT_FFI_ROOT "${PACT_FFI_ROOT}" CACHE PATH "Root directory of pact_ffi installation")
-if(NOT PACT_FFI_ROOT OR PACT_FFI_ROOT STREQUAL "")
-    message(FATAL_ERROR "PACT_FFI_ROOT not set; please set to the root of your pact_ffi installation")
+set(PACT_FFI_VERSION "v0.5.6" CACHE STRING "Version of pact_ffi to use")
+set(PACT_FFI_ROOT "${PACT_FFI_ROOT}" CACHE PATH "Root directory of a pact_ffi installation (include/ and lib/); leave empty to download it")
+option(PactDownloadFFI "Download pact_ffi from the pact-reference GitHub release when PACT_FFI_ROOT is not set" ON)
+set(_pact_ffi_download OFF)
+if(NOT PACT_FFI_ROOT)
+  if(NOT PactDownloadFFI)
+    message(FATAL_ERROR "PACT_FFI_ROOT is not set and PactDownloadFFI is OFF; point PACT_FFI_ROOT at a pact_ffi installation")
+  endif()
+  set(PACT_FFI_ROOT "${CMAKE_BINARY_DIR}/_deps/libpact_ffi-${PACT_FFI_VERSION}")
+  set(_pact_ffi_download ON)
 endif()
 
 set(PACT_FFI_INCLUDE "${PACT_FFI_ROOT}/include")
@@ -123,6 +147,93 @@ else()
 endif()
 
 set(PACT_FFI_LIB "${PACT_FFI_LIB_DIR}/${_PACT_FFI_FILENAME}")
+
+# Fetch one pact_ffi release asset into PACT_FFI_ROOT. Compressed assets are
+# verified against the release's published .sha256 before being unpacked.
+function(pact_ffi_fetch name dest)
+  if(EXISTS "${dest}")
+    return()
+  endif()
+  set(_base "https://github.com/pact-foundation/pact-reference/releases/download/libpact_ffi-${PACT_FFI_VERSION}")
+  if(name MATCHES "\\.h$")
+    file(DOWNLOAD "${_base}/${name}" "${dest}" TLS_VERIFY ON STATUS _status)
+    list(GET _status 0 _code)
+    if(NOT _code EQUAL 0)
+      file(REMOVE "${dest}")
+      message(FATAL_ERROR "PactFFI: failed to download ${_base}/${name}: ${_status}")
+    endif()
+    return()
+  endif()
+  file(DOWNLOAD "${_base}/${name}.gz.sha256" "${dest}.gz.sha256" TLS_VERIFY ON STATUS _status)
+  list(GET _status 0 _code)
+  if(NOT _code EQUAL 0)
+    message(FATAL_ERROR "PactFFI: failed to download ${_base}/${name}.gz.sha256: ${_status}")
+  endif()
+  file(READ "${dest}.gz.sha256" _sha_file)
+  string(REGEX MATCH "^[0-9a-fA-F]+" _expected "${_sha_file}")
+  string(TOLOWER "${_expected}" _expected)
+  message(STATUS "PactFFI: downloading ${name}.gz")
+  file(DOWNLOAD "${_base}/${name}.gz" "${dest}.gz" TLS_VERIFY ON STATUS _status)
+  list(GET _status 0 _code)
+  if(NOT _code EQUAL 0)
+    file(REMOVE "${dest}.gz")
+    message(FATAL_ERROR "PactFFI: failed to download ${_base}/${name}.gz: ${_status}")
+  endif()
+  file(SHA256 "${dest}.gz" _actual)
+  if(NOT _actual STREQUAL _expected)
+    file(REMOVE "${dest}.gz")
+    message(FATAL_ERROR "PactFFI: checksum mismatch for ${name}.gz (expected ${_expected}, got ${_actual})")
+  endif()
+  # CMake's archive support can't unpack a bare .gz stream, so use gzip, or .NET on Windows
+  find_program(PACT_GZIP_EXECUTABLE NAMES gzip)
+  if(PACT_GZIP_EXECUTABLE)
+    execute_process(COMMAND "${PACT_GZIP_EXECUTABLE}" -d -f "${dest}.gz" RESULT_VARIABLE _rv)
+  elseif(WIN32)
+    execute_process(COMMAND powershell -NoProfile -NonInteractive -Command
+      "$i=[IO.File]::OpenRead('${dest}.gz'); $o=[IO.File]::Create('${dest}'); $g=New-Object IO.Compression.GZipStream($i,[IO.Compression.CompressionMode]::Decompress); $g.CopyTo($o); $g.Dispose(); $o.Dispose(); $i.Dispose()"
+      RESULT_VARIABLE _rv)
+    file(REMOVE "${dest}.gz")
+  else()
+    message(FATAL_ERROR "PactFFI: gzip is required to unpack ${name}.gz")
+  endif()
+  if(NOT _rv EQUAL 0)
+    file(REMOVE "${dest}")
+    message(FATAL_ERROR "PactFFI: failed to decompress ${name}.gz")
+  endif()
+  # The released dylib's install name is the bare "libpact_ffi.dylib", so
+  # anything linked against it only runs with DYLD_LIBRARY_PATH set. Switch it
+  # to @rpath so the build RPATH CMake adds for this directory finds it, then
+  # re-apply the ad-hoc signature that install_name_tool invalidates.
+  if(APPLE AND name MATCHES "\\.dylib$")
+    execute_process(COMMAND install_name_tool -id "@rpath/libpact_ffi.dylib" "${dest}"
+      RESULT_VARIABLE _rv ERROR_QUIET)
+    if(_rv EQUAL 0)
+      execute_process(COMMAND codesign --force --sign - "${dest}" RESULT_VARIABLE _rv OUTPUT_QUIET ERROR_QUIET)
+    endif()
+    if(NOT _rv EQUAL 0)
+      message(WARNING "PactFFI: could not set the @rpath install name on ${name}; set DYLD_LIBRARY_PATH to ${PACT_FFI_LIB_DIR} to run binaries linked against it")
+    endif()
+  endif()
+endfunction()
+
+if(_pact_ffi_download)
+  message(STATUS "PactFFI: fetching pact_ffi ${PACT_FFI_VERSION} into ${PACT_FFI_ROOT}")
+  foreach(_hdr pact.h pact-cpp.h)
+    pact_ffi_fetch("${_hdr}" "${PACT_FFI_INCLUDE}/${_hdr}")
+  endforeach()
+  if(APPLE AND PactBuildUniversal)
+    set(_pact_ffi_assets
+      libpact_ffi-macos-aarch64.a libpact_ffi-macos-aarch64.dylib
+      libpact_ffi-macos-x86_64.a libpact_ffi-macos-x86_64.dylib)
+  elseif(WIN32)
+    set(_pact_ffi_assets "${_PACT_FFI_IMPLIB_FILENAME}" "${_PACT_FFI_DLL_FILENAME}")
+  else()
+    set(_pact_ffi_assets "${_PACT_FFI_SHARED_FILENAME}")
+  endif()
+  foreach(_asset IN LISTS _pact_ffi_assets)
+    pact_ffi_fetch("${_asset}" "${PACT_FFI_LIB_DIR}/${_asset}")
+  endforeach()
+endif()
 if(DEFINED _PACT_FFI_SHARED_FILENAME)
   set(PACT_FFI_SHARED "${PACT_FFI_LIB_DIR}/${_PACT_FFI_SHARED_FILENAME}")
 endif()
@@ -160,20 +271,6 @@ else()
   endif()
 endif()
 
-# Add test
-#    cmake -S verifier -B build -DPactBuildTests=ON/OFF
-# Default OFF: do not build tests unless explicitly requested
-option(PactBuildTests "Build verifier tests" OFF)
-
-# Optional macOS universal build via lipo for pact_ffi
-# Provide -DPactBuildUniversal=ON; expects both arm64 and x86_64 libs in the same PACT_FFI_ROOT/lib
-# Conan/test dependencies are built for a single arch, so universal is off in that case
-if(PactUseConan OR PactBuildTests)
-  set(_pact_universal_default OFF)
-else()
-  set(_pact_universal_default ON)
-endif()
-option(PactBuildUniversal "Build macOS universal binaries (arm64 + x86_64)" ${_pact_universal_default})
 if(APPLE AND PactBuildUniversal)
   set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS architectures" FORCE)
 
@@ -235,7 +332,6 @@ if(TARGET pact-cpp-verifier)
     OUTPUT_NAME "pact-cpp-verifier"
   )
   target_include_directories(pact-cpp-verifier PRIVATE "${PACT_FFI_INCLUDE}")
-  target_link_libraries(pact-cpp-verifier PRIVATE "${PACT_FFI_LIB}" nlohmann_json::nlohmann_json)
 
   # System dependencies of the Rust crates bundled inside the static pact_ffi archive
   if(APPLE)

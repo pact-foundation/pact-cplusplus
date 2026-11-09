@@ -9,25 +9,25 @@ state handlers as plain C++ lambdas.
 
 ## Installing
 
-Requires CMake 3.16+, a C++17 compiler and the `pact_ffi` binaries for your
-platform, downloaded from the
-[pact-reference releases](https://github.com/pact-foundation/pact-reference/releases).
+See [Installation](../README.md#installation) in the top-level README for
+CMake FetchContent, a plain CMake build with your own pact_ffi, and Conan.
+Releases are source-only tags named `pact-cpp-verifier-vX.Y.Z`.
+
+To build and run the tests from a clone (pact_ffi is downloaded and
+checksum-verified at configure time; override with `-DPACT_FFI_ROOT=<dir>`):
 
 ```console
-cmake -S verifier -B build \
-  -DPACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6 \
-  -DPACT_FFI_VERSION=v0.5.6
+cmake -S verifier -B build -DCMAKE_BUILD_TYPE=Release -DPactBuildTests=ON
 cmake --build build
-cmake --install build --prefix ./install
+ctest --test-dir build --output-on-failure
 ```
 
-Dependencies can also be supplied by Conan 2:
+Or with the dependencies supplied by Conan 2, as CI does:
 
 ```console
-export PACT_FFI_ROOT=/path/to/libpact_ffi-v0.5.6
+cd verifier
 conan install conanfile.py --build=missing -s build_type=Release -s compiler.cppstd=17
-cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON \
-  -DPACT_FFI_VERSION=v0.5.6 -DPACT_FFI_ROOT="$PACT_FFI_ROOT"
+cmake --preset conan-release -DPactUseConan=ON -DPactBuildTests=ON
 cmake --build --preset conan-release
 ctest --preset conan-release --output-on-failure
 ```

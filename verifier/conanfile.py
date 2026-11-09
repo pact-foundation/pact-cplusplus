@@ -1,7 +1,6 @@
 import os
 
 from conan import ConanFile
-from conan.errors import ConanInvalidConfiguration
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.files import copy, rename
 
@@ -41,13 +40,22 @@ class PactcppverifierConan(ConanFile):
         tc = CMakeToolchain(self)
         tc.cache_variables["PactUseConan"] = True
         tc.cache_variables["PactBuildTests"] = False
-        # The pact_ffi binaries are downloaded outside of conan
-        ffi_root = os.environ.get("PACT_FFI_ROOT")
-        if not ffi_root:
-            raise ConanInvalidConfiguration("PACT_FFI_ROOT must point at the pact_ffi installation")
-        tc.cache_variables["PACT_FFI_ROOT"] = ffi_root.replace("\\", "/")
-        tc.cache_variables["PACT_FFI_VERSION"] = os.environ.get("PACT_FFI_VERSION", "v0.5.6")
+        # pact_ffi is a prebuilt Rust library, so it isn't a Conan requirement (that would
+        # need a Rust toolchain). CMake downloads the pinned release and checks its SHA256
+        # into the build folder; set PACT_FFI_ROOT to use an existing copy instead
+        # (offline builds, mirrors).
+        tc.cache_variables["PACT_FFI_VERSION"] = self._ffi_version
+        if os.environ.get("PACT_FFI_ROOT"):
+            tc.cache_variables["PACT_FFI_ROOT"] = os.environ["PACT_FFI_ROOT"].replace("\\", "/")
         tc.generate()
+
+    @property
+    def _ffi_version(self):
+        return os.environ.get("PACT_FFI_VERSION", "v0.5.6")
+
+    def _ffi_root(self):
+        return os.environ.get("PACT_FFI_ROOT") or os.path.join(
+            self.build_folder, "_deps", f"libpact_ffi-{self._ffi_version}")
 
     def build(self):
         cmake = CMake(self)
@@ -77,14 +85,14 @@ class PactcppverifierConan(ConanFile):
         copy(self, "*.h",
              src=os.path.join(self.source_folder, "include"),
              dst=os.path.join(self.package_folder, "include"))
-        for pattern in ("*.lib", "*.a", "*.so*", "*.dylib*"):
+        # Only this library's own archive; pact_ffi is added below under a fixed name
+        for pattern in ("*pact-cpp-verifier*.lib", "*pact-cpp-verifier*.a"):
             copy(self, pattern, src=self.build_folder,
-                 dst=os.path.join(self.package_folder, "lib"), keep_path=False)
-        copy(self, "*.dll", src=self.build_folder,
-             dst=os.path.join(self.package_folder, "bin"), keep_path=False)
+                 dst=os.path.join(self.package_folder, "lib"), keep_path=False,
+                 excludes=("_deps/*",))
 
         # verifier.h includes <pact.h>, so the FFI headers and library ship with the package
-        ffi_root = os.environ["PACT_FFI_ROOT"]
+        ffi_root = self._ffi_root()
         copy(self, "*.h",
              src=os.path.join(ffi_root, "include"),
              dst=os.path.join(self.package_folder, "include"))

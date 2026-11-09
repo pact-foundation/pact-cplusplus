@@ -1,17 +1,15 @@
-# Before:
-# D:\dev\fusion\3P\7zip\25.01\win64\bin\7za.exe e -y -so .\pact_ffi-windows-x86_64.dll.gz > pact_ffi-windows-x86_64.dll
+# Windows build without Conan. pact_ffi is downloaded and checksum-verified at
+# configure time; add -DPACT_FFI_ROOT=<dir> to use a local copy instead.
+# Point Boost_ROOT at a Boost install (headers only are needed).
+
+$BoostRoot = $env:BOOST_ROOT
 
 md build -Force
-cmake -S consumer -B build -DCMAKE_BUILD_TYPE=Release -DBoost_ROOT="D:\dev\fusion\3P\BOOST\1.1850.1\win64_0002" -DPACT_FFI_VERSION="v0.5.6" -DPACT_FFI_ROOT="D:\dev\pact_ffi-v0.5.6" -DPactUseConan=OFF -DPactBuildTests=OFF -DBUILD_SHARED_LIBS=OFF
+cmake -S consumer -B build -DBoost_ROOT="$BoostRoot" -DPactUseConan=OFF -DPactBuildTests=OFF
 cmake --build build --config Release
-cmake --install build --prefix .\build\install\pact-cpp
+cmake --install build --config Release --prefix .\build\install\pact-cpp
 
 md build-verifier -Force
-cmake -S verifier -B build-verifier -DCMAKE_BUILD_TYPE=Release -DPACT_FFI_VERSION="v0.5.6" -DPACT_FFI_ROOT="D:\dev\pact_ffi-v0.5.6" -DPactUseConan=OFF -DPactBuildTests=OFF -DBUILD_SHARED_LIBS=OFF
+cmake -S verifier -B build-verifier -DPactUseConan=OFF -DPactBuildTests=OFF
 cmake --build build-verifier --config Release
-cmake --install build-verifier --prefix .\build\install\pact-cpp
-
-# After:
-# cd build/install/pact-cpp
-# D:\dev\fusion\3P\7zip\25.01\win64\bin\7za.exe -mm=lzma -mx9 -r a ../WIN64.zip *
-# cd ../../../
+cmake --install build-verifier --config Release --prefix .\build\install\pact-cpp

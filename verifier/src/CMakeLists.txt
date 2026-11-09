@@ -18,8 +18,8 @@ target_include_directories(pact-cpp-verifier
   PUBLIC
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
-  PRIVATE
-    ${PACT_FFI_INCLUDE}
+    # The public headers include <pact.h>, so callers need the pact_ffi headers too
+    $<BUILD_INTERFACE:${PACT_FFI_INCLUDE}>
 )
 
 # Link deps privately so they aren't required by client apps
