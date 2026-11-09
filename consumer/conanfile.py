@@ -112,6 +112,6 @@ class PactcppconsumerConan(ConanFile):
         elif self.settings.os == "Macos":
             self.cpp_info.frameworks = ["CoreFoundation", "Security",
                                         "SystemConfiguration", "IOKit"]
-            self.cpp_info.system_libs = ["bz2", "lzma", "iconv"]
+            self.cpp_info.system_libs = ["iconv"]
         else:
-            self.cpp_info.system_libs = ["pthread", "dl", "m", "bz2", "lzma"]
+            self.cpp_info.system_libs = ["pthread", "dl", "m"]

@@ -444,18 +444,19 @@ if(TARGET pact-cpp-verifier)
   )
   target_include_directories(pact-cpp-verifier PRIVATE "${PACT_FFI_INCLUDE}")
 
-  # System dependencies of the Rust crates bundled inside the static pact_ffi archive
+  # System libraries pact_ffi links against (the shared library carries no
+  # bz2/lzma dependency, so none are needed beyond the platform defaults)
   if(APPLE)
     target_link_libraries(pact-cpp-verifier PUBLIC
       "-framework CoreFoundation"
       "-framework Security"
       "-framework SystemConfiguration"
       "-framework IOKit"
-      bz2 lzma iconv)
+      iconv)
   elseif(UNIX)
     find_package(Threads REQUIRED)
     target_link_libraries(pact-cpp-verifier PUBLIC
-      Threads::Threads ${CMAKE_DL_LIBS} m bz2 lzma)
+      Threads::Threads ${CMAKE_DL_LIBS} m)
   endif()
 endif()
 

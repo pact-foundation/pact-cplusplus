@@ -459,18 +459,19 @@ if(TARGET pact-cpp-consumer)
   )
   target_include_directories(pact-cpp-consumer PRIVATE "${PACT_FFI_INCLUDE}")
 
-  # System dependencies of the Rust crates bundled inside the static pact_ffi archive
+  # System libraries pact_ffi links against (the shared library carries no
+  # bz2/lzma dependency, so none are needed beyond the platform defaults)
   if(APPLE)
     target_link_libraries(pact-cpp-consumer PUBLIC
       "-framework CoreFoundation"
       "-framework Security"
       "-framework SystemConfiguration"
       "-framework IOKit"
-      bz2 lzma iconv)
+      iconv)
   elseif(UNIX)
     find_package(Threads REQUIRED)
     target_link_libraries(pact-cpp-consumer PUBLIC
-      Threads::Threads ${CMAKE_DL_LIBS} m bz2 lzma)
+      Threads::Threads ${CMAKE_DL_LIBS} m)
   endif()
 endif()
 
